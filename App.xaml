@@ -1,0 +1,122 @@
+﻿<Application x:Class="ReestrForm.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:ReestrForm"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <Style x:Key="RegBlock" TargetType="TextBox">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Padding" Value="5,0,5,0" />
+            <Setter Property="TextDecorations" Value="None" />
+            <Setter Property="TextBlock.FontFamily" Value="Dungeon"/>
+            <Setter Property="TextBlock.Foreground" Value="#FFF5F4F4"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="BorderBrush" Value="#bcbcac"/>
+            <Setter Property="BorderThickness" Value="0,0,0,2"/>
+        </Style>
+        <Style x:Key="PassBlock" TargetType="PasswordBox">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Padding" Value="5,0,5,0" />
+            <Setter Property="TextBlock.FontFamily" Value="Dungeon"/>
+            <Setter Property="TextBlock.Foreground" Value="#FFF5F4F4"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="BorderBrush" Value="#bcbcac"/>
+            <Setter Property="BorderThickness" Value="0,0,0,2"/>
+        </Style>
+        <Style x:Key="MainLabel" TargetType="Label">
+            <Setter Property="Foreground" Value="#bcbcac"/>
+            <Setter Property="FontFamily" Value="Dungeon"/>
+            <Setter Property="FontSize" Value="14"/>
+        </Style>
+        <Style x:Key="Left lab" TargetType="Label" BasedOn="{StaticResource MainLabel}">
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+        </Style>
+        <Style x:Key="Right lab" TargetType="Label" BasedOn="{StaticResource MainLabel}">
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+            <Style.Triggers>
+                <!-- Триггер для эффекта наведения -->
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Foreground" Value="White"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="Center lab" TargetType="Label" BasedOn="{StaticResource MainLabel}">
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+        </Style>
+        <Style x:Key="SingIN lab" TargetType="Label" BasedOn="{StaticResource MainLabel}">
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="BorderBrush" Value="#bcbcac"/>
+            <Setter Property="BorderThickness" Value="0,0,0,2"/>
+            <Style.Triggers>
+                <!-- Триггер для эффекта наведения -->
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Foreground" Value="White"/>
+                    <!-- Меняем цвет текста на белый -->
+                    <Setter Property="BorderBrush" Value="White"/>
+                    <!-- Меняем цвет рамки на белый -->
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="LOG" TargetType="Label" BasedOn="{StaticResource MainLabel}">
+            <Setter Property="FontSize" Value="59"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+        </Style>
+        <!-- Определение стиля для кнопки -->
+        <Style x:Key="login" TargetType="Button">
+            <Setter Property="FontFamily" Value="Dungeon" />
+            <Setter Property="FontWeight" Value="Normal"/>
+            <Setter Property="FontSize" Value="30" />
+            <Setter Property="Foreground" Value="#232740"/>
+            <Setter Property="Padding" Value="10,5" />
+            <Setter Property="Background" Value="#ffcb2a"/>
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect Color="#e69c33" BlurRadius="10" ShadowDepth="6" Direction="135"/>
+                </Setter.Value>
+            </Setter>
+
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid>
+                            <!-- Фон и эффекты кнопки -->
+                            <Border x:Name="Border" Background="{TemplateBinding Background}" 
+                                    RenderTransformOrigin="0.5,0.5">
+                                <Border.RenderTransform>
+                                    <SkewTransform AngleX="-15"/>
+                                </Border.RenderTransform>
+
+                                <!-- Контент кнопки (Текст) -->
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                    <TextBlock Text="{TemplateBinding Content}" FontFamily="{TemplateBinding FontFamily}" Foreground="{TemplateBinding Foreground}"/>
+                                </StackPanel>
+                            </Border>
+                        </Grid>
+
+                        <!-- Триггеры для эффекта наведения -->
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#FF232742" />
+                                <Setter Property="Foreground" Value="#d7eaf8"/>
+                                <Setter Property="FontFamily" Value="Dungeon"/>
+                                <Setter Property="Effect">
+                                    <Setter.Value>
+                                        <DropShadowEffect Color="#4a517b" BlurRadius="5" ShadowDepth="10" Direction="135" />
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="loginSN" TargetType="Label">
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0"/>
+        </Style>
+    </Application.Resources>
+</Application>

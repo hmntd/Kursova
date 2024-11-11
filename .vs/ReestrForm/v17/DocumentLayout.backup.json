@@ -1,0 +1,200 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\\u0420\u0430\u0431\u043E\u0447\u0430\u044F \u043F\u0430\u043F\u043A\u0430\\\u0421\u041C\u041E\u041E 2 \u043A\u0443\u0440\u0441\\ReestrForm\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A7482BD2-7B6C-4142-968D-906303DB9A37}|ReestrForm.csproj|d:\\\u0440\u0430\u0431\u043E\u0447\u0430\u044F \u043F\u0430\u043F\u043A\u0430\\\u0441\u043C\u043E\u043E 2 \u043A\u0443\u0440\u0441\\reestrform\\page1.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7482BD2-7B6C-4142-968D-906303DB9A37}|ReestrForm.csproj|solutionrelative:page1.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7482BD2-7B6C-4142-968D-906303DB9A37}|ReestrForm.csproj|d:\\\u0440\u0430\u0431\u043E\u0447\u0430\u044F \u043F\u0430\u043F\u043A\u0430\\\u0441\u043C\u043E\u043E 2 \u043A\u0443\u0440\u0441\\reestrform\\page1.xaml||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A7482BD2-7B6C-4142-968D-906303DB9A37}|ReestrForm.csproj|solutionrelative:page1.xaml||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7482BD2-7B6C-4142-968D-906303DB9A37}|ReestrForm.csproj|d:\\\u0440\u0430\u0431\u043E\u0447\u0430\u044F \u043F\u0430\u043F\u043A\u0430\\\u0441\u043C\u043E\u043E 2 \u043A\u0443\u0440\u0441\\reestrform\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7482BD2-7B6C-4142-968D-906303DB9A37}|ReestrForm.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\\u0420\u0430\u0431\u043E\u0447\u0430\u044F \u043F\u0430\u043F\u043A\u0430\\\u0421\u041C\u041E\u041E 2 \u043A\u0443\u0440\u0441\\ReestrForm\\bin\\Debug\\net8.0-windows\\users.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:bin\\Debug\\net8.0-windows\\users.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7482BD2-7B6C-4142-968D-906303DB9A37}|ReestrForm.csproj|d:\\\u0440\u0430\u0431\u043E\u0447\u0430\u044F \u043F\u0430\u043F\u043A\u0430\\\u0441\u043C\u043E\u043E 2 \u043A\u0443\u0440\u0441\\reestrform\\mainwindow.xaml||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A7482BD2-7B6C-4142-968D-906303DB9A37}|ReestrForm.csproj|solutionrelative:mainwindow.xaml||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7482BD2-7B6C-4142-968D-906303DB9A37}|ReestrForm.csproj|d:\\\u0440\u0430\u0431\u043E\u0447\u0430\u044F \u043F\u0430\u043F\u043A\u0430\\\u0441\u043C\u043E\u043E 2 \u043A\u0443\u0440\u0441\\reestrform\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{A7482BD2-7B6C-4142-968D-906303DB9A37}|ReestrForm.csproj|solutionrelative:app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7482BD2-7B6C-4142-968D-906303DB9A37}|ReestrForm.csproj|d:\\\u0440\u0430\u0431\u043E\u0447\u0430\u044F \u043F\u0430\u043F\u043A\u0430\\\u0441\u043C\u043E\u043E 2 \u043A\u0443\u0440\u0441\\reestrform\\page1.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{A7482BD2-7B6C-4142-968D-906303DB9A37}|ReestrForm.csproj|solutionrelative:page1.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7482BD2-7B6C-4142-968D-906303DB9A37}|ReestrForm.csproj|d:\\\u0440\u0430\u0431\u043E\u0447\u0430\u044F \u043F\u0430\u043F\u043A\u0430\\\u0441\u043C\u043E\u043E 2 \u043A\u0443\u0440\u0441\\reestrform\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{A7482BD2-7B6C-4142-968D-906303DB9A37}|ReestrForm.csproj|solutionrelative:mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Page1.xaml",
+              "DocumentMoniker": "D:\\\u0420\u0430\u0431\u043E\u0447\u0430\u044F \u043F\u0430\u043F\u043A\u0430\\\u0421\u041C\u041E\u041E 2 \u043A\u0443\u0440\u0441\\ReestrForm\\Page1.xaml",
+              "RelativeDocumentMoniker": "Page1.xaml",
+              "ToolTip": "D:\\\u0420\u0430\u0431\u043E\u0447\u0430\u044F \u043F\u0430\u043F\u043A\u0430\\\u0421\u041C\u041E\u041E 2 \u043A\u0443\u0440\u0441\\ReestrForm\\Page1.xaml",
+              "RelativeToolTip": "Page1.xaml",
+              "ViewState": "AgIAADMAAAAAAAAAAAAAAEQAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-11-10T18:05:24.897Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "App.xaml",
+              "DocumentMoniker": "D:\\\u0420\u0430\u0431\u043E\u0447\u0430\u044F \u043F\u0430\u043F\u043A\u0430\\\u0421\u041C\u041E\u041E 2 \u043A\u0443\u0440\u0441\\ReestrForm\\App.xaml",
+              "RelativeDocumentMoniker": "App.xaml",
+              "ToolTip": "D:\\\u0420\u0430\u0431\u043E\u0447\u0430\u044F \u043F\u0430\u043F\u043A\u0430\\\u0421\u041C\u041E\u041E 2 \u043A\u0443\u0440\u0441\\ReestrForm\\App.xaml",
+              "RelativeToolTip": "App.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-11-09T14:25:09.973Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "D:\\\u0420\u0430\u0431\u043E\u0447\u0430\u044F \u043F\u0430\u043F\u043A\u0430\\\u0421\u041C\u041E\u041E 2 \u043A\u0443\u0440\u0441\\ReestrForm\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "MainWindow.xaml",
+              "ToolTip": "D:\\\u0420\u0430\u0431\u043E\u0447\u0430\u044F \u043F\u0430\u043F\u043A\u0430\\\u0421\u041C\u041E\u041E 2 \u043A\u0443\u0440\u0441\\ReestrForm\\MainWindow.xaml",
+              "RelativeToolTip": "MainWindow.xaml",
+              "ViewState": "AgIAACoAAAAAAAAAAAAAADgAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-11-10T15:37:29.314Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Page1.xaml.cs",
+              "DocumentMoniker": "D:\\\u0420\u0430\u0431\u043E\u0447\u0430\u044F \u043F\u0430\u043F\u043A\u0430\\\u0421\u041C\u041E\u041E 2 \u043A\u0443\u0440\u0441\\ReestrForm\\Page1.xaml.cs",
+              "RelativeDocumentMoniker": "Page1.xaml.cs",
+              "ToolTip": "D:\\\u0420\u0430\u0431\u043E\u0447\u0430\u044F \u043F\u0430\u043F\u043A\u0430\\\u0421\u041C\u041E\u041E 2 \u043A\u0443\u0440\u0441\\ReestrForm\\Page1.xaml.cs*",
+              "RelativeToolTip": "Page1.xaml.cs*",
+              "ViewState": "AgIAAFoAAAAAAAAAAAAswLkAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-10T19:03:45.992Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "D:\\\u0420\u0430\u0431\u043E\u0447\u0430\u044F \u043F\u0430\u043F\u043A\u0430\\\u0421\u041C\u041E\u041E 2 \u043A\u0443\u0440\u0441\\ReestrForm\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "MainWindow.xaml.cs",
+              "ToolTip": "D:\\\u0420\u0430\u0431\u043E\u0447\u0430\u044F \u043F\u0430\u043F\u043A\u0430\\\u0421\u041C\u041E\u041E 2 \u043A\u0443\u0440\u0441\\ReestrForm\\MainWindow.xaml.cs",
+              "RelativeToolTip": "MainWindow.xaml.cs",
+              "ViewState": "AgIAAGUAAAAAAAAAAAAAwHMAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-09T14:24:31.203Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "users.json",
+              "DocumentMoniker": "D:\\\u0420\u0430\u0431\u043E\u0447\u0430\u044F \u043F\u0430\u043F\u043A\u0430\\\u0421\u041C\u041E\u041E 2 \u043A\u0443\u0440\u0441\\ReestrForm\\bin\\Debug\\net8.0-windows\\users.json",
+              "RelativeDocumentMoniker": "bin\\Debug\\net8.0-windows\\users.json",
+              "ToolTip": "D:\\\u0420\u0430\u0431\u043E\u0447\u0430\u044F \u043F\u0430\u043F\u043A\u0430\\\u0421\u041C\u041E\u041E 2 \u043A\u0443\u0440\u0441\\ReestrForm\\bin\\Debug\\net8.0-windows\\users.json",
+              "RelativeToolTip": "bin\\Debug\\net8.0-windows\\users.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-11-10T22:26:55.815Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "FloatingWindowState": {
+        "Id": "ab7957af-f448-4a8b-8f05-34dd4114208d",
+        "Display": 2,
+        "X": -369,
+        "Y": 9,
+        "Width": 1677,
+        "Height": 753,
+        "WindowState": 0
+      },
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "D:\\\u0420\u0430\u0431\u043E\u0447\u0430\u044F \u043F\u0430\u043F\u043A\u0430\\\u0421\u041C\u041E\u041E 2 \u043A\u0443\u0440\u0441\\ReestrForm\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "MainWindow.xaml",
+              "ToolTip": "D:\\\u0420\u0430\u0431\u043E\u0447\u0430\u044F \u043F\u0430\u043F\u043A\u0430\\\u0421\u041C\u041E\u041E 2 \u043A\u0443\u0440\u0441\\ReestrForm\\MainWindow.xaml",
+              "RelativeToolTip": "MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-11-09T14:24:36.37Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "FloatingWindowState": {
+        "Id": "9d09e021-2409-448a-9348-18a554912c89",
+        "Display": 2,
+        "X": -389,
+        "Y": 317,
+        "Width": 1677,
+        "Height": 753,
+        "WindowState": 0
+      },
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Page1.xaml",
+              "DocumentMoniker": "D:\\\u0420\u0430\u0431\u043E\u0447\u0430\u044F \u043F\u0430\u043F\u043A\u0430\\\u0421\u041C\u041E\u041E 2 \u043A\u0443\u0440\u0441\\ReestrForm\\Page1.xaml",
+              "RelativeDocumentMoniker": "Page1.xaml",
+              "ToolTip": "D:\\\u0420\u0430\u0431\u043E\u0447\u0430\u044F \u043F\u0430\u043F\u043A\u0430\\\u0421\u041C\u041E\u041E 2 \u043A\u0443\u0440\u0441\\ReestrForm\\Page1.xaml",
+              "RelativeToolTip": "Page1.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-11-10T18:04:50.016Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
