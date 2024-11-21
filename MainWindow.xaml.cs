@@ -13,6 +13,7 @@ using System.IO;
 using System.Text.Json;
 using System.Text.RegularExpressions;
 using System.Diagnostics;
+using ReestrForm.ViewModels;
 
 
 namespace ReestrForm
@@ -20,10 +21,10 @@ namespace ReestrForm
 
     public partial class MainWindow : Window
     {
-        private const string FilePath = "users.json";
         public MainWindow()
         {
             InitializeComponent();
+            this.DataContext = new LoginViewModel();
         }
          private void Label_SignIn_Click(object sender, MouseButtonEventArgs e)
         {
@@ -67,52 +68,6 @@ namespace ReestrForm
                 PassBox.Text = "Enter pass";
             }
         }
-        private void Login_Click(object sender, RoutedEventArgs e)
-        {
-            string username = UserBox.Text;
-            string password = PasswordBox.Password;
-
-            // Загружаем пользователей из JSON файла
-            if (File.Exists(FilePath))
-            {
-                var json = File.ReadAllText(FilePath);
-                var users = JsonSerializer.Deserialize<List<User>>(json);
-
-                // Проверка совпадения данных
-                foreach (var user in users)
-                {
-                    if (user.Nickname == username && user.Password == password)
-                    {
-                        MessageBox.Show("Ви ввійшли до системи");
-                        return;
-                    }
-                }
-
-                // Если совпадений нет
-                MessageBox.Show("Невірний логін або пароль");
-            }
-            else
-            {
-                MessageBox.Show("Файл користувачів не знайдено");
-            }
-        }
-
-        private bool LatinAndSym(string input)
-        {
-            return Regex.IsMatch(input, "^[a-zA-Z0-9]*$");
-        }
-
-        private bool PassValid(string input)
-        {
-            return Regex.IsMatch(input, "^[a-zA-Z0-9@#%&!^*.]*$");
-        }
-        private void TextBox_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.Enter)
-            {
-                Login_Click(sender, e);
-            }
-        }
         private void GoogleLogin_Click(object sender, MouseButtonEventArgs e)
         {
             Process.Start(new ProcessStartInfo("https://accounts.google.com/signin") { UseShellExecute = true });
@@ -126,13 +81,4 @@ namespace ReestrForm
             Process.Start(new ProcessStartInfo("https://web.telegram.org/k/") { UseShellExecute = true });
         }
         }
-
-
-    // Класс для представления пользователя
-    public class User
-    {
-        public string Nickname { get; set; }
-        public string Email { get; set; }
-        public string Password { get; set; }
-    }
 }

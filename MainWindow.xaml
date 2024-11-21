@@ -46,12 +46,12 @@
             </Grid.RowDefinitions>
             <Label Content="Login" Grid.Row="1" Grid.Column="3" Grid.ColumnSpan=" 6" Style="{StaticResource LOG}"/>
             <Label Content="User name" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="6" Style="{StaticResource Left lab}"/>
-            <TextBox Text="Enter user name" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="8" Style="{StaticResource RegBlock}" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus" Name="UserBox"/>
+            <TextBox Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="8" Style="{StaticResource RegBlock}" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus" Name="UserBox" Text="{Binding Username}"/>
             <Label Content="Password" Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="6" Style="{StaticResource Left lab}" />
-            <TextBox Text="Enter pass" Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="8" Style="{StaticResource RegBlock}" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus" Name="PassBox"/>
-            <PasswordBox Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="8" Style="{StaticResource PassBlock}" Name="PasswordBox" GotFocus="Pass_GotFocus"  LostFocus="Pass_LostFocus" KeyDown="TextBox_KeyDown"/>
+            <TextBox Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="8" Style="{StaticResource RegBlock}" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus" Name="PassBox" Text="{Binding Password}"/>
+            <PasswordBox Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="8" Style="{StaticResource PassBlock}" Name="PasswordBox" GotFocus="Pass_GotFocus"  LostFocus="Pass_LostFocus"/>
             <Label Content="Forgot password" Grid.Row="6" Grid.Column="4" Grid.ColumnSpan="6" Style="{StaticResource Right lab}"/>
-            <Button Content="Login" Grid.Row="8" Grid.Column="2" Grid.ColumnSpan="8"  Style="{StaticResource login}"  Click="Login_Click"/>
+            <Button Content="Login" Grid.Row="8" Grid.Column="2" Grid.ColumnSpan="8"  Style="{StaticResource login}" Command="{Binding Login_Click}"/>
             <Image Source="/lock.png" Grid.Row="5" Grid.Column="1"/>
             <Image Source="/user.png" Grid.Row="3" Grid.Column="1"/>
             <Label Grid.Row="10" Grid.Column="2" Grid.ColumnSpan="2" Style="{StaticResource loginSN}"  MouseDown="GoogleLogin_Click">

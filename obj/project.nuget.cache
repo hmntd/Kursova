@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "C01Mtza/IUs=",
+  "dgSpecHash": "ZHYbJv+b5JYRyACnWAlocitLOTzdt4ZlEKuue+i98UvkEeagLAZWxlxjGPEdWRUcvDKb9H+HPrRyWWJcDv79fw==",
   "success": true,
-  "projectFilePath": "D:\\Рабочая папка\\СМОО 2 курс\\ReestrForm\\ReestrForm.csproj",
+  "projectFilePath": "C:\\Users\\bazav\\Downloads\\Kursova\\ReestrForm.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\BiteV1x\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+    "C:\\Users\\bazav\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
   ],
   "logs": []
 }

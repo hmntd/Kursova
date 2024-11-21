@@ -19,6 +19,7 @@ using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using System.Diagnostics;
+using ReestrForm.Models;
 
 namespace ReestrForm
 {
@@ -32,12 +33,6 @@ namespace ReestrForm
         {
 
             InitializeComponent();
-        }
-        public class User
-        {
-            public string Nickname { get; set; }
-            public string Email { get; set; }
-            public string Password { get; set; }
         }
         private void Back(object sender, MouseButtonEventArgs e)
         {
@@ -124,8 +119,7 @@ namespace ReestrForm
 
             var newUser = new User
             {
-                Nickname = nickname,
-                Email = email,
+                Username = nickname,
                 Password = password
             };
 
