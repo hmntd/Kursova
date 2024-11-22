@@ -48,21 +48,19 @@
             </Grid.RowDefinitions>
             <Label Content="Registrarion" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan=" 8" Style="{StaticResource LOG}" FontSize="36" VerticalAlignment="Center"/>
             
-            <Label Content="Nickname" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="6" Style="{StaticResource Left lab}"/>
-            <TextBox Text="Enter nickname" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="8" Style="{StaticResource RegBlock}" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus" Name="NickBox"/>
+            <Label Content="Username" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="6" Style="{StaticResource Left lab}"/>
+            <TextBox Text="{Binding Username}" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="8" Style="{StaticResource RegBlock}" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus" Name="NickBox"/>
             
             <Label Content="Email" Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="6" Style="{StaticResource Left lab}"/>
-            <TextBox Text="Enter Email" Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="8" Style="{StaticResource RegBlock}" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus" Name="EmailBox"/>
+            <TextBox Text="{Binding Email}" Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="8" Style="{StaticResource RegBlock}" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus" Name="EmailBox"/>
             
             <Label Content="Password" Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="6" Style="{StaticResource Left lab}"/>
-            <TextBox Text="Enter pass" Grid.Row="7" Grid.Column="2" Grid.ColumnSpan="8" Style="{StaticResource RegBlock}" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus" Name="PasswBox"/>
-            <PasswordBox Grid.Row="7" Grid.Column="2" Grid.ColumnSpan="8" Style="{StaticResource PassBlock}" Name="PasswordBox" GotFocus="Pass_GotFocus"  LostFocus="Pass_LostFocus"/>      <!--asdasd-->
+            <PasswordBox Grid.Row="7" Grid.Column="2" Grid.ColumnSpan="8" Style="{StaticResource PassBlock}" Name="PasswordBox" PasswordChanged="PasswordBox_PasswordChanged"/>      <!--asdasd-->
             
             <Label Content="Confirm password" Grid.Row="8" Grid.Column="2" Grid.ColumnSpan="6" Style="{StaticResource Left lab}"/>
-            <TextBox Text="Enter pass again" Grid.Row="9" Grid.Column="2" Grid.ColumnSpan="8" Style="{StaticResource RegBlock}" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus" Name="ConfPassBox"/>
-            <PasswordBox Grid.Row="9" Grid.Column="2" Grid.ColumnSpan="8" Style="{StaticResource PassBlock}" Name="ConfPasswordBox" GotFocus="ConfPass_GotFocus"  LostFocus="ConfPass_LostFocus" KeyDown="TextBox_KeyDown"/>
+            <PasswordBox Grid.Row="9" Grid.Column="2" Grid.ColumnSpan="8" Style="{StaticResource PassBlock}" Name="ConfPasswordBox"  PasswordChanged="ConfPasswordBox_PasswordChanged"/>
 
-            <Button Content="Sign IN" Grid.Row="11" Grid.Column="2" Grid.ColumnSpan="8"  Style="{StaticResource login}" Click="SignIn_Click"/>
+            <Button Content="Sign IN" Grid.Row="11" Grid.Column="2" Grid.ColumnSpan="8"  Style="{StaticResource login}" Command="{Binding Register_Click}"/>
             
             <Label Content="Back" Grid.Row="13" Grid.Column="4" Grid.ColumnSpan="4" Style="{StaticResource SingIN lab}" MouseLeftButtonDown="Back"/>
             <Label Content="Register via social networks" Grid.Row="15" Grid.Column="2" Grid.ColumnSpan="8" Style="{StaticResource Center lab}"/>

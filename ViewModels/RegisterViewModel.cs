@@ -1,4 +1,5 @@
 ﻿using ReestrForm.Models;
+using ReestrForm.Models.ValidationRules;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -18,11 +19,17 @@ namespace ReestrForm.ViewModels
         private string password;
         private string email;
         private string rPassword;
-        public ICommand Register_Click;
+        public ICommand Register_Click { get; }
         public RegisterViewModel()
         {
             users = Data.LoadData<User>(userFilePath);
-            Register_Click = new RelayCommand(Register, () => Username != null && Password != null && Email != null && RPassword != null);
+            Register_Click = new RelayCommand(
+                Register, 
+                () => 
+                    !string.IsNullOrEmpty(Username) && 
+                    !string.IsNullOrEmpty(Password) && 
+                    !string.IsNullOrEmpty(Email) && 
+                    !string.IsNullOrEmpty(RPassword));
         }
         public string Username
         {
@@ -31,6 +38,7 @@ namespace ReestrForm.ViewModels
             {
                 username = value;
                 OnPropertyChanged("Username");
+                ((RelayCommand)Register_Click).RaiseCanExecuteChanged();
             }
         }
         public string Password
@@ -40,6 +48,8 @@ namespace ReestrForm.ViewModels
             {
                 password = value;
                 OnPropertyChanged("Password");
+                ((RelayCommand)Register_Click).RaiseCanExecuteChanged();
+
             }
         }
         public string RPassword
@@ -49,6 +59,7 @@ namespace ReestrForm.ViewModels
             {
                 rPassword = value;
                 OnPropertyChanged("RPassword");
+                ((RelayCommand)Register_Click).RaiseCanExecuteChanged();
             }
         }
         public string Email
@@ -58,6 +69,7 @@ namespace ReestrForm.ViewModels
             {
                 email = value;
                 OnPropertyChanged("Email");
+                ((RelayCommand)Register_Click).RaiseCanExecuteChanged();
             }
         }
         public void Register()
@@ -65,11 +77,15 @@ namespace ReestrForm.ViewModels
             newUser = new User(Guid.NewGuid(), Password, Username, Email, false);
             try
             {
-                // Validation
                 if (Password != RPassword)
                 {
                     throw new Exception("Паролі не співпадають");
                 }
+
+                RegisterValidationRules.UsernameValidate(Username);
+                RegisterValidationRules.PassswordValidate(Password);
+                RegisterValidationRules.EmailValidate(Email);
+                RegisterValidationRules.UserExistsValidate(newUser, users);
             }
             catch (Exception ex)
             {
@@ -79,7 +95,6 @@ namespace ReestrForm.ViewModels
             users.Add(newUser);
             Data.SaveData(userFilePath, users);
 
-            // Future logic
             MessageBox.Show("Зареєстрованиq");
         }
     }

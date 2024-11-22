@@ -1,6 +1,16 @@
 [
-    {
-        "Username": "BiteV1x",
-        "Password": "adg29122004"
-      }
+  {
+    "Id": null,
+    "Password": "adg29122004",
+    "Username": "BiteV1x",
+    "Email": null,
+    "IsAdmin": false
+  },
+  {
+    "Id": "41ca6813-ef19-4ea2-83cc-da6ef29d0ffe",
+    "Password": "zubzub1234",
+    "Username": "Loh",
+    "Email": "loh@test.com",
+    "IsAdmin": false
+  }
 ]

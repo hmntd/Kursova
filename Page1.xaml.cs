@@ -20,6 +20,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Diagnostics;
 using ReestrForm.Models;
+using ReestrForm.ViewModels;
 
 namespace ReestrForm
 {
@@ -33,6 +34,7 @@ namespace ReestrForm
         {
 
             InitializeComponent();
+            this.DataContext = new RegisterViewModel();
         }
         private void Back(object sender, MouseButtonEventArgs e)
         {
@@ -40,6 +42,31 @@ namespace ReestrForm
             MainWindow mainWindow = new MainWindow();
             mainWindow.Show(); // Показываем окно
             Window.GetWindow(this).Close(); // Закрываем текущую страницу
+        }
+        private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            var passwordBox = sender as PasswordBox;
+            if (passwordBox != null)
+            {
+                var viewModel = this.DataContext as RegisterViewModel;
+                if (viewModel != null)
+                {
+                    viewModel.Password = passwordBox.Password;
+                }
+            }
+
+        }
+        private void ConfPasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            var confPasswordBox = sender as PasswordBox;
+            if (confPasswordBox != null)
+            {
+                var viewModel = this.DataContext as RegisterViewModel;
+                if (viewModel != null)
+                {
+                    viewModel.RPassword = PasswordBox.Password;
+                }
+            }
         }
         private void TextBox_GotFocus(object sender, RoutedEventArgs e)
         {
@@ -50,22 +77,6 @@ namespace ReestrForm
                     textBox.Clear();
                 }
             }
-        private void Pass_GotFocus(object sender, RoutedEventArgs e)
-        {
-              // Очистить текст только если он равен начальному значению
-            if (PasswBox.Text == "Enter pass")
-            {
-                PasswBox.Clear();
-            }
-        }
-        private void ConfPass_GotFocus(object sender, RoutedEventArgs e)
-        {
-            // Очистить текст только если он равен начальному значению
-            if (ConfPassBox.Text == "Enter pass again")
-            {
-                ConfPassBox.Clear();
-            }
-        }
         private void TextBox_LostFocus(object sender, RoutedEventArgs e)
         {
             var textBox = sender as TextBox;
@@ -77,80 +88,6 @@ namespace ReestrForm
                     textBox.Text = "Enter Email";
             }
         }
-        private void Pass_LostFocus(object sender, RoutedEventArgs e)
-        {
-            if (PasswordBox != null && string.IsNullOrWhiteSpace(PasswordBox.Password))
-            {
-                    PasswBox.Text = "Enter pass";
-            }
-        }
-        private void ConfPass_LostFocus(object sender, RoutedEventArgs e)
-        {
-            if (ConfPasswordBox != null && string.IsNullOrWhiteSpace(ConfPasswordBox.Password))
-            {
-                ConfPassBox.Text = "Enter pass again";
-            }
-        }
-        private void SignIn_Click(object sender, RoutedEventArgs e)
-        {
-            string nickname = NickBox.Text;
-            string email = EmailBox.Text;
-            string password = PasswordBox.Password;
-            string confirmPassword = ConfPasswordBox.Password;
-
-            // Проверка на только латинские символы
-            if (!LatinAndSym(nickname))
-            {
-                MessageBox.Show("Nickname має містити лише латинські символи та цифри!");
-                return;
-            }
-            if (!PassValid(password) || !PassValid(confirmPassword))
-            {
-                MessageBox.Show("Пароль мае містити лише латиницю, цифри або спец. символи!");
-                return;
-            }
-
-            // Проверка совпадения паролей
-            if (password != confirmPassword)
-            {
-                MessageBox.Show("Паролі не співпадають!");
-                return;
-            }
-
-            var newUser = new User
-            {
-                Username = nickname,
-                Password = password
-            };
-
-            // Загружаем существующие записи из файла JSON
-            List<User> users;
-            if (File.Exists(FilePath))
-            {
-                var json = File.ReadAllText(FilePath);
-                try
-                {
-                    users = JsonSerializer.Deserialize<List<User>>(json) ?? new List<User>();
-                }
-                catch (JsonException)
-                {
-                    users = new List<User>();  // Обработка случая поврежденного JSON
-                }
-            }
-            else
-            {
-                users = new List<User>();
-            }
-
-            // Добавляем нового пользователя в список
-            users.Add(newUser);
-
-            // Сохраняем обновленный список в файл JSON
-            var updatedJson = JsonSerializer.Serialize(users, new JsonSerializerOptions { WriteIndented = true });
-            File.WriteAllText(FilePath, updatedJson);
-            MessageBox.Show("Користувача зареєстровано!");
-        }
-
         private bool LatinAndSym(string input)
         {
             return Regex.IsMatch(input, "^[a-zA-Z0-9]*$");
@@ -158,13 +95,6 @@ namespace ReestrForm
         private bool PassValid(string input)
         {
             return Regex.IsMatch(input, "^[a-zA-Z0-9@#%&!^*.]*$");
-        }
-        private void TextBox_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.Enter)
-            {
-                SignIn_Click(sender, e);
-            }
         }
         private void GoogleLogin_Click(object sender, MouseButtonEventArgs e)
         {

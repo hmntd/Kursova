@@ -26,7 +26,20 @@ namespace ReestrForm
             InitializeComponent();
             this.DataContext = new LoginViewModel();
         }
-         private void Label_SignIn_Click(object sender, MouseButtonEventArgs e)
+        private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            var passwordBox = sender as PasswordBox;
+            if (passwordBox != null)
+            {
+                var viewModel = this.DataContext as LoginViewModel;
+                if (viewModel != null)
+                {
+                    viewModel.Password = passwordBox.Password;
+                }
+            }
+
+        }
+        private void Label_SignIn_Click(object sender, MouseButtonEventArgs e)
         {
             // Navigate to Page1
             Frame mainFrame = new Frame();

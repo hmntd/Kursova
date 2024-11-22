@@ -16,11 +16,11 @@ namespace ReestrForm.ViewModels
         private string username;
         private string password;
         private User currentUser;
-        public ICommand Login_Click;
+        public ICommand Login_Click { get; }
         public LoginViewModel()
         {
             this.users = Data.LoadData<User>(userFilePath);
-            Login_Click = new RelayCommand(Login, () => Username != null && Password != null);
+            Login_Click = new RelayCommand(Login, () => !string.IsNullOrEmpty(Username) && !string.IsNullOrEmpty(Password));
         }
         public string Username
         {
@@ -29,6 +29,7 @@ namespace ReestrForm.ViewModels
             {
                 username = value;
                 OnPropertyChanged("Username");
+                ((RelayCommand)Login_Click).RaiseCanExecuteChanged();
             }
         }
         public string Password
@@ -38,6 +39,7 @@ namespace ReestrForm.ViewModels
             {
                 password = value;
                 OnPropertyChanged("Password");
+                ((RelayCommand)Login_Click).RaiseCanExecuteChanged();
             }
         }
         public User CurrentUser

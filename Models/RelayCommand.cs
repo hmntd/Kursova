@@ -7,24 +7,24 @@ using System.Windows.Input;
 
 namespace ReestrForm.Models
 {
-    public class RelayCommand: ICommand
+    public class RelayCommand : ICommand
     {
-        private readonly Action<object> _execute;
-        private readonly Func<bool> _canExecute;
+        private readonly Action execute;
+        private readonly Func<bool> canExecute;
 
         public RelayCommand(Action execute, Func<bool> canExecute = null)
-            : this(o => execute(), canExecute) { }
-
-        public RelayCommand(Action<object> execute, Func<bool> canExecute = null)
         {
-            _execute = execute;
-            _canExecute = canExecute;
+            this.execute = execute ?? throw new ArgumentNullException(nameof(execute));
+            this.canExecute = canExecute;
         }
 
-        public bool CanExecute(object parameter) => _canExecute?.Invoke() ?? true;
-        public void Execute(object parameter) => _execute(parameter);
+        public bool CanExecute(object parameter) => canExecute == null || canExecute();
+        public void Execute(object parameter) => execute();
         public event EventHandler CanExecuteChanged;
 
-        public void RaiseCanExecuteChanged() => CanExecuteChanged?.Invoke(this, EventArgs.Empty);
+        public void RaiseCanExecuteChanged()
+        {
+            CanExecuteChanged?.Invoke(this, EventArgs.Empty);
+        }
     }
 }
