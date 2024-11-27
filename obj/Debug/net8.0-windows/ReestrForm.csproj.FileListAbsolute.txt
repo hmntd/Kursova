@@ -47,7 +47,6 @@ D:\Рабочая папка\СМОО 2 курс\ReestrForm\obj\Debug\net8.0-win
 D:\Рабочая папка\СМОО 2 курс\ReestrForm\obj\Debug\net8.0-windows\ReestrForm.csproj.Up2Date
 C:\Users\bazav\Downloads\Kursova\obj\Debug\net8.0-windows\ReestrForm.csproj.AssemblyReference.cache
 C:\Users\bazav\Downloads\Kursova\obj\Debug\net8.0-windows\MainWindow.g.cs
-C:\Users\bazav\Downloads\Kursova\obj\Debug\net8.0-windows\Page1.g.cs
 C:\Users\bazav\Downloads\Kursova\obj\Debug\net8.0-windows\App.g.cs
 C:\Users\bazav\Downloads\Kursova\obj\Debug\net8.0-windows\ReestrForm_MarkupCompile.cache
 C:\Users\bazav\Downloads\Kursova\obj\Debug\net8.0-windows\ReestrForm_MarkupCompile.lref
@@ -59,7 +58,6 @@ C:\Users\bazav\Downloads\Kursova\bin\Debug\net8.0-windows\ReestrForm.pdb
 C:\Users\bazav\Downloads\Kursova\bin\Debug\net8.0-windows\Newtonsoft.Json.dll
 C:\Users\bazav\Downloads\Kursova\obj\Debug\net8.0-windows\App.baml
 C:\Users\bazav\Downloads\Kursova\obj\Debug\net8.0-windows\MainWindow.baml
-C:\Users\bazav\Downloads\Kursova\obj\Debug\net8.0-windows\Page1.baml
 C:\Users\bazav\Downloads\Kursova\obj\Debug\net8.0-windows\ReestrForm.g.resources
 C:\Users\bazav\Downloads\Kursova\obj\Debug\net8.0-windows\ReestrForm.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\bazav\Downloads\Kursova\obj\Debug\net8.0-windows\ReestrForm.AssemblyInfoInputs.cache
@@ -101,3 +99,7 @@ D:\Рабочая папка\СМОО 2 курс\Kursova\obj\Debug\net8.0-window
 D:\Рабочая папка\СМОО 2 курс\Kursova\obj\Debug\net8.0-windows\ReestrForm.pdb
 D:\Рабочая папка\СМОО 2 курс\Kursova\obj\Debug\net8.0-windows\ReestrForm.genruntimeconfig.cache
 D:\Рабочая папка\СМОО 2 курс\Kursova\obj\Debug\net8.0-windows\ref\ReestrForm.dll
+C:\Users\bazav\Downloads\Kursova\obj\Debug\net8.0-windows\MainPageUser.g.cs
+C:\Users\bazav\Downloads\Kursova\obj\Debug\net8.0-windows\ReestrPage.g.cs
+C:\Users\bazav\Downloads\Kursova\obj\Debug\net8.0-windows\MainPageUser.baml
+C:\Users\bazav\Downloads\Kursova\obj\Debug\net8.0-windows\ReestrPage.baml

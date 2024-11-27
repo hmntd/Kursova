@@ -65,7 +65,7 @@
                         <RowDefinition/>
                     </Grid.RowDefinitions>
                     <Label Grid.Row="1" Grid.ColumnSpan="2" Content="Користувач:" Style="{StaticResource InfoLab}" FontSize="40"/>
-                    <Label Grid.Row="2" Grid.ColumnSpan="2" Content="UserName"  FontSize="40" VerticalAlignment="Top" Style="{StaticResource InfoValueLabel}" HorizontalAlignment="Center"/>
+                    <Label Grid.Row="2" Grid.ColumnSpan="2" Content="{Binding currentUser.Username}"  FontSize="40" VerticalAlignment="Top" Style="{StaticResource InfoValueLabel}" HorizontalAlignment="Center"/>
                     <Label Grid.Row="3" Content="Години:" Style="{StaticResource InfoLab}"/>
                     <Label Grid.Row="4" Content="Баланс:" Style="{StaticResource InfoLab}"/>
                     <Label Grid.Row="5" Content="Тариф:" Style="{StaticResource InfoLab}"/>

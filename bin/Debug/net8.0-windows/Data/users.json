@@ -19,5 +19,40 @@
     "Username": "Muvzi",
     "Email": "andreysidorenko@gmail.com",
     "IsAdmin": false
+  },
+  {
+    "Id": "cf4f9634-711d-4639-bc7f-fd32546b70cb",
+    "Password": "aqswde123R",
+    "Username": "Debil",
+    "Email": "test@test.com",
+    "IsAdmin": false
+  },
+  {
+    "Id": "a3a640dc-9d3b-45d8-b1b3-5714c680ae03",
+    "Password": "aqswde123R",
+    "Username": "Loh2",
+    "Email": "tes2t@test.com",
+    "IsAdmin": false
+  },
+  {
+    "Id": "082ec326-b936-4f4e-9dcc-0446dda104d1",
+    "Password": "aqswde123R",
+    "Username": "Loh23",
+    "Email": "tes3t@test.com",
+    "IsAdmin": false
+  },
+  {
+    "Id": "0aaae70c-fdc6-4527-a819-495225dfa262",
+    "Password": "aqswdeR1",
+    "Username": "Alcoholic",
+    "Email": "ttt@test.com",
+    "IsAdmin": false
+  },
+  {
+    "Id": "50b2e87a-aee1-47c6-ae2c-ff453bb85413",
+    "Password": "111111111",
+    "Username": "111",
+    "Email": "te@test.com",
+    "IsAdmin": false
   }
 ]

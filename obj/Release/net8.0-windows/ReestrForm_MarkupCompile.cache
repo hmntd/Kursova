@@ -10,11 +10,11 @@ none
 false
 TRACE;RELEASE;NET;NET8_0;NETCOREAPP
 C:\Users\bazav\Downloads\Kursova\App.xaml
-21586367847
+3638557339
 
-13-1493503363
+16-243720441
 199675067622
-MainWindow.xaml;Page1.xaml;
+MainPageUser.xaml;MainWindow.xaml;ReestrPage.xaml;
 
 True
 

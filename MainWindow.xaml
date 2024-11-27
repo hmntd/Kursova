@@ -82,25 +82,35 @@
                 </Grid.RowDefinitions>
                 <Label Content="Login" Grid.Row="1" Grid.Column="3" Grid.ColumnSpan=" 6" Style="{StaticResource LOG}"/>
                 <Label Content="User name" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="6" Style="{StaticResource Left lab}"/>
-                <TextBox Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="8" Style="{StaticResource RegBlock}" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus" Name="UserBox" Text="{Binding Username}"/>
+                <TextBox Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="8" Style="{StaticResource RegBlock}" Name="UserBox" Text="{Binding Username}"/>
                 <Label Content="Password" Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="6" Style="{StaticResource Left lab}" />
-                <TextBox Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="8" Style="{StaticResource RegBlock}" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus" Name="PassBox" />
-                <PasswordBox Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="8" Style="{StaticResource PassBlock}" Name="PasswordBox" GotFocus="Pass_GotFocus"  LostFocus="Pass_LostFocus" PasswordChanged="PasswordBox_PasswordChanged"/>
+                <TextBox Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="8" Style="{StaticResource RegBlock}" Name="PassBox" />
+                <PasswordBox Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="8" Style="{StaticResource PassBlock}" Name="PasswordBox" PasswordChanged="PasswordBox_PasswordChanged"/>
                 <Label Content="Forgot password" Grid.Row="6" Grid.Column="4" Grid.ColumnSpan="6" Style="{StaticResource Right lab}"/>
                 <Button Content="Login" Grid.Row="8" Grid.Column="2" Grid.ColumnSpan="8"  Style="{StaticResource login}" Command="{Binding Login_Click}"/>
                 <Image Source="image/lock.png" Grid.Row="5" Grid.Column="1"/>
                 <Image Source="image/user.png" Grid.Row="3" Grid.Column="1"/>
-                <Label Grid.Row="10" Grid.Column="2" Grid.ColumnSpan="2" Style="{StaticResource loginSN}"  MouseDown="GoogleLogin_Click">
+                <Label Grid.Row="10" Grid.Column="2" Grid.ColumnSpan="2" Style="{StaticResource loginSN}">
+                    <Label.InputBindings>
+                        <MouseBinding Gesture="LeftClick" Command="{Binding GoogleLogin_Click}" />
+                    </Label.InputBindings>
                     <Image Source="image/google.png"  />
                 </Label>
-                <Label Style="{StaticResource loginSN}" Grid.Row="10" Grid.Column="5" Grid.ColumnSpan="2" MouseDown="InstLogin_Click">
+                <Label Style="{StaticResource loginSN}" Grid.Row="10" Grid.Column="5" Grid.ColumnSpan="2">
+                    <Label.InputBindings>
+                        <MouseBinding Gesture="LeftClick" Command="{Binding InstLogin_Click}" />
+                    </Label.InputBindings>
                     <Image Source="image/inst.png" />
                 </Label>
-                <Label Grid.Row="10" Grid.Column="8" Grid.ColumnSpan="2" Style="{StaticResource loginSN}" MouseDown="TgLogin_Click">
+                <Label Grid.Row="10" Grid.Column="8" Grid.ColumnSpan="2" Style="{StaticResource loginSN}">
+                    <Label.InputBindings>
+                        <MouseBinding Gesture="LeftClick" Command="{Binding TgLogin_Click}" />
+                    </Label.InputBindings>
                     <Image Source="image/tg.png" />
                 </Label>
                 <Label Content="Don't have an account yet?" Grid.Row="12" Grid.Column="2" Grid.ColumnSpan="8" Style="{StaticResource Center lab}"/>
-                <Label Content="Sing in" Grid.Row="13" Grid.Column="4" Grid.ColumnSpan="4" Style="{StaticResource SingIN lab}" MouseLeftButtonDown="Label_SignIn_Click"/>
+                <Button Content="Sing in" Grid.Row="13" Grid.Column="4" Grid.ColumnSpan="4" Command="{Binding Label_SignIn_Click}" />
+
                 <Frame Name="MainFrame" NavigationUIVisibility="Hidden" />
             </Grid>
         </Border>
