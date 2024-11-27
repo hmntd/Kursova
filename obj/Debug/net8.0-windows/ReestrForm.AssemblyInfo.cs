@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ReestrForm")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f5908771275d23030e73763c32d1ab13aa7c0c96")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7be4fab901ad925a12d3716c405c52fa3dd7541f")]
 [assembly: System.Reflection.AssemblyProductAttribute("ReestrForm")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ReestrForm")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

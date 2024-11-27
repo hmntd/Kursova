@@ -12,9 +12,8 @@
       }
     ],
     "additionalProbingPaths": [
-      "C:\\Users\\bazav\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\bazav\\.nuget\\packages",
-      "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      "C:\\Users\\BiteV1x\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\BiteV1x\\.nuget\\packages"
     ],
     "configProperties": {
       "System.Runtime.Serialization.EnableUnsafeBinaryFormatterSerialization": true,

@@ -5,67 +5,104 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ReestrForm"
         mc:Ignorable="d"
-        Title="LoginPage" Height="650" Width="400"
-        WindowStyle="None" AllowsTransparency="True" Background="Transparent">
+        Title="LoginPage" Height="1080" Width="1920"   
+        WindowStyle="None" AllowsTransparency="True" >
 
-    <Border CornerRadius="20" Padding="10">
-        <Border.Background >
-            <SolidColorBrush Color="#383b4d"/>
-        </Border.Background>
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="100*"/>
-                <ColumnDefinition Width="100*"/>
-                <ColumnDefinition Width="100*"/>
-                <ColumnDefinition Width="100*"/>
-                <ColumnDefinition Width="100*"/>
-                <ColumnDefinition Width="100*"/>
-                <ColumnDefinition Width="100*"/>
-                <ColumnDefinition Width="100*"/>
-                <ColumnDefinition Width="100*"/>
-                <ColumnDefinition Width="100*"/>
-                <ColumnDefinition Width="100*"/>
-                <ColumnDefinition Width="100*"/>
-            </Grid.ColumnDefinitions>
+    <Grid>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="38*"/>
+            <ColumnDefinition Width="250*"/>
+            <ColumnDefinition Width="100*"/>
+            <ColumnDefinition Width="300*"/>
+            <ColumnDefinition Width="150*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="29*"/>
+            <RowDefinition Height="468*"/>
+            <RowDefinition Height="43*"/>
+        </Grid.RowDefinitions>
+        <Rectangle Opacity="0.4" Fill="Black" Grid.ColumnSpan="5" Grid.RowSpan="3"/>
+        <Grid Grid.Column="3" Grid.Row="1">
             <Grid.RowDefinitions>
-                <RowDefinition Height="45*"/>
-                <RowDefinition Height="100*"/>
-                <RowDefinition Height="31*"/>
-                <RowDefinition Height="40*"/>
-                <RowDefinition Height="31*"/>
-                <RowDefinition Height="40*"/>
-                <RowDefinition Height="40*"/>
-                <RowDefinition Height="31*"/>
-                <RowDefinition Height="80*"/>
-                <RowDefinition Height="31*"/>
-                <RowDefinition Height="80*"/>
-                <RowDefinition Height="100*"/>
-                <RowDefinition Height="31*"/>
-                <RowDefinition Height="31*"/>
-                <RowDefinition Height="45*"/>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height="29*"/>
+
             </Grid.RowDefinitions>
-            <Label Content="Login" Grid.Row="1" Grid.Column="3" Grid.ColumnSpan=" 6" Style="{StaticResource LOG}"/>
-            <Label Content="User name" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="6" Style="{StaticResource Left lab}"/>
-            <TextBox Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="8" Style="{StaticResource RegBlock}" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus" Name="UserBox" Text="{Binding Username}"/>
-            <Label Content="Password" Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="6" Style="{StaticResource Left lab}" />
-            <TextBox Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="8" Style="{StaticResource RegBlock}" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus" Name="PassBox" />
-            <PasswordBox Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="8" Style="{StaticResource PassBlock}" Name="PasswordBox" GotFocus="Pass_GotFocus"  LostFocus="Pass_LostFocus" PasswordChanged="PasswordBox_PasswordChanged"/>
-            <Label Content="Forgot password" Grid.Row="6" Grid.Column="4" Grid.ColumnSpan="6" Style="{StaticResource Right lab}"/>
-            <Button Content="Login" Grid.Row="8" Grid.Column="2" Grid.ColumnSpan="8"  Style="{StaticResource login}" Command="{Binding Login_Click}"/>
-            <Image Source="/lock.png" Grid.Row="5" Grid.Column="1"/>
-            <Image Source="/user.png" Grid.Row="3" Grid.Column="1"/>
-            <Label Grid.Row="10" Grid.Column="2" Grid.ColumnSpan="2" Style="{StaticResource loginSN}"  MouseDown="GoogleLogin_Click">
-                <Image Source="/google.png"  />
-            </Label>
-            <Label Style="{StaticResource loginSN}" Grid.Row="10" Grid.Column="5" Grid.ColumnSpan="2" MouseDown="InstLogin_Click">
-                <Image Source="/inst.png" />
-            </Label>
-            <Label Grid.Row="10" Grid.Column="8" Grid.ColumnSpan="2" Style="{StaticResource loginSN}" MouseDown="TgLogin_Click">
-                <Image Source="/tg.png" />
-            </Label>
-            <Label Content="Don't have an account yet?" Grid.Row="12" Grid.Column="2" Grid.ColumnSpan="8" Style="{StaticResource Center lab}"/>
-            <Label Content="Sing in" Grid.Row="13" Grid.Column="4" Grid.ColumnSpan="4" Style="{StaticResource SingIN lab}" MouseLeftButtonDown="Label_SignIn_Click"/>
-            <Frame Name="MainFrame" NavigationUIVisibility="Hidden" />
+            <Border Grid.Row="0" Grid.Column="1" CornerRadius="20" Padding="10">
+                <Border.Background >
+                    <SolidColorBrush Color="#383b4d" />
+                </Border.Background>
+                <TextBlock Text="Welcome to" Grid.Row="1" Grid.Column="3" Grid.ColumnSpan=" 6" Style="{StaticResource Welcome}" />
+            </Border>
+            <Border Grid.Column="3" Grid.Row="1" CornerRadius="10" >
+                <Border.Background>
+
+                    <ImageBrush ImageSource="/image/MainName.png"/>
+                </Border.Background>
+            </Border>
         </Grid>
-    </Border>
+
+
+        <Border Grid.Row="1" Grid.Column="1" CornerRadius="20" Padding="10">
+            <Border.Background >
+                <SolidColorBrush Color="#383b4d" />
+            </Border.Background>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100*"/>
+                    <ColumnDefinition Width="100*"/>
+                    <ColumnDefinition Width="100*"/>
+                    <ColumnDefinition Width="100*"/>
+                    <ColumnDefinition Width="100*"/>
+                    <ColumnDefinition Width="100*"/>
+                    <ColumnDefinition Width="100*"/>
+                    <ColumnDefinition Width="100*"/>
+                    <ColumnDefinition Width="100*"/>
+                    <ColumnDefinition Width="100*"/>
+                    <ColumnDefinition Width="100*"/>
+                    <ColumnDefinition Width="100*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="45*"/>
+                    <RowDefinition Height="100*"/>
+                    <RowDefinition Height="31*"/>
+                    <RowDefinition Height="40*"/>
+                    <RowDefinition Height="31*"/>
+                    <RowDefinition Height="40*"/>
+                    <RowDefinition Height="40*"/>
+                    <RowDefinition Height="31*"/>
+                    <RowDefinition Height="80*"/>
+                    <RowDefinition Height="31*"/>
+                    <RowDefinition Height="80*"/>
+
+                    <RowDefinition Height="31*"/>
+                    <RowDefinition Height="31*"/>
+                    <RowDefinition Height="45*"/>
+                </Grid.RowDefinitions>
+                <Label Content="Login" Grid.Row="1" Grid.Column="3" Grid.ColumnSpan=" 6" Style="{StaticResource LOG}"/>
+                <Label Content="User name" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="6" Style="{StaticResource Left lab}"/>
+                <TextBox Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="8" Style="{StaticResource RegBlock}" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus" Name="UserBox" Text="{Binding Username}"/>
+                <Label Content="Password" Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="6" Style="{StaticResource Left lab}" />
+                <TextBox Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="8" Style="{StaticResource RegBlock}" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus" Name="PassBox" />
+                <PasswordBox Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="8" Style="{StaticResource PassBlock}" Name="PasswordBox" GotFocus="Pass_GotFocus"  LostFocus="Pass_LostFocus" PasswordChanged="PasswordBox_PasswordChanged"/>
+                <Label Content="Forgot password" Grid.Row="6" Grid.Column="4" Grid.ColumnSpan="6" Style="{StaticResource Right lab}"/>
+                <Button Content="Login" Grid.Row="8" Grid.Column="2" Grid.ColumnSpan="8"  Style="{StaticResource login}" Command="{Binding Login_Click}"/>
+                <Image Source="image/lock.png" Grid.Row="5" Grid.Column="1"/>
+                <Image Source="image/user.png" Grid.Row="3" Grid.Column="1"/>
+                <Label Grid.Row="10" Grid.Column="2" Grid.ColumnSpan="2" Style="{StaticResource loginSN}"  MouseDown="GoogleLogin_Click">
+                    <Image Source="image/google.png"  />
+                </Label>
+                <Label Style="{StaticResource loginSN}" Grid.Row="10" Grid.Column="5" Grid.ColumnSpan="2" MouseDown="InstLogin_Click">
+                    <Image Source="image/inst.png" />
+                </Label>
+                <Label Grid.Row="10" Grid.Column="8" Grid.ColumnSpan="2" Style="{StaticResource loginSN}" MouseDown="TgLogin_Click">
+                    <Image Source="image/tg.png" />
+                </Label>
+                <Label Content="Don't have an account yet?" Grid.Row="12" Grid.Column="2" Grid.ColumnSpan="8" Style="{StaticResource Center lab}"/>
+                <Label Content="Sing in" Grid.Row="13" Grid.Column="4" Grid.ColumnSpan="4" Style="{StaticResource SingIN lab}" MouseLeftButtonDown="Label_SignIn_Click"/>
+                <Frame Name="MainFrame" NavigationUIVisibility="Hidden" />
+            </Grid>
+        </Border>
+    </Grid>
 </Window>

@@ -12,5 +12,12 @@
     "Username": "Loh",
     "Email": "loh@test.com",
     "IsAdmin": false
+  },
+  {
+    "Id": "43c090ab-7f7a-4e9d-af50-fe1965c32cab",
+    "Password": "adg29122004",
+    "Username": "Muvzi",
+    "Email": "andreysidorenko@gmail.com",
+    "IsAdmin": false
   }
 ]

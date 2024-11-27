@@ -11,6 +11,15 @@
   <ItemGroup>
     <None Remove="google.jpg" />
     <None Remove="google.png" />
+    <None Remove="image\Background.png" />
+    <None Remove="image\ChillZone.png" />
+    <None Remove="image\ChillZone1.png" />
+    <None Remove="image\google.png" />
+    <None Remove="image\inst.png" />
+    <None Remove="image\lock.png" />
+    <None Remove="image\MainName.png" />
+    <None Remove="image\tg.png" />
+    <None Remove="image\user.png" />
     <None Remove="inst.jpg" />
     <None Remove="inst.png" />
     <None Remove="lock.png" />
@@ -24,19 +33,31 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="google.png">
+    <Resource Include="image\Background.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="inst.png">
+    <Resource Include="image\ChillZone.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="lock.png">
+    <Resource Include="image\ChillZone1.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="tg.png">
+    <Resource Include="image\google.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="user.png">
+    <Resource Include="image\inst.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="image\lock.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="image\MainName.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="image\tg.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="image\user.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>

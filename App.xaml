@@ -4,11 +4,25 @@
              xmlns:local="clr-namespace:ReestrForm"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
+        <Style TargetType="Window">
+            <Setter Property="Background">
+                <Setter.Value>
+                    <ImageBrush ImageSource="/image/Background.png" Stretch="UniformToFill" />
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="Page">
+            <Setter Property="Background">
+                <Setter.Value>
+                    <ImageBrush ImageSource="/image/Background.png" Stretch="UniformToFill" />
+                </Setter.Value>
+            </Setter>
+        </Style>
         <Style x:Key="RegBlock" TargetType="TextBox">
             <Setter Property="Background" Value="Transparent" />
             <Setter Property="Padding" Value="5,0,5,0" />
             <Setter Property="TextDecorations" Value="None" />
-            <Setter Property="TextBlock.FontFamily" Value="Dungeon"/>
+            <Setter Property="TextBlock.FontFamily" Value="Bookman Old Style"/>
             <Setter Property="TextBlock.Foreground" Value="#FFF5F4F4"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
             <Setter Property="FontSize" Value="16"/>
@@ -18,7 +32,7 @@
         <Style x:Key="PassBlock" TargetType="PasswordBox">
             <Setter Property="Background" Value="Transparent" />
             <Setter Property="Padding" Value="5,0,5,0" />
-            <Setter Property="TextBlock.FontFamily" Value="Dungeon"/>
+            <Setter Property="TextBlock.FontFamily" Value="Bookman Old Style"/>
             <Setter Property="TextBlock.Foreground" Value="#FFF5F4F4"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
             <Setter Property="FontSize" Value="16"/>
@@ -27,7 +41,7 @@
         </Style>
         <Style x:Key="MainLabel" TargetType="Label">
             <Setter Property="Foreground" Value="#bcbcac"/>
-            <Setter Property="FontFamily" Value="Dungeon"/>
+            <Setter Property="FontFamily" Value="Bookman Old Style"/>
             <Setter Property="FontSize" Value="14"/>
         </Style>
         <Style x:Key="Left lab" TargetType="Label" BasedOn="{StaticResource MainLabel}">
@@ -63,9 +77,29 @@
             <Setter Property="FontSize" Value="59"/>
             <Setter Property="HorizontalAlignment" Value="Center"/>
         </Style>
-        <!-- Определение стиля для кнопки -->
+        <Style x:Key="InfoLab" TargetType="Label" BasedOn="{StaticResource MainLabel}">
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="30"/>
+        </Style>
+        <Style x:Key="InfoValueLabel" TargetType="Label" BasedOn="{StaticResource MainLabel}">
+            <Setter Property="TextBlock.FontFamily" Value="Bookman Old Style"/>
+            <Setter Property="TextBlock.Foreground" Value="#FFF5F4F4"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+            <Setter Property="FontSize" Value="30"/>
+            <Setter Property="BorderBrush" Value="#bcbcac"/>
+            <Setter Property="BorderThickness" Value="0,0,0,2"/>
+        </Style>
+        <Style x:Key="MainLogo" TargetType="Image">
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect Color="#383b4d" BlurRadius="10" ShadowDepth="20" Direction="5000"/>
+                </Setter.Value>
+            </Setter>
+        </Style>
         <Style x:Key="login" TargetType="Button">
-            <Setter Property="FontFamily" Value="Dungeon" />
+            <Setter Property="FontFamily" Value="Bookman Old Style" />
             <Setter Property="FontWeight" Value="Normal"/>
             <Setter Property="FontSize" Value="30" />
             <Setter Property="Foreground" Value="#232740"/>
@@ -100,7 +134,7 @@
                             <Trigger Property="IsMouseOver" Value="True">
                                 <Setter Property="Background" Value="#FF232742" />
                                 <Setter Property="Foreground" Value="#d7eaf8"/>
-                                <Setter Property="FontFamily" Value="Dungeon"/>
+                                <Setter Property="FontFamily" Value="Bookman Old Style"/>
                                 <Setter Property="Effect">
                                     <Setter.Value>
                                         <DropShadowEffect Color="#4a517b" BlurRadius="5" ShadowDepth="10" Direction="135" />
@@ -117,6 +151,65 @@
             <Setter Property="VerticalAlignment" Value="Center"/>
             <Setter Property="Background" Value="Transparent"/>
             <Setter Property="BorderThickness" Value="0"/>
+        </Style>
+        <Style x:Key="Welcome" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="#bcbcac"/>
+            <Setter Property="FontFamily" Value="Bookman Old Style"/>
+            <Setter Property="TextAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="100"/>
+            <Setter Property="TextWrapping" Value="Wrap"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="60,0,60,0"/>
+        </Style>
+        <DataTemplate x:Key="ListBoxItemTemplate">
+            <Border Margin="5" CornerRadius="10" Height="280">
+                <Border.Background>
+                    <SolidColorBrush Color="#507294" />
+                </Border.Background>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="99*" />
+                        <RowDefinition Height="26*" />
+                    </Grid.RowDefinitions>
+                    <Image Source="/image/MainName.png" Grid.RowSpan="2" />
+                    <Border Grid.Row="1" Background="#ffcb2a" Opacity="0.9" CornerRadius="5" />
+                    <TextBlock Text="Назва гри" Grid.Row="1" FontFamily="Bookman Old Style" 
+                       HorizontalAlignment="Center" VerticalAlignment="Center" 
+                       TextWrapping="Wrap" Foreground="Black" FontSize="20" />
+                </Grid>
+            </Border>
+        </DataTemplate>
+        <Style x:Key="MenuButton" TargetType="Button">
+            <!-- Основные параметры стиля -->
+            <Setter Property="Background" Value="#507294"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontFamily" Value="Bookman Old Style"/>
+            <Setter Property="BorderBrush" Value="#bcbcac"/>
+            <Setter Property="BorderThickness" Value="3"/>
+            
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="5">
+                            <ContentPresenter HorizontalAlignment="Center"
+                                              VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+
+            <!-- Триггеры для изменений при наведении -->
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#d4b40e"/>
+                    <Setter Property="BorderBrush" Value="#bcbcac"/>
+                </Trigger>
+            </Style.Triggers>
         </Style>
     </Application.Resources>
 </Application>
