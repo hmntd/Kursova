@@ -7,6 +7,9 @@
         mc:Ignorable="d"
         Title="MainPageUser" Height="1080" Width="1920">
     <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/image/Background.png"/>
+        </Grid.Background>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="15*"/>
             <ColumnDefinition Width="611*"/>

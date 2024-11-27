@@ -5,11 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ReestrForm"
         mc:Ignorable="d"
+        WindowStartupLocation="Manual"
+        Left="0"
+        Top="0"
         Title="LoginPage" Height="1080" Width="1920"   
         WindowStyle="None" AllowsTransparency="True" >
 
     <Grid>
-
+        <Grid.Background>
+            <ImageBrush ImageSource="/image/Background.png"/>
+        </Grid.Background>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="38*"/>
             <ColumnDefinition Width="250*"/>
