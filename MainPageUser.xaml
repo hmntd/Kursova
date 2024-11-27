@@ -26,7 +26,7 @@
         <Grid Grid.Column="1" Grid.Row="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="130*"/>
-                <RowDefinition Height="106*"/>
+                <RowDefinition Height="90*"/>
                 <RowDefinition Height="741*"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
@@ -34,7 +34,7 @@
                 <ColumnDefinition Width="559*"/>
             </Grid.ColumnDefinitions>
             <!--Назва-->
-            <Image Grid.ColumnSpan="2" Grid.Row="0" Grid.Column="0" Source="/image/ChillZone.png" />
+            <Image Grid.ColumnSpan="2" Grid.Row="0" Grid.Column="0" Source="/image/ChillZone2.png" Margin="15"/>
             <!--Меню кнопок-->
             <Grid Grid.Column="0" Grid.Row="1">
                 <Grid.ColumnDefinitions>
@@ -42,26 +42,55 @@
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <Button Grid.Column="0" Content="Ігри" />
-                <Button Grid.Column="1" Content="Додатки"/>
-                <Button Grid.Column="2" Content="Магазин"/>
+                <Button Grid.Column="0" Content="Ігри" Style="{StaticResource MenuButton}"/>
+                <Button Grid.Column="1" Content="Додатки" Style="{StaticResource MenuButton}"/>
+                <Button Grid.Column="2" Content="Магазин" Margin="0,0,5,0" Style="{StaticResource MenuButton}"/>
             </Grid>
             <Label Grid.Column="1" Grid.Row="1" Content="You Info" Style="{StaticResource LOG}"/>
             <!--Інформаційна панель-->
-            <Grid Grid.Column="2" Grid.Row="1" Grid.RowSpan="2">
-                <StackPanel>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            
-                        </Grid.RowDefinitions>
-                    </Grid>
-                </StackPanel>
-            </Grid>
+            <Border Grid.Column="2" Grid.Row="1" Grid.RowSpan="2" BorderThickness="2" BorderBrush="#bcbcac" CornerRadius="10" Margin="5,0,0,0">
+                <Grid >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Label Grid.Row="1" Grid.ColumnSpan="2" Content="Користувач:" Style="{StaticResource InfoLab}" FontSize="40"/>
+                    <Label Grid.Row="2" Grid.ColumnSpan="2" Content="UserName"  FontSize="40" VerticalAlignment="Top" Style="{StaticResource InfoValueLabel}" HorizontalAlignment="Center"/>
+                    <Label Grid.Row="3" Content="Години:" Style="{StaticResource InfoLab}"/>
+                    <Label Grid.Row="4" Content="Баланс:" Style="{StaticResource InfoLab}"/>
+                    <Label Grid.Row="5" Content="Тариф:" Style="{StaticResource InfoLab}"/>
+                    <Label Grid.Row="6" Content="Наш ігровий&#xD;&#xA;    сервер:" Style="{StaticResource InfoLab}" Height="105" HorizontalContentAlignment="Right"/>
+                    <Button Grid.ColumnSpan="2" Grid.Row="7" Content="Поповинити баланс" Style="{StaticResource login}" Margin="20"/>
+                    <DockPanel Grid.Row="3"  Grid.Column="1" HorizontalAlignment="Center">
+                        <Label DockPanel.Dock="Right"  Content="годин" Style="{StaticResource InfoLab}" Margin="10,0,0,0"/>
+                        <Label DockPanel.Dock="Left"   Style="{StaticResource InfoValueLabel}"/>
+                    </DockPanel>
+                    <DockPanel Grid.Row="4"  Grid.Column="1" HorizontalAlignment="Center">
+                        <Label DockPanel.Dock="Right"  Content="грн." Style="{StaticResource InfoLab}" Margin="10,0,0,0"/>
+                        <Label DockPanel.Dock="Left"   Style="{StaticResource InfoValueLabel}" />
+                    </DockPanel>
+                    <TextBlock Grid.Row="5" Grid.Column="1"/>
+                </Grid>
+            </Border>
             <!--Список ігр-->
-            <ListBox Grid.Column="0" Grid.Row="2"/>
+            <ListBox Grid.Column="0" Grid.Row="2"  Background="Transparent" ScrollViewer.VerticalScrollBarVisibility="Hidden" d:ItemsSource="{d:SampleData ItemCount=10}"  ItemTemplate="{StaticResource ListBoxItemTemplate}" BorderThickness="0" Margin="0,10,0,0">
+                <ListBox.ItemsPanel>
+                    <!-- Використання WrapPanel для розташування елементів -->
+                    <ItemsPanelTemplate>
+                        <WrapPanel Orientation="Horizontal" Width="1263" />
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+            </ListBox>
         </Grid>
     </Grid>
 </Window>

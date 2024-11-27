@@ -31,7 +31,7 @@
                 <Border.Background >
                     <SolidColorBrush Color="#383b4d" />
                 </Border.Background>
-                <TextBlock Text="Welcome to" Grid.Row="1" Grid.Column="3" Grid.ColumnSpan=" 6" FontSize="110" Style="{StaticResource Welcome}" HorizontalAlignment="Center" TextAlignment="Center"/>
+                <TextBlock Text="Welcome to" Grid.Row="1" Grid.Column="3" Grid.ColumnSpan=" 6"  Style="{StaticResource Welcome}" />
             </Border>
             <Border Grid.Column="3" Grid.Row="1" CornerRadius="10" Padding="0" ClipToBounds="True">
                 <Border.Background>
