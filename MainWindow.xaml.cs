@@ -25,6 +25,8 @@ namespace ReestrForm
         {
             InitializeComponent();
             this.DataContext = new LoginViewModel();
+            MaxHeight = SystemParameters.MaximizedPrimaryScreenHeight;
+            MaxWidth = SystemParameters.MaximizedPrimaryScreenWidth;
         }
         private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
         {

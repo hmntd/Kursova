@@ -4,6 +4,20 @@
              xmlns:local="clr-namespace:ReestrForm"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
+        <Style TargetType="Window">
+            <Setter Property="Background">
+                <Setter.Value>
+                    <ImageBrush ImageSource="/image/Background.png" Stretch="UniformToFill" />
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="Page">
+            <Setter Property="Background">
+                <Setter.Value>
+                    <ImageBrush ImageSource="/image/Background.png" Stretch="UniformToFill" />
+                </Setter.Value>
+            </Setter>
+        </Style>
         <Style x:Key="RegBlock" TargetType="TextBox">
             <Setter Property="Background" Value="Transparent" />
             <Setter Property="Padding" Value="5,0,5,0" />
@@ -63,7 +77,13 @@
             <Setter Property="FontSize" Value="59"/>
             <Setter Property="HorizontalAlignment" Value="Center"/>
         </Style>
-        <!-- Определение стиля для кнопки -->
+        <Style x:Key="MainLogo" TargetType="Image">
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect Color="#383b4d" BlurRadius="10" ShadowDepth="20" Direction="5000"/>
+                </Setter.Value>
+            </Setter>
+        </Style>
         <Style x:Key="login" TargetType="Button">
             <Setter Property="FontFamily" Value="Dungeon" />
             <Setter Property="FontWeight" Value="Normal"/>
@@ -117,6 +137,14 @@
             <Setter Property="VerticalAlignment" Value="Center"/>
             <Setter Property="Background" Value="Transparent"/>
             <Setter Property="BorderThickness" Value="0"/>
+        </Style>
+        <Style x:Key="Welcome" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="#bcbcac"/>
+            <Setter Property="FontFamily" Value="Dungeon"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="TextWrapping" Value="Wrap"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
         </Style>
     </Application.Resources>
 </Application>

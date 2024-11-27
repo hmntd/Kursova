@@ -1,33 +1,33 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\bazav\\Downloads\\Kursova\\",
+  "WorkspaceRootPath": "D:\\\u0420\u0430\u0431\u043E\u0447\u0430\u044F \u043F\u0430\u043F\u043A\u0430\\\u0421\u041C\u041E\u041E 2 \u043A\u0443\u0440\u0441\\Kursova\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A7482BD2-7B6C-4142-968D-906303DB9A37}|ReestrForm.csproj|c:\\users\\bazav\\downloads\\kursova\\page1.xaml||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{A7482BD2-7B6C-4142-968D-906303DB9A37}|ReestrForm.csproj|solutionrelative:page1.xaml||{8B382828-6202-11D1-8870-0000F87579D2}"
+      "AbsoluteMoniker": "D:0:0:{A7482BD2-7B6C-4142-968D-906303DB9A37}|ReestrForm.csproj|d:\\\u0440\u0430\u0431\u043E\u0447\u0430\u044F \u043F\u0430\u043F\u043A\u0430\\\u0441\u043C\u043E\u043E 2 \u043A\u0443\u0440\u0441\\kursova\\mainpageuser.xaml||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A7482BD2-7B6C-4142-968D-906303DB9A37}|ReestrForm.csproj|solutionrelative:mainpageuser.xaml||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A7482BD2-7B6C-4142-968D-906303DB9A37}|ReestrForm.csproj|c:\\users\\bazav\\downloads\\kursova\\page1.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A7482BD2-7B6C-4142-968D-906303DB9A37}|ReestrForm.csproj|solutionrelative:page1.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A7482BD2-7B6C-4142-968D-906303DB9A37}|ReestrForm.csproj|d:\\\u0440\u0430\u0431\u043E\u0447\u0430\u044F \u043F\u0430\u043F\u043A\u0430\\\u0441\u043C\u043E\u043E 2 \u043A\u0443\u0440\u0441\\kursova\\mainpageuser.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{A7482BD2-7B6C-4142-968D-906303DB9A37}|ReestrForm.csproj|solutionrelative:mainpageuser.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A7482BD2-7B6C-4142-968D-906303DB9A37}|ReestrForm.csproj|c:\\users\\bazav\\downloads\\kursova\\viewmodels\\registerviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A7482BD2-7B6C-4142-968D-906303DB9A37}|ReestrForm.csproj|solutionrelative:viewmodels\\registerviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A7482BD2-7B6C-4142-968D-906303DB9A37}|ReestrForm.csproj|d:\\\u0440\u0430\u0431\u043E\u0447\u0430\u044F \u043F\u0430\u043F\u043A\u0430\\\u0441\u043C\u043E\u043E 2 \u043A\u0443\u0440\u0441\\kursova\\mainwindow.xaml||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A7482BD2-7B6C-4142-968D-906303DB9A37}|ReestrForm.csproj|solutionrelative:mainwindow.xaml||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A7482BD2-7B6C-4142-968D-906303DB9A37}|ReestrForm.csproj|c:\\users\\bazav\\downloads\\kursova\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A7482BD2-7B6C-4142-968D-906303DB9A37}|ReestrForm.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A7482BD2-7B6C-4142-968D-906303DB9A37}|ReestrForm.csproj|d:\\\u0440\u0430\u0431\u043E\u0447\u0430\u044F \u043F\u0430\u043F\u043A\u0430\\\u0441\u043C\u043E\u043E 2 \u043A\u0443\u0440\u0441\\kursova\\reestrpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{A7482BD2-7B6C-4142-968D-906303DB9A37}|ReestrForm.csproj|solutionrelative:reestrpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A7482BD2-7B6C-4142-968D-906303DB9A37}|ReestrForm.csproj|c:\\users\\bazav\\downloads\\kursova\\models\\validationrules\\registervalidationrules.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A7482BD2-7B6C-4142-968D-906303DB9A37}|ReestrForm.csproj|solutionrelative:models\\validationrules\\registervalidationrules.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A7482BD2-7B6C-4142-968D-906303DB9A37}|ReestrForm.csproj|d:\\\u0440\u0430\u0431\u043E\u0447\u0430\u044F \u043F\u0430\u043F\u043A\u0430\\\u0441\u043C\u043E\u043E 2 \u043A\u0443\u0440\u0441\\kursova\\reestrpage.xaml||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A7482BD2-7B6C-4142-968D-906303DB9A37}|ReestrForm.csproj|solutionrelative:reestrpage.xaml||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A7482BD2-7B6C-4142-968D-906303DB9A37}|ReestrForm.csproj|c:\\users\\bazav\\downloads\\kursova\\viewmodels\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A7482BD2-7B6C-4142-968D-906303DB9A37}|ReestrForm.csproj|solutionrelative:viewmodels\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A7482BD2-7B6C-4142-968D-906303DB9A37}|ReestrForm.csproj|d:\\\u0440\u0430\u0431\u043E\u0447\u0430\u044F \u043F\u0430\u043F\u043A\u0430\\\u0441\u043C\u043E\u043E 2 \u043A\u0443\u0440\u0441\\kursova\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{A7482BD2-7B6C-4142-968D-906303DB9A37}|ReestrForm.csproj|solutionrelative:mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A7482BD2-7B6C-4142-968D-906303DB9A37}|ReestrForm.csproj|c:\\users\\bazav\\downloads\\kursova\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{A7482BD2-7B6C-4142-968D-906303DB9A37}|ReestrForm.csproj|d:\\\u0440\u0430\u0431\u043E\u0447\u0430\u044F \u043F\u0430\u043F\u043A\u0430\\\u0441\u043C\u043E\u043E 2 \u043A\u0443\u0440\u0441\\kursova\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{A7482BD2-7B6C-4142-968D-906303DB9A37}|ReestrForm.csproj|solutionrelative:app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     }
   ],
@@ -38,15 +38,15 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 6,
               "Title": "App.xaml",
-              "DocumentMoniker": "C:\\Users\\bazav\\Downloads\\Kursova\\App.xaml",
+              "DocumentMoniker": "D:\\\u0420\u0430\u0431\u043E\u0447\u0430\u044F \u043F\u0430\u043F\u043A\u0430\\\u0421\u041C\u041E\u041E 2 \u043A\u0443\u0440\u0441\\Kursova\\App.xaml",
               "RelativeDocumentMoniker": "App.xaml",
-              "ToolTip": "C:\\Users\\bazav\\Downloads\\Kursova\\App.xaml",
+              "ToolTip": "D:\\\u0420\u0430\u0431\u043E\u0447\u0430\u044F \u043F\u0430\u043F\u043A\u0430\\\u0421\u041C\u041E\u041E 2 \u043A\u0443\u0440\u0441\\Kursova\\App.xaml",
               "RelativeToolTip": "App.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2024-11-09T14:25:09.973Z",
@@ -55,27 +55,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "MainWindow.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\bazav\\Downloads\\Kursova\\MainWindow.xaml.cs",
-              "RelativeDocumentMoniker": "MainWindow.xaml.cs",
-              "ToolTip": "C:\\Users\\bazav\\Downloads\\Kursova\\MainWindow.xaml.cs",
-              "RelativeToolTip": "MainWindow.xaml.cs",
-              "ViewState": "AQIAABcAAAAAAAAAAAA8wBwAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-09T14:24:31.203Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Page1.xaml",
-              "DocumentMoniker": "C:\\Users\\bazav\\Downloads\\Kursova\\Page1.xaml",
-              "RelativeDocumentMoniker": "Page1.xaml",
-              "ToolTip": "C:\\Users\\bazav\\Downloads\\Kursova\\Page1.xaml",
-              "RelativeToolTip": "Page1.xaml",
-              "ViewState": "AQIAACwAAAAAAAAAAAAtwDkAAAB/AAAA",
+              "DocumentIndex": 4,
+              "Title": "ReestrPage.xaml",
+              "DocumentMoniker": "D:\\\u0420\u0430\u0431\u043E\u0447\u0430\u044F \u043F\u0430\u043F\u043A\u0430\\\u0421\u041C\u041E\u041E 2 \u043A\u0443\u0440\u0441\\Kursova\\ReestrPage.xaml",
+              "RelativeDocumentMoniker": "ReestrPage.xaml",
+              "ToolTip": "D:\\\u0420\u0430\u0431\u043E\u0447\u0430\u044F \u043F\u0430\u043F\u043A\u0430\\\u0421\u041C\u041E\u041E 2 \u043A\u0443\u0440\u0441\\Kursova\\ReestrPage.xaml",
+              "RelativeToolTip": "ReestrPage.xaml",
+              "ViewState": "AgIAABEAAAAAAAAAAAAIwGEAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2024-11-10T18:05:24.897Z",
               "IsPinned": true,
@@ -83,54 +69,127 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "LoginViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\bazav\\Downloads\\Kursova\\ViewModels\\LoginViewModel.cs",
-              "RelativeDocumentMoniker": "ViewModels\\LoginViewModel.cs",
-              "ToolTip": "C:\\Users\\bazav\\Downloads\\Kursova\\ViewModels\\LoginViewModel.cs",
-              "RelativeToolTip": "ViewModels\\LoginViewModel.cs",
-              "ViewState": "AQIAAA4AAAAAAAAAAAAAwB8AAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-22T21:32:43.051Z",
+              "DocumentIndex": 2,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "D:\\\u0420\u0430\u0431\u043E\u0447\u0430\u044F \u043F\u0430\u043F\u043A\u0430\\\u0421\u041C\u041E\u041E 2 \u043A\u0443\u0440\u0441\\Kursova\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "MainWindow.xaml",
+              "ToolTip": "D:\\\u0420\u0430\u0431\u043E\u0447\u0430\u044F \u043F\u0430\u043F\u043A\u0430\\\u0421\u041C\u041E\u041E 2 \u043A\u0443\u0440\u0441\\Kursova\\MainWindow.xaml",
+              "RelativeToolTip": "MainWindow.xaml",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAADEAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-11-27T12:44:59.836Z",
               "EditorCaption": ""
             },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MainPageUser.xaml",
+              "DocumentMoniker": "D:\\\u0420\u0430\u0431\u043E\u0447\u0430\u044F \u043F\u0430\u043F\u043A\u0430\\\u0421\u041C\u041E\u041E 2 \u043A\u0443\u0440\u0441\\Kursova\\MainPageUser.xaml",
+              "RelativeDocumentMoniker": "MainPageUser.xaml",
+              "ToolTip": "D:\\\u0420\u0430\u0431\u043E\u0447\u0430\u044F \u043F\u0430\u043F\u043A\u0430\\\u0421\u041C\u041E\u041E 2 \u043A\u0443\u0440\u0441\\Kursova\\MainPageUser.xaml",
+              "RelativeToolTip": "MainPageUser.xaml",
+              "ViewState": "AgIAABgAAAAAAAAAAAAAADkAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-11-27T14:35:40.208Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "FloatingWindowState": {
+        "Id": "f30a3389-82f0-4557-9098-06e8b84f3d95",
+        "Display": 2,
+        "X": 762,
+        "Y": -49,
+        "Width": 1677,
+        "Height": 753,
+        "WindowState": 0
+      },
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "D:\\\u0420\u0430\u0431\u043E\u0447\u0430\u044F \u043F\u0430\u043F\u043A\u0430\\\u0421\u041C\u041E\u041E 2 \u043A\u0443\u0440\u0441\\Kursova\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "MainWindow.xaml",
+              "ToolTip": "D:\\\u0420\u0430\u0431\u043E\u0447\u0430\u044F \u043F\u0430\u043F\u043A\u0430\\\u0421\u041C\u041E\u041E 2 \u043A\u0443\u0440\u0441\\Kursova\\MainWindow.xaml",
+              "RelativeToolTip": "MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-11-27T12:43:49.403Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "FloatingWindowState": {
+        "Id": "e6a2663c-ca45-419c-a5f8-996ff5bcd372",
+        "Display": 1,
+        "X": 998,
+        "Y": -49,
+        "Width": 1677,
+        "Height": 753,
+        "WindowState": 0
+      },
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ReestrPage.xaml",
+              "DocumentMoniker": "D:\\\u0420\u0430\u0431\u043E\u0447\u0430\u044F \u043F\u0430\u043F\u043A\u0430\\\u0421\u041C\u041E\u041E 2 \u043A\u0443\u0440\u0441\\Kursova\\ReestrPage.xaml",
+              "RelativeDocumentMoniker": "ReestrPage.xaml",
+              "ToolTip": "D:\\\u0420\u0430\u0431\u043E\u0447\u0430\u044F \u043F\u0430\u043F\u043A\u0430\\\u0421\u041C\u041E\u041E 2 \u043A\u0443\u0440\u0441\\Kursova\\ReestrPage.xaml",
+              "RelativeToolTip": "ReestrPage.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-11-27T12:44:06.924Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "FloatingWindowState": {
+        "Id": "eced64d8-2ed0-4679-9b2c-fba36695dccf",
+        "Display": 2,
+        "X": -682,
+        "Y": 237,
+        "Width": 1677,
+        "Height": 753,
+        "WindowState": 2
+      },
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Page1.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\bazav\\Downloads\\Kursova\\Page1.xaml.cs",
-              "RelativeDocumentMoniker": "Page1.xaml.cs",
-              "ToolTip": "C:\\Users\\bazav\\Downloads\\Kursova\\Page1.xaml.cs",
-              "RelativeToolTip": "Page1.xaml.cs",
-              "ViewState": "AQIAABAAAAAAAAAAAADwv04AAAANAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-22T21:31:39.293Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "RegisterValidationRules.cs",
-              "DocumentMoniker": "C:\\Users\\bazav\\Downloads\\Kursova\\Models\\ValidationRules\\RegisterValidationRules.cs",
-              "RelativeDocumentMoniker": "Models\\ValidationRules\\RegisterValidationRules.cs",
-              "ToolTip": "C:\\Users\\bazav\\Downloads\\Kursova\\Models\\ValidationRules\\RegisterValidationRules.cs",
-              "RelativeToolTip": "Models\\ValidationRules\\RegisterValidationRules.cs",
-              "ViewState": "AQIAACEAAAAAAAAAAAAgwBkAAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-22T21:27:12.799Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "RegisterViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\bazav\\Downloads\\Kursova\\ViewModels\\RegisterViewModel.cs",
-              "RelativeDocumentMoniker": "ViewModels\\RegisterViewModel.cs",
-              "ToolTip": "C:\\Users\\bazav\\Downloads\\Kursova\\ViewModels\\RegisterViewModel.cs",
-              "RelativeToolTip": "ViewModels\\RegisterViewModel.cs",
-              "ViewState": "AQIAAEAAAAAAAAAAAAA2wEwAAAAMAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-21T19:38:12.819Z",
+              "Title": "MainPageUser.xaml",
+              "DocumentMoniker": "D:\\\u0420\u0430\u0431\u043E\u0447\u0430\u044F \u043F\u0430\u043F\u043A\u0430\\\u0421\u041C\u041E\u041E 2 \u043A\u0443\u0440\u0441\\Kursova\\MainPageUser.xaml",
+              "RelativeDocumentMoniker": "MainPageUser.xaml",
+              "ToolTip": "D:\\\u0420\u0430\u0431\u043E\u0447\u0430\u044F \u043F\u0430\u043F\u043A\u0430\\\u0421\u041C\u041E\u041E 2 \u043A\u0443\u0440\u0441\\Kursova\\MainPageUser.xaml",
+              "RelativeToolTip": "MainPageUser.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-11-27T14:34:57.244Z",
               "EditorCaption": ""
             }
           ]
