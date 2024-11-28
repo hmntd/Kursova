@@ -14,6 +14,7 @@
     <None Remove="image\Background.png" />
     <None Remove="image\ChillZone.png" />
     <None Remove="image\ChillZone1.png" />
+    <None Remove="image\ChillZone2.png" />
     <None Remove="image\google.png" />
     <None Remove="image\inst.png" />
     <None Remove="image\lock.png" />
@@ -40,6 +41,9 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="image\ChillZone1.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="image\ChillZone2.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="image\google.png">

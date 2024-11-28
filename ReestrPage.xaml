@@ -86,29 +86,37 @@
                     <Label Content="Registrarion" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan=" 8" Style="{StaticResource LOG}" FontSize="36" VerticalAlignment="Center"/>
 
                     <Label Content="Username" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="6" Style="{StaticResource Left lab}"/>
-                    <TextBox Text="{Binding Username}" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="8" Style="{StaticResource RegBlock}" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus" Name="NickBox"/>
+                    <TextBox Text="{Binding Username}" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="8" Style="{StaticResource RegBlock}" Name="NickBox"/>
 
                     <Label Content="Email" Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="6" Style="{StaticResource Left lab}"/>
-                    <TextBox Text="{Binding Email}" Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="8" Style="{StaticResource RegBlock}" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus" Name="EmailBox"/>
+                    <TextBox Text="{Binding Email}" Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="8" Style="{StaticResource RegBlock}" Name="EmailBox"/>
 
                     <Label Content="Password" Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="6" Style="{StaticResource Left lab}"/>
                     <PasswordBox Grid.Row="7" Grid.Column="2" Grid.ColumnSpan="8" Style="{StaticResource PassBlock}" Name="PasswordBox" PasswordChanged="PasswordBox_PasswordChanged"/>
-                    <!--asdasd-->
 
                     <Label Content="Confirm password" Grid.Row="8" Grid.Column="2" Grid.ColumnSpan="6" Style="{StaticResource Left lab}"/>
                     <PasswordBox Grid.Row="9" Grid.Column="2" Grid.ColumnSpan="8" Style="{StaticResource PassBlock}" Name="ConfPasswordBox"  PasswordChanged="ConfPasswordBox_PasswordChanged"/>
 
                     <Button Content="Sign IN" Grid.Row="11" Grid.Column="2" Grid.ColumnSpan="8"  Style="{StaticResource login}" Command="{Binding Register_Click}"/>
 
-                    <Label Content="Back" Grid.Row="13" Grid.Column="4" Grid.ColumnSpan="4" Style="{StaticResource SingIN lab}" MouseLeftButtonDown="Back"/>
+                    <Button Content="Back" Grid.Row="13" Grid.Column="4" Grid.ColumnSpan="4" Command="{Binding Back_Click}"/>
                     <Label Content="Register via social networks" Grid.Row="15" Grid.Column="2" Grid.ColumnSpan="8" Style="{StaticResource Center lab}"/>
-                    <Label Grid.Row="16" Grid.Column="2" Grid.ColumnSpan="2" Style="{StaticResource loginSN}"  MouseDown="GoogleLogin_Click">
+                    <Label Grid.Row="16" Grid.Column="2" Grid.ColumnSpan="2" Style="{StaticResource loginSN}">
+                        <Label.InputBindings>
+                            <MouseBinding Gesture="LeftClick" Command="{Binding GoogleLogin_Click}" />
+                        </Label.InputBindings>
                         <Image Source="image/google.png"  />
                     </Label>
-                    <Label Style="{StaticResource loginSN}" Grid.Row="16" Grid.Column="5" Grid.ColumnSpan="2" MouseDown="InstLogin_Click">
+                    <Label Style="{StaticResource loginSN}" Grid.Row="16" Grid.Column="5" Grid.ColumnSpan="2">
+                        <Label.InputBindings>
+                            <MouseBinding Gesture="LeftClick" Command="{Binding InstLogin_Click}" />
+                        </Label.InputBindings>
                         <Image Source="image/inst.png" />
                     </Label>
-                    <Label Grid.Row="16" Grid.Column="8" Grid.ColumnSpan="2" Style="{StaticResource loginSN}" MouseDown="TgLogin_Click">
+                    <Label Grid.Row="16" Grid.Column="8" Grid.ColumnSpan="2" Style="{StaticResource loginSN}">
+                        <Label.InputBindings>
+                            <MouseBinding Gesture="LeftClick" Command="{Binding TgLogin_Click}" />
+                        </Label.InputBindings>
                         <Image Source="image/tg.png" />
                     </Label>
 
