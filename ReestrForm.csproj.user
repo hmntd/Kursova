@@ -7,15 +7,21 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="Page1.xaml.cs">
+    <Compile Update="MainPageUser.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="ReestrPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="MainPageUser.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Page1.xaml">
+    <Page Update="ReestrPage.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
