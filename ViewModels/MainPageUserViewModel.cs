@@ -13,6 +13,7 @@ namespace ReestrForm.ViewModels
         public MainPageUserViewModel(User user)
         {
             currentUser = user;
+            // comm
         }
     }
 }
