@@ -12,6 +12,7 @@ namespace ReestrForm.ViewModels
     {
         public const string userFilePath = "Data\\users.json";
         public const string applicationFilePath = "Data\\applications.json";
+        public const string rateFilePath = "Data\\rates.json";
         public event PropertyChangedEventHandler? PropertyChanged;
         protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {

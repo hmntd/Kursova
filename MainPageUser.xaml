@@ -49,8 +49,8 @@ Top="0"
                 </Grid.ColumnDefinitions>
                 <Button Grid.Column="0" Content="Ігри" Style="{StaticResource MenuButton}" IsEnabled="True" />
                 <Button Grid.Column="1" Content="Додатки" Style="{StaticResource MenuButton}"/>
-                <Button Grid.Column="2" Content="Години" Style="{StaticResource MenuButton}"/>
-                <Button Grid.Column="3" Content="Їжа" Margin="0,0,5,0" Style="{StaticResource MenuButton}"/>
+                <Button Grid.Column="2" Content="Години" Style="{StaticResource MenuButton}" Command="{Binding TimePage_Click}"/>
+                <Button Grid.Column="3" Content="Їжа" Margin="0,0,5,0" Style="{StaticResource MenuButton}" Command="{Binding FoodPage_Click}"/>
             </Grid>
             <Label Grid.Column="1" Grid.Row="1" Content="You Info" Style="{StaticResource LOG}"/>
             <!--Інформаційна панель-->
