@@ -69,7 +69,7 @@ namespace ReestrForm.ViewModels
             if (CurrentUser != null && CurrentUser.Password == Password)
             {
                 MainPageUser mainPageUser = new MainPageUser();
-                mainPageUser.DataContext = new MainPageUserViewModel(CurrentUser);
+                mainPageUser.DataContext = new MainPageUserViewModel(CurrentUser, mainPageUser);
                 mainPageUser.Show();
                 _window.Close();
             } else

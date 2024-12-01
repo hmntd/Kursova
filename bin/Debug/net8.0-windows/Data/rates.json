@@ -1,0 +1,10 @@
+[
+    {
+        "Id": null,
+        "Name": "Test rate",
+        "Path_to_Image": null,
+        "Hours": 10,
+        "Price": 5,
+        "WasBought": 0
+    }
+]

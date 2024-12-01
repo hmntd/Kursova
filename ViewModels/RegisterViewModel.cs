@@ -109,7 +109,7 @@ namespace ReestrForm.ViewModels
             Data.SaveData(userFilePath, users);
 
             MainPageUser mainPageUser = new MainPageUser();
-            mainPageUser.DataContext = new MainPageUserViewModel(newUser);
+            mainPageUser.DataContext = new MainPageUserViewModel(newUser, mainPageUser);
             mainPageUser.Show();
             Window.GetWindow(_page).Close() ;
         }
