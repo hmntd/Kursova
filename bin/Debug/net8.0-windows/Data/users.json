@@ -1,12 +1,5 @@
 [
   {
-    "Id": null,
-    "Password": "1111",
-    "Username": null,
-    "Email": "dasdas@asdasd.com",
-    "IsAdmin": false
-  },
-  {
     "Id": "28088f90-10c9-444e-a3d2-365796724e1e",
     "Password": "aqswde123",
     "Username": "Loh",
