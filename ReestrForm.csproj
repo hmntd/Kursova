@@ -21,6 +21,7 @@
     <None Remove="image\google.png" />
     <None Remove="image\inst.png" />
     <None Remove="image\lock.png" />
+    <None Remove="image\mail.png" />
     <None Remove="image\MainName.png" />
     <None Remove="image\tg.png" />
     <None Remove="image\user.png" />
@@ -65,6 +66,9 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="image\lock.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="image\mail.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="image\MainName.png">

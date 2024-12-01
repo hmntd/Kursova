@@ -30,6 +30,7 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="130*"/>
                 <RowDefinition Height="90*"/>
+                
                 <RowDefinition Height="741*"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
@@ -44,12 +45,10 @@
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
-                    <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <Button Grid.Column="0" Content="Ігри" Style="{StaticResource MenuButton}" Command="{Binding Games_Click}"/>
-                <Button Grid.Column="1" Content="Додатки" Style="{StaticResource MenuButton}" IsEnabled="True"/>
-                <Button Grid.Column="2" Content="Години" Style="{StaticResource MenuButton}" Command="{Binding Times_Click}"/>
-                <Button Grid.Column="3" Content="Їжа" Margin="0,0,5,0" Style="{StaticResource MenuButton}"/>
+                <Button Grid.Column="0" Content="Головна" Style="{StaticResource MenuButton}" Command="{Binding Games_Click}"/>
+                <Button Grid.Column="1" Content="Години" Style="{StaticResource MenuButton}" Command="{Binding Times_Click}"/>
+                <Button Grid.Column="2" Content="Їжа" Margin="0,0,5,0" Style="{StaticResource MenuButton}"/>
             </Grid>
             <Label Grid.Column="1" Grid.Row="1" Content="You Info" Style="{StaticResource LOG}"/>
             <!--Інформаційна панель-->
@@ -74,7 +73,19 @@
                     <Label Grid.Row="3" Content="Години:" Style="{StaticResource InfoLab}"/>
                     <Label Grid.Row="4" Content="Баланс:" Style="{StaticResource InfoLab}"/>
                     <Label Grid.Row="5" Content="Тариф:" Style="{StaticResource InfoLab}"/>
-                    <Label Grid.Row="6" Content="Наш ігровий&#xD;&#xA;    сервер:" Style="{StaticResource InfoLab}" Height="105" HorizontalContentAlignment="Right"/>
+                    <Grid Grid.Row="6" Grid.ColumnSpan="2">
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="5*"/>
+                            <ColumnDefinition Width="4*"/>
+                            <ColumnDefinition Width="5*"/>
+                        </Grid.ColumnDefinitions>
+                        <Button Grid.Column="1" Grid.Row="1"   Content="Вийти з акаунту" Style="{StaticResource SignINBut}"  />
+                    </Grid>
                     <Button Grid.ColumnSpan="2" Grid.Row="7" Content="Поповинити баланс" Style="{StaticResource login}" Margin="20"/>
                     <DockPanel Grid.Row="3"  Grid.Column="1" HorizontalAlignment="Center">
                         <Label DockPanel.Dock="Right"  Content="годин" Style="{StaticResource InfoLab}" Margin="10,0,0,0"/>
@@ -82,23 +93,36 @@
                     </DockPanel>
                     <DockPanel Grid.Row="4"  Grid.Column="1" HorizontalAlignment="Center">
                         <Label DockPanel.Dock="Right"  Content="грн." Style="{StaticResource InfoLab}" Margin="10,0,0,0"/>
-                        <Label DockPanel.Dock="Left"   Style="{StaticResource InfoValueLabel}" />
+                        <Label DockPanel.Dock="Left" Content="{Binding currentUser.Balance}"  Style="{StaticResource InfoValueLabel}" />
                     </DockPanel>
                     <TextBlock Grid.Row="5" Grid.Column="1"/>
                 </Grid>
             </Border>
             <!--Список ігр-->
-            <ListView Grid.Column="0" Grid.Row="2" HorizontalContentAlignment="Stretch" Background="Transparent" 
+            <Grid Grid.Column="0" Grid.Row="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="10*"/>
+                </Grid.RowDefinitions>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Button Grid.Column="1" Content="Напої" Style="{StaticResource MenuButton}" Margin="0,10,5,0"/>
+                    <Button Content="Їжа" Style="{StaticResource MenuButton}" Margin="0,10,0,0"/>
+                </Grid>
+            <ListView Grid.Row="1" HorizontalContentAlignment="Stretch" Background="Transparent" 
           ScrollViewer.VerticalScrollBarVisibility="Hidden" ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
           d:ItemsSource="{d:SampleData ItemCount=10}" BorderThickness="0" Margin="0,10,0,0">
                 <ListView.View>
                     <GridView ColumnHeaderContainerStyle="{StaticResource HeadingStyle}">
                         <!-- Заголовки -->
-                        <GridViewColumn Width="175">
+                        <GridViewColumn Width="170" >
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <Border  Background="#507294" CornerRadius="10" Padding="5" Width="150" Height="150">
-                                        <Image Source="/image/MainName.png" Width="150" Height="150"  Stretch="Fill"/>
+                                    <Border  Background="#507294" CornerRadius="10" Padding="5" Width="160" Height="150">
+                                        <Image Source="/image/MainName.png" Width="150" Height="150"  Stretch="Fill" Margin="6" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                                     </Border>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
@@ -130,6 +154,7 @@
                     </GridView>
                 </ListView.View>
             </ListView>
+            </Grid>
         </Grid>
     </Grid>
 </Page>

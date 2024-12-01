@@ -2,7 +2,7 @@
     {
         "Id": null,
         "Name": "Test rate",
-        "Path_to_Image": null,
+        "Path_to_image": "/image/google.png",
         "Hours": 10,
         "Price": 5,
         "WasBought": 0
