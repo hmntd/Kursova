@@ -42,8 +42,21 @@ namespace ReestrForm.ViewModels
         }
         private void BuyRate(Rate rate)
         {
+            var result = MessageBox.Show("Are you sure in buying the rate?", "Buying", MessageBoxButton.YesNo);
+            if (result == MessageBoxResult.Yes)
+            {
+                SelectedRate = null;
+                return;
+            }
+
             if (rate != null)
             {
+                if (rate.Price > currentUser.Balance)
+                {
+                    MessageBox.Show("На балансі недостатньо коштів");
+                    return;
+                }
+
                 currentUser.Hours += rate.Hours;
                 Rate? oldRate = Rates.FirstOrDefault(r => r.Id == rate.Id);
                 if (oldRate != null)
@@ -51,7 +64,7 @@ namespace ReestrForm.ViewModels
                     oldRate.WasBought++;
                     Data.SaveData(rateFilePath, Rates);
                 }
-                MessageBox.Show($"You have bouth the rate: {rate.Name}");
+                MessageBox.Show($"You have bought the rate: {rate.Name}");
             }
         }
         private void Games()

@@ -4,13 +4,19 @@
     "Password": "aqswde123",
     "Username": "Loh",
     "Email": "loh@test.com",
-    "IsAdmin": false
+    "IsAdmin": false,
+    "hours": 0,
+    "totalHours": 0,
+    "Balance": 0
   },
   {
     "Id": "65a12132-6f32-42ab-89d1-6e7e60a58c8b",
     "Password": "adg29122004",
     "Username": "BiteV1x",
     "Email": "sadasd@gmail.com",
-    "IsAdmin": false
+    "IsAdmin": false,
+    "hours": 0,
+    "totalHours": 0,
+    "Balance": 0
   }
 ]
