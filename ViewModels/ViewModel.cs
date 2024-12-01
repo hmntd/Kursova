@@ -11,6 +11,7 @@ namespace ReestrForm.ViewModels
     abstract public class ViewModel: INotifyPropertyChanged
     {
         public const string userFilePath = "Data\\users.json";
+        public const string applicationFilePath = "Data\\applications.json";
         public event PropertyChangedEventHandler? PropertyChanged;
         protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
