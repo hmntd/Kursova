@@ -9,18 +9,16 @@
         Left="0"
         Top="0"
         Title="LoginPage" Height="1080" Width="1920"   
-        WindowStyle="None" AllowsTransparency="True" >
+        WindowStyle="None" AllowsTransparency="True" Style="{StaticResource WinStyle}" >
 
     <Grid>
-        <Grid.Background>
-            <ImageBrush ImageSource="/image/Background.png"/>
-        </Grid.Background>
+        
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="38*"/>
-            <ColumnDefinition Width="250*"/>
-            <ColumnDefinition Width="100*"/>
-            <ColumnDefinition Width="300*"/>
-            <ColumnDefinition Width="150*"/>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="573*"/>
+            <ColumnDefinition Width="75*"/>
+            <ColumnDefinition Width="1113*"/>
+            <ColumnDefinition Width="50*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="29*"/>
@@ -34,16 +32,15 @@
                 <RowDefinition Height="29*"/>
 
             </Grid.RowDefinitions>
-            <Border Grid.Row="0" Grid.Column="1" CornerRadius="20" Padding="10">
+            <Border Grid.Row="0" Grid.Column="1" CornerRadius="20,20,0,0" >
                 <Border.Background >
                     <SolidColorBrush Color="#383b4d" />
                 </Border.Background>
-                <TextBlock Text="Welcome to" Grid.Row="1" Grid.Column="3" Grid.ColumnSpan=" 6" Style="{StaticResource Welcome}" />
+                <TextBlock Text="Welcome to" Grid.Row="1" Grid.Column="3" Grid.ColumnSpan=" 6"  Style="{StaticResource Welcome}" />
             </Border>
-            <Border Grid.Column="3" Grid.Row="1" CornerRadius="10" >
+            <Border Grid.Column="3" Grid.Row="1" CornerRadius="0,0,20,20"  ClipToBounds="True">
                 <Border.Background>
-
-                    <ImageBrush ImageSource="/image/MainName.png"/>
+                    <ImageBrush ImageSource="/image/Chill.png" />
                 </Border.Background>
             </Border>
         </Grid>

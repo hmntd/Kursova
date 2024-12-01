@@ -4,20 +4,20 @@
              xmlns:local="clr-namespace:ReestrForm"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-        <!--<Style TargetType="Window">
+        <Style TargetType="Window" x:Key="WinStyle">
             <Setter Property="Background">
                 <Setter.Value>
                     <ImageBrush ImageSource="/image/Background.png"/>
                 </Setter.Value>
             </Setter>
         </Style>
-        <Style TargetType="Page">
+        <Style x:Key="PageStyle" TargetType="Page" >
             <Setter Property="Background">
                 <Setter.Value>
                     <ImageBrush ImageSource="/image/Background.png" Stretch="UniformToFill" />
                 </Setter.Value>
             </Setter>
-        </Style>-->
+        </Style>
         <Style x:Key="RegBlock" TargetType="TextBox">
             <Setter Property="Background" Value="Transparent" />
             <Setter Property="Padding" Value="5,0,5,0" />
@@ -162,7 +162,7 @@
             <Setter Property="VerticalAlignment" Value="Center"/>
             <Setter Property="Margin" Value="60,0,60,0"/>
         </Style>
-        <DataTemplate x:Key="ListBoxItemTemplate">
+        <DataTemplate x:Key="GameList">
             <Border Margin="5" CornerRadius="10" Height="280">
                 <Border.Background>
                     <SolidColorBrush Color="#507294" />
@@ -180,6 +180,57 @@
                 </Grid>
             </Border>
         </DataTemplate>
+        <DataTemplate x:Key="AppList">
+            <Border Margin="5" CornerRadius="10" Height="280">
+                <Border.Background>
+                    <SolidColorBrush Color="#507294" />
+                </Border.Background>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="99*" />
+                        <RowDefinition Height="26*" />
+                    </Grid.RowDefinitions>
+                    <Image Source="/image/MainName.png" Grid.RowSpan="2" />
+                    <Border Grid.Row="1" Background="#ffcb2a" Opacity="0.9" CornerRadius="5" />
+                    <TextBlock Text="Назва Додатку" Grid.Row="1" FontFamily="Bookman Old Style" 
+               HorizontalAlignment="Center" VerticalAlignment="Center" 
+               TextWrapping="Wrap" Foreground="Black" FontSize="20" />
+                </Grid>
+            </Border>
+        </DataTemplate>
+        <DataTemplate x:Key="FoodList">
+            <Border Margin="5" CornerRadius="10" >
+                <Border.Background>
+                    <SolidColorBrush Color="#507294" />
+                </Border.Background>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="4*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition  />
+                    </Grid.RowDefinitions>
+                    <Image Source="/image/MainName.png"  Grid.Column="0"  Width="200" Height="200"/>
+                    <Border Grid.Row="1" Background="#ffcb2a" Opacity="0.9" CornerRadius="5" Grid.Column="1"/>
+                    <TextBlock Text="Назва напою" Grid.Column="1" FontFamily="Bookman Old Style" 
+       HorizontalAlignment="Center" VerticalAlignment="Center" 
+       TextWrapping="Wrap" Foreground="Black" FontSize="20" />
+                </Grid>
+            </Border>
+        </DataTemplate>
+        <Style x:Key="HeadingStyle" TargetType="GridViewColumnHeader">
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="Background" Value="#507294" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Height" Value="50" />
+            <Setter Property="BorderBrush" Value="#394960" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="FontFamily" Value="Bookman Old Style" />
+        </Style>
         <Style x:Key="MenuButton" TargetType="Button">
             <!-- Основные параметры стиля -->
             <Setter Property="Background" Value="#507294"/>
