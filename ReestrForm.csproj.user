@@ -7,14 +7,29 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="AppPageUser.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="FoodPageUser.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="MainPageUser.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="ReestrPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="TimePageUser.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="AppPageUser.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="FoodPageUser.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="MainPageUser.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -22,6 +37,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="ReestrPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="TimePageUser.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

@@ -1,16 +1,16 @@
 [
   {
-    "Id": null,
-    "Password": "1111",
-    "Username": null,
-    "Email": "dasdas@asdasd.com",
-    "IsAdmin": false
-  },
-  {
     "Id": "28088f90-10c9-444e-a3d2-365796724e1e",
     "Password": "aqswde123",
     "Username": "Loh",
     "Email": "loh@test.com",
+    "IsAdmin": false
+  },
+  {
+    "Id": "65a12132-6f32-42ab-89d1-6e7e60a58c8b",
+    "Password": "adg29122004",
+    "Username": "BiteV1x",
+    "Email": "sadasd@gmail.com",
     "IsAdmin": false
   }
 ]

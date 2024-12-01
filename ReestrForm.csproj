@@ -12,6 +12,9 @@
     <None Remove="google.jpg" />
     <None Remove="google.png" />
     <None Remove="image\Background.png" />
+    <None Remove="image\Chill.png" />
+    <None Remove="image\Chill2.png" />
+    <None Remove="image\Chill3.png" />
     <None Remove="image\ChillZone.png" />
     <None Remove="image\ChillZone1.png" />
     <None Remove="image\ChillZone2.png" />
@@ -35,6 +38,15 @@
 
   <ItemGroup>
     <Resource Include="image\Background.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="image\Chill.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="image\Chill2.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="image\Chill3.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="image\ChillZone.png">
