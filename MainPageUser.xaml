@@ -38,8 +38,27 @@ Top="0"
                 <ColumnDefinition Width="559*"/>
             </Grid.ColumnDefinitions>
             <!--Назва-->
-            <Image Grid.ColumnSpan="2" Grid.Row="0" Grid.Column="0" Source="/image/ChillZone2.png" Margin="15"/>
+            <Image Grid.ColumnSpan="2" Grid.Row="0" Grid.Column="0" Source="/image/Chill5.png" />
             <!--Меню кнопок-->
+            <Grid Grid.Column="0" Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50*"/>
+                    <ColumnDefinition Width="180*"/>
+                    <ColumnDefinition Width="180*"/>
+                    <ColumnDefinition Width="180*"/>
+                    <ColumnDefinition Width="904*"/>
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="1" Style="{StaticResource SocialMedia}">
+                    <Image Source="/image/Discord_Alt.png"  Margin="20"/>
+                </Button>
+                <Button Grid.Column="2" Style="{StaticResource SocialMedia}">
+                    <Image Source="/image/Instagram_Alt.png"  Margin="20"/>
+                </Button>
+                <Button Grid.Column="3" Style="{StaticResource SocialMedia}">
+                    <Image Source="/image/Telegram.png"  Margin="20"/>
+                </Button>
+
+            </Grid>
             <Grid Grid.Column="0" Grid.Row="1">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
@@ -50,9 +69,9 @@ Top="0"
                 <Button Grid.Column="1" Content="Години" Style="{StaticResource MenuButton}" Command="{Binding TimePage_Click}"/>
                 <Button Grid.Column="2" Content="Їжа" Margin="0,0,5,0" Style="{StaticResource MenuButton}" Command="{Binding FoodPage_Click}"/>
             </Grid>
-            <Label Grid.Column="1" Grid.Row="1" Content="You Info" Style="{StaticResource LOG}"/>
+            <Label Grid.Column="1" Grid.Row="0" VerticalAlignment="Center" Content="You Info" Style="{StaticResource LOG}"/>
             <!--Інформаційна панель-->
-            <Border Grid.Column="2" Grid.Row="1" Grid.RowSpan="2" BorderThickness="2" BorderBrush="#bcbcac" CornerRadius="10" Margin="5,0,0,0">
+            <Border Grid.Column="2" Grid.Row="0" Grid.RowSpan="3" BorderThickness="2" BorderBrush="#bcbcac" CornerRadius="10" Margin="5,0,0,0">
                 <Grid >
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
@@ -84,7 +103,7 @@ Top="0"
                             <ColumnDefinition Width="4*"/>
                             <ColumnDefinition Width="5*"/>
                         </Grid.ColumnDefinitions>
-                    <Button Grid.Column="1" Grid.Row="1"   Content="Вийти з акаунту" Style="{StaticResource SignINBut}"  />
+                        <Button Grid.Column="1" Grid.Row="1"   Content="Вийти з акаунту" Style="{StaticResource SignINBut}"  />
                     </Grid>
                     <Button Grid.ColumnSpan="2" Grid.Row="7" Content="Поповинити баланс" Style="{StaticResource login}" Margin="20"/>
                     <DockPanel Grid.Row="3"  Grid.Column="1" HorizontalAlignment="Center">
