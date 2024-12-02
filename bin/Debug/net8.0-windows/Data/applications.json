@@ -3,7 +3,7 @@
         "Id": null,
         "Name": "Dota 2",
         "Path_to_Application": "/games/Dota2.exe",
-        "Path_to_Image": "/images/Background.png",
+        "Path_to_Image": "/image/Background.png",
         "Type": "Game",
         "HoursPlayed": 0
     }

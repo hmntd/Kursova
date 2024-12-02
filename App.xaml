@@ -20,7 +20,6 @@
         </Style>
         <Style x:Key="RegBlock" TargetType="TextBox">
             <Setter Property="Background" Value="Transparent" />
-            <Setter Property="Padding" Value="5,0,5,0" />
             <Setter Property="TextDecorations" Value="None" />
             <Setter Property="TextBlock.FontFamily" Value="Bookman Old Style"/>
             <Setter Property="TextBlock.Foreground" Value="#FFF5F4F4"/>
@@ -31,7 +30,6 @@
         </Style>
         <Style x:Key="PassBlock" TargetType="PasswordBox">
             <Setter Property="Background" Value="Transparent" />
-            <Setter Property="Padding" Value="5,0,5,0" />
             <Setter Property="TextBlock.FontFamily" Value="Bookman Old Style"/>
             <Setter Property="TextBlock.Foreground" Value="#FFF5F4F4"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
@@ -173,6 +171,16 @@
                                     </Setter.Value>
                                 </Setter>
                             </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" Value="#ffcb2a" />
+                                <Setter Property="Foreground" Value="#232740"/>
+                                <Setter Property="FontFamily" Value="Bookman Old Style"/>
+                                <Setter Property="Effect">
+                                    <Setter.Value>
+                                        <DropShadowEffect Color="#e69c33" BlurRadius="10" ShadowDepth="6" Direction="135"/>
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
                 </Setter.Value>
@@ -195,7 +203,7 @@
             <Setter Property="Margin" Value="60,0,60,0"/>
         </Style>
         <DataTemplate x:Key="GameList">
-            <Border Margin="5" CornerRadius="10" Height="280">
+            <Border Margin="5" CornerRadius="10" Height="300" Width="280">
                 <Border.Background>
                     <SolidColorBrush Color="#507294" />
                 </Border.Background>
@@ -204,9 +212,9 @@
                         <RowDefinition Height="99*" />
                         <RowDefinition Height="26*" />
                     </Grid.RowDefinitions>
-                    <Image Source="/image/MainName.png" Grid.RowSpan="2" />
+                    <Image Source="{Binding Path_to_Image}" Grid.RowSpan="2" Stretch="Fill"/>
                     <Border Grid.Row="1" Background="#ffcb2a" Opacity="0.9" CornerRadius="5" />
-                    <TextBlock Text="Назва гри" Grid.Row="1" FontFamily="Bookman Old Style" 
+                    <TextBlock Text="{Binding Name}" Grid.Row="1" FontFamily="Bookman Old Style" 
                        HorizontalAlignment="Center" VerticalAlignment="Center" 
                        TextWrapping="Wrap" Foreground="Black" FontSize="20" />
                 </Grid>
@@ -257,7 +265,7 @@
             <Setter Property="Background" Value="#507294" />
             <Setter Property="Foreground" Value="White" />
             <Setter Property="FontSize" Value="20" />
-            <Setter Property="FontWeight" Value="Bold" />
+
             <Setter Property="Height" Value="50" />
             <Setter Property="BorderBrush" Value="#394960" />
             <Setter Property="BorderThickness" Value="1" />
@@ -271,14 +279,13 @@
             <Setter Property="FontFamily" Value="Bookman Old Style"/>
             <Setter Property="BorderBrush" Value="#bcbcac"/>
             <Setter Property="BorderThickness" Value="3"/>
-            
+
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
                         <Border Background="{TemplateBinding Background}"
                                 BorderBrush="{TemplateBinding BorderBrush}"
-                                BorderThickness="{TemplateBinding BorderThickness}"
-                                CornerRadius="5">
+                                BorderThickness="{TemplateBinding BorderThickness}">
                             <ContentPresenter HorizontalAlignment="Center"
                                               VerticalAlignment="Center"/>
                         </Border>
@@ -291,8 +298,14 @@
                 <Trigger Property="IsMouseOver" Value="True">
                     <Setter Property="Background" Value="#d4b40e"/>
                     <Setter Property="BorderBrush" Value="#bcbcac"/>
+                    
+                </Trigger>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="Background" Value="#507294"/>
+                    <Setter Property="BorderBrush" Value="White"/>
                 </Trigger>
             </Style.Triggers>
+
         </Style>
     </Application.Resources>
 </Application>
