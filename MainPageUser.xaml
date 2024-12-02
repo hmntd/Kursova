@@ -46,7 +46,7 @@ Top="0"
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <Button Grid.Column="0" Content="Головна" Style="{StaticResource MenuButton}"/>
+                <Button Grid.Column="0" Content="Головна" Style="{StaticResource MenuButton}" Command="{Binding Filter_All}" />
                 <Button Grid.Column="1" Content="Години" Style="{StaticResource MenuButton}" Command="{Binding TimePage_Click}"/>
                 <Button Grid.Column="2" Content="Їжа" Margin="0,0,5,0" Style="{StaticResource MenuButton}" Command="{Binding FoodPage_Click}"/>
             </Grid>
@@ -84,7 +84,7 @@ Top="0"
                             <ColumnDefinition Width="4*"/>
                             <ColumnDefinition Width="5*"/>
                         </Grid.ColumnDefinitions>
-                    <Button Grid.Column="1" Grid.Row="1"   Content="Вийти з акаунту" Style="{StaticResource SignINBut}"  />
+                        <Button Grid.Column="1" Grid.Row="1"   Content="Вийти з акаунту" Style="{StaticResource SignINBut}" Command="{Binding Exit_Click}"  />
                     </Grid>
                     <Button Grid.ColumnSpan="2" Grid.Row="7" Content="Поповинити баланс" Style="{StaticResource login}" Margin="20"/>
                     <DockPanel Grid.Row="3"  Grid.Column="1" HorizontalAlignment="Center">
@@ -95,24 +95,30 @@ Top="0"
                         <Label DockPanel.Dock="Right"  Content="грн." Style="{StaticResource InfoLab}" Margin="10,0,0,0"/>
                         <Label DockPanel.Dock="Left" Content="{Binding currentUser.Balance}"  Style="{StaticResource InfoValueLabel}" />
                     </DockPanel>
-                    <TextBlock Grid.Row="5" Grid.Column="1"/>
+                    <DockPanel Grid.Row="5" Grid.Column="1">
+                        <Label DockPanel.Dock="Left"  Content="{Binding currentUser.RateName}" Style="{StaticResource InfoValueLabel}"/>
+                    </DockPanel>
                 </Grid>
             </Border>
             <!--Список ігр-->
             <Grid Grid.Column="0" Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="172*"/>
+                    <ColumnDefinition Width="1099*"/>
+                </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="1*"/>
                     <RowDefinition Height="10*"/>
                 </Grid.RowDefinitions>
-                <Grid>
+                <Grid Grid.ColumnSpan="2">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    <Button Grid.Column="1" Content="Додатки" Style="{StaticResource MenuButton}" Margin="0,10,5,0"/>
-                    <Button Content="Ігри" Style="{StaticResource MenuButton}" Margin="0,10,0,0"/>
+                    <Button Grid.Column="1" Content="Додатки" Style="{StaticResource MenuButton}" Command="{Binding Filter_Applications}" Margin="0,10,5,0"/>
+                    <Button Content="Ігри" Style="{StaticResource MenuButton}" Command="{Binding Filter_Games}" Margin="0,10,0,0"/>
                 </Grid>
-                <ListBox Grid.Column="0" Grid.Row="2"  Background="Transparent" ScrollViewer.VerticalScrollBarVisibility="Hidden" ScrollViewer.HorizontalScrollBarVisibility="Hidden" d:ItemsSource="{d:SampleData ItemCount=10}" ItemsSource="{Binding Games}"  ItemTemplate="{StaticResource GameList}" BorderThickness="0" Margin="0,10,0,0">
+                <ListBox Grid.Column="0" Grid.Row="1"  Background="Transparent" ScrollViewer.VerticalScrollBarVisibility="Hidden" ScrollViewer.HorizontalScrollBarVisibility="Hidden" d:ItemsSource="{d:SampleData ItemCount=10}" ItemsSource="{Binding Apps}"  ItemTemplate="{StaticResource GameList}" BorderThickness="0" Margin="0,10,0,0" Grid.ColumnSpan="2">
                     <ListBox.ItemsPanel>
                         <!-- Використання WrapPanel для розташування елементів -->
                         <ItemsPanelTemplate>
