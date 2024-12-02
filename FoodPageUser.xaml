@@ -48,7 +48,7 @@
                 </Grid.ColumnDefinitions>
                 <Button Grid.Column="0" Content="Головна" Style="{StaticResource MenuButton}" Command="{Binding Games_Click}"/>
                 <Button Grid.Column="1" Content="Години" Style="{StaticResource MenuButton}" Command="{Binding Times_Click}"/>
-                <Button Grid.Column="2" Content="Їжа" Margin="0,0,5,0" Style="{StaticResource MenuButton}"/>
+                <Button Grid.Column="2" Content="Їжа" Margin="0,0,5,0" Style="{StaticResource MenuButton}" Command="{Binding Filter_All}"/>
             </Grid>
             <Label Grid.Column="1" Grid.Row="1" Content="You Info" Style="{StaticResource LOG}"/>
             <!--Інформаційна панель-->
@@ -109,12 +109,12 @@
                         <ColumnDefinition/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    <Button Grid.Column="1" Content="Напої" Style="{StaticResource MenuButton}" Margin="0,10,5,0"/>
-                    <Button Content="Їжа" Style="{StaticResource MenuButton}" Margin="0,10,0,0"/>
+                    <Button Grid.Column="1" Content="Напої" Style="{StaticResource MenuButton}" Command="{Binding Filter_Drink}" Margin="0,10,5,0"/>
+                    <Button Content="Їжа" Style="{StaticResource MenuButton}" Command="{Binding Filter_Food}" Margin="0,10,0,0"/>
                 </Grid>
             <ListView Grid.Row="1" HorizontalContentAlignment="Stretch" Background="Transparent" 
           ScrollViewer.VerticalScrollBarVisibility="Hidden" ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
-          d:ItemsSource="{d:SampleData ItemCount=10}" BorderThickness="0" Margin="0,10,0,0">
+          d:ItemsSource="{d:SampleData ItemCount=10}" ItemsSource="{Binding Suplies}"  BorderThickness="0" Margin="0,10,0,0">
                 <ListView.View>
                     <GridView ColumnHeaderContainerStyle="{StaticResource HeadingStyle}">
                         <!-- Заголовки -->
@@ -131,7 +131,7 @@
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
                                     <Border Background="#ffcb2a" Height="150" Width="700" >
-                                        <TextBlock Text="Назва напою" FontFamily="Bookman Old Style" VerticalAlignment="Center" HorizontalAlignment="Center"
+                                        <TextBlock Text="{Binding Name}" FontFamily="Bookman Old Style" VerticalAlignment="Center" HorizontalAlignment="Center"
                                        TextWrapping="Wrap" FontSize="30" Foreground="Black" />
                                     </Border>
                                 </DataTemplate>
@@ -142,9 +142,9 @@
                                 <DataTemplate>
                                     <Border Background="#ffcb2a" Height="150" Width="400">
                                         <DockPanel HorizontalAlignment="Center">
-                                        <TextBlock Text="100 " FontSize="30" FontFamily="Bookman Old Style" 
+                                        <TextBlock Text="{Binding Price}" FontSize="30" FontFamily="Bookman Old Style" 
                                        HorizontalAlignment="Center" Foreground="Black" VerticalAlignment="Center" DockPanel.Dock="Left"/>
-                                            <TextBlock Text="грн." FontSize="30" FontFamily="Bookman Old Style" DockPanel.Dock="Right"
+                                            <TextBlock Text=" грн." FontSize="30" FontFamily="Bookman Old Style" DockPanel.Dock="Right"
                                          Foreground="Black" VerticalAlignment="Center" />
                                         </DockPanel>
                                     </Border>
