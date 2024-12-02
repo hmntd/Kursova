@@ -61,7 +61,7 @@
                     <ColumnDefinition Width="100*"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="45*"/>
+                    <RowDefinition Height="*"/>
                     <RowDefinition Height="100*"/>
                     <RowDefinition Height="31*"/>
                     <RowDefinition Height="40*"/>
@@ -73,49 +73,35 @@
                     <RowDefinition Height="40*"/>
                     <RowDefinition Height="31*"/>
                     <RowDefinition Height="80*"/>
-                    <RowDefinition Height="40*"/>
-                    <RowDefinition Height="31*"/>
-                    <RowDefinition Height="31*"/>
-                    <RowDefinition Height="31*"/>
-                    <RowDefinition Height="55*"/>
-                    <RowDefinition Height="45*"/>
+                    <RowDefinition Height="80*"/>
+                    <RowDefinition Height="30*"/>
+
                 </Grid.RowDefinitions>
                 <Label Content="Registrarion" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan=" 8" Style="{StaticResource LOG}" FontSize="36" VerticalAlignment="Center"/>
 
                 <Label Content="Username" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="6" Style="{StaticResource Left lab}"/>
                 <TextBox Text="{Binding Username}" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="8" Style="{StaticResource RegBlock}" Name="NickBox"/>
+                <Image Grid.Row="3" Grid.Column="1" Source="/image/user.png" />
 
                 <Label Content="Email" Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="6" Style="{StaticResource Left lab}"/>
                 <TextBox Text="{Binding Email}" Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="8" Style="{StaticResource RegBlock}" Name="EmailBox"/>
+                <Image Grid.Row="5" Grid.Column="1" Source="/image/mail.png" Margin="10" />
 
                 <Label Content="Password" Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="6" Style="{StaticResource Left lab}"/>
-                <PasswordBox Grid.Row="7" Grid.Column="2" Grid.ColumnSpan="8" Style="{StaticResource PassBlock}" Name="PasswordBox" PasswordChanged="PasswordBox_PasswordChanged"/>
+                <PasswordBox Grid.Row="7" Grid.Column="2" Grid.ColumnSpan="8" Style="{StaticResource PassBlock}" Name="PasswordBox" PasswordChanged="PasswordBox_PasswordChanged" Visibility="Visible"/>
+                <Image Grid.Row="7" Grid.Column="1" Source="/image/lock.png" />
+                <TextBox Grid.Row="7" Grid.Column="2" Grid.ColumnSpan="8" Style="{StaticResource RegBlock}" Visibility="Hidden"/>
 
                 <Label Content="Confirm password" Grid.Row="8" Grid.Column="2" Grid.ColumnSpan="6" Style="{StaticResource Left lab}"/>
-                <PasswordBox Grid.Row="9" Grid.Column="2" Grid.ColumnSpan="8" Style="{StaticResource PassBlock}" Name="ConfPasswordBox"  PasswordChanged="ConfPasswordBox_PasswordChanged"/>
+                <PasswordBox Grid.Row="9" Grid.Column="2" Grid.ColumnSpan="8" Style="{StaticResource PassBlock}" Name="ConfPasswordBox"  PasswordChanged="ConfPasswordBox_PasswordChanged" Visibility="Visible"/>
+                <Image Grid.Row="9" Grid.Column="1" Source="/image/lock.png" />
+                <TextBox Grid.Row="9" Grid.Column="2" Grid.ColumnSpan="8" Style="{StaticResource RegBlock}" Visibility="Hidden" />
+
 
                 <Button Content="Sign IN" Grid.Row="11" Grid.Column="2" Grid.ColumnSpan="8"  Style="{StaticResource login}" Command="{Binding Register_Click}"/>
+                <Label Content="Вже зарееєстровані?" Grid.Row="12" Grid.Column="4" Grid.ColumnSpan="4" Style="{StaticResource Center lab}" VerticalAlignment="Bottom"/>
+                <Button Content="Back" Grid.Row="13" Grid.Column="5" Grid.ColumnSpan="2" Command="{Binding Back_Click}" Style="{StaticResource SignINBut}"/>
 
-                <Button Content="Back" Grid.Row="13" Grid.Column="4" Grid.ColumnSpan="4" Command="{Binding Back_Click}"/>
-                <Label Content="Register via social networks" Grid.Row="15" Grid.Column="2" Grid.ColumnSpan="8" Style="{StaticResource Center lab}"/>
-                <Label Grid.Row="16" Grid.Column="2" Grid.ColumnSpan="2" Style="{StaticResource loginSN}">
-                    <Label.InputBindings>
-                        <MouseBinding Gesture="LeftClick" Command="{Binding GoogleLogin_Click}" />
-                    </Label.InputBindings>
-                    <Image Source="image/google.png"  />
-                </Label>
-                <Label Style="{StaticResource loginSN}" Grid.Row="16" Grid.Column="5" Grid.ColumnSpan="2">
-                    <Label.InputBindings>
-                        <MouseBinding Gesture="LeftClick" Command="{Binding InstLogin_Click}" />
-                    </Label.InputBindings>
-                    <Image Source="image/inst.png" />
-                </Label>
-                <Label Grid.Row="16" Grid.Column="8" Grid.ColumnSpan="2" Style="{StaticResource loginSN}">
-                    <Label.InputBindings>
-                        <MouseBinding Gesture="LeftClick" Command="{Binding TgLogin_Click}" />
-                    </Label.InputBindings>
-                    <Image Source="image/tg.png" />
-                </Label>
 
             </Grid>
         </Border>
