@@ -87,7 +87,7 @@ namespace ReestrForm.ViewModels
         }
         public void Register()
         {
-            newUser = new User(Guid.NewGuid(), Password, Username, Email, false, 0, 0, 0);
+            newUser = new User(Guid.NewGuid(), Password, Username, Email, false, 0, 0, 0, null);
             try
             {
                 if (Password != RPassword)

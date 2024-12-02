@@ -58,6 +58,14 @@ namespace ReestrForm.ViewModels
                 }
 
                 currentUser.Hours += rate.Hours;
+                currentUser.RateName = rate.Name;
+                currentUser.Balance -= rate.Price;
+                var users = Data.LoadData<User>(userFilePath);
+                var user = users.FirstOrDefault(u => u.Username == currentUser.Username);
+                user.Hours = currentUser.Hours;
+                user.RateName = currentUser.RateName;
+                user.Balance = currentUser.Balance;
+                Data.SaveData<User>(userFilePath, users);
                 Rate? oldRate = Rates.FirstOrDefault(r => r.Id == rate.Id);
                 if (oldRate != null)
                 {

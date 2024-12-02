@@ -306,6 +306,7 @@
                     <Setter Property="BorderBrush" Value="White"/>
                 </Trigger>
             </Style.Triggers>
+
         </Style>
     </Application.Resources>
 </Application>

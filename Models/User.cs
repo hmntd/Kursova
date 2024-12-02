@@ -16,6 +16,23 @@ namespace ReestrForm.Models
         private float hours;
         private float totalHours;
         public decimal Balance { get; set; }
+        private string rateName;
+        public string RateName
+        {
+            get
+            {
+                if (rateName == null)
+                {
+                    return "-";
+                }
+
+                return rateName;
+            }
+            set
+            {
+                rateName = value;
+            }
+        }
         public float Hours
         {
             get { return hours; }
@@ -42,7 +59,8 @@ namespace ReestrForm.Models
             bool isAdmin,
             float hours,
             float totalHours,
-            decimal balance
+            decimal balance,
+            string? rate
             )
         {
             Id = id.ToString();
@@ -53,6 +71,7 @@ namespace ReestrForm.Models
             Hours = hours;
             TotalHours = totalHours;
             Balance = balance;
+            RateName = rate;
         }
     }
 }

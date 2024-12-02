@@ -1,0 +1,10 @@
+[
+    {
+        "Id": null,
+        "Name": "Tea",
+        "Price": 10,
+        "Type": "Drink",
+        "Path_to_Image": "/image/Background.png",
+        "WasBought": 0
+    }
+]
