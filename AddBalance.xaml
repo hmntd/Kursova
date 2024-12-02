@@ -19,8 +19,8 @@
                     <ColumnDefinition Width="138*"/>
                     <ColumnDefinition Width="138*"/>
                     <ColumnDefinition Width="118*"/>
-                    <ColumnDefinition Width="94*"/>
-                    <ColumnDefinition Width="94*"/>
+                    <ColumnDefinition Width="100*"/>
+                    <ColumnDefinition Width="100*"/>
                     <ColumnDefinition Width="24*"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
@@ -36,12 +36,12 @@
                     <RowDefinition Height="27*"/>
                 </Grid.RowDefinitions>
 
-                <Rectangle Opacity="0.3" Fill="#ffcb2a" Grid.ColumnSpan="4" Margin="-250,7,7,-55" Grid.RowSpan="8" Grid.Row="2" RadiusX="46.076" RadiusY="46.076" RenderTransformOrigin="0.5,0.5">
+                <Rectangle Opacity="0.3" Fill="#ffcb2a" Grid.ColumnSpan="6" Margin="-247,52,87,-133" Grid.RowSpan="7" Grid.Row="3" RadiusX="46.076" RadiusY="46.076" RenderTransformOrigin="0.5,0.5">
                     <Rectangle.RenderTransform>
                         <TransformGroup>
                             <ScaleTransform/>
                             <SkewTransform/>
-                            <RotateTransform Angle="-124.673"/>
+                            <RotateTransform Angle="-124.92"/>
                             <TranslateTransform/>
                         </TransformGroup>
                     </Rectangle.RenderTransform>
@@ -51,12 +51,15 @@
                     <Image Source="/image/NFC.png"  HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5"/>
                 </Border>
                 <Button Grid.Column="6" Grid.Row="8" Style="{StaticResource login}" Content="Підтвердити" FontSize="14" Margin="3,3,3,3"/>
-                <Button Grid.Column="5" Grid.Row="8" Style="{StaticResource login}" Content="Відмінити" FontSize="14" Margin="3,3,3,3"/>
+                <Button Grid.Column="5" Grid.Row="8" Style="{StaticResource login}" Content="Відхилити" FontSize="14" Margin="3,3,3,3"/>
                 <TextBox Grid.Row="8"  Grid.Column="1" Grid.ColumnSpan="2" Text="Ім'я власника" Style="{StaticResource RegBlock}" VerticalContentAlignment="Bottom"/>
                 <TextBox Text="Дата дійсності" HorizontalAlignment="Center" Grid.Column="3" Grid.Row="6" Style="{StaticResource RegBlock}" VerticalAlignment="Bottom" />
                 <TextBox Text="Номер картки" VerticalAlignment="Bottom" Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="3" Style="{StaticResource RegBlock}"/>
                 <TextBox Grid.Column="6" Grid.Row="6" Text="CVV" Style="{StaticResource RegBlock}"/>
                 <Image Margin="23,4,88,4" Source="/image/Chip.png" Stretch="Fill" Grid.Row="3" Grid.ColumnSpan="2"/>
+                <Border  Grid.Column="2" Grid.ColumnSpan="3" Grid.Row="1" Grid.RowSpan="3" Background="#4a517b" CornerRadius="20" Opacity="0.8">
+
+                </Border>
                 <Label Grid.Column="2" Grid.ColumnSpan="3" Grid.Row="1" Grid.RowSpan="3" Content="Введіть дані&#xD;&#xA; вашої картки" Style="{StaticResource InfoLab}" TextBlock.FontSize="40" TextBlock.TextAlignment="Center"/>
             </Grid>
         </Border>

@@ -102,7 +102,7 @@
                             <ColumnDefinition Width="4*"/>
                             <ColumnDefinition Width="5*"/>
                         </Grid.ColumnDefinitions>
-                        <Button Grid.Column="1" Grid.Row="1"   Content="Вийти з акаунту" Style="{StaticResource SignINBut}"  />
+                        <Button Grid.Column="1" Grid.Row="1"  Command="{Binding Exit_Click}" Content="Вийти з акаунту" Style="{StaticResource SignINBut}"  />
                     </Grid>
                     <Button Grid.ColumnSpan="2" Grid.Row="7" Content="Поповинити баланс" Style="{StaticResource login}" Margin="20"/>
                     <DockPanel Grid.Row="3"  Grid.Column="1" HorizontalAlignment="Center">
