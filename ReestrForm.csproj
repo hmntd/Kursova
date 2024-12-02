@@ -15,14 +15,20 @@
     <None Remove="image\Chill.png" />
     <None Remove="image\Chill2.png" />
     <None Remove="image\Chill3.png" />
+    <None Remove="image\Chill5.png" />
     <None Remove="image\ChillZone.png" />
     <None Remove="image\ChillZone1.png" />
     <None Remove="image\ChillZone2.png" />
+    <None Remove="image\Chip.png" />
+    <None Remove="image\Discord_Alt.png" />
     <None Remove="image\google.png" />
     <None Remove="image\inst.png" />
+    <None Remove="image\Instagram_Alt.png" />
     <None Remove="image\lock.png" />
     <None Remove="image\mail.png" />
     <None Remove="image\MainName.png" />
+    <None Remove="image\NFC.png" />
+    <None Remove="image\Telegram.png" />
     <None Remove="image\tg.png" />
     <None Remove="image\user.png" />
     <None Remove="inst.jpg" />
@@ -50,6 +56,9 @@
     <Resource Include="image\Chill3.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="image\Chill5.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="image\ChillZone.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
@@ -59,10 +68,19 @@
     <Resource Include="image\ChillZone2.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="image\Chip.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="image\Discord_Alt.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="image\google.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="image\inst.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="image\Instagram_Alt.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="image\lock.png">
@@ -72,6 +90,12 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="image\MainName.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="image\NFC.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="image\Telegram.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="image\tg.png">
