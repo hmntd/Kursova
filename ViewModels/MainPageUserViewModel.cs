@@ -15,32 +15,52 @@ namespace ReestrForm.ViewModels
     {
         public User currentUser { get; }
         private ObservableCollection<ReestrForm.Models.Application> Applications;
-        public ObservableCollection<Models.Application> Games { get; }
-        public ObservableCollection<ReestrForm.Models.Application> Apps { get; }
+        private ObservableCollection<ReestrForm.Models.Application> apps;
+        public ObservableCollection<Models.Application> Apps
+        {
+            get { return apps; }
+            set
+            {
+                apps = value;
+                OnPropertyChanged(nameof(Apps));
+            }
+        }
         private Window _window;
         public ICommand TimePage_Click { get; }
         public ICommand FoodPage_Click { get; }
+        public ICommand Exit_Click { get; }
+        public ICommand Filter_All { get; }
+        public ICommand Filter_Games { get; }
+        public ICommand Filter_Applications { get; }
         public MainPageUserViewModel(User user, Window window)
         {
             currentUser = user;
             _window = window;
             Applications = Data.LoadData<ReestrForm.Models.Application>(applicationFilePath);
-            Games = new ObservableCollection<ReestrForm.Models.Application>();
-            Apps = new ObservableCollection<ReestrForm.Models.Application>();
+            Apps = Applications;
+            TimePage_Click = new RelayCommand(TimePage);
+            FoodPage_Click = new RelayCommand(FoodPage);
+            Exit_Click = new RelayCommand(Exit);
+            Filter_All = new RelayCommand(() => Filter("all"));
+            Filter_Games = new RelayCommand(() => Filter("Game"));
+            Filter_Applications = new RelayCommand(() => Filter("App"));
+        }
+        private void Filter(string type)
+        {
+            if (type == "all")
+            {
+                Apps = Applications;
+                return;
+            }
+
+            Apps = new ObservableCollection<Models.Application>();
             foreach (var item in Applications)
             {
-                if (item.Type == "Game")
-                {
-                    Games.Add(item);
-                }
-
-                if (item.Type == "Application")
+                if (item.Type == type)
                 {
                     Apps.Add(item);
                 }
             }
-            TimePage_Click = new RelayCommand(TimePage);
-            FoodPage_Click = new RelayCommand(FoodPage);
         }
         private void TimePage()
         {
@@ -57,6 +77,16 @@ namespace ReestrForm.ViewModels
             page.DataContext = new FoodPageViewModel(currentUser, page, _window);
             mainFrame.Navigate(page);
             _window.Content = mainFrame;
+        }
+        private void Exit()
+        {
+            var result = MessageBox.Show("Are you sure to exit acc", "Exiting", MessageBoxButton.YesNo);
+            if (result == MessageBoxResult.Yes)
+            {
+                MainWindow window = new MainWindow();
+                window.Show();
+                _window.Close();
+            }
         }
     }
 }
