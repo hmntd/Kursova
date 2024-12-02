@@ -7,6 +7,9 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="AddBalance.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="FoodPageUser.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -21,6 +24,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="AddBalance.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="FoodPageUser.xaml">
       <SubType>Designer</SubType>
     </Page>

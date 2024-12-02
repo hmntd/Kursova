@@ -238,27 +238,6 @@
                 </Grid>
             </Border>
         </DataTemplate>
-        <DataTemplate x:Key="FoodList">
-            <Border Margin="5" CornerRadius="10" >
-                <Border.Background>
-                    <SolidColorBrush Color="#507294" />
-                </Border.Background>
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="1*"/>
-                        <ColumnDefinition Width="4*"/>
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition  />
-                    </Grid.RowDefinitions>
-                    <Image Source="/image/MainName.png"  Grid.Column="0"  Width="200" Height="200"/>
-                    <Border Grid.Row="1" Background="#ffcb2a" Opacity="0.9" CornerRadius="5" Grid.Column="1"/>
-                    <TextBlock Text="Назва напою" Grid.Column="1" FontFamily="Bookman Old Style" 
-       HorizontalAlignment="Center" VerticalAlignment="Center" 
-       TextWrapping="Wrap" Foreground="Black" FontSize="20" />
-                </Grid>
-            </Border>
-        </DataTemplate>
         <Style x:Key="HeadingStyle" TargetType="GridViewColumnHeader">
             <Setter Property="HorizontalContentAlignment" Value="Center" />
             <Setter Property="VerticalContentAlignment" Value="Center" />
@@ -302,6 +281,28 @@
                 </Trigger>
                 <Trigger Property="IsPressed" Value="True">
                     <Setter Property="Background" Value="#507294"/>
+                    <Setter Property="BorderBrush" Value="White"/>
+                </Trigger>
+            </Style.Triggers>
+
+        </Style>
+        <Style x:Key="SocialMedia" TargetType="Button">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}">
+                            <ContentPresenter HorizontalAlignment="Center"
+                                  VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
                     <Setter Property="BorderBrush" Value="White"/>
                 </Trigger>
             </Style.Triggers>
