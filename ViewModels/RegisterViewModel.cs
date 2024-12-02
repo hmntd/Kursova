@@ -87,7 +87,7 @@ namespace ReestrForm.ViewModels
         }
         public void Register()
         {
-            newUser = new User(Guid.NewGuid(), Password, Username, Email, false, 0, 0);
+            newUser = new User(Guid.NewGuid(), Password, Username, Email, false, 0, 0, 0);
             try
             {
                 if (Password != RPassword)
@@ -109,7 +109,7 @@ namespace ReestrForm.ViewModels
             Data.SaveData(userFilePath, users);
 
             MainPageUser mainPageUser = new MainPageUser();
-            mainPageUser.DataContext = new MainPageUserViewModel(newUser);
+            mainPageUser.DataContext = new MainPageUserViewModel(newUser, mainPageUser);
             mainPageUser.Show();
             Window.GetWindow(_page).Close() ;
         }

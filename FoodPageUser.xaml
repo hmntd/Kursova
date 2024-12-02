@@ -46,9 +46,9 @@
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <Button Grid.Column="0" Content="Ігри" Style="{StaticResource MenuButton}"/>
+                <Button Grid.Column="0" Content="Ігри" Style="{StaticResource MenuButton}" Command="{Binding Games_Click}"/>
                 <Button Grid.Column="1" Content="Додатки" Style="{StaticResource MenuButton}" IsEnabled="True"/>
-                <Button Grid.Column="2" Content="Години" Style="{StaticResource MenuButton}"/>
+                <Button Grid.Column="2" Content="Години" Style="{StaticResource MenuButton}" Command="{Binding Times_Click}"/>
                 <Button Grid.Column="3" Content="Їжа" Margin="0,0,5,0" Style="{StaticResource MenuButton}"/>
             </Grid>
             <Label Grid.Column="1" Grid.Row="1" Content="You Info" Style="{StaticResource LOG}"/>
@@ -78,7 +78,7 @@
                     <Button Grid.ColumnSpan="2" Grid.Row="7" Content="Поповинити баланс" Style="{StaticResource login}" Margin="20"/>
                     <DockPanel Grid.Row="3"  Grid.Column="1" HorizontalAlignment="Center">
                         <Label DockPanel.Dock="Right"  Content="годин" Style="{StaticResource InfoLab}" Margin="10,0,0,0"/>
-                        <Label DockPanel.Dock="Left"   Style="{StaticResource InfoValueLabel}"/>
+                        <Label DockPanel.Dock="Left"   Content="{Binding currentUser.Hours}" Style="{StaticResource InfoValueLabel}"/>
                     </DockPanel>
                     <DockPanel Grid.Row="4"  Grid.Column="1" HorizontalAlignment="Center">
                         <Label DockPanel.Dock="Right"  Content="грн." Style="{StaticResource InfoLab}" Margin="10,0,0,0"/>

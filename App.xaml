@@ -73,6 +73,38 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
+        <Style x:Key="SignINBut" TargetType="Button">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="FontFamily" Value="Bookman Old Style"/>
+            <Setter Property="Foreground" Value="#bcbcac"/>
+            <Setter Property="BorderBrush" Value="#bcbcac"/>
+            <Setter Property="BorderThickness" Value="0,0,0,2"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}">
+                            <ContentPresenter HorizontalAlignment="Center"
+                                  VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <!-- Триггер для эффекта наведения -->
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Foreground" Value="White"/>
+                    <!-- Меняем цвет текста на белый -->
+                    <Setter Property="Background" Value="Transparent"/>
+                    <Setter Property="BorderBrush" Value="White"/>
+                    <Setter Property="BorderThickness" Value="0,0,0,2"/>
+                    <!-- Меняем цвет рамки на белый -->
+                </Trigger>
+            </Style.Triggers>
+
+        </Style>
         <Style x:Key="LOG" TargetType="Label" BasedOn="{StaticResource MainLabel}">
             <Setter Property="FontSize" Value="59"/>
             <Setter Property="HorizontalAlignment" Value="Center"/>
