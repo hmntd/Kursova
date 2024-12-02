@@ -15,6 +15,7 @@ namespace ReestrForm.Models
         public bool IsAdmin { get; set; }
         private float hours;
         private float totalHours;
+        public decimal Balance { get; set; }
         public float Hours
         {
             get { return hours; }
@@ -33,7 +34,16 @@ namespace ReestrForm.Models
             }
         }
         public User() { }
-        public User(Guid id, string password, string username, string email, bool isAdmin, float hours, float totalHours)
+        public User(
+            Guid id,
+            string password,
+            string username,
+            string email,
+            bool isAdmin,
+            float hours,
+            float totalHours,
+            decimal balance
+            )
         {
             Id = id.ToString();
             Password = password;
@@ -42,6 +52,7 @@ namespace ReestrForm.Models
             IsAdmin = isAdmin;
             Hours = hours;
             TotalHours = totalHours;
+            Balance = balance;
         }
     }
 }
