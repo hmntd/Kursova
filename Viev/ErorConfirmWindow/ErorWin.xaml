@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ReestrForm"
         mc:Ignorable="d"
-        Title="ErorWin" Height="300" Width="800" Background="Transparent" WindowStyle="None" WindowStartupLocation="CenterScreen">
+        Title="ErorWin" Height="300" Width="800" Background="Transparent" WindowStyle="None" AllowsTransparency="True" WindowStartupLocation="CenterScreen">
     <Grid>
-        <Border Grid.Row="1" Grid.Column="1" CornerRadius="20" Padding="10">
+        <Border Grid.Row="1" Grid.Column="1" CornerRadius="20" Padding="10" BorderThickness="2" BorderBrush="White">
             <Border.Background >
                 <SolidColorBrush Color="#383b4d"/>
             </Border.Background>
