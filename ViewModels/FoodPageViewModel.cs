@@ -94,7 +94,7 @@ namespace ReestrForm.ViewModels
         private void BuyFood(Suply suply)
         {
             var win = new FoodConfirmPage();
-            var viewmodel = new FoodConfirmViewModel(currentUser, suply, _window);
+            var viewmodel = new FoodConfirmViewModel(currentUser, suply, win);
             win.DataContext = viewmodel;
             win.Show();
         }

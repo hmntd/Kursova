@@ -34,8 +34,8 @@
                         <RowDefinition Height="271*"/>
                         <RowDefinition Height="32*"/>
                     </Grid.RowDefinitions>
-                    <Button Grid.Row="1" Grid.Column="0" Style="{StaticResource login}" Margin="20,10,10,10" Content="Відхилити" FontSize="16" Command="{Binding Buy_Click}"/>
-                    <Button Grid.Row="1" Grid.Column="1" Style="{StaticResource login}" Margin="10,10,20,10" Content="Замовити" FontSize="16" Command="{Binding Cancel_Click}"/>
+                    <Button Grid.Row="1" Grid.Column="0" Style="{StaticResource login}" Margin="20,10,10,10" Content="Відхилити" FontSize="16" Command="{Binding Cancel_Click}"/>
+                    <Button Grid.Row="1" Grid.Column="1" Style="{StaticResource login}" Margin="10,10,20,10" Content="Замовити" FontSize="16" Command="{Binding Buy_Click}"/>
                 </Grid>
                 <Grid Grid.Row="1" Grid.Column="1">
                     <Grid.ColumnDefinitions>

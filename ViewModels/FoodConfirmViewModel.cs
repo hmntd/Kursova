@@ -22,12 +22,15 @@ namespace ReestrForm.ViewModels
             {
                 if (value < 0)
                 {
+                    count = 0;
+                    OnPropertyChanged(nameof(Count));
                     var win = new ErorWin();
                     var viewModel = new ErrorViewModel("Count cann't be below zero", win);
                     win.DataContext = viewModel;
                     win.Show();
                 }
                 count = value;
+                OnPropertyChanged(nameof(Count));
             }
         }
         private Window _window;
@@ -62,7 +65,10 @@ namespace ReestrForm.ViewModels
 
             if ((Product.Price * Count) > currentUser.Balance)
             {
-                MessageBox.Show("На балансі недостатньо коштів");
+                var win = new ErorWin();
+                var viewModel = new ErrorViewModel("На балансі недостатньо коштів", win);
+                win.DataContext = viewModel;
+                win.Show();
                 return;
             }
 

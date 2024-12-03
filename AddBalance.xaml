@@ -50,9 +50,9 @@
                 <Border Grid.Column="6" Grid.Row="3" CornerRadius="10" Background="#d8dfe9">
                     <Image Source="/image/NFC.png"  HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5"/>
                 </Border>
-                <Button Grid.Column="6" Grid.Row="8" Style="{StaticResource login}" Content="Підтвердити" FontSize="14" Margin="3,3,3,3"/>
-                <Button Grid.Column="5" Grid.Row="8" Style="{StaticResource login}" Content="Відхилити" FontSize="14" Margin="3,3,3,3"/>
-                <TextBox Grid.Row="8"  Grid.Column="1" Grid.ColumnSpan="2" Text="Ім'я власника" Style="{StaticResource RegBlock}" VerticalContentAlignment="Bottom"/>
+                <Button Grid.Column="6" Grid.Row="8" Style="{StaticResource login}" Content="Підтвердити" Command="{Binding Accept_Click}" FontSize="14" Margin="3,3,3,3"/>
+                <Button Grid.Column="5" Grid.Row="8" Style="{StaticResource login}" Content="Відхилити" Command="{Binding Cancel_Click}" FontSize="14" Margin="3,3,3,3"/>
+                <TextBox Grid.Row="8"  Grid.Column="1" Grid.ColumnSpan="2" Text="Ім'я власника" Style="{StaticResource RegBlock}" VerticalContentAlignment="Bottom" />
                 <TextBox Text="Дата дійсності" HorizontalAlignment="Center" Grid.Column="3" Grid.Row="6" Style="{StaticResource RegBlock}" VerticalAlignment="Bottom" />
                 <TextBox Text="Номер картки" VerticalAlignment="Bottom" Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="3" Style="{StaticResource RegBlock}"/>
                 <TextBox Grid.Column="6" Grid.Row="6" Text="CVV" Style="{StaticResource RegBlock}"/>
