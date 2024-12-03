@@ -3,6 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+            xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
       xmlns:local="clr-namespace:ReestrForm"
       mc:Ignorable="d" 
       d:DesignHeight="1080" d:DesignWidth="1920"
@@ -119,7 +120,12 @@
             <!--Список ігр-->
             <ListView Grid.Column="0" Grid.Row="2" HorizontalContentAlignment="Stretch" Background="Transparent" 
           ScrollViewer.VerticalScrollBarVisibility="Hidden" ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
-          d:ItemsSource="{d:SampleData ItemCount=10}" ItemsSource="{Binding Rates}" BorderThickness="0" Margin="10,10,10,0" >
+          d:ItemsSource="{d:SampleData ItemCount=10}" ItemsSource="{Binding Rates}" BorderThickness="0" Margin="10,10,10,0" SelectedItem="{Binding SelectedRate}">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="MouseDoubleClick">
+                        <i:InvokeCommandAction Command="{Binding BuyRate_Command}" CommandParameter="{Binding SelectedRate}" />
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
                 <ListView.View>
                     <GridView ColumnHeaderContainerStyle="{StaticResource HeadingStyle}">
                         <!-- Заголовки -->

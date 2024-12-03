@@ -3,6 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
       xmlns:local="clr-namespace:ReestrForm"
       mc:Ignorable="d" 
       d:DesignHeight="1080" d:DesignWidth="1920"
@@ -133,7 +134,12 @@
                 </Grid>
                 <ListView Grid.Row="1" HorizontalContentAlignment="Stretch" Background="Transparent" 
           ScrollViewer.VerticalScrollBarVisibility="Hidden" ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
-          d:ItemsSource="{d:SampleData ItemCount=10}" ItemsSource="{Binding Suplies}"  BorderThickness="0" Margin="0,10,0,0">
+          d:ItemsSource="{d:SampleData ItemCount=10}" ItemsSource="{Binding Suplies}"  BorderThickness="0" Margin="0,10,0,0" SelectedItem="{Binding SelectedFood}">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="MouseDoubleClick">
+                            <i:InvokeCommandAction Command="{Binding Buy_Food_Click}" CommandParameter="{Binding SelectedFood}" />
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
                     <ListView.View>
                     <GridView ColumnHeaderContainerStyle="{StaticResource HeadingStyle}">
                         <!-- Заголовки -->
