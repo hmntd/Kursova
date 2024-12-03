@@ -1,4 +1,5 @@
 ﻿using ReestrForm.Models;
+using ReestrForm.Models.ValidationRules;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,8 +25,21 @@ namespace ReestrForm.ViewModels
                     OnPropertyChanged(nameof(NameOwner));
                     return;
                 }
-                nameOwner = value;
-                OnPropertyChanged(nameof(NameOwner));
+
+                try
+                {
+                    CardValidationRules.NameOwnerValidate(value);
+                    nameOwner = value;
+                    OnPropertyChanged(nameof(NameOwner));
+                } catch (Exception ex)
+                {
+                    var win = new ErorWin();
+                    var viewModel = new ErrorViewModel(ex.Message, win);
+                    win.DataContext = viewModel;
+                    win.Show();
+                    nameOwner = "Ім'я власника";
+                    OnPropertyChanged(nameof(NameOwner));
+                }
             }
         }
         private string date = "Дата дійсності";
@@ -36,12 +50,25 @@ namespace ReestrForm.ViewModels
             {
                 if (value == "")
                 {
-                    date = "Ім'я власника";
+                    date = "Дата дійсності";
                     OnPropertyChanged(nameof(Date));
                     return;
                 }
-                date = value;
-                OnPropertyChanged(nameof(Date));
+
+                try
+                {
+                    CardValidationRules.ExpiryDateValidate(value);
+                    date = value;
+                    OnPropertyChanged(nameof(Date));
+                } catch (Exception ex)
+                {
+                    var win = new ErorWin();
+                    var viewModel = new ErrorViewModel(ex.Message, win);
+                    win.DataContext = viewModel;
+                    win.Show();
+                    date = "Дата дійсності";
+                    OnPropertyChanged(nameof(Date));
+                }
             }
         }
         private string number = "Номер картки";
@@ -56,8 +83,21 @@ namespace ReestrForm.ViewModels
                     OnPropertyChanged(nameof(Number));
                     return;
                 }
-                number = value;
-                OnPropertyChanged(nameof(Number));
+
+                try
+                {
+                    CardValidationRules.CardNumberValidate(int.Parse(value));
+                    number = value;
+                    OnPropertyChanged(nameof(Number));
+                } catch (Exception ex)
+                {
+                    var win = new ErorWin();
+                    var viewModel = new ErrorViewModel(ex.Message, win);
+                    win.DataContext = viewModel;
+                    win.Show();
+                    number = "Номер картки";
+                    OnPropertyChanged(nameof(Number));
+                }
             }
         }
         private string cvv = "CVV";
@@ -72,8 +112,21 @@ namespace ReestrForm.ViewModels
                     OnPropertyChanged(nameof(CVV));
                     return;
                 }
-                cvv = value;
-                OnPropertyChanged(nameof(CVV));
+
+                try
+                {
+                    CardValidationRules.CvvValidation(int.Parse(value));
+                    cvv = value;
+                    OnPropertyChanged(nameof(CVV));
+                } catch(Exception ex)
+                {
+                    var win = new ErorWin();
+                    var viewModel = new ErrorViewModel(ex.Message, win);
+                    win.DataContext = viewModel;
+                    win.Show();
+                    cvv = "CVV";
+                    OnPropertyChanged(nameof(CVV));
+                }
             }
         }
         public ICommand Cancel_Click { get; }
@@ -105,16 +158,16 @@ namespace ReestrForm.ViewModels
         {
             switch (field)
             {
-                case nameof(NameOwner):
+                case "NameOwner":
                     NameOwner = string.Empty;
                     break;
-                case nameof(Date):
+                case "Date":
                     Date = string.Empty;
                     break;
-                case nameof(Number):
+                case "Number":
                     Number = string.Empty;
                     break;
-                case nameof(CVV):
+                case "CVV":
                     CVV = string.Empty;
                     break;
             }

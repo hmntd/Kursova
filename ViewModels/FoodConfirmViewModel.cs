@@ -54,7 +54,7 @@ namespace ReestrForm.ViewModels
         }
         private void BuyFood()
         {
-            var confirmViewModel = new ConfirmViewModel($"Are you sure to buy {Product.Name} x {Count}");
+            var confirmViewModel = new ConfirmViewModel($"Ви впевнені у покупці {Product.Name} у кількості: {Count}");
             var confirmWindow = new Confirm { DataContext = confirmViewModel };
             bool? result = confirmWindow.ShowDialog();
             if (result != true)

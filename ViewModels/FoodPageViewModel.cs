@@ -100,7 +100,7 @@ namespace ReestrForm.ViewModels
         }
         private void Exit()
         {
-            var confirmViewModel = new ConfirmViewModel("Are you sure to exit acc?");
+            var confirmViewModel = new ConfirmViewModel("Ви впевнені, що хочете вийти з аккаунта?");
             var confirmWindow = new Confirm { DataContext = confirmViewModel };
             bool? result = confirmWindow.ShowDialog();
             if (result == true)
