@@ -118,9 +118,8 @@
                 </Grid>
             </Border>
             <!--Список ігр-->
-            <ListView Grid.Column="0" Grid.Row="2" HorizontalContentAlignment="Stretch" Background="Transparent" 
-          ScrollViewer.VerticalScrollBarVisibility="Hidden" ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
-          d:ItemsSource="{d:SampleData ItemCount=10}" ItemsSource="{Binding Rates}" BorderThickness="0" Margin="10,10,10,0" SelectedItem="{Binding SelectedRate}">
+            <ListView Grid.Column="0" Grid.Row="2" Style="{StaticResource FoodListView}" 
+          d:ItemsSource="{d:SampleData ItemCount=10}" ItemsSource="{Binding Rates}"  Margin="10,10,10,0" SelectedItem="{Binding SelectedRate}">
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="MouseDoubleClick">
                         <i:InvokeCommandAction Command="{Binding BuyRate_Command}" CommandParameter="{Binding SelectedRate}" />
@@ -132,7 +131,7 @@
                         <GridViewColumn Width="175">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <Border  Background="#507294" CornerRadius="10" Padding="5" Width="150" Height="150">
+                                    <Border  Style="{StaticResource BorderListImj}" Width="150" Height="150">
                                         <Image Source="{Binding Path_to_image}" Width="150" Height="150"  Stretch="Fill"/>
                                     </Border>
                                 </DataTemplate>
@@ -142,8 +141,7 @@
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
                                     <Border Background="#ffcb2a" Height="150" Width="700" >
-                                        <TextBlock Text="{Binding Name}" FontFamily="Bookman Old Style" VerticalAlignment="Center" HorizontalAlignment="Center"
-                                       TextWrapping="Wrap" FontSize="30" Foreground="Black" />
+                                        <TextBlock Text="{Binding Name}" Style="{StaticResource ListViewItemBlock}" />
                                     </Border>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
@@ -153,10 +151,8 @@
                                 <DataTemplate>
                                     <Border Background="#ffcb2a" Height="150" Width="200" >
                                         <DockPanel HorizontalAlignment="Center">
-                                            <TextBlock Text="{Binding Hours}" FontSize="30" FontFamily="Bookman Old Style" 
-                                        HorizontalAlignment="Center" Foreground="Black" VerticalAlignment="Center" DockPanel.Dock="Left"/>
-                                            <TextBlock Text=" год." FontSize="30" FontFamily="Bookman Old Style" DockPanel.Dock="Right"
-                                         Foreground="Black" VerticalAlignment="Center" />
+                                            <TextBlock Text="{Binding Hours}" Style="{StaticResource ListViewItemBlock}" DockPanel.Dock="Left"/>
+                                            <TextBlock Text=" год."  DockPanel.Dock="Right" Style="{StaticResource ListViewItemBlock}" />
                                         </DockPanel>
                                     </Border>
                                 </DataTemplate>
@@ -167,10 +163,8 @@
                                 <DataTemplate>
                                     <Border Background="#ffcb2a" Height="150" Width="180">
                                         <DockPanel HorizontalAlignment="Center">
-                                            <TextBlock Text="{Binding Price}" FontSize="30" FontFamily="Bookman Old Style" 
-                                       HorizontalAlignment="Right" Foreground="Black" VerticalAlignment="Center" DockPanel.Dock="Left"/>
-                                            <TextBlock Text=" грн." FontSize="30" FontFamily="Bookman Old Style" DockPanel.Dock="Right"
-                                         Foreground="Black" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                            <TextBlock Text="{Binding Price}" Style="{StaticResource ListViewItemBlock}" DockPanel.Dock="Left"/>
+                                            <TextBlock Text=" грн." Style="{StaticResource ListViewItemBlock}" DockPanel.Dock="Right"/>
                                         </DockPanel>
                                     </Border>
                                 </DataTemplate>
