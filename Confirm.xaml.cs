@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ReestrForm.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,17 @@ namespace ReestrForm
         public Confirm()
         {
             InitializeComponent();
+            Loaded += (s, e) =>
+            {
+                if (DataContext is ConfirmViewModel viewModel)
+                {
+                    viewModel.RequestClose += () =>
+                    {
+                        this.DialogResult = viewModel.Result;
+                        this.Close();
+                    };
+                }
+            };
         }
     }
 }

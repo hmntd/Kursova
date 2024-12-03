@@ -80,8 +80,10 @@ namespace ReestrForm.ViewModels
         }
         private void Exit()
         {
-            var result = MessageBox.Show("Are you sure to exit acc", "Exiting", MessageBoxButton.YesNo);
-            if (result == MessageBoxResult.Yes)
+            var confirmViewModel = new ConfirmViewModel("Are you sure to exit acc?");
+            var confirmWindow = new Confirm { DataContext = confirmViewModel };
+            bool? result = confirmWindow.ShowDialog();
+            if (result == true)
             {
                 MainWindow window = new MainWindow();
                 window.Show();
