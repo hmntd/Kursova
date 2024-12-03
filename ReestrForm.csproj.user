@@ -10,6 +10,9 @@
     <Compile Update="AddBalance.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="AddGamesWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Confirm.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -43,6 +46,9 @@
   </ItemGroup>
   <ItemGroup>
     <Page Update="AddBalance.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="AddGamesWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Confirm.xaml">

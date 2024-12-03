@@ -131,10 +131,10 @@
                     <Button Grid.Column="1" Content="Напої" Style="{StaticResource MenuButton}" Command="{Binding Filter_Drink}" Margin="0,10,5,0"/>
                     <Button Content="Їжа" Style="{StaticResource MenuButton}" Command="{Binding Filter_Food}" Margin="0,10,0,0"/>
                 </Grid>
-            <ListView Grid.Row="1" HorizontalContentAlignment="Stretch" Background="Transparent" 
+                <ListView Grid.Row="1" HorizontalContentAlignment="Stretch" Background="Transparent" 
           ScrollViewer.VerticalScrollBarVisibility="Hidden" ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
           d:ItemsSource="{d:SampleData ItemCount=10}" ItemsSource="{Binding Suplies}"  BorderThickness="0" Margin="0,10,0,0">
-                <ListView.View>
+                    <ListView.View>
                     <GridView ColumnHeaderContainerStyle="{StaticResource HeadingStyle}">
                         <!-- Заголовки -->
                         <GridViewColumn Width="170"  >

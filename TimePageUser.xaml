@@ -119,7 +119,7 @@
             <!--Список ігр-->
             <ListView Grid.Column="0" Grid.Row="2" HorizontalContentAlignment="Stretch" Background="Transparent" 
           ScrollViewer.VerticalScrollBarVisibility="Hidden" ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
-          d:ItemsSource="{d:SampleData ItemCount=10}" ItemsSource="{Binding Rates}" BorderThickness="0" Margin="10,10,10,0">
+          d:ItemsSource="{d:SampleData ItemCount=10}" ItemsSource="{Binding Rates}" BorderThickness="0" Margin="10,10,10,0" >
                 <ListView.View>
                     <GridView ColumnHeaderContainerStyle="{StaticResource HeadingStyle}">
                         <!-- Заголовки -->
