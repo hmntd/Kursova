@@ -20,6 +20,7 @@ namespace ReestrForm.ViewModels
         public ICommand Games_Click { get; }
         public ICommand Foods_Click { get; }
         public ICommand BuyRate_Command { get; }
+        public ICommand Exit_Click { get; }
         public TimePageViewModel(User user, Page page, Window window)
         {
             currentUser = user;
@@ -29,6 +30,7 @@ namespace ReestrForm.ViewModels
             Foods_Click = new RelayCommand(Foods);
             BuyRate_Command = new RelayCommand(() => BuyRate(SelectedRate), () => SelectedRate != null);
             Rates = Data.LoadData<Rate>(rateFilePath);
+            Exit_Click = new RelayCommand(Exit);
         }
         private Rate _selectedRate;
         public Rate SelectedRate
@@ -89,6 +91,18 @@ namespace ReestrForm.ViewModels
             page.DataContext = new FoodPageViewModel(currentUser, page, _window);
             mainFrame.Navigate(page);
             _window.Content = mainFrame;
+        }
+        private void Exit()
+        {
+            var confirmViewModel = new ConfirmViewModel("Are you sure to exit acc?");
+            var confirmWindow = new Confirm { DataContext = confirmViewModel };
+            bool? result = confirmWindow.ShowDialog();
+            if (result == true)
+            {
+                MainWindow window = new MainWindow();
+                window.Show();
+                _window.Close();
+            }
         }
     }
 }

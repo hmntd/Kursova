@@ -32,6 +32,7 @@ namespace ReestrForm.ViewModels
         public ICommand Filter_All { get; }
         public ICommand Filter_Games { get; }
         public ICommand Filter_Applications { get; }
+        public ICommand AddBalance_Click { get; }
         public MainPageUserViewModel(User user, Window window)
         {
             currentUser = user;
@@ -44,6 +45,7 @@ namespace ReestrForm.ViewModels
             Filter_All = new RelayCommand(() => Filter("all"));
             Filter_Games = new RelayCommand(() => Filter("Game"));
             Filter_Applications = new RelayCommand(() => Filter("App"));
+            AddBalance_Click = new RelayCommand(AddBalance);
         }
         private void Filter(string type)
         {
@@ -80,13 +82,22 @@ namespace ReestrForm.ViewModels
         }
         private void Exit()
         {
-            var result = MessageBox.Show("Are you sure to exit acc", "Exiting", MessageBoxButton.YesNo);
-            if (result == MessageBoxResult.Yes)
+            var confirmViewModel = new ConfirmViewModel("Are you sure to exit acc?");
+            var confirmWindow = new Confirm { DataContext = confirmViewModel };
+            bool? result = confirmWindow.ShowDialog();
+            if (result == true)
             {
                 MainWindow window = new MainWindow();
                 window.Show();
                 _window.Close();
             }
+        }
+        private void AddBalance()
+        {
+            var win = new AddBalance();
+            var vm = new AddBalanceViewModel(currentUser, win);
+            win.DataContext = vm;
+            win.Show();
         }
     }
 }

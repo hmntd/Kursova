@@ -33,6 +33,7 @@ namespace ReestrForm.ViewModels
         public ICommand Filter_All {  get; }
         public ICommand Filter_Food { get; }
         public ICommand Filter_Drink { get; }
+        public ICommand Exit_Click { get; }
         public FoodPageViewModel(User currentUser, Page page, Window window)
         {
             this.currentUser = currentUser;
@@ -46,6 +47,7 @@ namespace ReestrForm.ViewModels
             sup = Data.LoadData<Suply>(suplyFilePath);
             Suplies = sup;
             Buy_Food_Click = new RelayCommand(() => BuyFood(SelectedFood), () => SelectedFood != null);
+            Exit_Click = new RelayCommand(Exit);
         }
         public void Filter(string type)
         {
@@ -91,33 +93,21 @@ namespace ReestrForm.ViewModels
         }
         private void BuyFood(Suply suply)
         {
-            var result = MessageBox.Show("Are you sure in buying the rate?", "Buying", MessageBoxButton.YesNo);
-            if (result == MessageBoxResult.Yes)
+            var win = new FoodConfirmPage();
+            var viewmodel = new FoodConfirmViewModel(currentUser, suply, win);
+            win.DataContext = viewmodel;
+            win.Show();
+        }
+        private void Exit()
+        {
+            var confirmViewModel = new ConfirmViewModel("Are you sure to exit acc?");
+            var confirmWindow = new Confirm { DataContext = confirmViewModel };
+            bool? result = confirmWindow.ShowDialog();
+            if (result == true)
             {
-                SelectedFood = null;
-                return;
-            }
-
-            if (suply != null)
-            {
-                if (suply.Price > currentUser.Balance)
-                {
-                    MessageBox.Show("На балансі недостатньо коштів");
-                    return;
-                }
-
-                Suply? oldSup = sup.FirstOrDefault(r => r.Id == suply.Id);
-                if (oldSup != null)
-                {
-                    currentUser.Balance -= oldSup.Price;
-                    var users = Data.LoadData<User>(userFilePath);
-                    var user = users.FirstOrDefault(u => u.Username == currentUser.Username);
-                    user.Balance = currentUser.Balance;
-                    Data.SaveData<User>(userFilePath, users);
-                    oldSup.WasBought++;
-                    Data.SaveData(suplyFilePath, sup);
-                }
-                MessageBox.Show($"You have bought the rate: {suply.Name}");
+                MainWindow window = new MainWindow();
+                window.Show();
+                _window.Close();
             }
         }
     }

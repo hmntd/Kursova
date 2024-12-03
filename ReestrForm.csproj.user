@@ -10,13 +10,34 @@
     <Compile Update="AddBalance.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="AddGamesWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Confirm.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="ErorWin.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="FoodConfirmWin.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="FoodPageAdmin.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="FoodPageUser.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="MainAdminWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="MainPageUser.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="ReestrPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="TimePageAdmin.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="TimePageUser.xaml.cs">
@@ -27,7 +48,25 @@
     <Page Update="AddBalance.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="AddGamesWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Confirm.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ErorWin.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="FoodConfirmWin.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="FoodPageAdmin.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="FoodPageUser.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MainAdminWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MainPageUser.xaml">
@@ -37,6 +76,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="ReestrPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="TimePageAdmin.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="TimePageUser.xaml">
