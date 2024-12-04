@@ -42,35 +42,35 @@
                 </Border>
                 <Button Grid.Column="6" Grid.Row="8" Style="{StaticResource login}" Content="Підтвердити" Command="{Binding Accept_Click}" FontSize="14" Margin="3,3,3,3"/>
                 <Button Grid.Column="5" Grid.Row="8" Style="{StaticResource login}" Content="Відхилити" Command="{Binding Cancel_Click}" FontSize="14" Margin="3,3,3,3"/>
-                <TextBox  Grid.Row="8"  Grid.Column="1" Grid.ColumnSpan="2" Text="Ім'я власника" Style="{StaticResource RegBlock}" VerticalContentAlignment="Bottom" >
+                <TextBox  Grid.Row="8"  Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding NameOwner}" Style="{StaticResource RegBlock}" VerticalContentAlignment="Bottom" >
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="GotFocus">
                             <i:InvokeCommandAction Command="{Binding GetFocus_NameOwner}" />
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
                 </TextBox>
-                <TextBox Text="Дата дійсності" HorizontalAlignment="Center" Grid.Column="3" Grid.Row="6" Style="{StaticResource RegBlock}" VerticalAlignment="Bottom" >
+                <TextBox Text="{Binding Date}" HorizontalAlignment="Center" Grid.Column="3" Grid.Row="6" Style="{StaticResource RegBlock}" VerticalAlignment="Bottom" >
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="GotFocus">
                         <i:InvokeCommandAction Command="{Binding GetFocus_Date}" />
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
                 </TextBox>
-                <TextBox Text="Номер картки" VerticalAlignment="Bottom" Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="3" Style="{StaticResource RegBlock}">
+                <TextBox Text="{Binding Number}" VerticalAlignment="Bottom" Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="3" Style="{StaticResource RegBlock}">
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="GotFocus">
                         <i:InvokeCommandAction Command="{Binding GetFocus_Number}" />
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
                 </TextBox>
-                <TextBox Grid.Column="6" Grid.Row="6" Text="CVV" Style="{StaticResource RegBlock}">
+                <TextBox Grid.Column="6" Grid.Row="6" Text="{Binding CVV}" Style="{StaticResource RegBlock}">
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="GotFocus">
                             <i:InvokeCommandAction Command="{Binding GetFocus_CVV}" />
                         </i:EventTrigger>
                     </i:Interaction.Triggers>
                 </TextBox>
-                <TextBox Grid.Column="1" Grid.Row="6" VerticalAlignment="Bottom" Text="Введіть сумму" Style="{StaticResource RegBlock}">
+                <TextBox Grid.Column="1" Grid.Row="6" VerticalAlignment="Bottom" Text="{Binding Sum}" Style="{StaticResource RegBlock}">
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="GotFocus">
                             <i:InvokeCommandAction Command="{Binding GetFocus_Sum}" />

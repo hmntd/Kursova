@@ -1,10 +1,10 @@
 [
-    {
-        "Id": null,
-        "Name": "Test rate",
-        "Path_to_image": "/image/google.png",
-        "Hours": 10,
-        "Price": 5,
-        "WasBought": 0
-    }
+  {
+    "Id": null,
+    "Name": "Test rate",
+    "Hours": 10,
+    "Price": 5,
+    "Path_to_image": "/image/google.png",
+    "WasBought": 3
+  }
 ]

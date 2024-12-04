@@ -5,9 +5,10 @@
     "Username": "Loh",
     "Email": "loh@test.com",
     "IsAdmin": false,
-    "hours": 0,
-    "totalHours": 0,
-    "Balance": 0
+    "Balance": 1715,
+    "RateName": "Test rate",
+    "Hours": 30,
+    "TotalHours": 0
   },
   {
     "Id": "65a12132-6f32-42ab-89d1-6e7e60a58c8b",
@@ -15,8 +16,9 @@
     "Username": "BiteV1x",
     "Email": "sadasd@gmail.com",
     "IsAdmin": false,
-    "hours": 0,
-    "totalHours": 0,
-    "Balance": 0
+    "Balance": 0,
+    "RateName": "-",
+    "Hours": 0,
+    "TotalHours": 0
   }
 ]

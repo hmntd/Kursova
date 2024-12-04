@@ -80,6 +80,7 @@ namespace ReestrForm.ViewModels
             ObservableCollection<Order> orders = Data.LoadData<Order>(orderFilePath);
             orders.Add(new Order(Guid.NewGuid().ToString(), Product.Name, user.Username, Count));
             Data.SaveData(orderFilePath, orders);
+            _window.DialogResult = true;
             _window.Close();
         }
     }

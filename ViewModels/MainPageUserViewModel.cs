@@ -13,7 +13,17 @@ namespace ReestrForm.ViewModels
 {
     public class MainPageUserViewModel: ViewModel
     {
-        public User currentUser { get; }
+        public User currentUser { get; private set; }
+        private decimal balance;
+        public decimal Balance
+        {
+            get { return balance; }
+            set
+            {
+                balance = value;
+                OnPropertyChanged(nameof(Balance));
+            }
+        }
         private ObservableCollection<ReestrForm.Models.Application> Applications;
         private ObservableCollection<ReestrForm.Models.Application> apps;
         public ObservableCollection<Models.Application> Apps
@@ -36,6 +46,7 @@ namespace ReestrForm.ViewModels
         public MainPageUserViewModel(User user, Window window)
         {
             currentUser = user;
+            Balance = user.Balance;
             _window = window;
             Applications = Data.LoadData<ReestrForm.Models.Application>(applicationFilePath);
             Apps = Applications;
@@ -97,7 +108,12 @@ namespace ReestrForm.ViewModels
             var win = new AddBalance();
             var vm = new AddBalanceViewModel(currentUser, win);
             win.DataContext = vm;
-            win.Show();
+            bool? result = win.ShowDialog();
+            if (result == true)
+            {
+                currentUser = vm.UpdatedUser;
+                Balance = currentUser.Balance;
+            }
         }
     }
 }
