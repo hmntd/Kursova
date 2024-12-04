@@ -138,7 +138,7 @@
                          SelectedItem="{Binding SelectedGame}">
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="MouseDoubleClick">
-                            <i:InvokeCommandAction Command="{Binding StarGameClick}" CommandParameter="{Binding SelectedGame}" />
+                            <i:InvokeCommandAction Command="{Binding StartGame_Click}" CommandParameter="{Binding SelectedGame}" />
                         </i:EventTrigger>
                     </i:Interaction.Triggers>
                     <ListBox.ItemsPanel>
