@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -43,6 +44,7 @@ namespace ReestrForm.ViewModels
         public ICommand Filter_Games { get; }
         public ICommand Filter_Applications { get; }
         public ICommand AddBalance_Click { get; }
+        public ICommand StartGame_Click { get; }
         public MainPageUserViewModel(User user, Window window)
         {
             currentUser = user;
@@ -57,6 +59,7 @@ namespace ReestrForm.ViewModels
             Filter_Games = new RelayCommand(() => Filter("Game"));
             Filter_Applications = new RelayCommand(() => Filter("App"));
             AddBalance_Click = new RelayCommand(AddBalance);
+            StartGame_Click = new RelayCommand(startGame);
         }
         private void Filter(string type)
         {
@@ -93,7 +96,7 @@ namespace ReestrForm.ViewModels
         }
         private void Exit()
         {
-            var confirmViewModel = new ConfirmViewModel("Are you sure to exit acc?");
+            var confirmViewModel = new ConfirmViewModel("Ви хочете покинути аккаунт?");
             var confirmWindow = new Confirm { DataContext = confirmViewModel };
             bool? result = confirmWindow.ShowDialog();
             if (result == true)
@@ -113,6 +116,81 @@ namespace ReestrForm.ViewModels
             {
                 currentUser = vm.UpdatedUser;
                 Balance = currentUser.Balance;
+            }
+        }
+        private Timer gameTimer;
+        private int remainingTimeInSeconds;
+        private Process gameProcess;
+        private Models.Application _selectedGame;
+        public Models.Application SelectedGame
+        {
+            get { return _selectedGame; }
+            set
+            {
+                _selectedGame = value;
+                OnPropertyChanged(nameof(SelectedGame));
+            }
+        }
+        private void startGame()
+        {
+            remainingTimeInSeconds = (int)(currentUser.Hours * 3600);
+            try
+            {
+                gameProcess = new Process
+                {
+                    StartInfo = new ProcessStartInfo
+                    {
+                        FileName = SelectedGame.Path_to_Application,
+                        UseShellExecute = true
+                    }
+                };
+                gameProcess.Start();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Помилка при запуску застосунку: {ex.Message}");
+                return;
+            }
+
+            StartGameTimer();
+        }
+        private void StartGameTimer()
+        {
+            gameTimer = new Timer(GameTimerCallback, null, 0, 1000);
+        }
+        private void GameTimerCallback(object state)
+        {
+            if (remainingTimeInSeconds <= 0)
+            {
+                gameTimer.Dispose();
+                currentUser.TotalHours += currentUser.Hours;
+                currentUser.Hours = 0;
+                OnPropertyChanged(nameof(currentUser));
+                EndGame();
+            }
+            else
+            {
+                remainingTimeInSeconds--;
+                currentUser.TotalHours += currentUser.Hours - (remainingTimeInSeconds / 3600);
+                currentUser.Hours = remainingTimeInSeconds / 3600;
+                OnPropertyChanged(nameof(currentUser));
+            }
+        }
+        private void EndGame()
+        {
+            try
+            {
+                if (gameProcess != null && !gameProcess.HasExited)
+                {
+                    gameProcess.Kill();
+                    gameProcess.Dispose();
+                }
+
+                MessageBox.Show("Ігровий час закінчився");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"помилка при зупинці гри: {ex.Message}");
             }
         }
     }

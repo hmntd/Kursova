@@ -12,21 +12,9 @@
     "Count": 2
   },
   {
-    "Id": "930f1b20-478f-49de-a529-5f0319fc435f",
+    "Id": "939d5577-d154-44be-9206-bf6437cc1885",
     "Suply_Name": "Tea",
-    "Client_Name": "BiteV1x",
-    "Count": 3
-  },
-  {
-    "Id": "1ccd57cd-67a6-4303-8f9d-695d9d78dd20",
-    "Suply_Name": "Tea",
-    "Client_Name": "BiteV1x",
-    "Count": 20
-  },
-  {
-    "Id": "c53248e3-2aab-444f-ab01-69e4a5fc29c2",
-    "Suply_Name": "Tea",
-    "Client_Name": "BiteV1x",
-    "Count": 20
+    "Client_Name": "Loh",
+    "Count": 7
   }
 ]

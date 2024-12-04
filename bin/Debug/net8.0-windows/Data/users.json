@@ -5,9 +5,9 @@
     "Username": "Loh",
     "Email": "loh@test.com",
     "IsAdmin": false,
-    "Balance": 1715,
+    "Balance": 1640,
     "RateName": "Test rate",
-    "Hours": 30,
+    "Hours": 40,
     "TotalHours": 0
   },
   {
@@ -16,9 +16,9 @@
     "Username": "BiteV1x",
     "Email": "sadasd@gmail.com",
     "IsAdmin": false,
-    "Balance": 2560,
-    "RateName": "Test rate",
-    "Hours": 20,
+    "Balance": 0,
+    "RateName": "-",
+    "Hours": 0,
     "TotalHours": 0
   }
 ]
