@@ -16,9 +16,9 @@
     "Username": "BiteV1x",
     "Email": "sadasd@gmail.com",
     "IsAdmin": false,
-    "Balance": 0,
-    "RateName": "-",
-    "Hours": 0,
+    "Balance": 965,
+    "RateName": "Test rate",
+    "Hours": 10,
     "TotalHours": 0
   }
 ]

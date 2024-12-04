@@ -94,7 +94,7 @@
                     <Label Grid.Row="3" Content="Години:" Style="{StaticResource InfoLab}"/>
                     <Label Grid.Row="4" Content="Баланс:" Style="{StaticResource InfoLab}"/>
                     <Label Grid.Row="5" Content="Тариф:" Style="{StaticResource InfoLab}"/>
-                    <Label Grid.Row="5" Grid.Column="1" HorizontalAlignment="Center"  Style="{StaticResource InfoValueLabel}" Content="{Binding RateName}"/>
+                    <Label Grid.Row="5" Grid.Column="1" HorizontalAlignment="Center"  Style="{StaticResource InfoValueLabel}" Content="{Binding currentUser.RateName}"/>
 
                     <Grid Grid.Row="6" Grid.ColumnSpan="2">
                         <Grid.RowDefinitions>

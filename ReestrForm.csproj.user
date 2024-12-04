@@ -1,7 +1,38 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup />
-  <ItemGroup />
-  <ItemGroup />
-  <ItemGroup />
+  <ItemGroup>
+    <Compile Update="View\AdminWindow\AdminOrderWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\AdminWindow\EditUser.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\AdminWindow\FoodStatAdmin.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\AdminWindow\GameStatAdmin.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\AdminWindow\TimeStatAdmin.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="View\AdminWindow\AdminOrderWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\AdminWindow\EditUser.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\AdminWindow\FoodStatAdmin.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\AdminWindow\GameStatAdmin.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\AdminWindow\TimeStatAdmin.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
 </Project>

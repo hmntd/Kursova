@@ -44,9 +44,19 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="35*"/>
                     <RowDefinition Height="70*"/>
-                    <RowDefinition Height="29*"/>
                 </Grid.RowDefinitions>
-                <DockPanel Grid.Row="1">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="5*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button Grid.Column="3" Style="{StaticResource SignINBut}" Content="×" FontSize="30"/>
+                    <Button Grid.Column="2" Style="{StaticResource SignINBut}" Content="▱" FontSize="30"/>
+                    <Button BorderThickness="2,0,0,2" Grid.Column="1" Style="{StaticResource SignINBut}" Content="⇲" FontSize="30"/>
+                </Grid>
+                <DockPanel Grid.Row="1" Margin="0,0,0,20">
                     <Button DockPanel.Dock="Left" Style="{StaticResource SignINBut}" Content="Замовлення клієнтів: " FontSize="30"/>
                     <Label DockPanel.Dock="Right" Content="30" Style="{StaticResource SingIN lab}" FontSize="30"  HorizontalAlignment="Left" VerticalContentAlignment="Center"/>
                 </DockPanel>
@@ -78,16 +88,10 @@
                 </Grid.ColumnDefinitions>
                 <Button Grid.Column="0" Content="Головна" Style="{StaticResource MenuButton}" Command="{Binding Games_Click}"/>
                 <Button Grid.Column="1" Content="Години" Style="{StaticResource MenuButton}" Command="{Binding Times_Click}"/>
-                <Button Grid.Column="2" Content="Їжа" Margin="0,0,5,0" Style="{StaticResource MenuButton}" Command="{Binding Filter_All}"/>
+                <Button Grid.Column="2" Content="Їжа"  Style="{StaticResource MenuButton}" Command="{Binding Filter_All}"/>
             </Grid>
-            <Grid Grid.Column="1" Grid.Row="1">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-                <Button Grid.Column="0" Content="Користувачі" Style="{StaticResource MenuButton}" />
-                <Button Grid.Column="1" Content="Статистика" Style="{StaticResource MenuButton}" Margin="0,0,5,0"/>
-            </Grid>
+            <Button Grid.Column="1" Grid.Row="1" Content="Користувачі" Style="{StaticResource MenuButton}" />
+
             <!--Інформаційна панель-->
             <Border  Grid.Column="2" Grid.Row="3" Grid.RowSpan="3" BorderThickness="2" BorderBrush="#bcbcac" CornerRadius="10" Margin="5,10,0,0">
                 <Grid >
@@ -108,6 +112,8 @@
                     <Label Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" VerticalAlignment="Center" Content="You Info" Style="{StaticResource LOG}"/>
                     <Label Grid.Row="1" Grid.ColumnSpan="2" Content="Користувач:" Style="{StaticResource InfoLab}" FontSize="40"/>
                     <Label Grid.Row="2" Grid.ColumnSpan="2" Content="Адміністатор"  FontSize="40" VerticalAlignment="Top" Style="{StaticResource InfoValueLabel}" HorizontalAlignment="Center"/>
+                    <Button Grid.Row="3" Grid.ColumnSpan="2" Content="Статистика" Style="{StaticResource login}" Margin="20"/>
+
                     <Button Grid.Row="4" Grid.ColumnSpan="2" Content="Замінити" Style="{StaticResource login}" Margin="20"/>
                     <Button Grid.Row="5" Grid.ColumnSpan="2" Content="Додати" Style="{StaticResource login}" Margin="20"/>
                     <Button Grid.Row="6" Grid.ColumnSpan="2" Content="Видалити" Style="{StaticResource login}" Margin="20"/>
