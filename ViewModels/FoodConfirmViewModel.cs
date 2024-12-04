@@ -54,7 +54,7 @@ namespace ReestrForm.ViewModels
         }
         private void BuyFood()
         {
-            var confirmViewModel = new ConfirmViewModel($"Are you sure to buy {Product.Name} x {Count}");
+            var confirmViewModel = new ConfirmViewModel($"Ви впевнені у покупці {Product.Name} у кількості: {Count}");
             var confirmWindow = new Confirm { DataContext = confirmViewModel };
             bool? result = confirmWindow.ShowDialog();
             if (result != true)
@@ -80,6 +80,7 @@ namespace ReestrForm.ViewModels
             ObservableCollection<Order> orders = Data.LoadData<Order>(orderFilePath);
             orders.Add(new Order(Guid.NewGuid().ToString(), Product.Name, user.Username, Count));
             Data.SaveData(orderFilePath, orders);
+            _window.DialogResult = true;
             _window.Close();
         }
     }

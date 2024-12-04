@@ -1,4 +1,6 @@
-﻿using ReestrForm.Models;
+﻿using Newtonsoft.Json.Linq;
+using ReestrForm.Models;
+using ReestrForm.Models.ValidationRules;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,18 +14,14 @@ namespace ReestrForm.ViewModels
     public class AddBalanceViewModel: ViewModel
     {
         private User currentUser;
+        public User UpdatedUser => currentUser;
         private Window _window;
         private string nameOwner = "Ім'я власника";
         public string NameOwner
         {
             get { return nameOwner; }
-            set {
-                if (value == "")
-                {
-                    nameOwner = "Ім'я власника";
-                    OnPropertyChanged(nameof(NameOwner));
-                    return;
-                }
+            set
+            {
                 nameOwner = value;
                 OnPropertyChanged(nameof(NameOwner));
             }
@@ -34,12 +32,6 @@ namespace ReestrForm.ViewModels
             get { return date; }
             set
             {
-                if (value == "")
-                {
-                    date = "Ім'я власника";
-                    OnPropertyChanged(nameof(Date));
-                    return;
-                }
                 date = value;
                 OnPropertyChanged(nameof(Date));
             }
@@ -50,12 +42,6 @@ namespace ReestrForm.ViewModels
             get { return number; }
             set
             {
-                if (value == "")
-                {
-                    number = "Номер картки";
-                    OnPropertyChanged(nameof(Number));
-                    return;
-                }
                 number = value;
                 OnPropertyChanged(nameof(Number));
             }
@@ -66,14 +52,18 @@ namespace ReestrForm.ViewModels
             get { return cvv; }
             set
             {
-                if (value == "")
-                {
-                    cvv = "CVV";
-                    OnPropertyChanged(nameof(CVV));
-                    return;
-                }
                 cvv = value;
                 OnPropertyChanged(nameof(CVV));
+            }
+        }
+        private string sum = "Введіть сумму";
+        public string Sum
+        {
+            get { return sum; }
+            set
+            {
+                sum = value;
+                OnPropertyChanged(nameof(Sum));
             }
         }
         public ICommand Cancel_Click { get; }
@@ -82,6 +72,7 @@ namespace ReestrForm.ViewModels
         public ICommand GetFocus_Date { get; }
         public ICommand GetFocus_Number { get; }
         public ICommand GetFocus_CVV { get; }
+        public ICommand GetFocus_Sum { get; }
         public AddBalanceViewModel(User user, Window window)
         {
             currentUser = user;
@@ -92,6 +83,7 @@ namespace ReestrForm.ViewModels
             GetFocus_Date = new RelayCommand(() => cleanField("Date"));
             GetFocus_Number = new RelayCommand(() => cleanField("Number"));
             GetFocus_CVV = new RelayCommand(() => cleanField("CVV"));
+            GetFocus_Sum = new RelayCommand(() => cleanField("Sum"));
         }
         private void Cancel()
         {
@@ -99,23 +91,63 @@ namespace ReestrForm.ViewModels
         }
         private void Accept()
         {
-            _window.Close();
+            try
+            {
+                CardValidationRules.NameOwnerValidate(NameOwner);
+                CardValidationRules.ExpiryDateValidate(Date);
+                CardValidationRules.CardNumberValidate(long.Parse(Number));
+                CardValidationRules.CvvValidation(int.Parse(CVV));
+                CardValidationRules.SumValidate(int.Parse(Sum));
+
+                var users = Data.LoadData<User>(userFilePath);
+                var user = users.FirstOrDefault(u => u.Username == currentUser.Username);
+                user.Balance += int.Parse(Sum);
+                currentUser.Balance += int.Parse(Sum);
+                Data.SaveData(userFilePath, users);
+                _window.DialogResult = true;
+                _window.Close();
+            }
+            catch (Exception ex)
+            {
+                var win = new ErorWin();
+                var viewModel = new ErrorViewModel(ex.Message, win);
+                win.DataContext = viewModel;
+                win.ShowDialog();
+            }
         }
         private void cleanField(string field)
         {
             switch (field)
             {
-                case nameof(NameOwner):
-                    NameOwner = string.Empty;
+                case "NameOwner":
+                    if (NameOwner == "Ім'я власника")
+                    {
+                        NameOwner = string.Empty;
+                    }
                     break;
-                case nameof(Date):
-                    Date = string.Empty;
+                case "Date":
+                    if (Date == "Дата дійсності")
+                    {
+                        Date = string.Empty;
+                    }
                     break;
-                case nameof(Number):
-                    Number = string.Empty;
+                case "Number":
+                    if (Number == "Номер картки")
+                    {
+                        Number = string.Empty;
+                    }
                     break;
-                case nameof(CVV):
-                    CVV = string.Empty;
+                case "CVV":
+                    if (CVV == "CVV")
+                    {
+                        CVV = string.Empty;
+                    }
+                    break;
+                case "Sum":
+                    if (Sum == "Введіть сумму")
+                    {
+                        Sum = string.Empty;
+                    }
                     break;
             }
         }

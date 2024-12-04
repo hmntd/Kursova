@@ -112,7 +112,7 @@ Top="0"
                     </DockPanel>
                     <DockPanel Grid.Row="4"  Grid.Column="1" HorizontalAlignment="Center">
                         <Label DockPanel.Dock="Right"  Content="грн." Style="{StaticResource InfoLab}" Margin="10,0,0,0"/>
-                        <Label DockPanel.Dock="Left" Content="{Binding currentUser.Balance}"  Style="{StaticResource InfoValueLabel}" />
+                        <Label DockPanel.Dock="Left" Content="{Binding Balance}"  Style="{StaticResource InfoValueLabel}" />
                     </DockPanel>
                 </Grid>
             </Border>
