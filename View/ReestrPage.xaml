@@ -99,7 +99,7 @@
 
 
                 <Button Content="Sign IN" Grid.Row="11" Grid.Column="2" Grid.ColumnSpan="8"  Style="{StaticResource login}" Command="{Binding Register_Click}"/>
-                <Label Content="Вже зарееєстровані?" Grid.Row="12" Grid.Column="4" Grid.ColumnSpan="4" Style="{StaticResource Center lab}" VerticalAlignment="Bottom"/>
+                <Label Content="Вже зарееєстровані?" Grid.Row="12" Grid.Column="2" Grid.ColumnSpan="8" Style="{StaticResource Center lab}" VerticalAlignment="Bottom"/>
                 <Button Content="Back" Grid.Row="13" Grid.Column="5" Grid.ColumnSpan="2" Command="{Binding Back_Click}" Style="{StaticResource SignINBut}"/>
 
 

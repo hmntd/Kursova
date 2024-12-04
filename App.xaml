@@ -24,26 +24,29 @@
             <Setter Property="TextBlock.FontFamily" Value="Bookman Old Style"/>
             <Setter Property="TextBlock.Foreground" Value="#FFF5F4F4"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
-            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="FontSize" Value="20"/>
             <Setter Property="BorderBrush" Value="#bcbcac"/>
             <Setter Property="BorderThickness" Value="0,0,0,2"/>
+            <Setter Property="VerticalAlignment" Value="Bottom"/>
         </Style>
         <Style x:Key="PassBlock" TargetType="PasswordBox">
             <Setter Property="Background" Value="Transparent" />
             <Setter Property="TextBlock.FontFamily" Value="Bookman Old Style"/>
             <Setter Property="TextBlock.Foreground" Value="#FFF5F4F4"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
-            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="FontSize" Value="20"/>
             <Setter Property="BorderBrush" Value="#bcbcac"/>
             <Setter Property="BorderThickness" Value="0,0,0,2"/>
+            <Setter Property="VerticalAlignment" Value="Bottom"/>
         </Style>
         <Style x:Key="MainLabel" TargetType="Label">
             <Setter Property="Foreground" Value="#bcbcac"/>
             <Setter Property="FontFamily" Value="Bookman Old Style"/>
-            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontSize" Value="20"/>
         </Style>
         <Style x:Key="Left lab" TargetType="Label" BasedOn="{StaticResource MainLabel}">
             <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="VerticalAlignment" Value="Bottom"/>
         </Style>
         <Style x:Key="Right lab" TargetType="Label" BasedOn="{StaticResource MainLabel}">
             <Setter Property="HorizontalAlignment" Value="Right"/>
@@ -77,7 +80,7 @@
             <Setter Property="Foreground" Value="#bcbcac"/>
             <Setter Property="BorderBrush" Value="#bcbcac"/>
             <Setter Property="BorderThickness" Value="0,0,0,2"/>
-            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontSize" Value="20"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
@@ -212,7 +215,7 @@
                         <RowDefinition Height="99*" />
                         <RowDefinition Height="26*" />
                     </Grid.RowDefinitions>
-                    <Image Source="{Binding Path_to_Image}" Grid.RowSpan="2" Stretch="Fill"/>
+                    <Image Source="{Binding Path_to_Image}" Grid.RowSpan="2" Stretch="Uniform" Margin="10"/>
                     <Border Grid.Row="1" Background="#ffcb2a" Opacity="0.9" CornerRadius="5" />
                     <TextBlock Text="{Binding Name}" Grid.Row="1" FontFamily="Bookman Old Style" 
                        HorizontalAlignment="Center" VerticalAlignment="Center" 
@@ -350,5 +353,58 @@
             <Setter Property="HorizontalAlignment" Value="Center" />
             <Setter Property="TextWrapping" Value="Wrap" />
         </Style>
+        <!-- DataTemplates -->
+        <DataTemplate x:Key="ImageTemplate">
+            <Border Style="{StaticResource BorderListImj}">
+                <Image Source="{Binding Path_to_image}" Width="150" Height="150" Stretch="Fill"/>
+            </Border>
+        </DataTemplate>
+        <DataTemplate x:Key="NameTemplate">
+            <Border Background="#ffcb2a" Height="150" Width="700">
+                <TextBlock Text="{Binding Name}" Style="{StaticResource ListViewItemBlock}"/>
+            </Border>
+        </DataTemplate>
+        <DataTemplate x:Key="HoursTemplate">
+            <Border Background="#ffcb2a" Height="150" Width="200">
+                <DockPanel HorizontalAlignment="Center">
+                    <TextBlock Text="{Binding Hours}" Style="{StaticResource ListViewItemBlock}" DockPanel.Dock="Left"/>
+                    <TextBlock Text=" год." Style="{StaticResource ListViewItemBlock}" DockPanel.Dock="Right"/>
+                </DockPanel>
+            </Border>
+        </DataTemplate>
+        <DataTemplate x:Key="PriceTemplate">
+            <Border Background="#ffcb2a" Height="150" Width="180">
+                <DockPanel HorizontalAlignment="Center">
+                    <TextBlock Text="{Binding Price}" Style="{StaticResource ListViewItemBlock}" DockPanel.Dock="Left"/>
+                    <TextBlock Text=" грн." Style="{StaticResource ListViewItemBlock}" DockPanel.Dock="Right"/>
+                </DockPanel>
+            </Border>
+        </DataTemplate>
+        <DataTemplate x:Key="ProductImageTemplate">
+            <Border Style="{StaticResource BorderListImj}">
+                <Image Source="{Binding Path_to_Image}" Width="150" Height="150" Stretch="Uniform" Margin="6" 
+                   HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Border>
+        </DataTemplate>
+        <DataTemplate x:Key="ProductNameTemplate">
+            <Border Background="#ffcb2a" Height="150" Width="700">
+                <TextBlock Text="{Binding Name}" Style="{StaticResource ListViewItemBlock}" TextWrapping="Wrap"/>
+            </Border>
+        </DataTemplate>
+        <DataTemplate x:Key="ProductPriceTemplate">
+            <Border Background="#ffcb2a" Height="150" Width="400">
+                <DockPanel HorizontalAlignment="Center">
+                    <TextBlock Text="{Binding Price}" Style="{StaticResource ListViewItemBlock}" DockPanel.Dock="Left"/>
+                    <TextBlock Text=" грн." Style="{StaticResource ListViewItemBlock}" DockPanel.Dock="Right"/>
+                </DockPanel>
+            </Border>
+        </DataTemplate>
+        <Style TargetType="ListBox" x:Key="gamebox">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Hidden"/>
+            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Hidden"/>
+            <Setter Property="BorderThickness" Value="0"/>
+        </Style>
+        
     </Application.Resources>
 </Application>
