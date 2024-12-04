@@ -2,7 +2,7 @@
     {
         "Id": null,
         "Name": "Dota 2",
-        "Path_to_Application": "/games/Dota2.exe",
+        "Path_to_Application": "C:\\Riot Games\\Riot Client\\RiotClientServices.exe",
         "Path_to_Image": "/image/Background.png",
         "Type": "Game",
         "HoursPlayed": 0
