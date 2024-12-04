@@ -163,11 +163,15 @@ namespace ReestrForm.ViewModels
             if (remainingTimeInSeconds <= 0)
             {
                 gameTimer.Dispose();
+                currentUser.TotalHours += currentUser.Hours;
+                currentUser.Hours = 0;
+                OnPropertyChanged(nameof(currentUser));
                 EndGame();
             }
             else
             {
                 remainingTimeInSeconds--;
+                currentUser.TotalHours += currentUser.Hours - (remainingTimeInSeconds / 3600);
                 currentUser.Hours = remainingTimeInSeconds / 3600;
                 OnPropertyChanged(nameof(currentUser));
             }
