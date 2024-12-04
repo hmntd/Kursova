@@ -399,6 +399,27 @@
                 </DockPanel>
             </Border>
         </DataTemplate>
+        <DataTemplate x:Key="NicknameTemplate">
+            <Border Background="#ffcb2a" Height="100" Width="700">
+                <TextBlock Text="{Binding Nickname}" Style="{StaticResource ListViewItemBlock}" TextWrapping="Wrap"/>
+            </Border>
+        </DataTemplate>
+        <DataTemplate x:Key="HoursUserTemplate">
+            <Border Background="#ffcb2a" Height="100" Width="300">
+                <DockPanel HorizontalAlignment="Center">
+                    <TextBlock Text="{Binding Hours}" Style="{StaticResource ListViewItemBlock}" DockPanel.Dock="Left"/>
+                    <TextBlock Text=" год." Style="{StaticResource ListViewItemBlock}" DockPanel.Dock="Right"/>
+                </DockPanel>
+            </Border>
+        </DataTemplate>
+        <DataTemplate x:Key="BalanceTemplate">
+            <Border Background="#ffcb2a" Height="100" Width="250">
+                <DockPanel HorizontalAlignment="Center">
+                    <TextBlock Text="{Binding Balance}" Style="{StaticResource ListViewItemBlock}" DockPanel.Dock="Left"/>
+                    <TextBlock Text=" грн." Style="{StaticResource ListViewItemBlock}" DockPanel.Dock="Right"/>
+                </DockPanel>
+            </Border>
+        </DataTemplate>
         <Style TargetType="ListBox" x:Key="gamebox">
             <Setter Property="Background" Value="Transparent"/>
             <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Hidden"/>

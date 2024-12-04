@@ -58,7 +58,7 @@
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
             </TextBox>
-            <TextBox Text="{Binding Date}" HorizontalAlignment="Center" Grid.Column="3" Grid.Row="6" Style="{StaticResource RegBlock}" VerticalAlignment="Bottom" >
+            <TextBox Text="{Binding Date}" TextWrapping="WrapWithOverflow" FontSize="16" HorizontalContentAlignment="Center" Grid.Column="3" Grid.Row="6" Style="{StaticResource RegBlock}" VerticalAlignment="Bottom" >
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="GotFocus">
                         <i:InvokeCommandAction Command="{Binding GetFocus_Date}" />
@@ -79,7 +79,7 @@
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
             </TextBox>
-            <TextBox Grid.Column="1" Grid.Row="6" VerticalAlignment="Bottom" Text="Введіть сумму" Style="{StaticResource RegBlock}">
+            <TextBox Grid.Column="1" Grid.Row="6" VerticalAlignment="Bottom" Text="{Binding Sum}" Style="{StaticResource RegBlock}">
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="GotFocus">
                         <i:InvokeCommandAction Command="{Binding GetFocus_Sum}" />

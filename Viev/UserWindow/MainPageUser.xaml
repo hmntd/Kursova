@@ -2,14 +2,16 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ReestrForm"
         mc:Ignorable="d"
         WindowStartupLocation="Manual"
-Left="0"
-Top="0"
+        Left="0"
+        Top="0"
+        Height="1080" Width="1920"
          WindowStyle="None" AllowsTransparency="True"
-        Title="MainPageUser" Height="1080" Width="1920" Style="{StaticResource WinStyle}">
+        Title="MainPageUser"  Style="{StaticResource WinStyle}">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="15*"/>
@@ -92,6 +94,8 @@ Top="0"
                     <Label Grid.Row="3" Content="Години:" Style="{StaticResource InfoLab}"/>
                     <Label Grid.Row="4" Content="Баланс:" Style="{StaticResource InfoLab}"/>
                     <Label Grid.Row="5" Content="Тариф:" Style="{StaticResource InfoLab}"/>
+                    <Label Grid.Row="5" Grid.Column="1" HorizontalAlignment="Center"  Style="{StaticResource InfoValueLabel}" Content="{Binding RateName}"/>
+
                     <Grid Grid.Row="6" Grid.ColumnSpan="2">
                         <Grid.RowDefinitions>
                             <RowDefinition/>
@@ -130,7 +134,13 @@ Top="0"
                     <Button Grid.Column="1" Content="Додатки" Style="{StaticResource MenuButton}" Command="{Binding Filter_Applications}" Margin="0,10,5,0"/>
                     <Button Content="Ігри" Style="{StaticResource MenuButton}" Command="{Binding Filter_Games}" Margin="0,10,0,0"/>
                 </Grid>
-                <ListBox Grid.Column="0" Grid.Row="1" Style="{StaticResource gamebox}" d:ItemsSource="{d:SampleData ItemCount=10}" ItemsSource="{Binding Apps}"  ItemTemplate="{StaticResource GameList}"  Margin="0,10,0,0" Grid.ColumnSpan="2">
+                <ListBox Grid.Column="0" Grid.Row="1" Style="{StaticResource gamebox}" d:ItemsSource="{d:SampleData ItemCount=10}" ItemsSource="{Binding Apps}"  ItemTemplate="{StaticResource GameList}"  Margin="0,10,0,0" Grid.ColumnSpan="2"
+                         SelectedItem="{Binding SelectedGame}">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="MouseDoubleClick">
+                            <i:InvokeCommandAction Command="{Binding StarGameClick}" CommandParameter="{Binding SelectedGame}" />
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
                     <ListBox.ItemsPanel>
                         <!-- Використання WrapPanel для розташування елементів -->
                         <ItemsPanelTemplate>

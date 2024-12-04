@@ -1,20 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup />
-  <ItemGroup />
   <ItemGroup>
-    <Compile Update="AddFoodWindow.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="AddTimeWindow.xaml.cs">
+    <Compile Update="Viev\AdminWindow\AdminUsersControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="AddFoodWindow.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="AddTimeWindow.xaml">
+    <Page Update="Viev\AdminWindow\AdminUsersControl.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
