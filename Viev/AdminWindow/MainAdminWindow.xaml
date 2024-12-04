@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
         xmlns:local="clr-namespace:ReestrForm"
         mc:Ignorable="d"
         Title="MainAdminWindow" WindowStartupLocation="Manual"
@@ -123,7 +124,7 @@ WindowStyle="None" AllowsTransparency="True" Style="{StaticResource WinStyle}">
                             <ColumnDefinition Width="4*"/>
                             <ColumnDefinition Width="5*"/>
                         </Grid.ColumnDefinitions>
-                        <Button Grid.Column="1" Grid.Row="1"   Content="Вийти з акаунту" Style="{StaticResource SignINBut}" Command="{Binding Exit_Click}"  />
+                        <Button  Grid.Row="1" Grid.ColumnSpan="3"  Content="Вийти з акаунту" Style="{StaticResource SignINBut}" Command="{Binding Exit_Click}"  />
                     </Grid>
 
                 </Grid>
@@ -142,7 +143,8 @@ WindowStyle="None" AllowsTransparency="True" Style="{StaticResource WinStyle}">
                     <Button Grid.Column="1" Content="Додатки" Style="{StaticResource MenuButton}" Command="{Binding Filter_Applications}" Margin="0,10,5,0"/>
                     <Button Content="Ігри" Style="{StaticResource MenuButton}" Command="{Binding Filter_Games}" Margin="0,10,0,0"/>
                 </Grid>
-                <ListBox Grid.Column="0" Grid.Row="1"  Background="Transparent" ScrollViewer.VerticalScrollBarVisibility="Hidden" ScrollViewer.HorizontalScrollBarVisibility="Hidden" d:ItemsSource="{d:SampleData ItemCount=10}" ItemsSource="{Binding Apps}"  ItemTemplate="{StaticResource GameList}" BorderThickness="0" Margin="0,10,0,0" Grid.ColumnSpan="2">
+                <ListBox Grid.Column="0" Grid.Row="1"  d:ItemsSource="{d:SampleData ItemCount=10}" ItemsSource="{Binding Apps}" 
+                         ItemTemplate="{StaticResource GameList}" Style="{StaticResource gamebox}" Margin="0,10,0,0" Grid.ColumnSpan="2">
                     <ListBox.ItemsPanel>
                         <!-- Використання WrapPanel для розташування елементів -->
                         <ItemsPanelTemplate>

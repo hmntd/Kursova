@@ -23,7 +23,7 @@
                     <RowDefinition Height="30*"/>
                     <RowDefinition Height="66*"/>
                 </Grid.RowDefinitions>
-                <Label Grid.Row="1" Grid.Column="0" Content="{Binding Message}" Style="{StaticResource SingIN lab}" Grid.ColumnSpan="3" FontSize="18" VerticalAlignment="Center"/>
+                <Label Grid.Row="1" Grid.Column="0" Content="{Binding Message}" Style="{StaticResource SingIN lab}" Grid.ColumnSpan="3" FontSize="20" VerticalAlignment="Center"/>
                 <Button Grid.Column="2" Grid.Row="3" Margin="5" Style="{StaticResource login}" Content="Прийняти" FontSize="16" Command="{Binding Confirm_Click}"/>
                 <Button Grid.Column="1" Grid.Row="3" Margin="5" Style="{StaticResource login}" Content="Відхилити" FontSize="16" Command="{Binding Cancel_Click}"/>
             </Grid>
