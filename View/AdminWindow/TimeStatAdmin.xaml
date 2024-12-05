@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ReestrForm.View.AdminWindow"
         mc:Ignorable="d"
-        Title="TimeStatAdmin" Height="600" Width="1000" Background="Transparent" AllowsTransparency="False" WindowStyle="None" WindowStartupLocation="CenterScreen">
-    <Border Grid.Row="1" Grid.Column="1" CornerRadius="20" Padding="10">
+        Title="TimeStatAdmin" Height="600" Width="1000" Background="Transparent" AllowsTransparency="True" WindowStyle="None" WindowStartupLocation="CenterScreen">
+    <Border Grid.Row="1" Grid.Column="1" CornerRadius="20" Padding="10" BorderBrush="White" BorderThickness="2">
         <Border.Background >
             <SolidColorBrush Color="#383b4d"/>
         </Border.Background>
@@ -29,9 +29,9 @@
 
                 <ListView.View>
                     <GridView ColumnHeaderContainerStyle="{StaticResource HeadingStatStyle}">
-                        <GridViewColumn Width="100" CellTemplate="{StaticResource ImageTimeStatTemplate}"/>
+                        <GridViewColumn Width="120" CellTemplate="{StaticResource ImageTimeStatTemplate}"/>
                         <GridViewColumn Header="Назва продукту" Width="600" CellTemplate="{StaticResource NameTimeStatTemplate}"/>
-                        <GridViewColumn Header="Кількість замовлень" Width="300" CellTemplate="{StaticResource BuyTimeStatTemplate}" />
+                        <GridViewColumn Header="Кількість замовлень" Width="280" CellTemplate="{StaticResource BuyTimeStatTemplate}" />
                     </GridView>
                 </ListView.View>
             </ListView>

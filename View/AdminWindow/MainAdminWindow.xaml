@@ -10,7 +10,7 @@ xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
         Title="MainAdminWindow" WindowStartupLocation="Manual"
 Left="0"
 Top="0"
-Height="1080" Width="1920"   
+WindowState="Maximized"
 WindowStyle="None" AllowsTransparency="True" Style="{StaticResource WinStyle}">
     <Grid>
         <Grid.ColumnDefinitions>

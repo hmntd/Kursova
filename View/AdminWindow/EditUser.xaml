@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ReestrForm.View.AdminWindow"
         mc:Ignorable="d"
-        Title="EditUser" Height="450" Width="800" Background="Transparent" AllowsTransparency="False" WindowStyle="None" WindowStartupLocation="CenterScreen">
-    <Border Grid.Row="1" Grid.Column="1" CornerRadius="20" Padding="10">
+        Title="EditUser" Height="450" Width="800" Background="Transparent" AllowsTransparency="True" WindowStyle="None" WindowStartupLocation="CenterScreen">
+    <Border Grid.Row="1" Grid.Column="1" CornerRadius="20" Padding="10" BorderBrush="White" BorderThickness="2">
         <Border.Background >
             <SolidColorBrush Color="#383b4d"/>
         </Border.Background>
@@ -82,7 +82,7 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
                 <Button Content="Відхилити" FontSize="18"  Margin="10" Grid.Column="0" Style="{StaticResource login}" Command="{Binding Close_Click}" />
-                <Button Content="Відхилити" FontSize="18"  Margin="10" Grid.Column="1" Style="{StaticResource login}" Command="{Binding Save_Click}" />
+                <Button Content="Зберегти" FontSize="18"  Margin="10" Grid.Column="1" Style="{StaticResource login}" Command="{Binding Save_Click}" />
 
             </Grid>
         </Grid>
