@@ -173,14 +173,16 @@ namespace ReestrForm.ViewModels
             var vm = new AddFoodViewModel(SelectedFood, win, "Edit");
             win.DataContext = vm;
             win.ShowDialog();
+            OnPropertyChanged(nameof(Suplies));
         }
         private void Create()
         {
-            var win = new AddGamesWindow();
-            var vm = new AddGamesViewModel(new Models.Application(), win, "Create");
+            var win = new AddFoodWindow();
+            var vm = new AddFoodViewModel(new Suply(), win, "Create");
             win.DataContext = vm;
-           win.ShowDialog();
+            win.ShowDialog();
             this.Suplies = Data.LoadData<Models.Suply>(suplyFilePath);
+            OnPropertyChanged(nameof(Suplies));
         }
         private void Delete()
         {
@@ -202,6 +204,7 @@ namespace ReestrForm.ViewModels
             Suplies.Remove(SelectedFood);
             Data.SaveData(suplyFilePath, Suplies);
             Suplies = Data.LoadData<Models.Suply>(applicationFilePath);
+            OnPropertyChanged(nameof(Suplies));
             SelectedFood = null;
         }
         private void UserOrders()
