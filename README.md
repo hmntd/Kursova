@@ -1,7 +1,3 @@
-Sure, I can help! A good README introduces your project and helps others understand, use, or contribute to it. Here's a template you can customize:  
-
----
-
 # Computer Club Management Application  
 
 ## Overview  
