@@ -25,7 +25,7 @@ namespace ReestrForm.ViewModels
                     count = 0;
                     OnPropertyChanged(nameof(Count));
                     var win = new ErorWin();
-                    var viewModel = new ErrorViewModel("Count cann't be below zero", win);
+                    var viewModel = new ErrorViewModel("кількість не може бути нижче за 0", win);
                     win.DataContext = viewModel;
                     win.Show();
                 }

@@ -403,7 +403,7 @@
         </DataTemplate>
         <DataTemplate x:Key="NicknameTemplate">
             <Border Background="#ffcb2a" Height="100" Width="700">
-                <TextBlock Text="{Binding Nickname}" Style="{StaticResource ListViewItemBlock}" TextWrapping="Wrap"/>
+                <TextBlock Text="{Binding Username}" Style="{StaticResource ListViewItemBlock}" TextWrapping="Wrap"/>
             </Border>
         </DataTemplate>
         <DataTemplate x:Key="HoursUserTemplate">
@@ -516,7 +516,7 @@
         <DataTemplate x:Key="BuyTimeStatTemplate">
             <Border Background="#e69c33" Height="100" Width="270">
                 <DockPanel HorizontalAlignment="Center">
-                    <TextBlock Text="{Binding BuyCounter}" Style="{StaticResource ListViewItemBlock}" DockPanel.Dock="Left"/>
+                    <TextBlock Text="{Binding WasBought}" Style="{StaticResource ListViewItemBlock}" DockPanel.Dock="Left"/>
                     <TextBlock Text=" шт." Style="{StaticResource ListViewItemBlock}" DockPanel.Dock="Right"/>
                 </DockPanel>
             </Border>

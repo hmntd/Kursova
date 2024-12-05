@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace ReestrForm.ViewModels
 {
@@ -148,7 +149,10 @@ namespace ReestrForm.ViewModels
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Помилка при запуску застосунку: {ex.Message}");
+                var win = new ErorWin();
+                var viewModel = new ErrorViewModel($"Помилка при запуску застосунку: {ex.Message}", win);
+                win.DataContext = viewModel;
+                win.ShowDialog();
                 return;
             }
 
@@ -165,6 +169,7 @@ namespace ReestrForm.ViewModels
                 gameTimer.Dispose();
                 currentUser.TotalHours += currentUser.Hours;
                 currentUser.Hours = 0;
+                SaveCurrentUser();
                 OnPropertyChanged(nameof(currentUser));
                 EndGame();
             }
@@ -173,6 +178,7 @@ namespace ReestrForm.ViewModels
                 remainingTimeInSeconds--;
                 currentUser.TotalHours += currentUser.Hours - (remainingTimeInSeconds / 3600);
                 currentUser.Hours = remainingTimeInSeconds / 3600;
+                SaveCurrentUser();
                 OnPropertyChanged(nameof(currentUser));
             }
         }
@@ -186,11 +192,43 @@ namespace ReestrForm.ViewModels
                     gameProcess.Dispose();
                 }
 
-                MessageBox.Show("Ігровий час закінчився");
+                SaveCurrentUser();
+
+                var win = new Confirm();
+                var viewmodel = new ConfirmViewModel("Ігровий час закінчився");
+                win.DataContext = viewmodel;
+                win.ShowDialog();
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"помилка при зупинці гри: {ex.Message}");
+                var win = new ErorWin();
+                var viewModel = new ErrorViewModel($"помилка при зупинці гри: {ex.Message}", win);
+                win.DataContext = viewModel;
+                win.ShowDialog();
+            }
+        }
+        private void SaveCurrentUser()
+        {
+            try
+            {
+                var users = Data.LoadData<User>(userFilePath);
+
+                var existingUser = users.FirstOrDefault(u => u.Id == currentUser.Id);
+                if (existingUser != null)
+                {
+                    existingUser.Balance = currentUser.Balance;
+                    existingUser.Hours = currentUser.Hours;
+                    existingUser.TotalHours = currentUser.TotalHours;
+                }
+
+                Data.SaveData(userFilePath, users);
+            }
+            catch (Exception ex)
+            {
+                var win = new ErorWin();
+                var viewModel = new ErrorViewModel($"Помилка при збереженні користувача: {ex.Message}", win);
+                win.DataContext = viewModel;
+                win.ShowDialog();
             }
         }
     }

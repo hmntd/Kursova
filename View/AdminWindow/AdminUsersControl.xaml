@@ -87,7 +87,7 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
                 <Button Grid.Column="0" Content="Головна" Style="{StaticResource MenuButton}" Command="{Binding Games_Click}"/>
-                <Button Grid.Column="1" Content="Години" Style="{StaticResource MenuButton}" />
+                <Button Grid.Column="1" Content="Години" Style="{StaticResource MenuButton}" Command="{Binding Times_Click}" />
                 <Button Grid.Column="2" Content="Їжа" Style="{StaticResource MenuButton}" Command="{Binding Foods_Click}"/>
             </Grid>
             <Button Grid.Column="1" Grid.Row="1" Content="Користувачі" Style="{StaticResource MenuButton}" />
@@ -111,10 +111,10 @@
                     </Grid.RowDefinitions>
                     <Label Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" VerticalAlignment="Center" Content="You Info" Style="{StaticResource LOG}"/>
                     <Label Grid.Row="1" Grid.ColumnSpan="2" Content="Користувач:" Style="{StaticResource InfoLab}" FontSize="40"/>
-                    <Label Grid.Row="2" Grid.ColumnSpan="2" Content="Адміністатор"  FontSize="40" VerticalAlignment="Top" Style="{StaticResource InfoValueLabel}" HorizontalAlignment="Center"/>
-                    <Button Grid.Row="4" Grid.ColumnSpan="2" Content="Замінити" Style="{StaticResource login}" Margin="20"/>
-                    <Button Grid.Row="5" Grid.ColumnSpan="2" Content="Додати" Style="{StaticResource login}" Margin="20"/>
-                    <Button Grid.Row="6" Grid.ColumnSpan="2" Content="Видалити" Style="{StaticResource login}" Margin="20"/>
+                    <Label Grid.Row="2" Grid.ColumnSpan="2" Content="{Binding currentUser.Username}"  FontSize="40" VerticalAlignment="Top" Style="{StaticResource InfoValueLabel}" HorizontalAlignment="Center"/>
+                    <Button Grid.Row="4" Grid.ColumnSpan="2" Content="Замінити" Style="{StaticResource login}" Command="{Binding Edit_Click}" Margin="20"/>
+                    <Button Grid.Row="5" Grid.ColumnSpan="2" Content="Додати" Style="{StaticResource login}" Command="{Binding Create_Click}" Margin="20"/>
+                    <Button Grid.Row="6" Grid.ColumnSpan="2" Content="Видалити" Style="{StaticResource login}" Command="{Binding Delete_Click}" Margin="20"/>
                     <Grid Grid.Row="7" Grid.ColumnSpan="2">
                         <Grid.RowDefinitions>
                             <RowDefinition/>
@@ -132,12 +132,7 @@
             </Border>
             <!--Список ігр-->
             <ListView Grid.Column="0" Grid.Row="2" Style="{StaticResource FoodListView}" 
-            d:ItemsSource="{d:SampleData ItemCount=10}" ItemsSource="{Binding Rates}"  Margin="10,10,10,0" SelectedItem="{Binding SelectedRate}">
-                <i:Interaction.Triggers>
-                    <i:EventTrigger EventName="MouseDoubleClick">
-                        <i:InvokeCommandAction Command="{Binding BuyRate_Command}" CommandParameter="{Binding SelectedRate}" />
-                    </i:EventTrigger>
-                </i:Interaction.Triggers>
+            d:ItemsSource="{d:SampleData ItemCount=10}" ItemsSource="{Binding Users}"  Margin="10,10,10,0" SelectedItem="{Binding SelectedUser}">
                 <ListView.View>
                     <GridView ColumnHeaderContainerStyle="{StaticResource HeadingStyle}">
                         <GridViewColumn Header="Nickname" Width="700" CellTemplate="{StaticResource NicknameTemplate}"/>

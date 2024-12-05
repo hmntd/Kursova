@@ -7,8 +7,8 @@
     "IsAdmin": false,
     "Balance": 1640,
     "RateName": "Test rate",
-    "Hours": 40,
-    "TotalHours": 0
+    "Hours": 38,
+    "TotalHours": 2
   },
   {
     "Id": "65a12132-6f32-42ab-89d1-6e7e60a58c8b",
@@ -19,6 +19,17 @@
     "Balance": 965,
     "RateName": "Test rate",
     "Hours": 10,
+    "TotalHours": 0
+  },
+  {
+    "Id": "8d8857f8-e93c-434f-887b-7a86c645abcf",
+    "Password": "admin123",
+    "Username": "Admin",
+    "Email": "admin@admin.com",
+    "IsAdmin": true,
+    "Balance": 0,
+    "RateName": "-",
+    "Hours": 0,
     "TotalHours": 0
   }
 ]

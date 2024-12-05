@@ -91,7 +91,7 @@ WindowStyle="None" AllowsTransparency="True" Style="{StaticResource WinStyle}">
                 <Button Grid.Column="1" Content="Години" Style="{StaticResource MenuButton}" Command="{Binding TimePage_Click}"/>
                 <Button Grid.Column="2" Content="Їжа" Style="{StaticResource MenuButton}" Command="{Binding FoodPage_Click}"/>
             </Grid>
-            <Button Grid.Column="1" Grid.Row="1" Content="Користувачі" Style="{StaticResource MenuButton}" />
+            <Button Grid.Column="1" Grid.Row="1" Content="Користувачі" Style="{StaticResource MenuButton}" Command="{Binding UsersPage_Click}" />
 
 
             <!--Інформаційна панель-->
@@ -113,11 +113,11 @@ WindowStyle="None" AllowsTransparency="True" Style="{StaticResource WinStyle}">
                     </Grid.RowDefinitions>
                     <Label Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" VerticalAlignment="Center" Content="You Info" Style="{StaticResource LOG}"/>
                     <Label Grid.Row="1" Grid.ColumnSpan="2" Content="Користувач:" Style="{StaticResource InfoLab}" FontSize="40"/>
-                    <Label Grid.Row="2" Grid.ColumnSpan="2" Content="Адміністатор"  FontSize="40" VerticalAlignment="Top" Style="{StaticResource InfoValueLabel}" HorizontalAlignment="Center"/>
-                    <Button Grid.Row="3" Grid.ColumnSpan="2" Content="Статистика" Style="{StaticResource login}" Margin="20"/>
-                    <Button Grid.Row="4" Grid.ColumnSpan="2" Content="Замінити" Style="{StaticResource login}" Margin="20"/>
-                    <Button Grid.Row="5" Grid.ColumnSpan="2" Content="Додати" Style="{StaticResource login}" Margin="20"/>
-                    <Button Grid.Row="6" Grid.ColumnSpan="2" Content="Видалити" Style="{StaticResource login}" Margin="20"/>
+                    <Label Grid.Row="2" Grid.ColumnSpan="2" Content="{Binding currentUser.Username}"  FontSize="40" VerticalAlignment="Top" Style="{StaticResource InfoValueLabel}" HorizontalAlignment="Center"/>
+                    <Button Grid.Row="3" Grid.ColumnSpan="2" Content="Статистика" Style="{StaticResource login}" Command="{Binding Stat_Click}" Margin="20"/>
+                    <Button Grid.Row="4" Grid.ColumnSpan="2" Content="Замінити" Style="{StaticResource login}" Command="{Binding EditGame_Click}" Margin="20"/>
+                    <Button Grid.Row="5" Grid.ColumnSpan="2" Content="Додати" Style="{StaticResource login}" Command="{Binding CreateGame_Click}" Margin="20"/>
+                    <Button Grid.Row="6" Grid.ColumnSpan="2" Content="Видалити" Style="{StaticResource login}" Command="{Binding DeleteGame_Click}" Margin="20"/>
                     <Grid Grid.Row="7" Grid.ColumnSpan="2">
                         <Grid.RowDefinitions>
                             <RowDefinition/>
@@ -149,7 +149,8 @@ WindowStyle="None" AllowsTransparency="True" Style="{StaticResource WinStyle}">
                     <Button Content="Ігри" Style="{StaticResource MenuButton}" Command="{Binding Filter_Games}" Margin="0,10,0,0"/>
                 </Grid>
                 <ListBox Grid.Column="0" Grid.Row="1"  d:ItemsSource="{d:SampleData ItemCount=10}" ItemsSource="{Binding Apps}" 
-                         ItemTemplate="{StaticResource GameList}" Style="{StaticResource gamebox}" Margin="0,10,0,0" Grid.ColumnSpan="2">
+                         ItemTemplate="{StaticResource GameList}" Style="{StaticResource gamebox}" Margin="0,10,0,0" Grid.ColumnSpan="2"
+                         SelectedItem="{Binding SelectedGame}">
                     <ListBox.ItemsPanel>
                         <!-- Використання WrapPanel для розташування елементів -->
                         <ItemsPanelTemplate>
