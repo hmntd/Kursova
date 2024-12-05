@@ -9,7 +9,7 @@
         WindowStartupLocation="Manual"
         Left="0"
         Top="0"
-        Height="1080" Width="1920"
+WindowState="Maximized"
          WindowStyle="None" AllowsTransparency="True"
         Title="MainPageUser"  Style="{StaticResource WinStyle}">
     <Grid>

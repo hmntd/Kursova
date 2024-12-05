@@ -453,8 +453,8 @@
                     <ColumnDefinition Width="106*"/>
 
                 </Grid.ColumnDefinitions>
-                <TextBlock Text="{Binding Client_name}" Grid.Column="0" />
-                <TextBlock Text="{Binding Suply_name}" Grid.Column="1"   />
+                <TextBlock Text="{Binding Client_Name}" Grid.Column="0" />
+                <TextBlock Text="{Binding Suply_Name}" Grid.Column="1"   />
                 <TextBlock Text="{Binding Count}" Grid.Column="2" />
             </Grid>
 
@@ -480,7 +480,7 @@
         <DataTemplate x:Key="HoursStatTemplate">
             <Border Background="#e69c33" Height="100" Width="270">
                 <DockPanel HorizontalAlignment="Center">
-                    <TextBlock Text="{Binding Hours}" Style="{StaticResource ListViewItemBlock}" DockPanel.Dock="Left"/>
+                    <TextBlock Text="{Binding HoursPlayed}" Style="{StaticResource ListViewItemBlock}" DockPanel.Dock="Left"/>
                     <TextBlock Text=" год." Style="{StaticResource ListViewItemBlock}" DockPanel.Dock="Right"/>
                 </DockPanel>
             </Border>
@@ -498,14 +498,14 @@
         <DataTemplate x:Key="BuyFoodStatTemplate">
             <Border Background="#e69c33" Height="100" Width="270">
                 <DockPanel HorizontalAlignment="Center">
-                    <TextBlock Text="{Binding BuyCounter}" Style="{StaticResource ListViewItemBlock}" DockPanel.Dock="Left"/>
+                    <TextBlock Text="{Binding WasBought}" Style="{StaticResource ListViewItemBlock}" DockPanel.Dock="Left"/>
                     <TextBlock Text=" шт." Style="{StaticResource ListViewItemBlock}" DockPanel.Dock="Right"/>
                 </DockPanel>
             </Border>
         </DataTemplate>
         <DataTemplate x:Key="ImageFoodStatTemplate">
             <Border Style="{StaticResource BorderListImj}">
-                <Image Source="{Binding Path_to_image}" Width="100" Height="100" Stretch="Uniform"/>
+                <Image Source="{Binding Path_to_Image}" Width="100" Height="100" Stretch="Uniform"/>
             </Border>
         </DataTemplate>
         <DataTemplate x:Key="NameTimeStatTemplate">
@@ -526,5 +526,10 @@
                 <Image Source="{Binding Path_to_image}" Width="100" Height="100" Stretch="Uniform"/>
             </Border>
         </DataTemplate>
+        <Style x:Key="ComboStyle" TargetType="ComboBox">
+            <Setter Property="FontFamily" Value="Bookman Old Style"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
     </Application.Resources>
 </Application>
