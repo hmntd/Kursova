@@ -52,6 +52,9 @@ namespace ReestrForm.ViewModels
         public ICommand BuyRate_Command { get; }
         public ICommand Exit_Click { get; }
         public ICommand AddBalance_Click { get; }
+        public ICommand TgLink_Click { get; }
+        public ICommand DiscordLink_Click { get; }
+        public ICommand InstLink_Click { get; }
         public TimePageViewModel(User user, Page page, Window window)
         {
             currentUser = user;
@@ -66,6 +69,9 @@ namespace ReestrForm.ViewModels
             Rates = Data.LoadData<Rate>(rateFilePath);
             Exit_Click = new RelayCommand(Exit);
             AddBalance_Click = new RelayCommand(AddBalance);
+            TgLink_Click = new RelayCommand(Tg_Link);
+            DiscordLink_Click = new RelayCommand(Discord_Link);
+            InstLink_Click = new RelayCommand(Inst_Link);
         }
         private Rate _selectedRate;
         public Rate SelectedRate

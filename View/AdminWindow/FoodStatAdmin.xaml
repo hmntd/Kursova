@@ -21,7 +21,7 @@
             </Grid.RowDefinitions>
             <Rectangle Fill="#ffcb2a" Grid.ColumnSpan="4" RadiusX="11.704" RadiusY="11.704"/>
             <Label Content="Статистика продуктів" Grid.ColumnSpan="4" Style="{StaticResource Center lab}" Foreground="#232740" VerticalAlignment="Center" FontSize="40"/>
-            <Button Grid.Column="3" Content="×" Style="{StaticResource SignINBut}" Foreground="#232740" FontSize="40" BorderThickness="0"/>
+            <Button Grid.Column="3" Content="×" Style="{StaticResource SignINBut}" Foreground="#232740" FontSize="40" BorderThickness="0" Command="{Binding Exit_Click}" />
             <ListView Grid.Row="1" Grid.ColumnSpan="2" 
             Style="{StaticResource FoodListView}"  
             d:ItemsSource="{d:SampleData ItemCount=10}" 

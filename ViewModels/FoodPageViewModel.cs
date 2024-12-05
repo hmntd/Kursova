@@ -45,6 +45,9 @@ namespace ReestrForm.ViewModels
         public ICommand Filter_Drink { get; }
         public ICommand Exit_Click { get; }
         public ICommand AddBalance_Click { get; }
+        public ICommand TgLink_Click { get; }
+        public ICommand DiscordLink_Click { get; }
+        public ICommand InstLink_Click { get; }
         public FoodPageViewModel(User currentUser, Page page, Window window)
         {
             this.currentUser = currentUser;
@@ -61,6 +64,9 @@ namespace ReestrForm.ViewModels
             Buy_Food_Click = new RelayCommand(() => BuyFood(SelectedFood), () => SelectedFood != null);
             Exit_Click = new RelayCommand(Exit);
             AddBalance_Click = new RelayCommand(AddBalance);
+            TgLink_Click = new RelayCommand(Tg_Link);
+            DiscordLink_Click = new RelayCommand(Discord_Link);
+            InstLink_Click = new RelayCommand(Inst_Link);
         }
         public void Filter(string type)
         {

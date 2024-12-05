@@ -50,13 +50,13 @@
                     <ColumnDefinition Width="180*"/>
                     <ColumnDefinition Width="904*"/>
                 </Grid.ColumnDefinitions>
-                <Button Grid.Column="1" Style="{StaticResource SocialMedia}">
+                <Button Grid.Column="1" Style="{StaticResource SocialMedia}" Command="{Binding DiscordLink_Click}">
                     <Image Source="/image/Discord_Alt.png"  Margin="20"/>
                 </Button>
-                <Button Grid.Column="2" Style="{StaticResource SocialMedia}">
+                <Button Grid.Column="2" Style="{StaticResource SocialMedia}" Command="{Binding InstLink_Click}">
                     <Image Source="/image/Instagram_Alt.png"  Margin="20"/>
                 </Button>
-                <Button Grid.Column="3" Style="{StaticResource SocialMedia}">
+                <Button Grid.Column="3" Style="{StaticResource SocialMedia}" Command="{Binding TgLink_Click}">
                     <Image Source="/image/Telegram.png"  Margin="20"/>
                 </Button>
 

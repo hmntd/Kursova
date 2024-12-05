@@ -453,8 +453,8 @@
                     <ColumnDefinition Width="106*"/>
 
                 </Grid.ColumnDefinitions>
-                <TextBlock Text="{Binding Nickname}" Grid.Column="0" />
-                <TextBlock Text="{Binding Order}" Grid.Column="1"   />
+                <TextBlock Text="{Binding Client_name}" Grid.Column="0" />
+                <TextBlock Text="{Binding Suply_name}" Grid.Column="1"   />
                 <TextBlock Text="{Binding Count}" Grid.Column="2" />
             </Grid>
 

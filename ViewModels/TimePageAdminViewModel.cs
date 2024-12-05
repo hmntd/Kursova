@@ -19,6 +19,17 @@ namespace ReestrForm.ViewModels
         public User currentUser { get; }
         private Page _page;
         private Window _window;
+        private string gif_path;
+        public string Gif_Path
+        {
+            get { return gif_path; }
+            set
+            {
+                gif_path = value;
+                OnPropertyChanged(Gif_Path);
+            }
+        }
+        public int OrdersCount { get; set; }
         public ObservableCollection<Rate> Rates { get; set;  }
         private Rate _selectedRate;
         public Rate SelectedRate
@@ -38,11 +49,16 @@ namespace ReestrForm.ViewModels
         public ICommand Edit_Click { get; }
         public ICommand Create_Click { get; }
         public ICommand Delete_Click { get; }
+        public ICommand MinimizeWindow_Click { get; }
+        public ICommand CloseWindow_Click { get; }
+        public ICommand ToggleWindow_Click { get; }
+        public ICommand UsersOrders_Click { get; }
         public TimePageAdminViewModel(User currentUser, Page page, Window window)
         {
             this.currentUser = currentUser;
             _page = page;
             _window = window;
+            OrdersCount = Data.LoadData<Order>(orderFilePath).Count(o => !o.Is_Did);
             Rates = Data.LoadData<Rate>(rateFilePath);
             Games_Click = new RelayCommand(Games);
             Foods_Click = new RelayCommand(Food);
@@ -52,6 +68,23 @@ namespace ReestrForm.ViewModels
             Edit_Click = new RelayCommand(EditRate);
             Create_Click = new RelayCommand(CreateRate);
             Delete_Click = new RelayCommand(DeleteRate);
+            MinimizeWindow_Click = new RelayCommand(() => Minimize_Window(window));
+            CloseWindow_Click = new RelayCommand(() => Close_Window(window));
+            ToggleWindow_Click = new RelayCommand(() => Toogle_Window(window));
+            UsersOrders_Click = new RelayCommand(UserOrders);
+            SetGif();
+        }
+        public Random random { get; } = new Random();
+        private void SetGif()
+        {
+            string[] paths = [
+                "/gif/akita_lie_8fps.gif",
+                "/gif/ljSjEjQ.gif",
+                "/gif/nyan-cat.gif",
+                "/gif/oR1fkkiDPgSG.gif",
+                "/gif/qiBoeLEaT.gif",
+                ];
+            Gif_Path = paths[random.Next(0, paths.Length)];
         }
         private void Games()
         {
@@ -135,6 +168,15 @@ namespace ReestrForm.ViewModels
             Rates.Remove(SelectedRate);
             Data.SaveData(rateFilePath, Rates);
             SelectedRate = null;
+        }
+        private void UserOrders()
+        {
+            var win = new AdminOrderWindow();
+            var vm = new AdminOrderViewModel(win);
+            win.DataContext = vm;
+            win.ShowDialog();
+            OrdersCount = Data.LoadData<Order>(orderFilePath).Count(o => !o.Is_Did);
+            OnPropertyChanged(nameof(OrdersCount));
         }
     }
 }

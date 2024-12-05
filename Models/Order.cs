@@ -12,13 +12,15 @@ namespace ReestrForm.Models
         public string Suply_Name { get; set; }
         public string Client_Name { get; set; }
         public int Count { get; set; }
+        public bool Is_Did {  get; set; }
         public Order() { }
-        public Order(string id, string suply_name, string client_name, int count)
+        public Order(string id, string suply_name, string client_name, int count, bool isDid)
         {
             Id = id;
             Suply_Name = suply_name;
             Client_Name = client_name;
             Count = count;
+            Is_Did = isDid;
         }
     }
 }
