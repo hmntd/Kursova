@@ -15,6 +15,16 @@ namespace ReestrForm.ViewModels
     public class FoodPageViewModel: ViewModel
     {
         public User currentUser { get; set; }
+        private decimal balance;
+        public decimal Balance
+        {
+            get { return balance; }
+            set 
+            {
+                balance = value;
+                OnPropertyChanged(nameof(Balance));
+            }
+        }
         private ObservableCollection<Suply> sup { get; }
         private ObservableCollection<Suply> suplies;
         public ObservableCollection<Suply> Suplies
@@ -34,9 +44,14 @@ namespace ReestrForm.ViewModels
         public ICommand Filter_Food { get; }
         public ICommand Filter_Drink { get; }
         public ICommand Exit_Click { get; }
+        public ICommand AddBalance_Click { get; }
+        public ICommand TgLink_Click { get; }
+        public ICommand DiscordLink_Click { get; }
+        public ICommand InstLink_Click { get; }
         public FoodPageViewModel(User currentUser, Page page, Window window)
         {
             this.currentUser = currentUser;
+            Balance = currentUser.Balance;
             _page = page;
             _window = window;
             Games_Click = new RelayCommand(Games);
@@ -48,6 +63,10 @@ namespace ReestrForm.ViewModels
             Suplies = sup;
             Buy_Food_Click = new RelayCommand(() => BuyFood(SelectedFood), () => SelectedFood != null);
             Exit_Click = new RelayCommand(Exit);
+            AddBalance_Click = new RelayCommand(AddBalance);
+            TgLink_Click = new RelayCommand(Tg_Link);
+            DiscordLink_Click = new RelayCommand(Discord_Link);
+            InstLink_Click = new RelayCommand(Inst_Link);
         }
         public void Filter(string type)
         {
@@ -96,7 +115,14 @@ namespace ReestrForm.ViewModels
             var win = new FoodConfirmPage();
             var viewmodel = new FoodConfirmViewModel(currentUser, suply, win);
             win.DataContext = viewmodel;
-            win.Show();
+            bool? result = win.ShowDialog();
+            if (result == true)
+            {
+                var users = Data.LoadData<User>(userFilePath);
+                var user = users.FirstOrDefault(u => u.Username == currentUser.Username);
+                currentUser = user ?? currentUser;
+                Balance = currentUser.Balance;
+            }
         }
         private void Exit()
         {
@@ -108,6 +134,18 @@ namespace ReestrForm.ViewModels
                 MainWindow window = new MainWindow();
                 window.Show();
                 _window.Close();
+            }
+        }
+        private void AddBalance()
+        {
+            var win = new AddBalance();
+            var vm = new AddBalanceViewModel(currentUser, win);
+            win.DataContext = vm;
+            bool? result = win.ShowDialog();
+            if (result == true)
+            {
+                currentUser = vm.UpdatedUser;
+                Balance = currentUser.Balance;
             }
         }
     }

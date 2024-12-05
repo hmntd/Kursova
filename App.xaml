@@ -24,26 +24,30 @@
             <Setter Property="TextBlock.FontFamily" Value="Bookman Old Style"/>
             <Setter Property="TextBlock.Foreground" Value="#FFF5F4F4"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
-            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="FontSize" Value="20"/>
             <Setter Property="BorderBrush" Value="#bcbcac"/>
             <Setter Property="BorderThickness" Value="0,0,0,2"/>
+            <Setter Property="VerticalAlignment" Value="Bottom"/>
         </Style>
         <Style x:Key="PassBlock" TargetType="PasswordBox">
             <Setter Property="Background" Value="Transparent" />
             <Setter Property="TextBlock.FontFamily" Value="Bookman Old Style"/>
             <Setter Property="TextBlock.Foreground" Value="#FFF5F4F4"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
-            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="FontSize" Value="20"/>
             <Setter Property="BorderBrush" Value="#bcbcac"/>
             <Setter Property="BorderThickness" Value="0,0,0,2"/>
+            <Setter Property="VerticalAlignment" Value="Bottom"/>
         </Style>
         <Style x:Key="MainLabel" TargetType="Label">
             <Setter Property="Foreground" Value="#bcbcac"/>
             <Setter Property="FontFamily" Value="Bookman Old Style"/>
-            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontSize" Value="20"/>
         </Style>
         <Style x:Key="Left lab" TargetType="Label" BasedOn="{StaticResource MainLabel}">
             <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="VerticalAlignment" Value="Bottom"/>
+            <Setter Property="VerticalContentAlignment" Value="Bottom"/>
         </Style>
         <Style x:Key="Right lab" TargetType="Label" BasedOn="{StaticResource MainLabel}">
             <Setter Property="HorizontalAlignment" Value="Right"/>
@@ -77,7 +81,7 @@
             <Setter Property="Foreground" Value="#bcbcac"/>
             <Setter Property="BorderBrush" Value="#bcbcac"/>
             <Setter Property="BorderThickness" Value="0,0,0,2"/>
-            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontSize" Value="20"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
@@ -212,7 +216,7 @@
                         <RowDefinition Height="99*" />
                         <RowDefinition Height="26*" />
                     </Grid.RowDefinitions>
-                    <Image Source="{Binding Path_to_Image}" Grid.RowSpan="2" Stretch="Fill"/>
+                    <Image Source="{Binding Path_to_Image}" Grid.RowSpan="2" Stretch="Uniform" Margin="10"/>
                     <Border Grid.Row="1" Background="#ffcb2a" Opacity="0.9" CornerRadius="5" />
                     <TextBlock Text="{Binding Name}" Grid.Row="1" FontFamily="Bookman Old Style" 
                        HorizontalAlignment="Center" VerticalAlignment="Center" 
@@ -313,5 +317,214 @@
             <Setter Property="FontSize" Value="16"/>
             <Setter Property="Foreground" Value="Black"/>
         </Style>
+        <Style x:Key="FoodListView" TargetType="ListView">
+            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Hidden" />
+            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Hidden" />
+            <Setter Property="BorderThickness" Value="0" />
+        </Style>
+
+        <!-- Стиль для ListViewItem -->
+        <Style TargetType="ListViewItem" x:Key="FoodItem">
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            
+            <Setter Property="VerticalAlignment" Value="Center" />
+        </Style>
+
+        <!-- Стиль для заголовков GridViewColumn -->
+        <Style x:Key="HeaderStyle" TargetType="GridViewColumnHeader">
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="FontFamily" Value="Bookman Old Style" />
+            <Setter Property="FontSize" Value="20" />
+        </Style>
+
+        <!-- Стиль для Border -->
+        <Style x:Key="BorderListImj" TargetType="Border">
+            <Setter Property="CornerRadius" Value="10" />
+            <Setter Property="Padding" Value="5" />
+            <Setter Property="Background" Value="#507294" />
+        </Style>
+
+        <!-- Стиль для TextBlock -->
+        <Style x:Key="ListViewItemBlock" TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="Bookman Old Style" />
+            <Setter Property="FontSize" Value="30" />
+            <Setter Property="Foreground" Value="Black" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="TextWrapping" Value="Wrap" />
+        </Style>
+        <!-- DataTemplates -->
+        <DataTemplate x:Key="ImageTemplate">
+            <Border Style="{StaticResource BorderListImj}">
+                <Image Source="{Binding Path_to_image}" Width="150" Height="150" Stretch="Uniform"/>
+            </Border>
+        </DataTemplate>
+        <DataTemplate x:Key="NameTemplate">
+            <Border Background="#ffcb2a" Height="150" Width="700">
+                <TextBlock Text="{Binding Name}" Style="{StaticResource ListViewItemBlock}"/>
+            </Border>
+        </DataTemplate>
+        <DataTemplate x:Key="HoursTemplate">
+            <Border Background="#ffcb2a" Height="150" Width="200">
+                <DockPanel HorizontalAlignment="Center">
+                    <TextBlock Text="{Binding Hours}" Style="{StaticResource ListViewItemBlock}" DockPanel.Dock="Left"/>
+                    <TextBlock Text=" год." Style="{StaticResource ListViewItemBlock}" DockPanel.Dock="Right"/>
+                </DockPanel>
+            </Border>
+        </DataTemplate>
+        <DataTemplate x:Key="PriceTemplate">
+            <Border Background="#ffcb2a" Height="150" Width="180">
+                <DockPanel HorizontalAlignment="Center">
+                    <TextBlock Text="{Binding Price}" Style="{StaticResource ListViewItemBlock}" DockPanel.Dock="Left"/>
+                    <TextBlock Text=" грн." Style="{StaticResource ListViewItemBlock}" DockPanel.Dock="Right"/>
+                </DockPanel>
+            </Border>
+        </DataTemplate>
+        <DataTemplate x:Key="ProductImageTemplate">
+            <Border Style="{StaticResource BorderListImj}">
+                <Image Source="{Binding Path_to_Image}" Width="150" Height="150" Stretch="Uniform" Margin="6" 
+                   HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Border>
+        </DataTemplate>
+        <DataTemplate x:Key="ProductNameTemplate">
+            <Border Background="#ffcb2a" Height="150" Width="700">
+                <TextBlock Text="{Binding Name}" Style="{StaticResource ListViewItemBlock}" TextWrapping="Wrap"/>
+            </Border>
+        </DataTemplate>
+        <DataTemplate x:Key="ProductPriceTemplate">
+            <Border Background="#ffcb2a" Height="150" Width="400">
+                <DockPanel HorizontalAlignment="Center">
+                    <TextBlock Text="{Binding Price}" Style="{StaticResource ListViewItemBlock}" DockPanel.Dock="Left"/>
+                    <TextBlock Text=" грн." Style="{StaticResource ListViewItemBlock}" DockPanel.Dock="Right"/>
+                </DockPanel>
+            </Border>
+        </DataTemplate>
+        <DataTemplate x:Key="NicknameTemplate">
+            <Border Background="#ffcb2a" Height="100" Width="700">
+                <TextBlock Text="{Binding Username}" Style="{StaticResource ListViewItemBlock}" TextWrapping="Wrap"/>
+            </Border>
+        </DataTemplate>
+        <DataTemplate x:Key="HoursUserTemplate">
+            <Border Background="#ffcb2a" Height="100" Width="300">
+                <DockPanel HorizontalAlignment="Center">
+                    <TextBlock Text="{Binding Hours}" Style="{StaticResource ListViewItemBlock}" DockPanel.Dock="Left"/>
+                    <TextBlock Text=" год." Style="{StaticResource ListViewItemBlock}" DockPanel.Dock="Right"/>
+                </DockPanel>
+            </Border>
+        </DataTemplate>
+        <DataTemplate x:Key="BalanceTemplate">
+            <Border Background="#ffcb2a" Height="100" Width="250">
+                <DockPanel HorizontalAlignment="Center">
+                    <TextBlock Text="{Binding Balance}" Style="{StaticResource ListViewItemBlock}" DockPanel.Dock="Left"/>
+                    <TextBlock Text=" грн." Style="{StaticResource ListViewItemBlock}" DockPanel.Dock="Right"/>
+                </DockPanel>
+            </Border>
+        </DataTemplate>
+        <Style TargetType="ListBox" x:Key="gamebox">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Hidden"/>
+            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Hidden"/>
+            <Setter Property="BorderThickness" Value="0"/>
+        </Style>
+        <Style TargetType="ListBoxItem" x:Key="OrderList">
+            <Setter Property="FontFamily" Value="Bookman Old Style" />
+            <Setter Property="Background" Value="#e69c33"/>
+            <Setter Property="Foreground" Value="#232740"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Padding" Value="10"/>
+            <Setter Property="Margin" Value="0,2,0,2"/>
+            <Setter Property="BorderThickness" Value="0"/>
+        </Style>
+        <Style x:Key="OrderListBox" TargetType="ListBox">
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Hidden"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0,2,0,2"/>
+            <Setter Property="Margin" Value="0,10,0,0"/>
+            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Hidden"/>
+        </Style>
+        <DataTemplate x:Key="Order1List">
+            <Grid Width="750">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="106*"/>
+                    <ColumnDefinition Width="106*"/>
+                    <ColumnDefinition Width="106*"/>
+
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="{Binding Client_name}" Grid.Column="0" />
+                <TextBlock Text="{Binding Suply_name}" Grid.Column="1"   />
+                <TextBlock Text="{Binding Count}" Grid.Column="2" />
+            </Grid>
+
+        </DataTemplate>
+        <Style x:Key="HeadingStatStyle" TargetType="GridViewColumnHeader">
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="Background" Value="#507294" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="FontSize" Value="20" />
+
+            <Setter Property="Height" Value="40" />
+            <Setter Property="BorderBrush" Value="#394960" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="FontFamily" Value="Bookman Old Style" />
+        </Style>
+
+        <DataTemplate x:Key="NameGameStatTemplate">
+            <Border Background="#e69c33" Height="100" Width="600">
+                <TextBlock Text="{Binding Name}" Style="{StaticResource ListViewItemBlock}" TextWrapping="Wrap"/>
+            </Border>
+        </DataTemplate>
+        <DataTemplate x:Key="HoursStatTemplate">
+            <Border Background="#e69c33" Height="100" Width="270">
+                <DockPanel HorizontalAlignment="Center">
+                    <TextBlock Text="{Binding Hours}" Style="{StaticResource ListViewItemBlock}" DockPanel.Dock="Left"/>
+                    <TextBlock Text=" год." Style="{StaticResource ListViewItemBlock}" DockPanel.Dock="Right"/>
+                </DockPanel>
+            </Border>
+        </DataTemplate>
+        <DataTemplate x:Key="ImageGameStatTemplate">
+            <Border Style="{StaticResource BorderListImj}">
+                <Image Source="{Binding Path_to_Image}" Width="100" Height="100" Stretch="Uniform"/>
+            </Border>
+        </DataTemplate>
+        <DataTemplate x:Key="NameFoodStatTemplate">
+            <Border Background="#e69c33" Height="100" Width="600">
+                <TextBlock Text="{Binding Name}" Style="{StaticResource ListViewItemBlock}" TextWrapping="Wrap"/>
+            </Border>
+        </DataTemplate>
+        <DataTemplate x:Key="BuyFoodStatTemplate">
+            <Border Background="#e69c33" Height="100" Width="270">
+                <DockPanel HorizontalAlignment="Center">
+                    <TextBlock Text="{Binding BuyCounter}" Style="{StaticResource ListViewItemBlock}" DockPanel.Dock="Left"/>
+                    <TextBlock Text=" шт." Style="{StaticResource ListViewItemBlock}" DockPanel.Dock="Right"/>
+                </DockPanel>
+            </Border>
+        </DataTemplate>
+        <DataTemplate x:Key="ImageFoodStatTemplate">
+            <Border Style="{StaticResource BorderListImj}">
+                <Image Source="{Binding Path_to_image}" Width="100" Height="100" Stretch="Uniform"/>
+            </Border>
+        </DataTemplate>
+        <DataTemplate x:Key="NameTimeStatTemplate">
+            <Border Background="#e69c33" Height="100" Width="600">
+                <TextBlock Text="{Binding Name}" Style="{StaticResource ListViewItemBlock}" TextWrapping="Wrap"/>
+            </Border>
+        </DataTemplate>
+        <DataTemplate x:Key="BuyTimeStatTemplate">
+            <Border Background="#e69c33" Height="100" Width="270">
+                <DockPanel HorizontalAlignment="Center">
+                    <TextBlock Text="{Binding WasBought}" Style="{StaticResource ListViewItemBlock}" DockPanel.Dock="Left"/>
+                    <TextBlock Text=" шт." Style="{StaticResource ListViewItemBlock}" DockPanel.Dock="Right"/>
+                </DockPanel>
+            </Border>
+        </DataTemplate>
+        <DataTemplate x:Key="ImageTimeStatTemplate">
+            <Border Style="{StaticResource BorderListImj}">
+                <Image Source="{Binding Path_to_image}" Width="100" Height="100" Stretch="Uniform"/>
+            </Border>
+        </DataTemplate>
     </Application.Resources>
 </Application>

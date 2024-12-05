@@ -2,18 +2,30 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace ReestrForm.ViewModels
 {
     public class MainPageUserViewModel: ViewModel
     {
-        public User currentUser { get; }
+        public User currentUser { get; private set; }
+        private decimal balance;
+        public decimal Balance
+        {
+            get { return balance; }
+            set
+            {
+                balance = value;
+                OnPropertyChanged(nameof(Balance));
+            }
+        }
         private ObservableCollection<ReestrForm.Models.Application> Applications;
         private ObservableCollection<ReestrForm.Models.Application> apps;
         public ObservableCollection<Models.Application> Apps
@@ -33,9 +45,14 @@ namespace ReestrForm.ViewModels
         public ICommand Filter_Games { get; }
         public ICommand Filter_Applications { get; }
         public ICommand AddBalance_Click { get; }
+        public ICommand StartGame_Click { get; }
+        public ICommand TgLink_Click { get; }
+        public ICommand DiscordLink_Click { get; }
+        public ICommand InstLink_Click { get; }
         public MainPageUserViewModel(User user, Window window)
         {
             currentUser = user;
+            Balance = user.Balance;
             _window = window;
             Applications = Data.LoadData<ReestrForm.Models.Application>(applicationFilePath);
             Apps = Applications;
@@ -46,6 +63,10 @@ namespace ReestrForm.ViewModels
             Filter_Games = new RelayCommand(() => Filter("Game"));
             Filter_Applications = new RelayCommand(() => Filter("App"));
             AddBalance_Click = new RelayCommand(AddBalance);
+            StartGame_Click = new RelayCommand(startGame);
+            TgLink_Click = new RelayCommand(Tg_Link);
+            DiscordLink_Click = new RelayCommand(Discord_Link);
+            InstLink_Click = new RelayCommand(Inst_Link);
         }
         private void Filter(string type)
         {
@@ -82,7 +103,7 @@ namespace ReestrForm.ViewModels
         }
         private void Exit()
         {
-            var confirmViewModel = new ConfirmViewModel("Are you sure to exit acc?");
+            var confirmViewModel = new ConfirmViewModel("Ви хочете покинути аккаунт?");
             var confirmWindow = new Confirm { DataContext = confirmViewModel };
             bool? result = confirmWindow.ShowDialog();
             if (result == true)
@@ -97,7 +118,151 @@ namespace ReestrForm.ViewModels
             var win = new AddBalance();
             var vm = new AddBalanceViewModel(currentUser, win);
             win.DataContext = vm;
-            win.Show();
+            bool? result = win.ShowDialog();
+            if (result == true)
+            {
+                currentUser = vm.UpdatedUser;
+                Balance = currentUser.Balance;
+            }
+        }
+        private Timer gameTimer;
+        private int remainingTimeInSeconds;
+        private Process gameProcess;
+        private Models.Application _selectedGame;
+        public Models.Application SelectedGame
+        {
+            get { return _selectedGame; }
+            set
+            {
+                _selectedGame = value;
+                OnPropertyChanged(nameof(SelectedGame));
+            }
+        }
+        private void startGame()
+        {
+            remainingTimeInSeconds = (int)(currentUser.Hours * 3600);
+            try
+            {
+                gameProcess = new Process
+                {
+                    StartInfo = new ProcessStartInfo
+                    {
+                        FileName = SelectedGame.Path_to_Application,
+                        UseShellExecute = true
+                    }
+                };
+                gameProcess.Start();
+            }
+            catch (Exception ex)
+            {
+                var win = new ErorWin();
+                var viewModel = new ErrorViewModel($"Помилка при запуску застосунку: {ex.Message}", win);
+                win.DataContext = viewModel;
+                win.ShowDialog();
+                return;
+            }
+
+            StartGameTimer();
+        }
+        private void StartGameTimer()
+        {
+            gameTimer = new Timer(GameTimerCallback, null, 0, 1000);
+        }
+        private void GameTimerCallback(object state)
+        {
+            if (remainingTimeInSeconds <= 0)
+            {
+                gameTimer.Dispose();
+                currentUser.TotalHours += currentUser.Hours;
+                SelectedGame.HoursPlayed += currentUser.Hours;
+                currentUser.Hours = 0;
+                SaveSelectedGame();
+                SaveCurrentUser();
+                OnPropertyChanged(nameof(currentUser));
+                EndGame();
+            }
+            else
+            {
+                remainingTimeInSeconds--;
+                currentUser.TotalHours += currentUser.Hours - (remainingTimeInSeconds / 3600);
+                SelectedGame.HoursPlayed += currentUser.Hours - (remainingTimeInSeconds / 3600);
+                currentUser.Hours = remainingTimeInSeconds / 3600;
+                SaveCurrentUser();
+                SaveSelectedGame();
+                OnPropertyChanged(nameof(currentUser));
+            }
+        }
+        private void EndGame()
+        {
+            try
+            {
+                if (gameProcess != null && !gameProcess.HasExited)
+                {
+                    gameProcess.Kill();
+                    gameProcess.Dispose();
+                }
+
+                SaveCurrentUser();
+                SaveSelectedGame();
+
+                var win = new Confirm();
+                var viewmodel = new ConfirmViewModel("Ігровий час закінчився");
+                win.DataContext = viewmodel;
+                win.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                var win = new ErorWin();
+                var viewModel = new ErrorViewModel($"помилка при зупинці гри: {ex.Message}", win);
+                win.DataContext = viewModel;
+                win.ShowDialog();
+            }
+        }
+        private void SaveCurrentUser()
+        {
+            try
+            {
+                var users = Data.LoadData<User>(userFilePath);
+
+                var existingUser = users.FirstOrDefault(u => u.Id == currentUser.Id);
+                if (existingUser != null)
+                {
+                    existingUser.Balance = currentUser.Balance;
+                    existingUser.Hours = currentUser.Hours;
+                    existingUser.TotalHours = currentUser.TotalHours;
+                }
+
+                Data.SaveData(userFilePath, users);
+            }
+            catch (Exception ex)
+            {
+                var win = new ErorWin();
+                var viewModel = new ErrorViewModel($"Помилка при збереженні користувача: {ex.Message}", win);
+                win.DataContext = viewModel;
+                win.ShowDialog();
+            }
+        }
+        private void SaveSelectedGame()
+        {
+            try
+            {
+                var games = Data.LoadData<Models.Application>(applicationFilePath);
+
+                var existingGame = games.FirstOrDefault(u => u.Id == SelectedGame.Id);
+                if (existingGame != null)
+                {
+                    existingGame.HoursPlayed = SelectedGame.HoursPlayed;
+                }
+
+                Data.SaveData(applicationFilePath, games);
+            }
+            catch (Exception ex)
+            {
+                var win = new ErorWin();
+                var viewModel = new ErrorViewModel($"Помилка при збереженні гри: {ex.Message}", win);
+                win.DataContext = viewModel;
+                win.ShowDialog();
+            }
         }
     }
 }

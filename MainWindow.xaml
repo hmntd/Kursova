@@ -89,10 +89,10 @@
                 <Label Content="Password" Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="6" Style="{StaticResource Left lab}" />
                 <TextBox Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="8" Style="{StaticResource RegBlock}" Visibility="Hidden"/>
                 <PasswordBox Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="8" Style="{StaticResource PassBlock}" Name="PasswordBox" PasswordChanged="PasswordBox_PasswordChanged"/>
-                <Label Content="Forgot password" Grid.Row="6" Grid.Column="4" Grid.ColumnSpan="6" Style="{StaticResource Right lab}"/>
+                <Button Content="Forgot password" HorizontalAlignment="Right" VerticalAlignment="Top" Grid.Row="6" Grid.Column="4" Grid.ColumnSpan="6" Style="{StaticResource SignINBut}" BorderThickness="0" Command="{Binding Forgot_Click}"/>
                 <Button Content="Login" Grid.Row="8" Grid.Column="2" Grid.ColumnSpan="8"  Style="{StaticResource login}" Command="{Binding Login_Click}"/>
-                <Image Source="image/lock.png" Grid.Row="5" Grid.Column="1"/>
-                <Image Source="image/user.png" Grid.Row="3" Grid.Column="1"/>
+                <Image Source="image/lock.png" Grid.Row="5" Grid.Column="1" VerticalAlignment="Bottom"/>
+                <Image Source="image/user.png" Grid.Row="3" Grid.Column="1" VerticalAlignment="Bottom"/>
                 <Label Content="Don't have an account yet?" Grid.Row="11" Grid.Column="2" Grid.ColumnSpan="8" Style="{StaticResource Center lab}"/>
                 <Button Content="Sing in" Grid.Row="13" Grid.Column="5" Grid.ColumnSpan="2" Command="{Binding Label_SignIn_Click}" Style="{StaticResource SignINBut}" />
 

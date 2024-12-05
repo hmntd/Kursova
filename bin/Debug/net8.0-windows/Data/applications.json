@@ -1,10 +1,18 @@
 [
-    {
-        "Id": null,
-        "Name": "Dota 2",
-        "Path_to_Application": "/games/Dota2.exe",
-        "Path_to_Image": "/image/Background.png",
-        "Type": "Game",
-        "HoursPlayed": 0
-    }
+  {
+    "Id": null,
+    "Name": "Dota 2",
+    "Path_to_Application": "C:\\Riot Games\\Riot Client\\RiotClientServices.exe",
+    "Path_to_Image": "/image/Background.png",
+    "Type": "Game",
+    "HoursPlayed": 0
+  },
+  {
+    "Id": null,
+    "Name": "TLOU",
+    "Path_to_Application": "C:\\Users\\bazav\\Downloads\\Kursova\\ReestrForm.sln",
+    "Path_to_Image": "C:\\Users\\bazav\\Downloads\\Chill3.png",
+    "Type": "App",
+    "HoursPlayed": 0
+  }
 ]

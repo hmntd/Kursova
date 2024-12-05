@@ -25,7 +25,7 @@ namespace ReestrForm.ViewModels
                     count = 0;
                     OnPropertyChanged(nameof(Count));
                     var win = new ErorWin();
-                    var viewModel = new ErrorViewModel("Count cann't be below zero", win);
+                    var viewModel = new ErrorViewModel("кількість не може бути нижче за 0", win);
                     win.DataContext = viewModel;
                     win.Show();
                 }
@@ -78,8 +78,9 @@ namespace ReestrForm.ViewModels
             user.Balance = currentUser.Balance;
             Data.SaveData<User>(userFilePath, users);
             ObservableCollection<Order> orders = Data.LoadData<Order>(orderFilePath);
-            orders.Add(new Order(Guid.NewGuid().ToString(), Product.Name, user.Username, Count));
+            orders.Add(new Order(Guid.NewGuid().ToString(), Product.Name, user.Username, Count, false));
             Data.SaveData(orderFilePath, orders);
+            _window.DialogResult = true;
             _window.Close();
         }
     }

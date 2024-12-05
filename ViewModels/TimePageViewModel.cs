@@ -14,6 +14,36 @@ namespace ReestrForm.ViewModels
     public class TimePageViewModel: ViewModel
     {
         public User currentUser { get; set; }
+        private decimal balance;
+        public decimal Balance
+        {
+            get { return balance; }
+            set
+            {
+                balance = value;
+                OnPropertyChanged(nameof(Balance));
+            }
+        }
+        private string rateName;
+        public string RateName
+        {
+            get { return rateName; }
+            set
+            {
+                rateName = value;
+                OnPropertyChanged(nameof(RateName));
+            }
+        }
+        private float hours;
+        public float Hours
+        {
+            get { return hours; }
+            set
+            {
+                hours = value;
+                OnPropertyChanged(nameof(Hours));
+            }
+        }
         private Page _page;
         private Window _window;
         public ObservableCollection<Rate> Rates { get; }
@@ -21,9 +51,16 @@ namespace ReestrForm.ViewModels
         public ICommand Foods_Click { get; }
         public ICommand BuyRate_Command { get; }
         public ICommand Exit_Click { get; }
+        public ICommand AddBalance_Click { get; }
+        public ICommand TgLink_Click { get; }
+        public ICommand DiscordLink_Click { get; }
+        public ICommand InstLink_Click { get; }
         public TimePageViewModel(User user, Page page, Window window)
         {
             currentUser = user;
+            Balance = user.Balance;
+            RateName = user.RateName;
+            Hours = user.Hours;
             this._page = page;
             _window = window;
             Games_Click = new RelayCommand(Games);
@@ -31,6 +68,10 @@ namespace ReestrForm.ViewModels
             BuyRate_Command = new RelayCommand(() => BuyRate(SelectedRate), () => SelectedRate != null);
             Rates = Data.LoadData<Rate>(rateFilePath);
             Exit_Click = new RelayCommand(Exit);
+            AddBalance_Click = new RelayCommand(AddBalance);
+            TgLink_Click = new RelayCommand(Tg_Link);
+            DiscordLink_Click = new RelayCommand(Discord_Link);
+            InstLink_Click = new RelayCommand(Inst_Link);
         }
         private Rate _selectedRate;
         public Rate SelectedRate
@@ -42,39 +83,56 @@ namespace ReestrForm.ViewModels
                 OnPropertyChanged();
             }
         }
+        private void AddBalance()
+        {
+            var win = new AddBalance();
+            var vm = new AddBalanceViewModel(currentUser, win);
+            win.DataContext = vm;
+            bool? result = win.ShowDialog();
+            if (result == true)
+            {
+                currentUser = vm.UpdatedUser;
+                Balance = currentUser.Balance;
+            }
+        }
         private void BuyRate(Rate rate)
         {
-            var result = MessageBox.Show("Are you sure in buying the rate?", "Buying", MessageBoxButton.YesNo);
-            if (result == MessageBoxResult.Yes)
+            var win = new Confirm();
+            var viewmodel = new ConfirmViewModel($"Ви хочете купити {rate.Name} за ціною: {rate.Price}?");
+            win.DataContext = viewmodel;
+            bool? result = win.ShowDialog();
+            if (result == false)
             {
                 SelectedRate = null;
                 return;
             }
 
-            if (rate != null)
+            if (rate.Price > currentUser.Balance)
             {
-                if (rate.Price > currentUser.Balance)
-                {
-                    MessageBox.Show("На балансі недостатньо коштів");
-                    return;
-                }
+                var win2 = new ErorWin();
+                var viewModel = new ErrorViewModel("На балансі недостатньо коштів", win2);
+                win2.DataContext = viewModel;
+                win2.ShowDialog();
+                return;
+            }
 
-                currentUser.Hours += rate.Hours;
-                currentUser.RateName = rate.Name;
-                currentUser.Balance -= rate.Price;
-                var users = Data.LoadData<User>(userFilePath);
-                var user = users.FirstOrDefault(u => u.Username == currentUser.Username);
-                user.Hours = currentUser.Hours;
-                user.RateName = currentUser.RateName;
-                user.Balance = currentUser.Balance;
-                Data.SaveData<User>(userFilePath, users);
-                Rate? oldRate = Rates.FirstOrDefault(r => r.Id == rate.Id);
-                if (oldRate != null)
-                {
-                    oldRate.WasBought++;
-                    Data.SaveData(rateFilePath, Rates);
-                }
-                MessageBox.Show($"You have bought the rate: {rate.Name}");
+            currentUser.Hours += rate.Hours;
+            currentUser.RateName = rate.Name;
+            currentUser.Balance -= rate.Price;
+            var users = Data.LoadData<User>(userFilePath);
+            var user = users.FirstOrDefault(u => u.Username == currentUser.Username);
+            user.Hours = currentUser.Hours;
+            user.RateName = currentUser.RateName;
+            user.Balance = currentUser.Balance;
+            Balance = user.Balance;
+            RateName = user.RateName;
+            Hours = user.Hours;
+            Data.SaveData<User>(userFilePath, users);
+            Rate? oldRate = Rates.FirstOrDefault(r => r.Id == rate.Id);
+            if (oldRate != null)
+            {
+                oldRate.WasBought++;
+                Data.SaveData(rateFilePath, Rates);
             }
         }
         private void Games()

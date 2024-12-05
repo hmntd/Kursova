@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ReestrForm.ViewModels.AddBalanceViewModel">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QIAEBwAQQgCAQACAAsAAABAAAAgAAAABIAAAAUAAAAw=</HashCode>
+      <FileName>ViewModels\AddBalanceViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ReestrForm.ViewModels.AddFoodViewModel">
+    <Position X="11.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAgAAAAAAAAAQAIIABAAAAAACAAAAAACQAAA=</HashCode>
+      <FileName>ViewModels\AddFoodViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ReestrForm.ViewModels.AddGamesViewModel">
+    <Position X="20.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAghAQAAAAAAAQAAIARAAAAAACIACAAACQAAA=</HashCode>
+      <FileName>ViewModels\AddGamesViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ReestrForm.ViewModels.AddTimeViewModel">
+    <Position X="29.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAIAAAgAAAAAAAAAQAAIABAAAAAACAAAAAACQAAA=</HashCode>
+      <FileName>ViewModels\AddTimeViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ReestrForm.ViewModels.AdminOrderViewModel">
+    <Position X="38.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIEAAAAQQgAAAAAAIABAAAAAAAgAAAAAAAAAAACYAAA=</HashCode>
+      <FileName>ViewModels\AdminOrderViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ReestrForm.ViewModels.AdminUsersControlViewModel">
+    <Position X="2.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAYAACgACgAAACCABAAAAAAwQIECIEICIYQIBgQAAAE=</HashCode>
+      <FileName>ViewModels\AdminUsersControlViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ReestrForm.ViewModels.ConfirmViewModel">
+    <Position X="14" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAAAAQAAhAAAAAAEQAgAAAAAAAAAAAIAAAAAA=</HashCode>
+      <FileName>ViewModels\ConfirmViewModel.cs</FileName>
+      <NewMemberFileName>ViewModels\ConfirmViewModel - Копировать.cs</NewMemberFileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ReestrForm.ViewModels.EditUserViewModel">
+    <Position X="23" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAgAAAACAAAAAAAAABAAAAAACAAAAAACQAAA=</HashCode>
+      <FileName>ViewModels\EditUserViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ReestrForm.ViewModels.ErrorViewModel">
+    <Position X="32" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAIACQAAA=</HashCode>
+      <FileName>ViewModels\ErrorViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ReestrForm.ViewModels.FoodAdminViewModel">
+    <Position X="41" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAYABCAACgBAECCgRAAAAAAwUJECIEKCIQYIBAAAAUE=</HashCode>
+      <FileName>ViewModels\FoodAdminViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ReestrForm.ViewModels.FoodConfirmViewModel">
+    <Position X="5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAQAAQoAAAACAFAAAAAQAAAAAAAAAAAAAAAEAIAA=</HashCode>
+      <FileName>ViewModels\FoodConfirmViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ReestrForm.ViewModels.FoodPageViewModel">
+    <Position X="16.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAIIBAgAAgBAEACgQAhAAAAYQBAAIAKAIACAAAEBAUA=</HashCode>
+      <FileName>ViewModels\FoodPageViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ReestrForm.ViewModels.FoodStatViewModel">
+    <Position X="25.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAAAAAQAAAAAAAQAAAAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\FoodStatViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ReestrForm.ViewModels.GameStatViewModel">
+    <Position X="34.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAgAAAAAAAAAAAAAAQAAAAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\GameStatViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ReestrForm.ViewModels.LoginViewModel">
+    <Position X="43.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>KAAAAAAAAoCAAAKAAQAAAAEAAgAAAAACAAAQAgAAIAA=</HashCode>
+      <FileName>ViewModels\LoginViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ReestrForm.ViewModels.MainAdminViewModel">
+    <Position X="7.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAICBAMCGhABECCBFCCDAAAgQJACIAAAIAcJAAAAAAk=</HashCode>
+      <FileName>ViewModels\MainAdminViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ReestrForm.ViewModels.MainPageUserViewModel">
+    <Position X="18.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIIACkAAhABEAiAGCjIAAAIQBAAAgAAIAGBAAARCgg=</HashCode>
+      <FileName>ViewModels\MainPageUserViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ReestrForm.ViewModels.RegisterViewModel">
+    <Position X="27.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IQACAgACAiAABAAgCQAAAAGAAAAhIAAKAAAAAgAIAAA=</HashCode>
+      <FileName>ViewModels\RegisterViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ReestrForm.ViewModels.TimePageAdminViewModel">
+    <Position X="36.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAYAACgBCgAAACCAFAQAAAAgUIgCIAAAIQYIBgBAAAE=</HashCode>
+      <FileName>ViewModels\TimePageAdminViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ReestrForm.ViewModels.TimePageViewModel">
+    <Position X="45.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAYIEDgFAgAQAACAAAxAAAAIQAgAIAAAIACAAAABAIA=</HashCode>
+      <FileName>ViewModels\TimePageViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ReestrForm.ViewModels.TimeStatViewModel">
+    <Position X="9.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAAAAAAAAAAAAAQAgAAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\TimeStatViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ReestrForm.ViewModels.ViewModel">
+    <Position X="23" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAAAAIQCIAAAAEAAgAACAABAABAEAQAAAAA=</HashCode>
+      <FileName>ViewModels\ViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -21,18 +21,14 @@ namespace ReestrForm.ViewModels
         private User currentUser;
         public ICommand Login_Click { get; }
         public ICommand Label_SignIn_Click { get; }
-        public ICommand GoogleLogin_Click { get; }
-        public ICommand InstLogin_Click { get; }
-        public ICommand TgLogin_Click { get; }
+        public ICommand Forgot_Click { get; }
         public LoginViewModel(Window window)
         {
             this.users = Data.LoadData<User>(userFilePath);
             Login_Click = new RelayCommand(Login, () => !string.IsNullOrEmpty(Username) && !string.IsNullOrEmpty(Password));
             Label_SignIn_Click = new RelayCommand(Label_SignIn);
             _window = window;
-            GoogleLogin_Click = new RelayCommand(GoogleLogin);
-            InstLogin_Click = new RelayCommand(InstLogin);
-            TgLogin_Click = new RelayCommand(TgLogin);
+            Forgot_Click = new RelayCommand(Forgot);
         }
         public string Username
         {
@@ -68,13 +64,25 @@ namespace ReestrForm.ViewModels
             CurrentUser = users.FirstOrDefault(u => u.Username == Username);
             if (CurrentUser != null && CurrentUser.Password == Password)
             {
+                if (CurrentUser.IsAdmin)
+                {
+                    MainAdminWindow win = new MainAdminWindow();
+                    win.DataContext = new MainAdminViewModel(CurrentUser, win);
+                    win.Show();
+                    _window.Close();
+                    return;
+                }
+
                 MainPageUser mainPageUser = new MainPageUser();
                 mainPageUser.DataContext = new MainPageUserViewModel(CurrentUser, mainPageUser);
                 mainPageUser.Show();
                 _window.Close();
             } else
             {
-                MessageBox.Show("Невірний логін або пароль", "Вхід", MessageBoxButton.OK, MessageBoxImage.Error);
+                var win = new ErorWin();
+                var viewModel = new ErrorViewModel("Невірний логін або пароль", win);
+                win.DataContext = viewModel;
+                win.ShowDialog();
             }
 
             return;
@@ -86,17 +94,12 @@ namespace ReestrForm.ViewModels
             mainFrame.Navigate(new Page1());
             _window.Content = mainFrame;
         }
-        private void GoogleLogin()
+        private void Forgot()
         {
-            Process.Start(new ProcessStartInfo("https://accounts.google.com/signin") { UseShellExecute = true });
-        }
-        private void InstLogin()
-        {
-            Process.Start(new ProcessStartInfo("https://www.instagram.com/") { UseShellExecute = true });
-        }
-        private void TgLogin()
-        {
-            Process.Start(new ProcessStartInfo("https://web.telegram.org/k/") { UseShellExecute = true });
+            var win = new ErorWin();
+            var viewModel = new ErrorViewModel("Зверніться до адміну для скинення паролю", win);
+            win.DataContext = viewModel;
+            win.ShowDialog();
         }
     }
 }

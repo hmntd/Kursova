@@ -2,86 +2,36 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup />
   <ItemGroup>
-    <ApplicationDefinition Update="App.xaml">
-      <SubType>Designer</SubType>
-    </ApplicationDefinition>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Update="AddBalance.xaml.cs">
+    <Compile Update="View\AdminWindow\AdminOrderWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="AddGamesWindow.xaml.cs">
+    <Compile Update="View\AdminWindow\EditUser.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Confirm.xaml.cs">
+    <Compile Update="View\AdminWindow\FoodStatAdmin.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="ErorWin.xaml.cs">
+    <Compile Update="View\AdminWindow\GameStatAdmin.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="FoodConfirmWin.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="FoodPageAdmin.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="FoodPageUser.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="MainAdminWindow.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="MainPageUser.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="ReestrPage.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="TimePageAdmin.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="TimePageUser.xaml.cs">
+    <Compile Update="View\AdminWindow\TimeStatAdmin.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="AddBalance.xaml">
+    <Page Update="View\AdminWindow\AdminOrderWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="AddGamesWindow.xaml">
+    <Page Update="View\AdminWindow\EditUser.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Confirm.xaml">
+    <Page Update="View\AdminWindow\FoodStatAdmin.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="ErorWin.xaml">
+    <Page Update="View\AdminWindow\GameStatAdmin.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="FoodConfirmWin.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="FoodPageAdmin.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="FoodPageUser.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="MainAdminWindow.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="MainPageUser.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="MainWindow.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="ReestrPage.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="TimePageAdmin.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="TimePageUser.xaml">
+    <Page Update="View\AdminWindow\TimeStatAdmin.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

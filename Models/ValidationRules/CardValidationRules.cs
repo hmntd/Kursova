@@ -10,7 +10,7 @@ namespace ReestrForm.Models.ValidationRules
 {
     public class CardValidationRules
     {
-        public static bool CardNumberValidate(int number)
+        public static bool CardNumberValidate(long number)
         {
             CreditCardAttribute creditCardAttribute = new CreditCardAttribute();
             if (!creditCardAttribute.IsValid(number.ToString()))
@@ -22,7 +22,13 @@ namespace ReestrForm.Models.ValidationRules
         }
         public static bool NameOwnerValidate(string name)
         {
-            string pattern = @"^[a-zA-Zа-яА-Я]+$";
+            string pattern = @"^[a-zA-Zа-яА-Яа-яА-ЯёЁ' -]+$";
+
+            if (string.IsNullOrWhiteSpace(name))
+            {
+                throw new ValidationException("Ім'я власника не може бути пустим.");
+            }
+
             if (!Regex.IsMatch(name, pattern))
             {
                 throw new ValidationException("Ім'я власника може містити тільки літери, без цифр і пробілів.");
@@ -30,6 +36,7 @@ namespace ReestrForm.Models.ValidationRules
 
             return true;
         }
+
         public static bool CvvValidation(int cvv)
         {
             if (string.IsNullOrEmpty(cvv.ToString()) || !cvv.ToString().All(char.IsDigit) || cvv.ToString().Length != 3)
@@ -72,6 +79,15 @@ namespace ReestrForm.Models.ValidationRules
             }
 
             throw new ValidationException("Невірний формат дати дії."); ;
+        }
+        public static bool SumValidate(int sum)
+        {
+            if (sum < 0)
+            {
+                throw new Exception("Сума поповнення не може бути меньше 0");
+            }
+
+            return true;
         }
     }
 }

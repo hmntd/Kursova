@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ReestrForm.Models.ValidationRules.CardValidationRules">
+    <Position X="7.75" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAgAAACAAAAAAAAAAAAAAAAAAAAABAAAACAAAAAAA=</HashCode>
+      <FileName>Models\ValidationRules\CardValidationRules.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ReestrForm.Models.ValidationRules.FoodValidationRules">
+    <Position X="9.5" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIBAAAAAAAAAAAAAAAAIAAAAAAAAAAAAgAAAAAAAAAA=</HashCode>
+      <FileName>Models\ValidationRules\FoodValidationRules.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ReestrForm.Models.ValidationRules.GameValidationRules">
+    <Position X="11.25" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAgAAAAAAAAAA=</HashCode>
+      <FileName>Models\ValidationRules\GameValidationRules.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ReestrForm.Models.ValidationRules.RateValidationRules">
+    <Position X="6" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAA=</HashCode>
+      <FileName>Models\ValidationRules\RateValidationRules.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ReestrForm.Models.ValidationRules.RegisterValidationRules">
+    <Position X="13" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAAAAAAAAAAEAAAAEAAAAAAAACAAAAA=</HashCode>
+      <FileName>Models\ValidationRules\RegisterValidationRules.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
