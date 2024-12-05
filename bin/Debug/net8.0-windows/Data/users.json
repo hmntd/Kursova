@@ -14,12 +14,12 @@
     "Id": "65a12132-6f32-42ab-89d1-6e7e60a58c8b",
     "Password": "adg29122004",
     "Username": "BiteV1x",
-    "Email": "sadasd@gmail.com",
+    "Email": "andrey@gmail.com",
     "IsAdmin": false,
     "Balance": 70,
     "RateName": "Standart",
-    "Hours": 7,
-    "TotalHours": 3
+    "Hours": 3,
+    "TotalHours": 7
   },
   {
     "Id": "8d8857f8-e93c-434f-887b-7a86c645abcf",
@@ -29,6 +29,17 @@
     "IsAdmin": true,
     "Balance": 0,
     "RateName": "-",
+    "Hours": 0,
+    "TotalHours": 0
+  },
+  {
+    "Id": null,
+    "Password": "12345678",
+    "Username": "Qqq",
+    "Email": "qqqq@gmail.com",
+    "IsAdmin": false,
+    "Balance": 50,
+    "RateName": "LowCost",
     "Hours": 0,
     "TotalHours": 0
   }

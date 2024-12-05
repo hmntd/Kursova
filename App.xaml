@@ -243,7 +243,7 @@
             </Border>
         </DataTemplate>
         <Style x:Key="HeadingStyle" TargetType="GridViewColumnHeader">
-            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="HorizontalContentAlignment" Value="Left" />
             <Setter Property="VerticalContentAlignment" Value="Center" />
             <Setter Property="Background" Value="#507294" />
             <Setter Property="Foreground" Value="White" />
@@ -352,8 +352,9 @@
             <Setter Property="FontSize" Value="30" />
             <Setter Property="Foreground" Value="Black" />
             <Setter Property="VerticalAlignment" Value="Center" />
-            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="HorizontalAlignment" Value="Left" />
             <Setter Property="TextWrapping" Value="Wrap" />
+            <Setter Property="Margin" Value="10,0,0,0"/>
         </Style>
         <!-- DataTemplates -->
         <DataTemplate x:Key="ImageTemplate">
@@ -362,21 +363,21 @@
             </Border>
         </DataTemplate>
         <DataTemplate x:Key="NameTemplate">
-            <Border Background="#ffcb2a" Height="150" Width="700">
+            <Border Background="#ffcb2a" Height="150" Width="1000">
                 <TextBlock Text="{Binding Name}" Style="{StaticResource ListViewItemBlock}"/>
             </Border>
         </DataTemplate>
         <DataTemplate x:Key="HoursTemplate">
-            <Border Background="#ffcb2a" Height="150" Width="200">
-                <DockPanel HorizontalAlignment="Center">
+            <Border Background="#ffcb2a" Height="150" Width="1000">
+                <DockPanel HorizontalAlignment="Left">
                     <TextBlock Text="{Binding Hours}" Style="{StaticResource ListViewItemBlock}" DockPanel.Dock="Left"/>
                     <TextBlock Text=" год." Style="{StaticResource ListViewItemBlock}" DockPanel.Dock="Right"/>
                 </DockPanel>
             </Border>
         </DataTemplate>
         <DataTemplate x:Key="PriceTemplate">
-            <Border Background="#ffcb2a" Height="150" Width="180">
-                <DockPanel HorizontalAlignment="Center">
+            <Border Background="#ffcb2a" Height="150" Width="1000">
+                <DockPanel HorizontalAlignment="Left">
                     <TextBlock Text="{Binding Price}" Style="{StaticResource ListViewItemBlock}" DockPanel.Dock="Left"/>
                     <TextBlock Text=" грн." Style="{StaticResource ListViewItemBlock}" DockPanel.Dock="Right"/>
                 </DockPanel>
@@ -384,39 +385,39 @@
         </DataTemplate>
         <DataTemplate x:Key="ProductImageTemplate">
             <Border Style="{StaticResource BorderListImj}">
-                <Image Source="{Binding Path_to_Image}" Width="150" Height="150" Stretch="Uniform" Margin="6" 
+                <Image Source="{Binding Path_to_Image}" Width="150" Height="150" Stretch="Uniform" Margin="0" 
                    HorizontalAlignment="Center" VerticalAlignment="Center"/>
             </Border>
         </DataTemplate>
         <DataTemplate x:Key="ProductNameTemplate">
-            <Border Background="#ffcb2a" Height="150" Width="700">
+            <Border Background="#ffcb2a" Height="150" Width="1500">
                 <TextBlock Text="{Binding Name}" Style="{StaticResource ListViewItemBlock}" TextWrapping="Wrap"/>
             </Border>
         </DataTemplate>
         <DataTemplate x:Key="ProductPriceTemplate">
-            <Border Background="#ffcb2a" Height="150" Width="400">
-                <DockPanel HorizontalAlignment="Center">
+            <Border Background="#ffcb2a" Height="150" Width="1500">
+                <DockPanel HorizontalAlignment="Left">
                     <TextBlock Text="{Binding Price}" Style="{StaticResource ListViewItemBlock}" DockPanel.Dock="Left"/>
                     <TextBlock Text=" грн." Style="{StaticResource ListViewItemBlock}" DockPanel.Dock="Right"/>
                 </DockPanel>
             </Border>
         </DataTemplate>
         <DataTemplate x:Key="NicknameTemplate">
-            <Border Background="#ffcb2a" Height="100" Width="700">
+            <Border Background="#ffcb2a" Height="100" Width="1000">
                 <TextBlock Text="{Binding Username}" Style="{StaticResource ListViewItemBlock}" TextWrapping="Wrap"/>
             </Border>
         </DataTemplate>
         <DataTemplate x:Key="HoursUserTemplate">
-            <Border Background="#ffcb2a" Height="100" Width="300">
-                <DockPanel HorizontalAlignment="Center">
+            <Border Background="#ffcb2a" Height="100" Width="1000">
+                <DockPanel HorizontalAlignment="Left">
                     <TextBlock Text="{Binding Hours}" Style="{StaticResource ListViewItemBlock}" DockPanel.Dock="Left"/>
                     <TextBlock Text=" год." Style="{StaticResource ListViewItemBlock}" DockPanel.Dock="Right"/>
                 </DockPanel>
             </Border>
         </DataTemplate>
         <DataTemplate x:Key="BalanceTemplate">
-            <Border Background="#ffcb2a" Height="100" Width="250">
-                <DockPanel HorizontalAlignment="Center">
+            <Border Background="#ffcb2a" Height="100" Width="1000">
+                <DockPanel HorizontalAlignment="Left">
                     <TextBlock Text="{Binding Balance}" Style="{StaticResource ListViewItemBlock}" DockPanel.Dock="Left"/>
                     <TextBlock Text=" грн." Style="{StaticResource ListViewItemBlock}" DockPanel.Dock="Right"/>
                 </DockPanel>
@@ -425,7 +426,7 @@
         <Style TargetType="ListBox" x:Key="gamebox">
             <Setter Property="Background" Value="Transparent"/>
             <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Hidden"/>
-            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Hidden"/>
+            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled"/>
             <Setter Property="BorderThickness" Value="0"/>
         </Style>
         <Style TargetType="ListBoxItem" x:Key="OrderList">

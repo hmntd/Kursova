@@ -127,9 +127,9 @@
             d:ItemsSource="{d:SampleData ItemCount=10}" ItemsSource="{Binding Users}"  Margin="10,10,10,0" SelectedItem="{Binding SelectedUser}">
                 <ListView.View>
                     <GridView ColumnHeaderContainerStyle="{StaticResource HeadingStyle}">
-                        <GridViewColumn Header="Nickname" Width="700" CellTemplate="{StaticResource NicknameTemplate}"/>
+                        <GridViewColumn Header="Nickname" Width="300" CellTemplate="{StaticResource NicknameTemplate}"/>
                         <GridViewColumn Header="Кількість годин" Width="300" CellTemplate="{StaticResource HoursUserTemplate}"/>
-                        <GridViewColumn Header="Баланс" Width="250" CellTemplate="{StaticResource BalanceTemplate}"/>
+                        <GridViewColumn Header="Баланс" Width="1000" CellTemplate="{StaticResource BalanceTemplate}"/>
                     </GridView>
                 </ListView.View>
             </ListView>

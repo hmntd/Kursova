@@ -1,1 +1,10 @@
-[]
+[
+  {
+    "Id": null,
+    "Name": "\u0447\u0430\u0439",
+    "Price": 100,
+    "Type": "Drink",
+    "Path_to_Image": "D:\\\u0420\u0430\u0437\u043D\u043E\u0435\\\u041C\u0435\u043D\u044E \u043F\u0443\u0441\u043A\\Windows Start Icons\\Live Streamer Nexus Icon\\PNG\\Style1\\Vmod6.png",
+    "WasBought": 0
+  }
+]
