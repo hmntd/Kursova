@@ -177,8 +177,8 @@ namespace ReestrForm.ViewModels
         }
         private void Create()
         {
-            var win = new AddGamesWindow();
-            var vm = new AddGamesViewModel(new Models.Application(), win, "Create");
+            var win = new AddFoodWindow();
+            var vm = new AddFoodViewModel(new Suply(), win, "Create");
             win.DataContext = vm;
             win.ShowDialog();
             this.Suplies = Data.LoadData<Models.Suply>(suplyFilePath);
