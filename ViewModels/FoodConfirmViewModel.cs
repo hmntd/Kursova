@@ -78,7 +78,7 @@ namespace ReestrForm.ViewModels
             user.Balance = currentUser.Balance;
             Data.SaveData<User>(userFilePath, users);
             ObservableCollection<Order> orders = Data.LoadData<Order>(orderFilePath);
-            orders.Add(new Order(Guid.NewGuid().ToString(), Product.Name, user.Username, Count));
+            orders.Add(new Order(Guid.NewGuid().ToString(), Product.Name, user.Username, Count, false));
             Data.SaveData(orderFilePath, orders);
             _window.DialogResult = true;
             _window.Close();

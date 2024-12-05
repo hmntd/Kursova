@@ -19,6 +19,17 @@ namespace ReestrForm.ViewModels
         public User currentUser { get; }
         private Window _window;
         private Page _page;
+        private string gif_path;
+        public string Gif_Path
+        {
+            get { return gif_path; }
+            set
+            {
+                gif_path = value;
+                OnPropertyChanged(Gif_Path);
+            }
+        }
+        public int OrdersCount { get; set; }
         private ObservableCollection<Suply> sup { get; }
         private ObservableCollection<Suply> suplies;
         public ObservableCollection<Suply> Suplies
@@ -51,6 +62,10 @@ namespace ReestrForm.ViewModels
         public ICommand Edit_Click { get; }
         public ICommand Create_Click { get; }
         public ICommand Delete_Click { get; }
+        public ICommand MinimizeWindow_Click { get; }
+        public ICommand CloseWindow_Click { get; }
+        public ICommand ToggleWindow_Click { get; }
+        public ICommand UsersOrders_Click { get; }
         public FoodAdminViewModel(User currentUser, Window window, Page page)
         {
             this.currentUser = currentUser;
@@ -58,6 +73,7 @@ namespace ReestrForm.ViewModels
             _page = page;
             this.sup = Data.LoadData<Suply>(suplyFilePath);
             Suplies = this.sup;
+            OrdersCount = Data.LoadData<Order>(orderFilePath).Count(o => !o.Is_Did);
             Games_Click = new RelayCommand(Games);
             Times_Click = new RelayCommand(Times);
             Users_Click = new RelayCommand(Users);
@@ -69,6 +85,23 @@ namespace ReestrForm.ViewModels
             Edit_Click = new RelayCommand(Edit);
             Create_Click = new RelayCommand(Create);
             Delete_Click = new RelayCommand(Delete);
+            MinimizeWindow_Click = new RelayCommand(() => Minimize_Window(window));
+            CloseWindow_Click = new RelayCommand(() => Close_Window(window));
+            ToggleWindow_Click = new RelayCommand(() => Toogle_Window(window));
+            UsersOrders_Click = new RelayCommand(UserOrders);
+            SetGif();
+        }
+        public Random random { get; } = new Random();
+        private void SetGif()
+        {
+            string[] paths = [
+                "/gif/akita_lie_8fps.gif",
+                "/gif/ljSjEjQ.gif",
+                "/gif/nyan-cat.gif",
+                "/gif/oR1fkkiDPgSG.gif",
+                "/gif/qiBoeLEaT.gif",
+                ];
+            Gif_Path = paths[random.Next(0, paths.Length)];
         }
         public void Filter(string type)
         {
@@ -170,6 +203,15 @@ namespace ReestrForm.ViewModels
             Data.SaveData(suplyFilePath, Suplies);
             Suplies = Data.LoadData<Models.Suply>(applicationFilePath);
             SelectedFood = null;
+        }
+        private void UserOrders()
+        {
+            var win = new AdminOrderWindow();
+            var vm = new AdminOrderViewModel(win);
+            win.DataContext = vm;
+            win.ShowDialog();
+            OrdersCount = Data.LoadData<Order>(orderFilePath).Count(o => !o.Is_Did);
+            OnPropertyChanged(nameof(OrdersCount));
         }
     }
 }

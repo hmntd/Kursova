@@ -15,10 +15,12 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace ReestrForm.ViewModels
 {
-    public class MainAdminViewModel: ViewModel
+    public class MainAdminViewModel : ViewModel
     {
         public User currentUser { get; }
         private Window _window;
+        public Random random { get; } = new Random();
+        public int OrdersCount { get; set; }
         private ObservableCollection<ReestrForm.Models.Application> Applications;
         private ObservableCollection<ReestrForm.Models.Application> apps;
         public ObservableCollection<Models.Application> Apps
@@ -40,6 +42,16 @@ namespace ReestrForm.ViewModels
                 OnPropertyChanged(nameof(SelectedGame));
             }
         }
+        private string gif_path;
+        public string Gif_Path
+        {
+            get { return gif_path; }
+            set
+            {
+                gif_path = value;
+                OnPropertyChanged(Gif_Path);
+            }
+        }
         public ICommand Exit_Click { get; }
         public ICommand Filter_All { get; }
         public ICommand Filter_Games { get; }
@@ -51,10 +63,15 @@ namespace ReestrForm.ViewModels
         public ICommand EditGame_Click { get; }
         public ICommand CreateGame_Click { get; }
         public ICommand DeleteGame_Click { get; }
+        public ICommand MinimizeWindow_Click { get; }
+        public ICommand CloseWindow_Click { get; }
+        public ICommand ToggleWindow_Click { get; }
+        public ICommand UsersOrders_Click { get; }
         public MainAdminViewModel(User user, Window window)
         {
             currentUser = user;
             this._window = window;
+            OrdersCount = Data.LoadData<Order>(orderFilePath).Count(o => !o.Is_Did);
             Applications = Data.LoadData<ReestrForm.Models.Application>(applicationFilePath);
             Apps = Applications;
             Exit_Click = new RelayCommand(Exit);
@@ -68,6 +85,22 @@ namespace ReestrForm.ViewModels
             EditGame_Click = new RelayCommand(EditGame);
             CreateGame_Click = new RelayCommand(CreateGame);
             DeleteGame_Click = new RelayCommand(DeleteGame);
+            MinimizeWindow_Click = new RelayCommand(() => Minimize_Window(window));
+            CloseWindow_Click = new RelayCommand(() => Close_Window(window));
+            ToggleWindow_Click = new RelayCommand(() => Toogle_Window(window));
+            UsersOrders_Click = new RelayCommand(UserOrders);
+            SetGif();
+        }
+        private void SetGif()
+        {
+            string[] paths = [
+                "/gif/akita_lie_8fps.gif",
+                "/gif/ljSjEjQ.gif",
+                "/gif/nyan-cat.gif",
+                "/gif/oR1fkkiDPgSG.gif",
+                "/gif/qiBoeLEaT.gif",
+                ];
+            Gif_Path = paths[random.Next(0, paths.Length)];
         }
         private void Exit()
         {
@@ -128,6 +161,15 @@ namespace ReestrForm.ViewModels
             page.DataContext = new AdminUsersControlViewModel(currentUser, _window, page);
             mainFrame.Navigate(page);
             _window.Content = mainFrame;
+        }
+        private void UserOrders()
+        {
+            var win = new AdminOrderWindow();
+            var vm = new AdminOrderViewModel(win);
+            win.DataContext = vm;
+            win.ShowDialog();
+            OrdersCount = Data.LoadData<Order>(orderFilePath).Count(o => !o.Is_Did);
+            OnPropertyChanged(nameof(OrdersCount));
         }
         private void EditGame()
         {

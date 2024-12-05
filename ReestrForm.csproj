@@ -9,6 +9,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="gif\akita_lie_8fps.gif" />
+    <None Remove="gif\ljSjEjQ.gif" />
+    <None Remove="gif\nyan-cat.gif" />
+    <None Remove="gif\oR1fkkiDPgSG.gif" />
+    <None Remove="gif\qiBoeLEaT.gif" />
     <None Remove="google.jpg" />
     <None Remove="google.png" />
     <None Remove="image\Background.png" />
@@ -42,9 +47,25 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.135" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="WpfAnimatedGif" Version="2.0.2" />
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="gif\akita_lie_8fps.gif">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="gif\ljSjEjQ.gif">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="gif\nyan-cat.gif">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="gif\oR1fkkiDPgSG.gif">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="gif\qiBoeLEaT.gif">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="image\Background.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
