@@ -6,8 +6,8 @@
         xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
         xmlns:local="clr-namespace:ReestrForm.View.AdminWindow"
         mc:Ignorable="d"
-        Title="GameStatAdmin" Height="600" Width="1000"  Background="Transparent" AllowsTransparency="False" WindowStyle="None" WindowStartupLocation="CenterScreen">
-    <Border Grid.Row="1" Grid.Column="1" CornerRadius="20" Padding="10">
+        Title="GameStatAdmin" Height="600" Width="1000"  Background="Transparent" AllowsTransparency="True" WindowStyle="None" WindowStartupLocation="CenterScreen">
+    <Border Grid.Row="1" Grid.Column="1" CornerRadius="20" Padding="10" BorderBrush="White" BorderThickness="2">
         <Border.Background >
             <SolidColorBrush Color="#383b4d"/>
         </Border.Background>
@@ -30,9 +30,9 @@
 
                 <ListView.View>
                     <GridView ColumnHeaderContainerStyle="{StaticResource HeadingStatStyle}">
-                        <GridViewColumn Width="100" CellTemplate="{StaticResource ImageGameStatTemplate}"/>
+                        <GridViewColumn Width="120" CellTemplate="{StaticResource ImageGameStatTemplate}"/>
                         <GridViewColumn Header="Назва гри" Width="600" CellTemplate="{StaticResource NameGameStatTemplate}"/>
-                        <GridViewColumn Header="Годин в грі" Width="300" CellTemplate="{StaticResource HoursStatTemplate}" />
+                        <GridViewColumn Header="Годин в грі" Width="280" CellTemplate="{StaticResource HoursStatTemplate}" />
                     </GridView>
                 </ListView.View>
             </ListView>

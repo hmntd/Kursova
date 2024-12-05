@@ -89,6 +89,11 @@ namespace ReestrForm.ViewModels
             OnPropertyChanged(nameof(Ords));
             var suplies = Data.LoadData<Suply>(suplyFilePath); 
             var suply = suplies.FirstOrDefault(s => s.Name == SelectedOrder.Suply_Name);
+            if (suply == null)
+            {
+                return;
+            }
+
             suply.WasBought += SelectedOrder.Count;
             Data.SaveData(suplyFilePath, suplies);
         }

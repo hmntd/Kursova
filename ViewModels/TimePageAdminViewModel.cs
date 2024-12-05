@@ -147,6 +147,7 @@ namespace ReestrForm.ViewModels
             win.DataContext = vm;
             win.ShowDialog();
             Rates = Data.LoadData<Rate>(rateFilePath);
+            OnPropertyChanged(nameof(Rates));
         }
         private void DeleteRate()
         {
@@ -168,6 +169,7 @@ namespace ReestrForm.ViewModels
             Rates.Remove(SelectedRate);
             Data.SaveData(rateFilePath, Rates);
             SelectedRate = null;
+            OnPropertyChanged(nameof(Rates));
         }
         private void UserOrders()
         {

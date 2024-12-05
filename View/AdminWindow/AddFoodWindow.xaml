@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ReestrForm"
         mc:Ignorable="d"
-        Title="AddFoodWindow" Height="700" Width="500" Background="Transparent" AllowsTransparency="False" WindowStyle="None" WindowStartupLocation="CenterScreen">
-    <Border Grid.Row="1" Grid.Column="1" CornerRadius="20" Padding="10">
+        Title="AddFoodWindow" Height="700" Width="500" Background="Transparent" AllowsTransparency="True" WindowStyle="None" WindowStartupLocation="CenterScreen">
+    <Border Grid.Row="1" Grid.Column="1" CornerRadius="20" Padding="10" BorderBrush="White" BorderThickness="2">
         <Border.Background >
             <SolidColorBrush Color="#383b4d"/>
         </Border.Background>
@@ -37,7 +37,7 @@
             <Label Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="1" Content="Назва продукту:" Style="{StaticResource Left lab}"  FontSize="25" />
             <TextBox  Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="3" Text="{Binding Suply.Price}" Style="{StaticResource RegBlock}"/>
             <Label Grid.Row="3" Grid.ColumnSpan="2" Grid.Column="1" Content="Ціна:" Style="{StaticResource Left lab}" FontSize="25" />
-            <TextBox Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="3" Style="{StaticResource RegBlock}" IsEnabled="False" Text="{Binding Suply.Path_to_Image}"/>
+            <TextBox Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="2" Style="{StaticResource RegBlock}" IsEnabled="False" Text="{Binding Suply.Path_to_Image}"/>
             <Label Grid.Row="5" Grid.ColumnSpan="2" Grid.Column="1" Content="Шлях до банеру:" Style="{StaticResource Left lab}" FontSize="25" />
             <TextBox Grid.Row="2"  Grid.Column="1" Grid.ColumnSpan="3" Text="{Binding Suply.Name}" Style="{StaticResource RegBlock}"/>
             <Label Grid.Row="7"  Grid.ColumnSpan="2" Grid.Column="1" Content="Оберіть категорію:" Style="{StaticResource Left lab}"  FontSize="25" />
@@ -48,7 +48,7 @@
                     <RowDefinition Height="52*"/>
                     <RowDefinition Height="14*"/>
                 </Grid.RowDefinitions>
-                <ComboBox Margin="0,10,0,0" Grid.Row="1" ItemsSource="{Binding TypeFood}" SelectedItem="{Binding Suply.Type}"/>
+                <ComboBox Margin="0,10,0,0" Grid.Row="1" ItemsSource="{Binding TypeFood}" SelectedItem="{Binding Suply.Type}" Style="{StaticResource ComboStyle}"/>
             </Grid>
         </Grid>
     </Border>

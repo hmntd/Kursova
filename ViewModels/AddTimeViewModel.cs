@@ -68,7 +68,6 @@ namespace ReestrForm.ViewModels
         {
             try
             {
-                RateValidationRules.NameValidation(Rate.Name);
                 RateValidationRules.PriceValidation(Rate.Price);
                 RateValidationRules.FileExistsValidation(Rate.Path_to_image);
 
