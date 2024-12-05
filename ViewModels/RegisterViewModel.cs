@@ -102,7 +102,10 @@ namespace ReestrForm.ViewModels
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Некоректні дaні", MessageBoxButton.OK, MessageBoxImage.Error);
+                var win = new ErorWin();
+                var viewModel = new ErrorViewModel(ex.Message, win);
+                win.DataContext = viewModel;
+                win.ShowDialog();
                 return;
             }
             users.Add(newUser);

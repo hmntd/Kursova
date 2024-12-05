@@ -68,13 +68,25 @@ namespace ReestrForm.ViewModels
             CurrentUser = users.FirstOrDefault(u => u.Username == Username);
             if (CurrentUser != null && CurrentUser.Password == Password)
             {
+                if (CurrentUser.IsAdmin)
+                {
+                    MainAdminWindow win = new MainAdminWindow();
+                    win.DataContext = new MainAdminViewModel(CurrentUser, win);
+                    win.Show();
+                    _window.Close();
+                    return;
+                }
+
                 MainPageUser mainPageUser = new MainPageUser();
                 mainPageUser.DataContext = new MainPageUserViewModel(CurrentUser, mainPageUser);
                 mainPageUser.Show();
                 _window.Close();
             } else
             {
-                MessageBox.Show("Невірний логін або пароль", "Вхід", MessageBoxButton.OK, MessageBoxImage.Error);
+                var win = new ErorWin();
+                var viewModel = new ErrorViewModel("Невірний логін або пароль", win);
+                win.DataContext = viewModel;
+                win.ShowDialog();
             }
 
             return;

@@ -1,0 +1,41 @@
+﻿<Window x:Class="ReestrForm.View.AdminWindow.GameStatAdmin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+        xmlns:local="clr-namespace:ReestrForm.View.AdminWindow"
+        mc:Ignorable="d"
+        Title="GameStatAdmin" Height="600" Width="1000"  Background="Transparent" AllowsTransparency="False" WindowStyle="None" WindowStartupLocation="CenterScreen">
+    <Border Grid.Row="1" Grid.Column="1" CornerRadius="20" Padding="10">
+        <Border.Background >
+            <SolidColorBrush Color="#383b4d"/>
+        </Border.Background>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="166*"/>
+                <ColumnDefinition Width="10*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="68*"/>
+                <RowDefinition Height="305*"/>
+            </Grid.RowDefinitions>
+            <Rectangle Fill="#ffcb2a" Grid.ColumnSpan="4" RadiusX="11.704" RadiusY="11.704"/>
+            <Label Content="Статистика ігр" Grid.ColumnSpan="4" Style="{StaticResource Center lab}" Foreground="#232740" VerticalAlignment="Center" FontSize="30"/>
+            <Button Grid.Column="3" Content="×" Style="{StaticResource SignINBut}" Foreground="#232740" FontSize="40" BorderThickness="0" Command="{Binding Exit_Click}"/>
+            <ListView Grid.Row="1" Grid.ColumnSpan="2" 
+                      Style="{StaticResource FoodListView}"                 
+                      d:ItemsSource="{d:SampleData ItemCount=10}" 
+                      ItemsSource="{Binding Apps}"   Margin="0,10,0,0">
+
+                <ListView.View>
+                    <GridView ColumnHeaderContainerStyle="{StaticResource HeadingStatStyle}">
+                        <GridViewColumn Width="100" CellTemplate="{StaticResource ImageGameStatTemplate}"/>
+                        <GridViewColumn Header="Назва гри" Width="600" CellTemplate="{StaticResource NameGameStatTemplate}"/>
+                        <GridViewColumn Header="Годин в грі" Width="300" CellTemplate="{StaticResource HoursStatTemplate}" />
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </Grid>
+    </Border>
+</Window>

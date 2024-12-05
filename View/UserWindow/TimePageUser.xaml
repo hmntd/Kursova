@@ -103,24 +103,23 @@
                             <ColumnDefinition Width="4*"/>
                             <ColumnDefinition Width="5*"/>
                         </Grid.ColumnDefinitions>
-                        <Button Grid.Column="1" Grid.Row="1"  Command="{Binding Exit_Click}" Content="Вийти з акаунту" Style="{StaticResource SignINBut}"  />
+                        <Button Grid.ColumnSpan="3" Grid.Row="2"  Command="{Binding Exit_Click}" Content="Вийти з акаунту" Style="{StaticResource SignINBut}"  />
                     </Grid>
-                    <Button Grid.ColumnSpan="2" Grid.Row="7" Content="Поповинити баланс" Style="{StaticResource login}" Margin="20"/>
+                    <Button Grid.ColumnSpan="2" Grid.Row="7" Content="Поповинити баланс" Command="{Binding AddBalance_Click}" Style="{StaticResource login}" Margin="20"/>
                     <DockPanel Grid.Row="3"  Grid.Column="1" HorizontalAlignment="Center">
                         <Label DockPanel.Dock="Right" Content="годин" Style="{StaticResource InfoLab}" Margin="10,0,0,0"/>
-                        <Label DockPanel.Dock="Left"  Content="{Binding currentUser.Hours}"  Style="{StaticResource InfoValueLabel}"/>
+                        <Label DockPanel.Dock="Left"  Content="{Binding Hours}"  Style="{StaticResource InfoValueLabel}"/>
                     </DockPanel>
                     <DockPanel Grid.Row="4"  Grid.Column="1" HorizontalAlignment="Center">
                         <Label DockPanel.Dock="Right"  Content="грн." Style="{StaticResource InfoLab}" Margin="10,0,0,0"/>
-                        <Label DockPanel.Dock="Left"  Content="{Binding currentUser.Balance}" Style="{StaticResource InfoValueLabel}" />
+                        <Label DockPanel.Dock="Left"  Content="{Binding Balance}" Style="{StaticResource InfoValueLabel}" />
                     </DockPanel>
-                    <TextBlock Grid.Row="5" Grid.Column="1"/>
+                    <Label Grid.Row="5" Grid.Column="1" HorizontalAlignment="Center"  Style="{StaticResource InfoValueLabel}" Content="{Binding RateName}"/>
                 </Grid>
             </Border>
             <!--Список ігр-->
-            <ListView Grid.Column="0" Grid.Row="2" HorizontalContentAlignment="Stretch" Background="Transparent" 
-          ScrollViewer.VerticalScrollBarVisibility="Hidden" ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
-          d:ItemsSource="{d:SampleData ItemCount=10}" ItemsSource="{Binding Rates}" BorderThickness="0" Margin="10,10,10,0" SelectedItem="{Binding SelectedRate}">
+            <ListView Grid.Column="0" Grid.Row="2" Style="{StaticResource FoodListView}" 
+          d:ItemsSource="{d:SampleData ItemCount=10}" ItemsSource="{Binding Rates}"  Margin="10,10,10,0" SelectedItem="{Binding SelectedRate}">
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="MouseDoubleClick">
                         <i:InvokeCommandAction Command="{Binding BuyRate_Command}" CommandParameter="{Binding SelectedRate}" />
@@ -128,55 +127,10 @@
                 </i:Interaction.Triggers>
                 <ListView.View>
                     <GridView ColumnHeaderContainerStyle="{StaticResource HeadingStyle}">
-                        <!-- Заголовки -->
-                        <GridViewColumn Width="175">
-                            <GridViewColumn.CellTemplate>
-                                <DataTemplate>
-                                    <Border  Background="#507294" CornerRadius="10" Padding="5" Width="150" Height="150">
-                                        <Image Source="{Binding Path_to_image}" Width="150" Height="150"  Stretch="Fill"/>
-                                    </Border>
-                                </DataTemplate>
-                            </GridViewColumn.CellTemplate>
-                        </GridViewColumn>
-                        <GridViewColumn Header="Назва тарифу" Width="700" >
-                            <GridViewColumn.CellTemplate>
-                                <DataTemplate>
-                                    <Border Background="#ffcb2a" Height="150" Width="700" >
-                                        <TextBlock Text="{Binding Name}" FontFamily="Bookman Old Style" VerticalAlignment="Center" HorizontalAlignment="Center"
-                                       TextWrapping="Wrap" FontSize="30" Foreground="Black" />
-                                    </Border>
-                                </DataTemplate>
-                            </GridViewColumn.CellTemplate>
-                        </GridViewColumn>
-                        <GridViewColumn Header="Кількість годин" Width="200" >
-                            <GridViewColumn.CellTemplate>
-                                <DataTemplate>
-                                    <Border Background="#ffcb2a" Height="150" Width="200" >
-                                        <DockPanel HorizontalAlignment="Center">
-                                            <TextBlock Text="{Binding Hours}" FontSize="30" FontFamily="Bookman Old Style" 
-                                        HorizontalAlignment="Center" Foreground="Black" VerticalAlignment="Center" DockPanel.Dock="Left"/>
-                                            <TextBlock Text=" год." FontSize="30" FontFamily="Bookman Old Style" DockPanel.Dock="Right"
-                                         Foreground="Black" VerticalAlignment="Center" />
-                                        </DockPanel>
-                                    </Border>
-                                </DataTemplate>
-                            </GridViewColumn.CellTemplate>
-                        </GridViewColumn>
-                        <GridViewColumn Header="Ціна" Width="180">
-                            <GridViewColumn.CellTemplate>
-                                <DataTemplate>
-                                    <Border Background="#ffcb2a" Height="150" Width="180">
-                                        <DockPanel HorizontalAlignment="Center">
-                                            <TextBlock Text="{Binding Price}" FontSize="30" FontFamily="Bookman Old Style" 
-                                       HorizontalAlignment="Right" Foreground="Black" VerticalAlignment="Center" DockPanel.Dock="Left"/>
-                                            <TextBlock Text=" грн." FontSize="30" FontFamily="Bookman Old Style" DockPanel.Dock="Right"
-                                         Foreground="Black" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                                        </DockPanel>
-                                    </Border>
-                                </DataTemplate>
-                            </GridViewColumn.CellTemplate>
-                            
-                        </GridViewColumn>
+                        <GridViewColumn Width="175" CellTemplate="{StaticResource ImageTemplate}"/>
+                        <GridViewColumn Header="Назва тарифу" Width="700" CellTemplate="{StaticResource NameTemplate}"/>
+                        <GridViewColumn Header="Кількість годин" Width="200" CellTemplate="{StaticResource HoursTemplate}"/>
+                        <GridViewColumn Header="Ціна" Width="180" CellTemplate="{StaticResource PriceTemplate}"/>
                     </GridView>
                 </ListView.View>
             </ListView>

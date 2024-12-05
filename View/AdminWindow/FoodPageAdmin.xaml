@@ -3,6 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
       xmlns:local="clr-namespace:ReestrForm"
       mc:Ignorable="d" 
       d:DesignHeight="1080" d:DesignWidth="1920"
@@ -43,9 +44,19 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="35*"/>
                     <RowDefinition Height="70*"/>
-                    <RowDefinition Height="29*"/>
                 </Grid.RowDefinitions>
-                <DockPanel Grid.Row="1">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="5*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button Grid.Column="3" Style="{StaticResource SignINBut}" Content="×" FontSize="30"/>
+                    <Button Grid.Column="2" Style="{StaticResource SignINBut}" Content="▱" FontSize="30"/>
+                    <Button BorderThickness="2,0,0,2" Grid.Column="1" Style="{StaticResource SignINBut}" Content="⇲" FontSize="30"/>
+                </Grid>
+                <DockPanel Grid.Row="1" Margin="0,0,0,20">
                     <Button DockPanel.Dock="Left" Style="{StaticResource SignINBut}" Content="Замовлення клієнтів: " FontSize="30"/>
                     <Label DockPanel.Dock="Right" Content="30" Style="{StaticResource SingIN lab}" FontSize="30"  HorizontalAlignment="Left" VerticalContentAlignment="Center"/>
                 </DockPanel>
@@ -77,16 +88,10 @@
                 </Grid.ColumnDefinitions>
                 <Button Grid.Column="0" Content="Головна" Style="{StaticResource MenuButton}" Command="{Binding Games_Click}"/>
                 <Button Grid.Column="1" Content="Години" Style="{StaticResource MenuButton}" Command="{Binding Times_Click}"/>
-                <Button Grid.Column="2" Content="Їжа" Margin="0,0,5,0" Style="{StaticResource MenuButton}" Command="{Binding Filter_All}"/>
+                <Button Grid.Column="2" Content="Їжа"  Style="{StaticResource MenuButton}" Command="{Binding Filter_All}"/>
             </Grid>
-            <Grid Grid.Column="1" Grid.Row="1">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-                <Button Grid.Column="0" Content="Користувачі" Style="{StaticResource MenuButton}" />
-                <Button Grid.Column="1" Content="Статистика" Style="{StaticResource MenuButton}" Margin="0,0,5,0"/>
-            </Grid>
+            <Button Grid.Column="1" Grid.Row="1" Content="Користувачі" Style="{StaticResource MenuButton}" Command="{Binding Users_Click}" />
+
             <!--Інформаційна панель-->
             <Border  Grid.Column="2" Grid.Row="3" Grid.RowSpan="3" BorderThickness="2" BorderBrush="#bcbcac" CornerRadius="10" Margin="5,10,0,0">
                 <Grid >
@@ -106,10 +111,12 @@
                     </Grid.RowDefinitions>
                     <Label Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" VerticalAlignment="Center" Content="You Info" Style="{StaticResource LOG}"/>
                     <Label Grid.Row="1" Grid.ColumnSpan="2" Content="Користувач:" Style="{StaticResource InfoLab}" FontSize="40"/>
-                    <Label Grid.Row="2" Grid.ColumnSpan="2" Content="Адміністатор"  FontSize="40" VerticalAlignment="Top" Style="{StaticResource InfoValueLabel}" HorizontalAlignment="Center"/>
-                    <Button Grid.Row="4" Grid.ColumnSpan="2" Content="Замінити" Style="{StaticResource login}" Margin="20"/>
-                    <Button Grid.Row="5" Grid.ColumnSpan="2" Content="Додати" Style="{StaticResource login}" Margin="20"/>
-                    <Button Grid.Row="6" Grid.ColumnSpan="2" Content="Видалити" Style="{StaticResource login}" Margin="20"/>
+                    <Label Grid.Row="2" Grid.ColumnSpan="2" Content="{Binding currentUser.Username}"  FontSize="40" VerticalAlignment="Top" Style="{StaticResource InfoValueLabel}" HorizontalAlignment="Center"/>
+                    <Button Grid.Row="3" Grid.ColumnSpan="2" Content="Статистика" Style="{StaticResource login}" Command="{Binding Stat_Click}" Margin="20"/>
+
+                    <Button Grid.Row="4" Grid.ColumnSpan="2" Content="Замінити" Style="{StaticResource login}" Command="{Binding Edit_Click}" Margin="20"/>
+                    <Button Grid.Row="5" Grid.ColumnSpan="2" Content="Додати" Style="{StaticResource login}" Command="{Binding Create_Click}" Margin="20"/>
+                    <Button Grid.Row="6" Grid.ColumnSpan="2" Content="Видалити" Style="{StaticResource login}" Command="{Binding Delete_Click}" Margin="20"/>
                     <Grid Grid.Row="7" Grid.ColumnSpan="2">
                         <Grid.RowDefinitions>
                             <RowDefinition/>
@@ -121,7 +128,7 @@
                             <ColumnDefinition Width="4*"/>
                             <ColumnDefinition Width="5*"/>
                         </Grid.ColumnDefinitions>
-                        <Button Grid.Column="1" Grid.Row="1"   Content="Вийти з акаунту" Style="{StaticResource SignINBut}" Command="{Binding Exit_Click}"  />
+                        <Button  Grid.Row="1" Grid.ColumnSpan="3"  Content="Вийти з акаунту" Style="{StaticResource SignINBut}" Command="{Binding Exit_Click}"  />
                     </Grid>
                 </Grid>
             </Border>
@@ -139,45 +146,13 @@
                     <Button Grid.Column="1" Content="Напої" Style="{StaticResource MenuButton}" Command="{Binding Filter_Drink}" Margin="0,10,5,0"/>
                     <Button Content="Їжа" Style="{StaticResource MenuButton}" Command="{Binding Filter_Food}" Margin="0,10,0,0"/>
                 </Grid>
-                <ListView Grid.Row="1" HorizontalContentAlignment="Stretch" Background="Transparent" 
-      ScrollViewer.VerticalScrollBarVisibility="Hidden" ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
-      d:ItemsSource="{d:SampleData ItemCount=10}" ItemsSource="{Binding Suplies}"  BorderThickness="0" Margin="0,10,0,0">
+                <ListView Grid.Row="1" Style="{StaticResource FoodListView}"  
+d:ItemsSource="{d:SampleData ItemCount=10}" ItemsSource="{Binding Suplies}"   Margin="0,10,0,0" SelectedItem="{Binding SelectedFood}">
                     <ListView.View>
                         <GridView ColumnHeaderContainerStyle="{StaticResource HeadingStyle}">
-                            <!-- Заголовки -->
-                            <GridViewColumn Width="170" >
-                                <GridViewColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <Border  Background="#507294" CornerRadius="10" Padding="5" Width="160" Height="150">
-                                            <Image Source="{Binding Path_to_Image}" Width="150" Height="150"  Stretch="Uniform" Margin="6" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                        </Border>
-                                    </DataTemplate>
-                                </GridViewColumn.CellTemplate>
-                            </GridViewColumn>
-                            <GridViewColumn Header="Назва товару" Width="700" >
-                                <GridViewColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <Border Background="#ffcb2a" Height="150" Width="700" >
-                                            <TextBlock Text="{Binding Name}" FontFamily="Bookman Old Style" VerticalAlignment="Center" HorizontalAlignment="Center"
-                                   TextWrapping="Wrap" FontSize="30" Foreground="Black" />
-                                        </Border>
-                                    </DataTemplate>
-                                </GridViewColumn.CellTemplate>
-                            </GridViewColumn>
-                            <GridViewColumn Header="Ціна" Width="400">
-                                <GridViewColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <Border Background="#ffcb2a" Height="150" Width="400">
-                                            <DockPanel HorizontalAlignment="Center">
-                                                <TextBlock Text="{Binding Price}" FontSize="30" FontFamily="Bookman Old Style" 
-                                   HorizontalAlignment="Center" Foreground="Black" VerticalAlignment="Center" DockPanel.Dock="Left"/>
-                                                <TextBlock Text=" грн." FontSize="30" FontFamily="Bookman Old Style" DockPanel.Dock="Right"
-                                     Foreground="Black" VerticalAlignment="Center" />
-                                            </DockPanel>
-                                        </Border>
-                                    </DataTemplate>
-                                </GridViewColumn.CellTemplate>
-                            </GridViewColumn>
+                            <GridViewColumn Width="170" CellTemplate="{StaticResource ProductImageTemplate}"/>
+                            <GridViewColumn Header="Назва товару" Width="700" CellTemplate="{StaticResource ProductNameTemplate}"/>
+                            <GridViewColumn Header="Ціна" Width="400" CellTemplate="{StaticResource ProductPriceTemplate}" />
                         </GridView>
                     </ListView.View>
                 </ListView>

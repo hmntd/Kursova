@@ -1,0 +1,39 @@
+﻿<Window x:Class="ReestrForm.View.AdminWindow.AdminOrderWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ReestrForm.View.AdminWindow"
+        mc:Ignorable="d"
+        Title="AdminOrderWindow" Height="450" Width="800" Background="Transparent" AllowsTransparency="False" WindowStyle="None" WindowStartupLocation="CenterScreen">
+    <Border Grid.Row="1" Grid.Column="1" CornerRadius="20" Padding="10">
+        <Border.Background >
+            <SolidColorBrush Color="#383b4d"/>
+        </Border.Background>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="166*"/>
+                <ColumnDefinition Width="39*"/>
+                <ColumnDefinition Width="30*"/>
+                <ColumnDefinition Width="9*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="68*"/>
+                <RowDefinition Height="305*"/>
+                <RowDefinition Height="57*"/>
+            </Grid.RowDefinitions>
+            <Rectangle Fill="#ffcb2a" Grid.ColumnSpan="4" RadiusX="11.704" RadiusY="11.704"/>
+            <Label Content="Замовлення користувачів" Grid.ColumnSpan="4" Style="{StaticResource Center lab}" Foreground="#232740" VerticalAlignment="Center" FontSize="30"/>
+            <Button Grid.Column="3" Content="×" Style="{StaticResource SignINBut}" Foreground="#232740" FontSize="40" BorderThickness="0"/>
+            <Button Content="Виконано" FontSize="18" Margin="10" Grid.Column="2" Grid.Row="2" Grid.ColumnSpan="2" Style="{StaticResource login}" />
+            <Button Content="Відхилити" FontSize="18"  Margin="10" Grid.Column="1" Grid.Row="2" Style="{StaticResource login}" />
+            <ListBox Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="4" 
+                     ItemsSource="{Binding Students}" 
+                     SelectedItem="{Binding SelectedPerson}" 
+                     ItemTemplate="{StaticResource Order1List}"
+                     Style="{StaticResource OrderListBox}"
+                      ItemContainerStyle="{StaticResource OrderList}" 
+                     d:ItemsSource="{d:SampleData ItemCount=5}"/>
+        </Grid>
+    </Border>
+</Window>
