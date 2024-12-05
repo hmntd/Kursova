@@ -174,7 +174,9 @@ namespace ReestrForm.ViewModels
             {
                 gameTimer.Dispose();
                 currentUser.TotalHours += currentUser.Hours;
+                SelectedGame.HoursPlayed += currentUser.Hours;
                 currentUser.Hours = 0;
+                SaveSelectedGame();
                 SaveCurrentUser();
                 OnPropertyChanged(nameof(currentUser));
                 EndGame();
@@ -183,8 +185,10 @@ namespace ReestrForm.ViewModels
             {
                 remainingTimeInSeconds--;
                 currentUser.TotalHours += currentUser.Hours - (remainingTimeInSeconds / 3600);
+                SelectedGame.HoursPlayed += currentUser.Hours - (remainingTimeInSeconds / 3600);
                 currentUser.Hours = remainingTimeInSeconds / 3600;
                 SaveCurrentUser();
+                SaveSelectedGame();
                 OnPropertyChanged(nameof(currentUser));
             }
         }
@@ -199,6 +203,7 @@ namespace ReestrForm.ViewModels
                 }
 
                 SaveCurrentUser();
+                SaveSelectedGame();
 
                 var win = new Confirm();
                 var viewmodel = new ConfirmViewModel("Ігровий час закінчився");
@@ -233,6 +238,28 @@ namespace ReestrForm.ViewModels
             {
                 var win = new ErorWin();
                 var viewModel = new ErrorViewModel($"Помилка при збереженні користувача: {ex.Message}", win);
+                win.DataContext = viewModel;
+                win.ShowDialog();
+            }
+        }
+        private void SaveSelectedGame()
+        {
+            try
+            {
+                var games = Data.LoadData<Models.Application>(applicationFilePath);
+
+                var existingGame = games.FirstOrDefault(u => u.Id == SelectedGame.Id);
+                if (existingGame != null)
+                {
+                    existingGame.HoursPlayed = SelectedGame.HoursPlayed;
+                }
+
+                Data.SaveData(applicationFilePath, games);
+            }
+            catch (Exception ex)
+            {
+                var win = new ErorWin();
+                var viewModel = new ErrorViewModel($"Помилка при збереженні гри: {ex.Message}", win);
                 win.DataContext = viewModel;
                 win.ShowDialog();
             }
