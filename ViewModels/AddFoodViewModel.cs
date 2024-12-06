@@ -14,6 +14,7 @@ namespace ReestrForm.ViewModels
     public class AddFoodViewModel: ViewModel
     {
         public Suply Suply { get; set; }
+        public string Name { get; set; }
         public string[] TypeFood { get; } = ["Drink", "Food"];
         private Window _window;
         public ICommand Close_Click { get; }
@@ -22,6 +23,7 @@ namespace ReestrForm.ViewModels
         public AddFoodViewModel(Suply suply, Window window, string typeW)
         {
             Suply = suply;
+            Name = suply.Name;
             _window = window;
             Close_Click = new RelayCommand(Close);
             FileDialog_Click = new RelayCommand(FileDialog);
@@ -49,12 +51,13 @@ namespace ReestrForm.ViewModels
         {
             try
             {
-                FoodValidationRules.NameValidation(Suply.Name);
+                FoodValidationRules.NameValidation(Name);
                 FoodValidationRules.TypeValidation(Suply.Type);
                 FoodValidationRules.FileExistsValidation(Suply.Path_to_Image);
                 FoodValidationRules.PriceValidation(Suply.Price);
 
                 var suplies = Data.LoadData<Models.Suply>("Data\\suplies.json");
+                Suply.Name = Name;
                 suplies.Add(this.Suply);
                 Data.SaveData("Data\\suplies.json", suplies);
                 _window.Close();
@@ -70,25 +73,23 @@ namespace ReestrForm.ViewModels
         {
             try
             {
-                FoodValidationRules.NameValidation(Suply.Name);
                 FoodValidationRules.TypeValidation(Suply.Type);
                 FoodValidationRules.FileExistsValidation(Suply.Path_to_Image);
                 FoodValidationRules.PriceValidation(Suply.Price);
 
-                var suplies = Data.LoadData<Models.Suply>("Data\\suplies.json");
-
-                var existingApp = suplies.FirstOrDefault(app => app.Id == this.Suply.Id);
+                var suplies = Data.LoadData<Models.Suply>(suplyFilePath);
+                var existingApp = suplies.First(app => app.Name == this.Suply.Name);
                 if (existingApp == null)
                 {
                     throw new Exception("Застосунку не знайдено.");
                 }
 
-                existingApp.Name = this.Suply.Name;
+                existingApp.Name = Name;
                 existingApp.Type = this.Suply.Type;
                 existingApp.Price = this.Suply.Price;
                 existingApp.Path_to_Image = this.Suply.Path_to_Image;
 
-                Data.SaveData("Data\\suplies.json", suplies);
+                Data.SaveData(suplyFilePath, suplies);
 
                 _window.Close();
             } catch (Exception ex)

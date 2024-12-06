@@ -173,6 +173,7 @@ namespace ReestrForm.ViewModels
             var vm = new AddFoodViewModel(SelectedFood, win, "Edit");
             win.DataContext = vm;
             win.ShowDialog();
+            this.Suplies = Data.LoadData<Models.Suply>(suplyFilePath);
             OnPropertyChanged(nameof(Suplies));
         }
         private void Create()

@@ -39,7 +39,7 @@
             <Label Grid.Row="3" Grid.ColumnSpan="2" Grid.Column="1" Content="Ціна:" Style="{StaticResource Left lab}" FontSize="25" />
             <TextBox Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="2" Style="{StaticResource RegBlock}" IsEnabled="False" Text="{Binding Suply.Path_to_Image}"/>
             <Label Grid.Row="5" Grid.ColumnSpan="2" Grid.Column="1" Content="Шлях до банеру:" Style="{StaticResource Left lab}" FontSize="25" />
-            <TextBox Grid.Row="2"  Grid.Column="1" Grid.ColumnSpan="3" Text="{Binding Suply.Name}" Style="{StaticResource RegBlock}"/>
+            <TextBox Grid.Row="2"  Grid.Column="1" Grid.ColumnSpan="3" Text="{Binding Name}" Style="{StaticResource RegBlock}"/>
             <Label Grid.Row="7"  Grid.ColumnSpan="2" Grid.Column="1" Content="Оберіть категорію:" Style="{StaticResource Left lab}"  FontSize="25" />
             <Button Grid.Column="3" Grid.Row="6" Style="{StaticResource login}" FontSize="30" Margin="10" Content="+" Command="{Binding FileDialog_Click}"/>
             <Grid Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="3">

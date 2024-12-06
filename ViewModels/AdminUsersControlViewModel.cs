@@ -136,6 +136,7 @@ namespace ReestrForm.ViewModels
             win.DataContext = vm;
             win.ShowDialog();
             Users = Data.LoadData<Models.User>(userFilePath);
+            OnPropertyChanged(nameof(Users));
         }
         private void Delete()
         {

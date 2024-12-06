@@ -42,5 +42,14 @@ namespace ReestrForm.Models.ValidationRules
 
             return true;
         }
+        public static bool HoursValidation(int hours)
+        {
+            if (hours < 0)
+            {
+                throw new Exception("У тарифі не може бути від'ємні години");
+            }
+
+            return true;
+        }
     }
 }

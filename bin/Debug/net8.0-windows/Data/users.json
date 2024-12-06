@@ -5,7 +5,7 @@
     "Username": "Loh",
     "Email": "loh@test.com",
     "IsAdmin": false,
-    "Balance": 1640,
+    "Balance": 360,
     "RateName": "Test rate",
     "Hours": 38,
     "TotalHours": 2
@@ -16,7 +16,7 @@
     "Username": "BiteV1x",
     "Email": "andrey@gmail.com",
     "IsAdmin": false,
-    "Balance": 70,
+    "Balance": 100,
     "RateName": "Standart",
     "Hours": 3,
     "TotalHours": 7
@@ -38,8 +38,19 @@
     "Username": "Qqq",
     "Email": "qqqq@gmail.com",
     "IsAdmin": false,
-    "Balance": 50,
+    "Balance": 100,
     "RateName": "LowCost",
+    "Hours": 0,
+    "TotalHours": 0
+  },
+  {
+    "Id": null,
+    "Password": "asdqwe12",
+    "Username": "Qqqq",
+    "Email": "qqqq@test.com",
+    "IsAdmin": false,
+    "Balance": 60,
+    "RateName": "-",
     "Hours": 0,
     "TotalHours": 0
   }
