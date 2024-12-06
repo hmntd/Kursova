@@ -140,6 +140,11 @@ namespace ReestrForm.ViewModels
         }
         private void startGame()
         {
+            if (currentUser.Hours <= 0)
+            {
+                return;
+            }
+
             remainingTimeInSeconds = (int)(currentUser.Hours * 3600);
             try
             {

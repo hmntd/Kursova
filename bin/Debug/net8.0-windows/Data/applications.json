@@ -1,65 +1,17 @@
 [
   {
     "Id": null,
-    "Name": "League of  Legends ",
-    "Path_to_Application": "D:\\\u0420\u0430\u0437\u043D\u043E\u0435\\\u041C\u0435\u043D\u044E \u043F\u0443\u0441\u043A\\Windows Start Icons\\Icon SET 1\\PNG\\Games\\League of Legends.png",
-    "Path_to_Image": "D:\\\u0420\u0430\u0437\u043D\u043E\u0435\\\u041C\u0435\u043D\u044E \u043F\u0443\u0441\u043A\\Windows Start Icons\\Icon SET 1\\PNG\\Games\\League of Legends.png",
+    "Name": "Mortal Kombat X",
+    "Path_to_Application": "C:\\Users\\bazav\\Downloads\\gameicon\\gameicon\\PNG\\MK XL.png",
+    "Path_to_Image": "C:\\Users\\bazav\\Downloads\\gameicon\\gameicon\\PNG\\MK XL.png",
     "Type": "Game",
-    "HoursPlayed": 1
+    "HoursPlayed": 3
   },
   {
     "Id": null,
-    "Name": "Valorant",
-    "Path_to_Application": "D:\\\u0420\u0430\u0437\u043D\u043E\u0435\\\u041C\u0435\u043D\u044E \u043F\u0443\u0441\u043A\\Windows Start Icons\\Icon SET 1\\PNG\\Games\\Valorant.png",
-    "Path_to_Image": "D:\\\u0420\u0430\u0437\u043D\u043E\u0435\\\u041C\u0435\u043D\u044E \u043F\u0443\u0441\u043A\\Windows Start Icons\\Icon SET 1\\PNG\\Games\\Valorant.png",
-    "Type": "Game",
-    "HoursPlayed": 0
-  },
-  {
-    "Id": null,
-    "Name": "Dota 2",
-    "Path_to_Application": "D:\\\u0420\u0430\u0437\u043D\u043E\u0435\\\u041C\u0435\u043D\u044E \u043F\u0443\u0441\u043A\\Windows Start Icons\\Icon SET 1\\PNG\\Games\\Dota 2.png",
-    "Path_to_Image": "D:\\\u0420\u0430\u0437\u043D\u043E\u0435\\\u041C\u0435\u043D\u044E \u043F\u0443\u0441\u043A\\Windows Start Icons\\Icon SET 1\\PNG\\Games\\Dota 2.png",
-    "Type": "Game",
-    "HoursPlayed": 0
-  },
-  {
-    "Id": null,
-    "Name": "Apex Legend",
-    "Path_to_Application": "D:\\\u0420\u0430\u0437\u043D\u043E\u0435\\\u041C\u0435\u043D\u044E \u043F\u0443\u0441\u043A\\Windows Start Icons\\Icon SET 1\\PNG\\Games\\Dota 2.png",
-    "Path_to_Image": "D:\\\u0420\u0430\u0437\u043D\u043E\u0435\\\u041C\u0435\u043D\u044E \u043F\u0443\u0441\u043A\\Windows Start Icons\\Icon SET 1\\PNG\\Games\\Apex Legends.png",
-    "Type": "Game",
-    "HoursPlayed": 0
-  },
-  {
-    "Id": null,
-    "Name": "AmongUS",
-    "Path_to_Application": "D:\\\u0420\u0430\u0437\u043D\u043E\u0435\\\u041C\u0435\u043D\u044E \u043F\u0443\u0441\u043A\\Windows Start Icons\\Icon SET 1\\PNG\\Games\\Among Us.png",
-    "Path_to_Image": "D:\\\u0420\u0430\u0437\u043D\u043E\u0435\\\u041C\u0435\u043D\u044E \u043F\u0443\u0441\u043A\\Windows Start Icons\\Icon SET 1\\PNG\\Games\\Among Us.png",
-    "Type": "Game",
-    "HoursPlayed": 0
-  },
-  {
-    "Id": null,
-    "Name": "CS:GO",
-    "Path_to_Application": "D:\\\u0420\u0430\u0437\u043D\u043E\u0435\\\u041C\u0435\u043D\u044E \u043F\u0443\u0441\u043A\\Windows Start Icons\\Icon SET 1\\PNG\\Games\\Counter-Strike Global Offensive.png",
-    "Path_to_Image": "D:\\\u0420\u0430\u0437\u043D\u043E\u0435\\\u041C\u0435\u043D\u044E \u043F\u0443\u0441\u043A\\Windows Start Icons\\Icon SET 1\\PNG\\Games\\Counter-Strike Global Offensive.png",
-    "Type": "Game",
-    "HoursPlayed": 0
-  },
-  {
-    "Id": null,
-    "Name": "Spotify",
-    "Path_to_Application": "D:\\\u0420\u0430\u0437\u043D\u043E\u0435\\\u041C\u0435\u043D\u044E \u043F\u0443\u0441\u043A\\Windows Start Icons\\Icon SET 1\\PNG\\Spotify.png",
-    "Path_to_Image": "D:\\\u0420\u0430\u0437\u043D\u043E\u0435\\\u041C\u0435\u043D\u044E \u043F\u0443\u0441\u043A\\Windows Start Icons\\Icon SET 1\\PNG\\Spotify.png",
-    "Type": "App",
-    "HoursPlayed": 0
-  },
-  {
-    "Id": null,
-    "Name": "Discord",
-    "Path_to_Application": "D:\\\u0420\u0430\u0437\u043D\u043E\u0435\\\u041C\u0435\u043D\u044E \u043F\u0443\u0441\u043A\\Windows Start Icons\\Icon SET 1\\PNG\\Discord.png",
-    "Path_to_Image": "D:\\\u0420\u0430\u0437\u043D\u043E\u0435\\\u041C\u0435\u043D\u044E \u043F\u0443\u0441\u043A\\Windows Start Icons\\Icon SET 1\\PNG\\Discord.png",
+    "Name": "Telegram",
+    "Path_to_Application": "C:\\Users\\bazav\\Downloads\\gameicon\\gameicon\\PNG\\Telegram.png",
+    "Path_to_Image": "C:\\Users\\bazav\\Downloads\\gameicon\\gameicon\\PNG\\Telegram.png",
     "Type": "App",
     "HoursPlayed": 0
   }
