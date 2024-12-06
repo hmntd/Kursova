@@ -1,18 +1,18 @@
 [
   {
     "Id": null,
-    "Name": "asd",
-    "Price": 20,
+    "Name": "Tea",
+    "Price": 25,
     "Type": "Drink",
-    "Path_to_Image": "C:\\Users\\bazav\\Downloads\\Chill3.png",
+    "Path_to_Image": "C:\\Users\\bazav\\Downloads\\gameicon\\gameicon\\PNG\\Mozilla FireFox.png",
     "WasBought": 0
   },
   {
     "Id": null,
-    "Name": "rjata",
-    "Price": 20,
-    "Type": "Drink",
-    "Path_to_Image": "C:\\Users\\bazav\\Downloads\\Chill3.png",
-    "WasBought": 1
+    "Name": "Hakoon",
+    "Price": 200,
+    "Type": "Food",
+    "Path_to_Image": "C:\\Users\\bazav\\Downloads\\gameicon\\gameicon\\PNG\\Visual Studio Code.png",
+    "WasBought": 0
   }
 ]

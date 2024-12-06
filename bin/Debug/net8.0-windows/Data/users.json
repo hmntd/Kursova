@@ -1,55 +1,22 @@
 [
   {
-    "Id": "28088f90-10c9-444e-a3d2-365796724e1e",
-    "Password": "aqswde123",
-    "Username": "Loh",
-    "Email": "loh@test.com",
+    "Id": "1d294f17-6744-4dea-bcfe-f543d8beb510",
+    "Password": "password1",
+    "Username": "Test",
+    "Email": "test@test.com",
     "IsAdmin": false,
-    "Balance": 360,
-    "RateName": "Test rate",
-    "Hours": 38,
-    "TotalHours": 2
-  },
-  {
-    "Id": "65a12132-6f32-42ab-89d1-6e7e60a58c8b",
-    "Password": "adg29122004",
-    "Username": "BiteV1x",
-    "Email": "andrey@gmail.com",
-    "IsAdmin": false,
-    "Balance": 100,
+    "Balance": 700,
     "RateName": "Standart",
-    "Hours": 3,
-    "TotalHours": 7
+    "Hours": 0,
+    "TotalHours": 3
   },
   {
-    "Id": "8d8857f8-e93c-434f-887b-7a86c645abcf",
+    "Id": "a12cabec-51eb-48ac-bc09-55b82affceb1",
     "Password": "admin123",
     "Username": "Admin",
     "Email": "admin@admin.com",
     "IsAdmin": true,
     "Balance": 0,
-    "RateName": "-",
-    "Hours": 0,
-    "TotalHours": 0
-  },
-  {
-    "Id": null,
-    "Password": "12345678",
-    "Username": "Qqq",
-    "Email": "qqqq@gmail.com",
-    "IsAdmin": false,
-    "Balance": 100,
-    "RateName": "LowCost",
-    "Hours": 0,
-    "TotalHours": 0
-  },
-  {
-    "Id": null,
-    "Password": "asdqwe12",
-    "Username": "Qqqq",
-    "Email": "qqqq@test.com",
-    "IsAdmin": false,
-    "Balance": 60,
     "RateName": "-",
     "Hours": 0,
     "TotalHours": 0
