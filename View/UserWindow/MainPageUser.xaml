@@ -145,7 +145,7 @@ WindowState="Maximized"
                         <!-- Використання WrapPanel для розташування елементів -->
                         <ItemsPanelTemplate>
 
-                            <WrapPanel Orientation="Horizontal" Width="1200" Height="750" />
+                            <WrapPanel Orientation="Horizontal"  HorizontalAlignment="Left"/>
                         </ItemsPanelTemplate>
                     </ListBox.ItemsPanel>
                 </ListBox>

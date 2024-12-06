@@ -15,12 +15,14 @@ namespace ReestrForm.ViewModels
     {
         public Models.Rate Rate { get; set; }
         private Window _window;
+        public string Name { get; set; }
         public ICommand Close_Click { get; }
         public ICommand FileDialog_Click { get; }
         public ICommand Save_Click { get; }
         public AddTimeViewModel(Models.Rate rate, Window window, string tw)
         {
             Rate = rate;
+            Name = rate.Name;
             _window = window;
             Close_Click = new RelayCommand(Close);
             FileDialog_Click = new RelayCommand(FileDialog);
@@ -48,11 +50,12 @@ namespace ReestrForm.ViewModels
         {
             try
             {
-                RateValidationRules.NameValidation(Rate.Name);
+                RateValidationRules.NameValidation(Name);
                 RateValidationRules.PriceValidation(Rate.Price);
                 RateValidationRules.FileExistsValidation(Rate.Path_to_image);
 
                 var rates = Data.LoadData<Models.Rate>(rateFilePath);
+                Rate.Name = Name;
                 rates.Add(this.Rate);
                 Data.SaveData(rateFilePath, rates);
                 _window.Close();
@@ -70,18 +73,20 @@ namespace ReestrForm.ViewModels
             {
                 RateValidationRules.PriceValidation(Rate.Price);
                 RateValidationRules.FileExistsValidation(Rate.Path_to_image);
+                RateValidationRules.HoursValidation(Rate.Hours);
 
                 var rates = Data.LoadData<Models.Rate>(rateFilePath);
 
-                var existingRate = rates.FirstOrDefault(r => r.Id == this.Rate.Id);
+                var existingRate = rates.FirstOrDefault(r => r.Name == this.Rate.Name);
                 if (existingRate == null)
                 {
                     throw new Exception("Тарифу не знайдено");
                 }
 
-                existingRate.Name = this.Rate.Name;
+                existingRate.Name = Name;
                 existingRate.Price = this.Rate.Price;
                 existingRate.Path_to_image = this.Rate.Path_to_image;
+                existingRate.Hours = Rate.Hours;
 
                 Data.SaveData(rateFilePath, rates);
 

@@ -86,7 +86,6 @@ namespace ReestrForm.ViewModels
             SelectedOrder.Is_Did = true;
             Data.SaveData(orderFilePath, Orders);
             Ords = new ObservableCollection<Order>(Orders.Where(o => !o.Is_Did));
-            OnPropertyChanged(nameof(Ords));
             var suplies = Data.LoadData<Suply>(suplyFilePath); 
             var suply = suplies.FirstOrDefault(s => s.Name == SelectedOrder.Suply_Name);
             if (suply == null)
@@ -96,6 +95,7 @@ namespace ReestrForm.ViewModels
 
             suply.WasBought += SelectedOrder.Count;
             Data.SaveData(suplyFilePath, suplies);
+            OnPropertyChanged(nameof(Ords));
         }
     }
 }

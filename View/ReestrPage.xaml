@@ -100,7 +100,7 @@
 
                 <Button Content="Sign IN" Grid.Row="11" Grid.Column="2" Grid.ColumnSpan="8"  Style="{StaticResource login}" Command="{Binding Register_Click}"/>
                 <Label Content="Already sing IN?" Grid.Row="12" Grid.Column="2" Grid.ColumnSpan="8" Style="{StaticResource Center lab}" VerticalAlignment="Bottom"/>
-                <Button Content="Back" Grid.Row="13" Grid.Column="5" Grid.ColumnSpan="2" Command="{Binding Back_Click}" Style="{StaticResource SignINBut}"/>
+                <Button Content="Back" Grid.Row="13" Grid.Column="4" Grid.ColumnSpan="4" Command="{Binding Back_Click}" Style="{StaticResource SignINBut}"/>
 
 
             </Grid>

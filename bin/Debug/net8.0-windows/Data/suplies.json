@@ -1,1 +1,18 @@
-[]
+[
+  {
+    "Id": null,
+    "Name": "asd",
+    "Price": 20,
+    "Type": "Drink",
+    "Path_to_Image": "C:\\Users\\bazav\\Downloads\\Chill3.png",
+    "WasBought": 0
+  },
+  {
+    "Id": null,
+    "Name": "rjata",
+    "Price": 20,
+    "Type": "Drink",
+    "Path_to_Image": "C:\\Users\\bazav\\Downloads\\Chill3.png",
+    "WasBought": 1
+  }
+]

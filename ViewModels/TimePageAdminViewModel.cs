@@ -139,6 +139,8 @@ namespace ReestrForm.ViewModels
             var vm = new AddTimeViewModel(SelectedRate, win, "Edit");
             win.DataContext = vm;
             win.ShowDialog();
+            Rates = Data.LoadData<Rate>(rateFilePath);
+            OnPropertyChanged(nameof(Rates));
         }
         private void CreateRate()
         {

@@ -148,7 +148,7 @@ WindowStyle="None" AllowsTransparency="True" Style="{StaticResource WinStyle}">
                         <!-- Використання WrapPanel для розташування елементів -->
                         <ItemsPanelTemplate>
 
-                            <WrapPanel Orientation="Horizontal" Width="1200" Height="750" />
+                            <WrapPanel Orientation="Horizontal"  />
                         </ItemsPanelTemplate>
                     </ListBox.ItemsPanel>
                 </ListBox>

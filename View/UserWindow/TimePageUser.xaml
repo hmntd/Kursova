@@ -128,9 +128,9 @@
                 <ListView.View>
                     <GridView ColumnHeaderContainerStyle="{StaticResource HeadingStyle}">
                         <GridViewColumn Width="175" CellTemplate="{StaticResource ImageTemplate}"/>
-                        <GridViewColumn Header="Назва тарифу" Width="700" CellTemplate="{StaticResource NameTemplate}"/>
+                        <GridViewColumn Header="Назва тарифу" Width="300" CellTemplate="{StaticResource NameTemplate}"/>
                         <GridViewColumn Header="Кількість годин" Width="200" CellTemplate="{StaticResource HoursTemplate}"/>
-                        <GridViewColumn Header="Ціна" Width="180" CellTemplate="{StaticResource PriceTemplate}"/>
+                        <GridViewColumn Header="Ціна" Width="1000" CellTemplate="{StaticResource PriceTemplate}"/>
                     </GridView>
                 </ListView.View>
             </ListView>
