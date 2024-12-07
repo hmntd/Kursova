@@ -12,7 +12,7 @@ This WPF application is designed to streamline the management of a computer club
 ## Installation  
 1. Clone the repository:  
    ```bash  
-   git clone https://github.com/your-username/repo-name.git  
+   git clone https://github.com/hmntd/Kursova.git  
    ```  
 2. Open the solution in Visual Studio.  
 3. Build and run the project.  
