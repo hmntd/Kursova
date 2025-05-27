@@ -28,10 +28,10 @@ namespace ReestrForm.ViewModels
         public ICommand InstLogin_Click { get; }
         public ICommand TgLogin_Click { get; }
 
-        public RegisterViewModel(Page page)
+        public RegisterViewModel(Page page, ObservableCollection<User> newUsers)
         {
             _page = page;
-            users = Data.LoadData<User>(userFilePath);
+            this.users = newUsers;
             Register_Click = new RelayCommand(
                 Register, 
                 () => 
@@ -87,7 +87,7 @@ namespace ReestrForm.ViewModels
         }
         public void Register()
         {
-            newUser = new User(Guid.NewGuid(), Password, Username, Email, false, 0, 0, 0, null);
+            newUser = new User(Password, Username, Email, false, 0, 0, 0, null);
             try
             {
                 if (Password != RPassword)
@@ -109,7 +109,7 @@ namespace ReestrForm.ViewModels
                 return;
             }
             users.Add(newUser);
-            Data.SaveData(userFilePath, users);
+            Data.SaveData(users, "users", "Username");
 
             MainPageUser mainPageUser = new MainPageUser();
             mainPageUser.DataContext = new MainPageUserViewModel(newUser, mainPageUser);

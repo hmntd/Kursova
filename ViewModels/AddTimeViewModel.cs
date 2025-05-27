@@ -54,10 +54,10 @@ namespace ReestrForm.ViewModels
                 RateValidationRules.PriceValidation(Rate.Price);
                 RateValidationRules.FileExistsValidation(Rate.Path_to_image);
 
-                var rates = Data.LoadData<Models.Rate>(rateFilePath);
+                var rates = Data.LoadData<Models.Rate>("rates");
                 Rate.Name = Name;
                 rates.Add(this.Rate);
-                Data.SaveData(rateFilePath, rates);
+                Data.SaveData(rates, "rates", "Name");
                 _window.Close();
             } catch (Exception ex)
             {
@@ -75,7 +75,7 @@ namespace ReestrForm.ViewModels
                 RateValidationRules.FileExistsValidation(Rate.Path_to_image);
                 RateValidationRules.HoursValidation(Rate.Hours);
 
-                var rates = Data.LoadData<Models.Rate>(rateFilePath);
+                var rates = Data.LoadData<Models.Rate>("rates");
 
                 var existingRate = rates.FirstOrDefault(r => r.Name == this.Rate.Name);
                 if (existingRate == null)
@@ -88,7 +88,7 @@ namespace ReestrForm.ViewModels
                 existingRate.Path_to_image = this.Rate.Path_to_image;
                 existingRate.Hours = Rate.Hours;
 
-                Data.SaveData(rateFilePath, rates);
+                Data.SaveData(rates, "rates", "Name");
 
                 _window.Close();
             }

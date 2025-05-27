@@ -16,7 +16,7 @@ namespace ReestrForm.Models.ValidationRules
                 throw new Exception("назва тарифу не може бути порожньою");
             }
 
-            var rates = Data.LoadData<Rate>("Data\\rates.json");
+            var rates = Data.LoadData<Rate>("rates");
             if (rates.Any(g => g.Name == name))
             {
                 throw new Exception("цей тариф вже існує");
@@ -33,7 +33,7 @@ namespace ReestrForm.Models.ValidationRules
 
             return true;
         }
-        public static bool PriceValidation(decimal price)
+        public static bool PriceValidation(float price)
         {
             if (price < 0)
             {

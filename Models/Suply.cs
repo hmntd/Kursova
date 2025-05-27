@@ -8,19 +8,17 @@ namespace ReestrForm.Models
 {
     public class Suply
     {
-        public string Id { get; set; }
         public string Name { get; set; }
-        public decimal Price { get; set; }
+        public float Price { get; set; }
         public string Type { get; set; }
         public string Path_to_Image { get; set; }
-        public int WasBought { get; set; }
+        public int Bought_count { get; set; }
         public Suply () { }
-        public Suply(string id, string name, decimal price, int wasBought)
+        public Suply(string name, float price, int bought_count)
         {
-            Id = id;
             Name = name;
             Price = price;
-            WasBought = wasBought;
+            Bought_count = bought_count;
         }
     }
 }

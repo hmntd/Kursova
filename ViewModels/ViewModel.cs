@@ -14,11 +14,11 @@ namespace ReestrForm.ViewModels
 {
     abstract public class ViewModel: INotifyPropertyChanged
     {
-        public const string userFilePath = "Data\\users.json";
-        public const string applicationFilePath = "Data\\applications.json";
-        public const string rateFilePath = "Data\\rates.json";
-        public const string suplyFilePath = "Data\\suplies.json";
-        public const string orderFilePath = "Data\\orders.json";
+        public const string userFilePath = "users";
+        public const string applicationFilePath = "applications";
+        public const string rateFilePath = "rates";
+        public const string suplyFilePath = "suplies";
+        public const string orderFilePath = "orders";
         public event PropertyChangedEventHandler? PropertyChanged;
         protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {

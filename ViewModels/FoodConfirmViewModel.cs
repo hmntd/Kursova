@@ -73,15 +73,52 @@ namespace ReestrForm.ViewModels
             }
 
             currentUser.Balance -= Product.Price * Count;
-            var users = Data.LoadData<User>(userFilePath);
+            var users = Data.LoadData<User>("users");
             var user = users.FirstOrDefault(u => u.Username == currentUser.Username);
             user.Balance = currentUser.Balance;
-            Data.SaveData<User>(userFilePath, users);
-            ObservableCollection<Order> orders = Data.LoadData<Order>(orderFilePath);
-            orders.Add(new Order(Guid.NewGuid().ToString(), Product.Name, user.Username, Count, false));
-            Data.SaveData(orderFilePath, orders);
+            Data.SaveData<User>(users, "users", "Username");
+            var orders = new ObservableCollection<Order>(); // не читаємо всю таблицю
+            int Id = GenerateUniqueRandomId(); // див нижче
+            orders.Add(new Order(Id, Product.Name, user.Username, Count, false));
+            try
+            {
+                Data.SaveData(orders, "orders", "Id");
+            }
+            catch (Exception ex)
+            {
+                // Логування або відображення повідомлення
+                Console.WriteLine($"Error in SaveData: {ex.Message}");
+            }
+            
             _window.DialogResult = true;
             _window.Close();
+        }
+        private static readonly Random _random = new Random();
+
+        private static int GenerateUniqueRandomId()
+        {
+            // Максимум 10 спроб
+            for (int i = 0; i < 10; i++)
+            {
+                int id;
+                lock (_random)
+                {
+                    id = _random.Next(1_000_000, 10_000_000);
+                }
+
+                // Перевіримо, чи такий Id вже існує (без завантаження всіх orders)
+                string query = $"SELECT 1 FROM orders WHERE Id = {id} LIMIT 1;";
+                bool exists = Data.ReadQuery(query).Any();
+                if (!exists)
+                    return id;
+            }
+
+            throw new Exception("Не вдалося згенерувати унікальний Id після 10 спроб.");
+        }
+
+        private class TempCheck
+        {
+            public int Id { get; set; }
         }
     }
 }

@@ -16,7 +16,7 @@ namespace ReestrForm.Models.ValidationRules
                 throw new Exception("назва гри не може бути порожньою");
             }
 
-            var games = Data.LoadData<Application>("Data\\applications.json");
+            var games = Data.LoadData<Application>("applications");
             if (games.Any(g => g.Name == name))
             {
                 throw new Exception("ця гра вже існує");

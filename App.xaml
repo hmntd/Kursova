@@ -481,7 +481,7 @@
         <DataTemplate x:Key="HoursStatTemplate">
             <Border Background="#e69c33" Height="100" Width="270">
                 <DockPanel HorizontalAlignment="Center">
-                    <TextBlock Text="{Binding HoursPlayed}" Style="{StaticResource ListViewItemBlock}" DockPanel.Dock="Left"/>
+                    <TextBlock Text="{Binding Hours_Played}" Style="{StaticResource ListViewItemBlock}" DockPanel.Dock="Left"/>
                     <TextBlock Text=" год." Style="{StaticResource ListViewItemBlock}" DockPanel.Dock="Right"/>
                 </DockPanel>
             </Border>
@@ -499,7 +499,7 @@
         <DataTemplate x:Key="BuyFoodStatTemplate">
             <Border Background="#e69c33" Height="100" Width="270">
                 <DockPanel HorizontalAlignment="Center">
-                    <TextBlock Text="{Binding WasBought}" Style="{StaticResource ListViewItemBlock}" DockPanel.Dock="Left"/>
+                    <TextBlock Text="{Binding Bought_count}" Style="{StaticResource ListViewItemBlock}" DockPanel.Dock="Left"/>
                     <TextBlock Text=" шт." Style="{StaticResource ListViewItemBlock}" DockPanel.Dock="Right"/>
                 </DockPanel>
             </Border>
@@ -517,7 +517,7 @@
         <DataTemplate x:Key="BuyTimeStatTemplate">
             <Border Background="#e69c33" Height="100" Width="270">
                 <DockPanel HorizontalAlignment="Center">
-                    <TextBlock Text="{Binding WasBought}" Style="{StaticResource ListViewItemBlock}" DockPanel.Dock="Left"/>
+                    <TextBlock Text="{Binding Bought_count}" Style="{StaticResource ListViewItemBlock}" DockPanel.Dock="Left"/>
                     <TextBlock Text=" шт." Style="{StaticResource ListViewItemBlock}" DockPanel.Dock="Right"/>
                 </DockPanel>
             </Border>

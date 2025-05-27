@@ -34,14 +34,23 @@ namespace ReestrForm.ViewModels
         {
             try
             {
-                var users = Data.LoadData<User>(userFilePath);
+                var users = Data.LoadData<User>("users");
                 RegisterValidationRules.UsernameValidate(currentUser.Username);
                 RegisterValidationRules.EmailValidate(currentUser.Email);
                 RegisterValidationRules.UserExistsValidate(currentUser, users);
                 RegisterValidationRules.PassswordValidate(currentUser.Password);
 
                 users.Add(currentUser);
-                Data.SaveData(userFilePath, users);
+
+                try
+                {
+                    Data.SaveData(users, "users", "Username");
+                }
+                catch (Exception ex)
+                {
+                    // Логування або відображення повідомлення
+                    Console.WriteLine($"Error in SaveData: {ex.Message}");
+                }
                 _window.Close();
             } catch (Exception ex)
             {
@@ -55,12 +64,12 @@ namespace ReestrForm.ViewModels
         {
             try
             {
-                var users = Data.LoadData<User>(userFilePath);
+                var users = Data.LoadData<User>("users");
                 RegisterValidationRules.UsernameValidate(currentUser.Username);
                 RegisterValidationRules.EmailValidate(currentUser.Email);
                 RegisterValidationRules.PassswordValidate(currentUser.Password);
 
-                var existingUser = users.FirstOrDefault(app => app.Id == this.currentUser.Id);
+                var existingUser = users.FirstOrDefault(app => app.Username == this.currentUser.Username);
                 if (existingUser == null)
                 {
                     throw new Exception("Людину не знайдено.");
@@ -71,7 +80,17 @@ namespace ReestrForm.ViewModels
                 existingUser.Username = currentUser.Username;
                 existingUser.Balance = currentUser.Balance;
 
-                Data.SaveData(userFilePath, users);
+                try
+                {
+                    Data.SaveData(users, "users", "Username");
+                }
+                catch (Exception ex)
+                {
+                    // Логування або відображення повідомлення
+                    Console.WriteLine($"Error in SaveData: {ex.Message}");
+                }
+                
+
 
                 _window.Close();
             } catch (Exception ex)

@@ -24,7 +24,7 @@ namespace ReestrForm.ViewModels
         public ICommand Forgot_Click { get; }
         public LoginViewModel(Window window)
         {
-            this.users = Data.LoadData<User>(userFilePath);
+            this.users = Data.LoadData<User>("users");
             Login_Click = new RelayCommand(Login, () => !string.IsNullOrEmpty(Username) && !string.IsNullOrEmpty(Password));
             Label_SignIn_Click = new RelayCommand(Label_SignIn);
             _window = window;
@@ -64,7 +64,7 @@ namespace ReestrForm.ViewModels
             CurrentUser = users.FirstOrDefault(u => u.Username == Username);
             if (CurrentUser != null && CurrentUser.Password == Password)
             {
-                if (CurrentUser.IsAdmin)
+                if (CurrentUser.Is_Admin)
                 {
                     MainAdminWindow win = new MainAdminWindow();
                     win.DataContext = new MainAdminViewModel(CurrentUser, win);
@@ -91,7 +91,7 @@ namespace ReestrForm.ViewModels
         {
             // Navigate to Page1
             Frame mainFrame = new Frame();
-            mainFrame.Navigate(new Page1());
+            mainFrame.Navigate(new Page1(users));
             _window.Content = mainFrame;
         }
         private void Forgot()

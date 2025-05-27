@@ -58,7 +58,7 @@ namespace ReestrForm.ViewModels
             this.currentUser = currentUser;
             _page = page;
             _window = window;
-            OrdersCount = Data.LoadData<Order>(orderFilePath).Count(o => !o.Is_Did);
+            OrdersCount = Data.LoadData<Order>(orderFilePath).Count(o => !o.Complited);
             Rates = Data.LoadData<Rate>(rateFilePath);
             Games_Click = new RelayCommand(Games);
             Foods_Click = new RelayCommand(Food);
@@ -169,7 +169,7 @@ namespace ReestrForm.ViewModels
             }
 
             Rates.Remove(SelectedRate);
-            Data.SaveData(rateFilePath, Rates);
+            Data.SaveData( Rates, "rates", "Name");
             SelectedRate = null;
             OnPropertyChanged(nameof(Rates));
         }
@@ -179,7 +179,7 @@ namespace ReestrForm.ViewModels
             var vm = new AdminOrderViewModel(win);
             win.DataContext = vm;
             win.ShowDialog();
-            OrdersCount = Data.LoadData<Order>(orderFilePath).Count(o => !o.Is_Did);
+            OrdersCount = Data.LoadData<Order>(orderFilePath).Count(o => !o.Complited);
             OnPropertyChanged(nameof(OrdersCount));
         }
     }

@@ -56,10 +56,10 @@ namespace ReestrForm.ViewModels
                 FoodValidationRules.FileExistsValidation(Suply.Path_to_Image);
                 FoodValidationRules.PriceValidation(Suply.Price);
 
-                var suplies = Data.LoadData<Models.Suply>("Data\\suplies.json");
+                var suplies = Data.LoadData<Models.Suply>("suplies");
                 Suply.Name = Name;
                 suplies.Add(this.Suply);
-                Data.SaveData("Data\\suplies.json", suplies);
+                Data.SaveData(suplies, "suplies", "Name");
                 _window.Close();
             } catch (Exception ex)
             {
@@ -77,7 +77,7 @@ namespace ReestrForm.ViewModels
                 FoodValidationRules.FileExistsValidation(Suply.Path_to_Image);
                 FoodValidationRules.PriceValidation(Suply.Price);
 
-                var suplies = Data.LoadData<Models.Suply>(suplyFilePath);
+                var suplies = Data.LoadData<Models.Suply>("suplies");
                 var existingApp = suplies.First(app => app.Name == this.Suply.Name);
                 if (existingApp == null)
                 {
@@ -89,7 +89,7 @@ namespace ReestrForm.ViewModels
                 existingApp.Price = this.Suply.Price;
                 existingApp.Path_to_Image = this.Suply.Path_to_Image;
 
-                Data.SaveData(suplyFilePath, suplies);
+                Data.SaveData(suplies, "suplies", "Name");
 
                 _window.Close();
             } catch (Exception ex)

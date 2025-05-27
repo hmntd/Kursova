@@ -16,8 +16,8 @@ namespace ReestrForm.ViewModels
     public class MainPageUserViewModel: ViewModel
     {
         public User currentUser { get; private set; }
-        private decimal balance;
-        public decimal Balance
+        private float balance;
+        public float Balance
         {
             get { return balance; }
             set
@@ -54,8 +54,11 @@ namespace ReestrForm.ViewModels
             currentUser = user;
             Balance = user.Balance;
             _window = window;
-            Applications = Data.LoadData<ReestrForm.Models.Application>(applicationFilePath);
+
+            // Завантаження з бази Supabase
+            Applications = Data.LoadData<ReestrForm.Models.Application>("applications");
             Apps = Applications;
+
             TimePage_Click = new RelayCommand(TimePage);
             FoodPage_Click = new RelayCommand(FoodPage);
             Exit_Click = new RelayCommand(Exit);
@@ -178,8 +181,8 @@ namespace ReestrForm.ViewModels
             if (remainingTimeInSeconds <= 0)
             {
                 gameTimer.Dispose();
-                currentUser.TotalHours += currentUser.Hours;
-                SelectedGame.HoursPlayed += currentUser.Hours;
+                currentUser.Total_Hours += currentUser.Hours;
+                SelectedGame.Hours_Played += currentUser.Hours;
                 currentUser.Hours = 0;
                 SaveSelectedGame();
                 SaveCurrentUser();
@@ -189,8 +192,8 @@ namespace ReestrForm.ViewModels
             else
             {
                 remainingTimeInSeconds--;
-                currentUser.TotalHours += currentUser.Hours - (remainingTimeInSeconds / 3600);
-                SelectedGame.HoursPlayed += currentUser.Hours - (remainingTimeInSeconds / 3600);
+                currentUser.Total_Hours += currentUser.Hours - (remainingTimeInSeconds / 3600);
+                SelectedGame.Hours_Played += currentUser.Hours - (remainingTimeInSeconds / 3600);
                 currentUser.Hours = remainingTimeInSeconds / 3600;
                 SaveCurrentUser();
                 SaveSelectedGame();
@@ -229,15 +232,14 @@ namespace ReestrForm.ViewModels
             {
                 var users = Data.LoadData<User>(userFilePath);
 
-                var existingUser = users.FirstOrDefault(u => u.Id == currentUser.Id);
+                var existingUser = users.FirstOrDefault(u => u.Username == currentUser.Username);
                 if (existingUser != null)
                 {
                     existingUser.Balance = currentUser.Balance;
                     existingUser.Hours = currentUser.Hours;
-                    existingUser.TotalHours = currentUser.TotalHours;
+                    existingUser.Total_Hours = currentUser.Total_Hours;
                 }
-
-                Data.SaveData(userFilePath, users);
+                Data.SaveData(users, "users", "Username");
             }
             catch (Exception ex)
             {
@@ -253,13 +255,13 @@ namespace ReestrForm.ViewModels
             {
                 var games = Data.LoadData<Models.Application>(applicationFilePath);
 
-                var existingGame = games.FirstOrDefault(u => u.Id == SelectedGame.Id);
+                var existingGame = games.FirstOrDefault(u => u.Name == SelectedGame.Name);
                 if (existingGame != null)
                 {
-                    existingGame.HoursPlayed = SelectedGame.HoursPlayed;
+                    existingGame.Hours_Played = SelectedGame.Hours_Played;
                 }
 
-                Data.SaveData(applicationFilePath, games);
+                Data.SaveData(games, "applications", "Name");
             }
             catch (Exception ex)
             {

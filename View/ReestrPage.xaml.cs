@@ -21,6 +21,7 @@ using System.Windows.Controls;
 using System.Diagnostics;
 using ReestrForm.Models;
 using ReestrForm.ViewModels;
+using System.Collections.ObjectModel;
 
 namespace ReestrForm
 {
@@ -30,13 +31,14 @@ namespace ReestrForm
     public partial class Page1 : Page
     {
         private const string FilePath = "users.json";
-        public Page1()
+        public Page1(ObservableCollection<User> users)
         {
             InitializeComponent();
-            this.DataContext = new RegisterViewModel(this);
+            this.DataContext = new RegisterViewModel(this, users);
             MaxHeight = SystemParameters.MaximizedPrimaryScreenHeight;
             MaxWidth = SystemParameters.MaximizedPrimaryScreenWidth;
         }
+
         private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
         {
             var passwordBox = sender as PasswordBox;

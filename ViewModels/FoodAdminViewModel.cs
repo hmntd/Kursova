@@ -71,9 +71,9 @@ namespace ReestrForm.ViewModels
             this.currentUser = currentUser;
             _window = window;
             _page = page;
-            this.sup = Data.LoadData<Suply>(suplyFilePath);
+            this.sup = Data.LoadData<Suply>("suplies");
             Suplies = this.sup;
-            OrdersCount = Data.LoadData<Order>(orderFilePath).Count(o => !o.Is_Did);
+            OrdersCount = Data.LoadData<Order>("orders").Count(o => !o.Complited);
             Games_Click = new RelayCommand(Games);
             Times_Click = new RelayCommand(Times);
             Users_Click = new RelayCommand(Users);
@@ -173,7 +173,7 @@ namespace ReestrForm.ViewModels
             var vm = new AddFoodViewModel(SelectedFood, win, "Edit");
             win.DataContext = vm;
             win.ShowDialog();
-            this.Suplies = Data.LoadData<Models.Suply>(suplyFilePath);
+            this.Suplies = Data.LoadData<Models.Suply>("suplies");
             OnPropertyChanged(nameof(Suplies));
         }
         private void Create()
@@ -182,7 +182,7 @@ namespace ReestrForm.ViewModels
             var vm = new AddFoodViewModel(new Suply(), win, "Create");
             win.DataContext = vm;
             win.ShowDialog();
-            this.Suplies = Data.LoadData<Models.Suply>(suplyFilePath);
+            this.Suplies = Data.LoadData<Models.Suply>("suplies");
             OnPropertyChanged(nameof(Suplies));
         }
         private void Delete()
@@ -203,8 +203,8 @@ namespace ReestrForm.ViewModels
             }
 
             Suplies.Remove(SelectedFood);
-            Data.SaveData(suplyFilePath, Suplies);
-            Suplies = Data.LoadData<Models.Suply>(applicationFilePath);
+            Data.SaveData(Suplies, "suplies", "Name");
+            Suplies = Data.LoadData<Models.Suply>("applications");
             OnPropertyChanged(nameof(Suplies));
             SelectedFood = null;
         }
@@ -214,7 +214,7 @@ namespace ReestrForm.ViewModels
             var vm = new AdminOrderViewModel(win);
             win.DataContext = vm;
             win.ShowDialog();
-            OrdersCount = Data.LoadData<Order>(orderFilePath).Count(o => !o.Is_Did);
+            OrdersCount = Data.LoadData<Order>("orders").Count(o => !o.Complited);
             OnPropertyChanged(nameof(OrdersCount));
         }
     }

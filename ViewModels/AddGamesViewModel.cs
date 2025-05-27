@@ -76,9 +76,9 @@ namespace ReestrForm.ViewModels
                 GameValidationRules.TypeValidation(this.Application.Type);
                 GameValidationRules.FileExistsValidation(this.Application.Path_to_Application);
                 GameValidationRules.FileExistsValidation(this.Application.Path_to_Image);
-                var apps = Data.LoadData<Models.Application>("Data\\applications.json");
+                var apps = Data.LoadData<Models.Application>("applications");
                 apps.Add(this.Application);
-                Data.SaveData("Data\\applications.json", apps);
+                Data.SaveData(apps, "applications", "Name");
                 _window.Close();
             }
             catch (Exception ex)
@@ -98,9 +98,9 @@ namespace ReestrForm.ViewModels
                 GameValidationRules.FileExistsValidation(this.Application.Path_to_Application);
                 GameValidationRules.FileExistsValidation(this.Application.Path_to_Image);
 
-                var apps = Data.LoadData<Models.Application>("Data\\applications.json");
+                var apps = Data.LoadData<Models.Application>("applications");
 
-                var existingApp = apps.FirstOrDefault(app => app.Id == this.Application.Id);
+                var existingApp = apps.FirstOrDefault(app => app.Name == this.Application.Name);
                 if (existingApp == null)
                 {
                     throw new Exception("Застосунку не знайдено.");
@@ -111,7 +111,7 @@ namespace ReestrForm.ViewModels
                 existingApp.Path_to_Application = this.Application.Path_to_Application;
                 existingApp.Path_to_Image = this.Application.Path_to_Image;
 
-                Data.SaveData("Data\\applications.json", apps);
+                Data.SaveData(apps, "applications", "Name");
 
                 _window.Close();
             }

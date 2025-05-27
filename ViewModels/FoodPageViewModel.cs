@@ -15,8 +15,8 @@ namespace ReestrForm.ViewModels
     public class FoodPageViewModel: ViewModel
     {
         public User currentUser { get; set; }
-        private decimal balance;
-        public decimal Balance
+        private float balance;
+        public float Balance
         {
             get { return balance; }
             set 
@@ -59,7 +59,7 @@ namespace ReestrForm.ViewModels
             Filter_All = new RelayCommand(() => Filter("all"));
             Filter_Food = new RelayCommand(() => Filter("Food"));
             Filter_Drink = new RelayCommand(() => Filter("Drink"));
-            sup = Data.LoadData<Suply>(suplyFilePath);
+            sup = Data.LoadData<Suply>("suplies");
             Suplies = sup;
             Buy_Food_Click = new RelayCommand(() => BuyFood(SelectedFood), () => SelectedFood != null);
             Exit_Click = new RelayCommand(Exit);
@@ -118,7 +118,7 @@ namespace ReestrForm.ViewModels
             bool? result = win.ShowDialog();
             if (result == true)
             {
-                var users = Data.LoadData<User>(userFilePath);
+                var users = Data.LoadData<User>("users");
                 var user = users.FirstOrDefault(u => u.Username == currentUser.Username);
                 currentUser = user ?? currentUser;
                 Balance = currentUser.Balance;

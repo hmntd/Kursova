@@ -53,10 +53,10 @@ namespace ReestrForm.ViewModels
         public AdminUsersControlViewModel(User user, Window window, Page page)
         {
             currentUser = user;
-            Users = Data.LoadData<User>(userFilePath);
+            Users = Data.LoadData<User>("users");
             _window = window;
             _page = page;
-            OrdersCount = Data.LoadData<Order>(orderFilePath).Count(o => !o.Is_Did);
+            OrdersCount = Data.LoadData<Order>("orders").Count(o => !o.Complited);
             Exit_Click = new RelayCommand(Exit);
             Games_Click = new RelayCommand(Games);
             Times_Click = new RelayCommand(Times);
@@ -135,7 +135,7 @@ namespace ReestrForm.ViewModels
             var vm = new EditUserViewModel(new Models.User(), win, "Create");
             win.DataContext = vm;
             win.ShowDialog();
-            Users = Data.LoadData<Models.User>(userFilePath);
+            Users = Data.LoadData<Models.User>("users");
             OnPropertyChanged(nameof(Users));
         }
         private void Delete()
@@ -156,8 +156,8 @@ namespace ReestrForm.ViewModels
             }
 
             Users.Remove(SelectedUser);
-            Data.SaveData(suplyFilePath, Users);
-            Users = Data.LoadData<Models.User>(userFilePath);
+            Data.SaveData(Users, "suplies", "Name");
+            Users = Data.LoadData<Models.User>("users");
             SelectedUser = null;
         }
         private void UserOrders()
@@ -166,7 +166,7 @@ namespace ReestrForm.ViewModels
             var vm = new AdminOrderViewModel(win);
             win.DataContext = vm;
             win.ShowDialog();
-            OrdersCount = Data.LoadData<Order>(orderFilePath).Count(o => !o.Is_Did);
+            OrdersCount = Data.LoadData<Order>("orders").Count(o => !o.Complited);
             OnPropertyChanged(nameof(OrdersCount));
         }
     }

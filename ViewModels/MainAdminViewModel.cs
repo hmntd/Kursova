@@ -71,7 +71,7 @@ namespace ReestrForm.ViewModels
         {
             currentUser = user;
             this._window = window;
-            OrdersCount = Data.LoadData<Order>(orderFilePath).Count(o => !o.Is_Did);
+            OrdersCount = Data.LoadData<Order>(orderFilePath).Count(o => !o.Complited);
             Applications = Data.LoadData<ReestrForm.Models.Application>(applicationFilePath);
             Apps = Applications;
             Exit_Click = new RelayCommand(Exit);
@@ -168,7 +168,7 @@ namespace ReestrForm.ViewModels
             var vm = new AdminOrderViewModel(win);
             win.DataContext = vm;
             win.ShowDialog();
-            OrdersCount = Data.LoadData<Order>(orderFilePath).Count(o => !o.Is_Did);
+            OrdersCount = Data.LoadData<Order>(orderFilePath).Count(o => !o.Complited);
             OnPropertyChanged(nameof(OrdersCount));
         }
         private void EditGame()
@@ -210,7 +210,7 @@ namespace ReestrForm.ViewModels
             }
 
             Applications.Remove(SelectedGame);
-            Data.SaveData(applicationFilePath, Applications);
+            Data.SaveData(Applications, "applications", "Name");
             Apps = Data.LoadData<Models.Application>(applicationFilePath);
             this.Applications = Apps;
             SelectedGame = null;

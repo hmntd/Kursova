@@ -99,11 +99,11 @@ namespace ReestrForm.ViewModels
                 CardValidationRules.CvvValidation(int.Parse(CVV));
                 CardValidationRules.SumValidate(int.Parse(Sum));
 
-                var users = Data.LoadData<User>(userFilePath);
+                var users = Data.LoadData<User>("users");
                 var user = users.FirstOrDefault(u => u.Username == currentUser.Username);
                 user.Balance += int.Parse(Sum);
                 currentUser.Balance += int.Parse(Sum);
-                Data.SaveData(userFilePath, users);
+                Data.SaveData(users, "users", "Username");
                 _window.DialogResult = true;
                 _window.Close();
             }

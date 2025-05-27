@@ -16,7 +16,7 @@ namespace ReestrForm.Models.ValidationRules
                 throw new Exception("назва їжі не може бути порожньою");
             }
 
-            var foods = Data.LoadData<Suply>("Data\\suplies.json");
+            var foods = Data.LoadData<Suply>("suplies");
             if (foods.Any(g => g.Name == name))
             {
                 throw new Exception("ця їжа вже існує");
@@ -42,7 +42,7 @@ namespace ReestrForm.Models.ValidationRules
 
             return true;
         }
-        public static bool PriceValidation(decimal price)
+        public static bool PriceValidation(float price)
         {
             if (price < 0)
             {

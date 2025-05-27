@@ -8,29 +8,25 @@ namespace ReestrForm.Models
 {
     public class User
     {
-        public string Id { get; set; }
         public string Password { get; set; }
         public string Username { get; set; }
         public string Email { get; set; }
-        public bool IsAdmin { get; set; }
+        public bool Is_Admin { get; set; }
         private float hours;
-        private float totalHours;
-        public decimal Balance { get; set; }
-        private string rateName;
-        public string RateName
+        private float total_hours;
+        public float Balance { get; set; }
+        private string rate_name;
+        public string Rate_name
         {
             get
             {
-                if (rateName == null)
-                {
-                    return "-";
-                }
+                
 
-                return rateName;
+                return rate_name;
             }
             set
             {
-                rateName = value;
+                rate_name = value;
             }
         }
         public float Hours
@@ -41,37 +37,35 @@ namespace ReestrForm.Models
                 hours = value;
             }
         }
-        public float TotalHours
+        public float Total_Hours
         {
-            get { return totalHours; }
+            get { return total_hours; }
             set
             {
                 if (value < 0) { throw new Exception("Not correct hours"); }
-                totalHours = value;
+                total_hours = value;
             }
         }
         public User() { }
         public User(
-            Guid id,
             string password,
             string username,
             string email,
             bool isAdmin,
             float hours,
             float totalHours,
-            decimal balance,
+            float balance,
             string? rate
             )
         {
-            Id = id.ToString();
             Password = password;
             Username = username;
             Email = email;
-            IsAdmin = isAdmin;
+            Is_Admin = isAdmin;
             Hours = hours;
-            TotalHours = totalHours;
+            Total_Hours = totalHours;
             Balance = balance;
-            RateName = rate;
+            rate_name = rate;
         }
     }
 }

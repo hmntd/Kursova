@@ -14,8 +14,8 @@ namespace ReestrForm.ViewModels
     public class TimePageViewModel: ViewModel
     {
         public User currentUser { get; set; }
-        private decimal balance;
-        public decimal Balance
+        private float balance;
+        public float Balance
         {
             get { return balance; }
             set
@@ -59,7 +59,7 @@ namespace ReestrForm.ViewModels
         {
             currentUser = user;
             Balance = user.Balance;
-            RateName = user.RateName;
+            RateName = user.Rate_name;
             Hours = user.Hours;
             this._page = page;
             _window = window;
@@ -117,23 +117,33 @@ namespace ReestrForm.ViewModels
             }
 
             currentUser.Hours += rate.Hours;
-            currentUser.RateName = rate.Name;
+            currentUser.Rate_name = rate.Name;
             currentUser.Balance -= rate.Price;
             var users = Data.LoadData<User>(userFilePath);
             var user = users.FirstOrDefault(u => u.Username == currentUser.Username);
             user.Hours = currentUser.Hours;
-            user.RateName = currentUser.RateName;
+            user.Rate_name = currentUser.Rate_name;
             user.Balance = currentUser.Balance;
             Balance = user.Balance;
-            RateName = user.RateName;
+            RateName = user.Rate_name;
             Hours = user.Hours;
-            Data.SaveData<User>(userFilePath, users);
-            Rate? oldRate = Rates.FirstOrDefault(r => r.Id == rate.Id);
-            if (oldRate != null)
+            Data.SaveData(users, "users", "Username");
+
+            Rate? oldRate = Rates.FirstOrDefault(r => r.Name == rate.Name);
+            try
             {
-                oldRate.WasBought++;
-                Data.SaveData(rateFilePath, Rates);
+                if (oldRate != null)
+            {
+                oldRate.Bought_count++;
+                Data.SaveData(Rates, "rates", "Name");
             }
+            }
+            catch (Exception ex)
+            {
+                // Логування або відображення повідомлення
+                Console.WriteLine($"Error in SaveData: {ex.Message}");
+            }
+            
         }
         private void Games()
         {

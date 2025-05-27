@@ -8,12 +8,11 @@ namespace ReestrForm.Models
 {
     public class Rate
     {
-        public string Id { get; set; }
         public string Name { get; set; }
         public int Hours { get; set; }
-        public decimal Price { get; set; }
+        public float Price { get; set; }
         public string Path_to_image { get; set; }
-        public int WasBought { get; set; }
+        public int Bought_count { get; set; }
         public Rate () { }
     }
 }

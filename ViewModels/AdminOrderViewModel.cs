@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace ReestrForm.ViewModels
@@ -35,8 +36,8 @@ namespace ReestrForm.ViewModels
         public ICommand Accept_Click { get; }
         public AdminOrderViewModel(Window window)
         {
-            Orders = Data.LoadData<Order>(orderFilePath);
-            Ords = new ObservableCollection<Order>(Orders.Where(o => !o.Is_Did));
+            Orders = Data.LoadData<Order>("orders");
+            Ords = new ObservableCollection<Order>(Orders.Where(o => !o.Complited));
             _window = window;
             Close_Click = new RelayCommand(Close);
             Decline_Click = new RelayCommand(Decline);
@@ -59,8 +60,17 @@ namespace ReestrForm.ViewModels
             if (result == true)
             {
                 Orders.Remove(SelectedOrder);
-                Data.SaveData(orderFilePath, Orders);
-                Ords = new ObservableCollection<Order>(Orders.Where(o => !o.Is_Did));
+                try
+                {
+                    Data.SaveData(Orders, "orders", "Id");
+                }
+                catch (Exception ex)
+                {
+                    // Логування або відображення повідомлення
+                    Console.WriteLine($"Error in SaveData: {ex.Message}");
+                }
+                
+                Ords = new ObservableCollection<Order>(Orders.Where(o => !o.Complited));
                 OnPropertyChanged(nameof(Ords));
                 return;
             }
@@ -83,18 +93,26 @@ namespace ReestrForm.ViewModels
                 return;
             }
 
-            SelectedOrder.Is_Did = true;
-            Data.SaveData(orderFilePath, Orders);
-            Ords = new ObservableCollection<Order>(Orders.Where(o => !o.Is_Did));
-            var suplies = Data.LoadData<Suply>(suplyFilePath); 
+            SelectedOrder.Complited = true;
+            Data.SaveData(Orders, "orders", "Id");
+            Ords = new ObservableCollection<Order>(Orders.Where(o => !o.Complited));
+            var suplies = Data.LoadData<Suply>("suplies"); 
             var suply = suplies.FirstOrDefault(s => s.Name == SelectedOrder.Suply_Name);
             if (suply == null)
             {
                 return;
             }
 
-            suply.WasBought += SelectedOrder.Count;
-            Data.SaveData(suplyFilePath, suplies);
+            suply.Bought_count += SelectedOrder.Count;
+            try
+            {
+                Data.SaveData(suplies, "suplies", "Name");
+            }
+            catch (Exception ex)
+            {
+                // Логування або відображення повідомлення
+                Console.WriteLine($"Error in SaveData: {ex.Message}");
+            }
             OnPropertyChanged(nameof(Ords));
         }
     }
