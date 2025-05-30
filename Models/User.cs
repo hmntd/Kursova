@@ -8,6 +8,7 @@ namespace ReestrForm.Models
 {
     public class User
     {
+        public int Id { get; set; }
         public string Password { get; set; }
         public string Username { get; set; }
         public string Email { get; set; }
@@ -15,39 +16,34 @@ namespace ReestrForm.Models
         private float hours;
         private float total_hours;
         public float Balance { get; set; }
-        private string rate_name;
-        public string Rate_name
+        private int? rate_name;
+        public int? Rate_name
         {
-            get
-            {
-                
-
-                return rate_name;
-            }
-            set
-            {
-                rate_name = value;
-            }
+            get => rate_name;
+            set => rate_name = value;
         }
         public float Hours
         {
             get { return hours; }
-            set {
-                if (value < 0) { throw new Exception("Not correct hours"); }
-                hours = value;
+            set
+            {
+                if (value < 0) throw new Exception("Not correct hours");
+                hours = (float)Math.Round(value, 2);
             }
         }
+
         public float Total_Hours
         {
             get { return total_hours; }
             set
             {
-                if (value < 0) { throw new Exception("Not correct hours"); }
-                total_hours = value;
+                if (value < 0) throw new Exception("Not correct hours");
+                total_hours = (float)Math.Round(value, 2);
             }
         }
         public User() { }
         public User(
+            int id,
             string password,
             string username,
             string email,
@@ -55,9 +51,10 @@ namespace ReestrForm.Models
             float hours,
             float totalHours,
             float balance,
-            string? rate
+            int? rate
             )
         {
+            Id = id;
             Password = password;
             Username = username;
             Email = email;
@@ -65,7 +62,8 @@ namespace ReestrForm.Models
             Hours = hours;
             Total_Hours = totalHours;
             Balance = balance;
-            rate_name = rate;
+            rate_name = rate ?? null;
         }
+
     }
 }

@@ -168,10 +168,20 @@ namespace ReestrForm.ViewModels
                 return;
             }
 
-            Rates.Remove(SelectedRate);
-            Data.SaveData( Rates, "rates", "Name");
-            SelectedRate = null;
+            try
+            {
+                Data.DeleteData<Rate>("rates", "Name", SelectedRate.Name);
+            }
+            catch (Exception ex)
+            {
+                // Логування або відображення повідомлення
+                Console.WriteLine($"Error in SaveData: {ex.Message}");
+            }
+
+            Rates = Data.LoadData<Rate>("rates");
             OnPropertyChanged(nameof(Rates));
+            SelectedRate = null;
+            
         }
         private void UserOrders()
         {

@@ -76,10 +76,10 @@ namespace ReestrForm.ViewModels
             var users = Data.LoadData<User>("users");
             var user = users.FirstOrDefault(u => u.Username == currentUser.Username);
             user.Balance = currentUser.Balance;
-            Data.SaveData<User>(users, "users", "Username");
+            Data.SaveData<User>(users, "users", "id");
             var orders = new ObservableCollection<Order>(); // не читаємо всю таблицю
             int Id = GenerateUniqueRandomId(); // див нижче
-            orders.Add(new Order(Id, Product.Name, user.Username, Count, false));
+            orders.Add(new Order(Id, Product.Id, user.Id, Count, false));
             try
             {
                 Data.SaveData(orders, "orders", "Id");

@@ -202,9 +202,20 @@ namespace ReestrForm.ViewModels
                 return;
             }
 
-            Suplies.Remove(SelectedFood);
-            Data.SaveData(Suplies, "suplies", "Name");
-            Suplies = Data.LoadData<Models.Suply>("applications");
+
+            try
+            {
+                Data.DeleteData<Suply>("suplies", "name", SelectedFood.Name);
+            }
+            catch (Exception ex)
+            {
+                // Логування або відображення повідомлення
+                Console.WriteLine($"Error in SaveData: {ex.Message}");
+            }
+           
+
+
+            Suplies = Data.LoadData<Models.Suply>("suplies");
             OnPropertyChanged(nameof(Suplies));
             SelectedFood = null;
         }

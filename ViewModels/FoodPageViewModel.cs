@@ -25,6 +25,16 @@ namespace ReestrForm.ViewModels
                 OnPropertyChanged(nameof(Balance));
             }
         }
+        private string rateName;
+        public string RateName
+        {
+            get { return rateName; }
+            set
+            {
+                rateName = value;
+                OnPropertyChanged(nameof(RateName));
+            }
+        }
         private ObservableCollection<Suply> sup { get; }
         private ObservableCollection<Suply> suplies;
         public ObservableCollection<Suply> Suplies
@@ -48,11 +58,14 @@ namespace ReestrForm.ViewModels
         public ICommand TgLink_Click { get; }
         public ICommand DiscordLink_Click { get; }
         public ICommand InstLink_Click { get; }
-        public FoodPageViewModel(User currentUser, Page page, Window window)
+        public FoodPageViewModel(User user, Page page, Window window)
         {
-            this.currentUser = currentUser;
+            currentUser = user;
             Balance = currentUser.Balance;
+            var rate = Data.LoadData<Rate>("rates").FirstOrDefault(r => r.Id == currentUser.Rate_name);
+            RateName = rate?.Name ?? "Без тарифу";
             _page = page;
+
             _window = window;
             Games_Click = new RelayCommand(Games);
             Times_Click = new RelayCommand(Times);

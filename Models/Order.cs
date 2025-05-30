@@ -9,19 +9,26 @@ namespace ReestrForm.Models
     public class Order
     {
         public int Id { get; set; }
-        public string Suply_Name { get; set; }
-        public string Rate_name { get; set; }
-        public string Client_Name { get; set; }
+
+        public int Suply_Name { get; set; } // ID товару
+
+        public int? Rate_name = null; // ID тарифу (не використовується поки що)
+
+        public int Client_Name { get; set; } // ID користувача
+
         public int Count { get; set; }
-        public bool Complited {  get; set; }
+        public bool Complited { get; set; }
+
         public Order() { }
-        public Order( int id, string suply_name, string client_name, int count, bool complited)
+
+        public Order(int id, int suply_id, int client_id, int count, bool complited)
         {
             Id = id;
-            Suply_Name = suply_name;
-            Client_Name = client_name;
+            Suply_Name = suply_id;
+            Client_Name = client_id;
             Count = count;
             Complited = complited;
         }
     }
 }
+

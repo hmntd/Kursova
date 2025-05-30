@@ -55,11 +55,23 @@ namespace ReestrForm.ViewModels
                 FoodValidationRules.TypeValidation(Suply.Type);
                 FoodValidationRules.FileExistsValidation(Suply.Path_to_Image);
                 FoodValidationRules.PriceValidation(Suply.Price);
-
+                if (this.Suply.Id == 0)
+                {
+                    this.Suply.Id = GenerateUniqueRandomId();
+                }
                 var suplies = Data.LoadData<Models.Suply>("suplies");
                 Suply.Name = Name;
                 suplies.Add(this.Suply);
-                Data.SaveData(suplies, "suplies", "Name");
+                try
+                {
+                    Data.SaveData(suplies, "suplies", "id");
+                }
+                catch (Exception ex)
+                {
+                    // Логування або відображення повідомлення
+                    Console.WriteLine($"Error in SaveData: {ex.Message}");
+                }
+                
                 _window.Close();
             } catch (Exception ex)
             {
@@ -89,7 +101,17 @@ namespace ReestrForm.ViewModels
                 existingApp.Price = this.Suply.Price;
                 existingApp.Path_to_Image = this.Suply.Path_to_Image;
 
-                Data.SaveData(suplies, "suplies", "Name");
+                try
+                {
+                    Data.SaveData(suplies, "suplies", "id");
+                }
+                catch (Exception ex)
+                {
+                    // Логування або відображення повідомлення
+
+                    Console.WriteLine($"Error in SaveData: {ex.Message}");
+                }
+                
 
                 _window.Close();
             } catch (Exception ex)
@@ -99,6 +121,33 @@ namespace ReestrForm.ViewModels
                 win.DataContext = viewModel;
                 win.ShowDialog();
             }
+        }
+        private static readonly Random _random = new Random();
+
+        private static int GenerateUniqueRandomId()
+        {
+            // Максимум 10 спроб
+            for (int i = 0; i < 10; i++)
+            {
+                int id;
+                lock (_random)
+                {
+                    id = _random.Next(1_000_000, 10_000_000);
+                }
+
+                // Перевіримо, чи такий Id вже існує (без завантаження всіх orders)
+                string query = $"SELECT 1 FROM orders WHERE Id = {id} LIMIT 1;";
+                bool exists = Data.ReadQuery(query).Any();
+                if (!exists)
+                    return id;
+            }
+
+            throw new Exception("Не вдалося згенерувати унікальний Id після 10 спроб.");
+        }
+
+        private class TempCheck
+        {
+            public int Id { get; set; }
         }
     }
 }

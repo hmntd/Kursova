@@ -39,12 +39,15 @@ namespace ReestrForm.ViewModels
                 RegisterValidationRules.EmailValidate(currentUser.Email);
                 RegisterValidationRules.UserExistsValidate(currentUser, users);
                 RegisterValidationRules.PassswordValidate(currentUser.Password);
-
+                if (this.currentUser.Id == 0)
+                {
+                    this.currentUser.Id = GenerateUniqueRandomId();
+                }
                 users.Add(currentUser);
 
                 try
                 {
-                    Data.SaveData(users, "users", "Username");
+                    Data.SaveData(users, "users", "id");
                 }
                 catch (Exception ex)
                 {
@@ -69,7 +72,7 @@ namespace ReestrForm.ViewModels
                 RegisterValidationRules.EmailValidate(currentUser.Email);
                 RegisterValidationRules.PassswordValidate(currentUser.Password);
 
-                var existingUser = users.FirstOrDefault(app => app.Username == this.currentUser.Username);
+                var existingUser = users.FirstOrDefault(app => app.Id == this.currentUser.Id);
                 if (existingUser == null)
                 {
                     throw new Exception("Людину не знайдено.");
@@ -82,7 +85,7 @@ namespace ReestrForm.ViewModels
 
                 try
                 {
-                    Data.SaveData(users, "users", "Username");
+                    Data.SaveData(users, "users", "id");
                 }
                 catch (Exception ex)
                 {
@@ -101,5 +104,33 @@ namespace ReestrForm.ViewModels
                 win.ShowDialog();
             }
         }
+        private static readonly Random _random = new Random();
+
+        private static int GenerateUniqueRandomId()
+        {
+            // Максимум 10 спроб
+            for (int i = 0; i < 10; i++)
+            {
+                int id;
+                lock (_random)
+                {
+                    id = _random.Next(1_000_000, 10_000_000);
+                }
+
+                // Перевіримо, чи такий Id вже існує (без завантаження всіх orders)
+                string query = $"SELECT 1 FROM orders WHERE Id = {id} LIMIT 1;";
+                bool exists = Data.ReadQuery(query).Any();
+                if (!exists)
+                    return id;
+            }
+
+            throw new Exception("Не вдалося згенерувати унікальний Id після 10 спроб.");
+        }
+
+        private class TempCheck
+        {
+            public int Id { get; set; }
+        }
     }
-}
+    }
+

@@ -454,8 +454,8 @@
                     <ColumnDefinition Width="106*"/>
 
                 </Grid.ColumnDefinitions>
-                <TextBlock Text="{Binding Client_Name}" Grid.Column="0" />
-                <TextBlock Text="{Binding Suply_Name}" Grid.Column="1"   />
+                <TextBlock Text="{Binding Username}" Grid.Column="0" />
+                <TextBlock Text="{Binding SuplyName}" Grid.Column="1"   />
                 <TextBlock Text="{Binding Count}" Grid.Column="2" />
             </Grid>
 

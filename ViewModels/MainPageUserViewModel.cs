@@ -6,15 +6,19 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Threading;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace ReestrForm.ViewModels
 {
+
     public class MainPageUserViewModel: ViewModel
     {
+
         public User currentUser { get; private set; }
         private float balance;
         public float Balance
@@ -37,6 +41,7 @@ namespace ReestrForm.ViewModels
                 OnPropertyChanged(nameof(Apps));
             }
         }
+
         private Window _window;
         public ICommand TimePage_Click { get; }
         public ICommand FoodPage_Click { get; }
@@ -53,9 +58,10 @@ namespace ReestrForm.ViewModels
         {
             currentUser = user;
             Balance = user.Balance;
+            var rate = Data.LoadData<Rate>("rates").FirstOrDefault(r => r.Id == user.Rate_name);
+            RateName = rate?.Name ?? "Без тарифу";
             _window = window;
 
-            // Завантаження з бази Supabase
             Applications = Data.LoadData<ReestrForm.Models.Application>("applications");
             Apps = Applications;
 
@@ -111,6 +117,36 @@ namespace ReestrForm.ViewModels
             bool? result = confirmWindow.ShowDialog();
             if (result == true)
             {
+                // Остановка таймера, если он работает
+                if (gameTimer != null)
+                {
+                    gameTimer.Stop();
+                    gameTimer.Tick -= GameTimer_Tick;
+                    gameTimer = null;
+                }
+
+                // Завершение игрового процесса, если он активен
+                if (gameProcess != null && !gameProcess.HasExited)
+                {
+                    try
+                    {
+                        gameProcess.Kill();
+                        gameProcess.Dispose();
+                    }
+                    catch (Exception ex)
+                    {
+                        var win = new ErorWin();
+                        var viewModel = new ErrorViewModel($"Помилка при завершенні гри: {ex.Message}", win);
+                        win.DataContext = viewModel;
+                        win.ShowDialog();
+                    }
+                    finally
+                    {
+                        gameProcess = null;
+                    }
+                }
+
+                // Переход на главное окно
                 MainWindow window = new MainWindow();
                 window.Show();
                 _window.Close();
@@ -128,7 +164,8 @@ namespace ReestrForm.ViewModels
                 Balance = currentUser.Balance;
             }
         }
-        private Timer gameTimer;
+        private DispatcherTimer gameTimer;
+
         private int remainingTimeInSeconds;
         private Process gameProcess;
         private Models.Application _selectedGame;
@@ -163,69 +200,130 @@ namespace ReestrForm.ViewModels
             }
             catch (Exception ex)
             {
-                var win = new ErorWin();
-                var viewModel = new ErrorViewModel($"Помилка при запуску застосунку: {ex.Message}", win);
-                win.DataContext = viewModel;
-                win.ShowDialog();
+                System.Windows.Application.Current.Dispatcher.Invoke(() =>
+                {
+                    var win = new ErorWin();
+                    var viewModel = new ErrorViewModel($"Помилка при запуску застосунку: {ex.Message}", win);
+                    win.DataContext = viewModel;
+                    win.ShowDialog();
+                });
                 return;
             }
 
             StartGameTimer();
         }
+        private int startHoursInSeconds;
         private void StartGameTimer()
         {
-            gameTimer = new Timer(GameTimerCallback, null, 0, 1000);
+            if (gameTimer != null && gameTimer.IsEnabled)
+                return; // Таймер уже запущен, не создаём новый
+
+            gameTimer = new DispatcherTimer();
+            gameTimer.Interval = TimeSpan.FromSeconds(1);
+            gameTimer.Tick += GameTimer_Tick;
+            gameTimer.Start();
+            startHoursInSeconds = remainingTimeInSeconds;
         }
-        private void GameTimerCallback(object state)
+
+        private void GameTimer_Tick(object sender, EventArgs e)
+        {
+            GameTimerCallback();
+        }
+
+        private int saveCounter = 0;
+        
+
+        private async void GameTimerCallback()
         {
             if (remainingTimeInSeconds <= 0)
             {
-                gameTimer.Dispose();
-                currentUser.Total_Hours += currentUser.Hours;
-                SelectedGame.Hours_Played += currentUser.Hours;
+                // Здесь останавливаем таймер и снимаем обработчик
+                if (gameTimer != null)
+                {
+                    gameTimer.Stop();
+                    gameTimer.Tick -= GameTimer_Tick;
+                    gameTimer = null;
+                }
+
                 currentUser.Hours = 0;
-                SaveSelectedGame();
-                SaveCurrentUser();
+                currentUser.Total_Hours = (float)(startHoursInSeconds / 3600.0);
+                SelectedGame.Hours_Played = (float)(startHoursInSeconds / 3600.0);
+
+                await Task.Run(() =>
+                {
+                    SaveSelectedGame();
+                    SaveCurrentUser();
+                });
+
                 OnPropertyChanged(nameof(currentUser));
-                EndGame();
+                EndGame(); // EndGame также дополнительно останавливает таймер и процесс, если еще не сделано
             }
             else
             {
                 remainingTimeInSeconds--;
-                currentUser.Total_Hours += currentUser.Hours - (remainingTimeInSeconds / 3600);
-                SelectedGame.Hours_Played += currentUser.Hours - (remainingTimeInSeconds / 3600);
-                currentUser.Hours = remainingTimeInSeconds / 3600;
-                SaveCurrentUser();
-                SaveSelectedGame();
+
+                int elapsedSeconds = startHoursInSeconds - remainingTimeInSeconds;
+                currentUser.Hours = (float)(remainingTimeInSeconds / 3600.0);
+                currentUser.Total_Hours = (float)(elapsedSeconds / 3600.0);
+                SelectedGame.Hours_Played = (float)(elapsedSeconds / 3600.0);
+
+                // Форматування часу
+                
+
+                saveCounter++;
+                if (saveCounter >= 10)
+                {
+                    saveCounter = 0;
+                    await Task.Run(() =>
+                    {
+                        SaveCurrentUser();
+                        SaveSelectedGame();
+                    });
+                }
+
                 OnPropertyChanged(nameof(currentUser));
             }
         }
+
+
+
         private void EndGame()
+{
+    try
+    {
+        // Останавливаем таймер, если он ещё работает
+        if (gameTimer != null)
         {
-            try
-            {
-                if (gameProcess != null && !gameProcess.HasExited)
-                {
-                    gameProcess.Kill();
-                    gameProcess.Dispose();
-                }
-
-                SaveCurrentUser();
-                SaveSelectedGame();
-
-                var win = new Confirm();
-                var viewmodel = new ConfirmViewModel("Ігровий час закінчився");
-                win.DataContext = viewmodel;
-                win.ShowDialog();
-            }
-            catch (Exception ex)
-            {
-                var win = new ErorWin();
-                var viewModel = new ErrorViewModel($"помилка при зупинці гри: {ex.Message}", win);
-                win.DataContext = viewModel;
-                win.ShowDialog();
-            }
+            gameTimer.Stop();
+            gameTimer.Tick -= GameTimer_Tick;
+            gameTimer = null;
         }
+
+        // Завершаем процесс игры, если он ещё запущен
+        if (gameProcess != null && !gameProcess.HasExited)
+        {
+            gameProcess.Kill();
+            gameProcess.Dispose();
+            gameProcess = null;
+        }
+
+        SaveCurrentUser();
+        SaveSelectedGame();
+
+        var win = new Confirm();
+        var viewmodel = new ConfirmViewModel("Ігровий час закінчився");
+        win.DataContext = viewmodel;
+        win.ShowDialog();
+    }
+    catch (Exception ex)
+    {
+        var win = new ErorWin();
+        var viewModel = new ErrorViewModel($"помилка при зупинці гри: {ex.Message}", win);
+        win.DataContext = viewModel;
+        win.ShowDialog();
+    }
+}
+
         private void SaveCurrentUser()
         {
             try
@@ -239,7 +337,16 @@ namespace ReestrForm.ViewModels
                     existingUser.Hours = currentUser.Hours;
                     existingUser.Total_Hours = currentUser.Total_Hours;
                 }
-                Data.SaveData(users, "users", "Username");
+                try
+                {
+                    Data.SaveData(users, "users", "id");
+                }
+                catch (Exception ex)
+                {
+                    // Логування або відображення повідомлення
+                    Console.WriteLine($"Error in SaveData: {ex.Message}");
+                }
+                
             }
             catch (Exception ex)
             {
@@ -261,7 +368,16 @@ namespace ReestrForm.ViewModels
                     existingGame.Hours_Played = SelectedGame.Hours_Played;
                 }
 
-                Data.SaveData(games, "applications", "Name");
+                try
+                {
+                    Data.SaveData(games, "applications", "id");
+                }
+                catch (Exception ex)
+                {
+                    // Логування або відображення повідомлення
+                    Console.WriteLine($"Error in SaveData: {ex.Message}");
+                }
+                
             }
             catch (Exception ex)
             {
@@ -271,5 +387,16 @@ namespace ReestrForm.ViewModels
                 win.ShowDialog();
             }
         }
+        private string? rateName;
+        public string? RateName
+        {
+            get => rateName;
+            set
+            {
+                rateName = value;
+                OnPropertyChanged(nameof(RateName));
+            }
+        }
+
     }
 }

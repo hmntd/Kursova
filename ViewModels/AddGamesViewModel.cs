@@ -76,9 +76,24 @@ namespace ReestrForm.ViewModels
                 GameValidationRules.TypeValidation(this.Application.Type);
                 GameValidationRules.FileExistsValidation(this.Application.Path_to_Application);
                 GameValidationRules.FileExistsValidation(this.Application.Path_to_Image);
+                if (this.Application.Id == 0)
+                {
+                    this.Application.Id = GenerateUniqueRandomId();
+                }
                 var apps = Data.LoadData<Models.Application>("applications");
+                
                 apps.Add(this.Application);
-                Data.SaveData(apps, "applications", "Name");
+
+                try
+                {
+                    Data.SaveData(apps, "applications", "id");
+                }
+                catch (Exception ex)
+                {
+                    // Логування або відображення повідомлення
+                    Console.WriteLine($"Error in SaveData: {ex.Message}");
+                }
+                
                 _window.Close();
             }
             catch (Exception ex)
@@ -93,28 +108,32 @@ namespace ReestrForm.ViewModels
         {
             try
             {
-                GameValidationRules.NameValidation(this.Application.Name);
-                GameValidationRules.TypeValidation(this.Application.Type);
-                GameValidationRules.FileExistsValidation(this.Application.Path_to_Application);
-                GameValidationRules.FileExistsValidation(this.Application.Path_to_Image);
 
                 var apps = Data.LoadData<Models.Application>("applications");
 
-                var existingApp = apps.FirstOrDefault(app => app.Name == this.Application.Name);
-                if (existingApp == null)
-                {
-                    throw new Exception("Застосунку не знайдено.");
-                }
+                var existingApp = apps.FirstOrDefault(app => app.Id == this.Application.Id);
+                
 
                 existingApp.Name = this.Application.Name;
                 existingApp.Type = this.Application.Type;
                 existingApp.Path_to_Application = this.Application.Path_to_Application;
                 existingApp.Path_to_Image = this.Application.Path_to_Image;
 
-                Data.SaveData(apps, "applications", "Name");
+                try
+                {
+                    Data.SaveData(apps, "applications", "id");
+                }
+                catch (Exception ex)
+                {
+                    // Логування або відображення повідомлення
+                    Console.WriteLine($"Error in SaveData: {ex.Message}");
+                }
+                
 
                 _window.Close();
+
             }
+
             catch (Exception ex)
             { 
                 var win = new ErorWin();
@@ -122,6 +141,34 @@ namespace ReestrForm.ViewModels
                 win.DataContext = viewModel;
                 win.ShowDialog();
             }
+
+        }
+        private static readonly Random _random = new Random();
+
+        private static int GenerateUniqueRandomId()
+        {
+            // Максимум 10 спроб
+            for (int i = 0; i < 10; i++)
+            {
+                int id;
+                lock (_random)
+                {
+                    id = _random.Next(1_000_000, 10_000_000);
+                }
+
+                // Перевіримо, чи такий Id вже існує (без завантаження всіх orders)
+                string query = $"SELECT 1 FROM orders WHERE Id = {id} LIMIT 1;";
+                bool exists = Data.ReadQuery(query).Any();
+                if (!exists)
+                    return id;
+            }
+
+            throw new Exception("Не вдалося згенерувати унікальний Id після 10 спроб.");
+        }
+
+        private class TempCheck
+        {
+            public int Id { get; set; }
         }
 
     }

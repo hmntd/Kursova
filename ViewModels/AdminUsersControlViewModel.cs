@@ -155,10 +155,20 @@ namespace ReestrForm.ViewModels
                 return;
             }
 
-            Users.Remove(SelectedUser);
-            Data.SaveData(Users, "suplies", "Name");
+            try
+            {
+                Data.DeleteData<User>("users", "username", SelectedUser.Username);
+            }
+            catch (Exception ex)
+            {
+                // Логування або відображення повідомлення
+                Console.WriteLine($"Error in SaveData: {ex.Message}");
+            }
+            
             Users = Data.LoadData<Models.User>("users");
+            OnPropertyChanged(nameof(Users));
             SelectedUser = null;
+            
         }
         private void UserOrders()
         {

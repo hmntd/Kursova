@@ -100,10 +100,19 @@ namespace ReestrForm.ViewModels
                 CardValidationRules.SumValidate(int.Parse(Sum));
 
                 var users = Data.LoadData<User>("users");
-                var user = users.FirstOrDefault(u => u.Username == currentUser.Username);
+                var user = users.FirstOrDefault(u => u.Id == currentUser.Id);
                 user.Balance += int.Parse(Sum);
                 currentUser.Balance += int.Parse(Sum);
-                Data.SaveData(users, "users", "Username");
+                try
+                {
+                    Data.SaveData(users, "users", "id");
+                }
+                catch (Exception ex)
+                {
+                    // Логування або відображення повідомлення
+                    Console.WriteLine($"Error in SaveData: {ex.Message}");
+                }
+                
                 _window.DialogResult = true;
                 _window.Close();
             }

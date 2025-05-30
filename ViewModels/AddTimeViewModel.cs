@@ -50,14 +50,18 @@ namespace ReestrForm.ViewModels
         {
             try
             {
+
                 RateValidationRules.NameValidation(Name);
                 RateValidationRules.PriceValidation(Rate.Price);
                 RateValidationRules.FileExistsValidation(Rate.Path_to_image);
-
+                if (this.Rate.Id == 0)
+                {
+                    this.Rate.Id = GenerateUniqueRandomId();
+                }
                 var rates = Data.LoadData<Models.Rate>("rates");
                 Rate.Name = Name;
                 rates.Add(this.Rate);
-                Data.SaveData(rates, "rates", "Name");
+                Data.SaveData(rates, "rates", "id");
                 _window.Close();
             } catch (Exception ex)
             {
@@ -88,7 +92,7 @@ namespace ReestrForm.ViewModels
                 existingRate.Path_to_image = this.Rate.Path_to_image;
                 existingRate.Hours = Rate.Hours;
 
-                Data.SaveData(rates, "rates", "Name");
+                Data.SaveData(rates, "rates", "id");
 
                 _window.Close();
             }
@@ -99,6 +103,33 @@ namespace ReestrForm.ViewModels
                 win.DataContext = viewModel;
                 win.ShowDialog();
             }
+        }
+        private static readonly Random _random = new Random();
+
+        private static int GenerateUniqueRandomId()
+        {
+            // Максимум 10 спроб
+            for (int i = 0; i < 10; i++)
+            {
+                int id;
+                lock (_random)
+                {
+                    id = _random.Next(1_000_000, 10_000_000);
+                }
+
+                // Перевіримо, чи такий Id вже існує (без завантаження всіх orders)
+                string query = $"SELECT 1 FROM orders WHERE Id = {id} LIMIT 1;";
+                bool exists = Data.ReadQuery(query).Any();
+                if (!exists)
+                    return id;
+            }
+
+            throw new Exception("Не вдалося згенерувати унікальний Id після 10 спроб.");
+        }
+
+        private class TempCheck
+        {
+            public int Id { get; set; }
         }
     }
 }

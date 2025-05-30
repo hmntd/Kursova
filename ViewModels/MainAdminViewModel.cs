@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using static ReestrForm.ViewModels.AdminOrderViewModel;
 using static System.Net.Mime.MediaTypeNames;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
@@ -209,8 +210,16 @@ namespace ReestrForm.ViewModels
                 return;
             }
 
-            Applications.Remove(SelectedGame);
-            Data.SaveData(Applications, "applications", "Name");
+            try
+            {
+                Data.DeleteData<ReestrForm.Models.Application>("applications", "Name", SelectedGame.Name);
+            }
+            catch (Exception ex)
+            {
+                // Логування або відображення повідомлення
+                Console.WriteLine($"Error in SaveData: {ex.Message}");
+            }
+            
             Apps = Data.LoadData<Models.Application>(applicationFilePath);
             this.Applications = Apps;
             SelectedGame = null;

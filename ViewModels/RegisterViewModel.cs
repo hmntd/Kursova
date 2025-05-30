@@ -87,7 +87,8 @@ namespace ReestrForm.ViewModels
         }
         public void Register()
         {
-            newUser = new User(Password, Username, Email, false, 0, 0, 0, null);
+            int Id = GenerateUniqueRandomId(); // див нижче
+            newUser = new User(Id,Password, Username, Email, false, 0, 0, 0, null);
             try
             {
                 if (Password != RPassword)
@@ -109,7 +110,16 @@ namespace ReestrForm.ViewModels
                 return;
             }
             users.Add(newUser);
-            Data.SaveData(users, "users", "Username");
+            try
+            {
+                Data.SaveData(users, "users", "id");
+            }
+            catch (Exception ex)
+            {
+                // Логування або відображення повідомлення
+                Console.WriteLine($"Error in SaveData: {ex.Message}");
+            }
+            
 
             MainPageUser mainPageUser = new MainPageUser();
             mainPageUser.DataContext = new MainPageUserViewModel(newUser, mainPageUser);
@@ -133,6 +143,33 @@ namespace ReestrForm.ViewModels
         private void TgLogin()
         {
             Process.Start(new ProcessStartInfo("https://web.telegram.org/k/") { UseShellExecute = true });
+        }
+        private static readonly Random _random = new Random();
+
+        private static int GenerateUniqueRandomId()
+        {
+            // Максимум 10 спроб
+            for (int i = 0; i < 10; i++)
+            {
+                int id;
+                lock (_random)
+                {
+                    id = _random.Next(1_000_000, 10_000_000);
+                }
+
+                // Перевіримо, чи такий Id вже існує (без завантаження всіх orders)
+                string query = $"SELECT 1 FROM orders WHERE Id = {id} LIMIT 1;";
+                bool exists = Data.ReadQuery(query).Any();
+                if (!exists)
+                    return id;
+            }
+
+            throw new Exception("Не вдалося згенерувати унікальний Id після 10 спроб.");
+        }
+
+        private class TempCheck
+        {
+            public int Id { get; set; }
         }
     }
 }

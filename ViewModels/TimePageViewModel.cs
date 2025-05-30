@@ -59,20 +59,24 @@ namespace ReestrForm.ViewModels
         {
             currentUser = user;
             Balance = user.Balance;
-            RateName = user.Rate_name;
             Hours = user.Hours;
+
+            var rate = Data.LoadData<Rate>("rates").FirstOrDefault(r => r.Id == user.Rate_name);
+            RateName = rate?.Name ?? "Без тарифу";
+
             this._page = page;
             _window = window;
             Games_Click = new RelayCommand(Games);
             Foods_Click = new RelayCommand(Foods);
             BuyRate_Command = new RelayCommand(() => BuyRate(SelectedRate), () => SelectedRate != null);
-            Rates = Data.LoadData<Rate>(rateFilePath);
+            Rates = Data.LoadData<Rate>("rates");
             Exit_Click = new RelayCommand(Exit);
             AddBalance_Click = new RelayCommand(AddBalance);
             TgLink_Click = new RelayCommand(Tg_Link);
             DiscordLink_Click = new RelayCommand(Discord_Link);
             InstLink_Click = new RelayCommand(Inst_Link);
         }
+
         private Rate _selectedRate;
         public Rate SelectedRate
         {
@@ -117,25 +121,36 @@ namespace ReestrForm.ViewModels
             }
 
             currentUser.Hours += rate.Hours;
-            currentUser.Rate_name = rate.Name;
+            currentUser.Rate_name = rate.Id;
             currentUser.Balance -= rate.Price;
             var users = Data.LoadData<User>(userFilePath);
-            var user = users.FirstOrDefault(u => u.Username == currentUser.Username);
+            var user = users.FirstOrDefault(u => u.Id == currentUser.Id);
             user.Hours = currentUser.Hours;
             user.Rate_name = currentUser.Rate_name;
             user.Balance = currentUser.Balance;
             Balance = user.Balance;
-            RateName = user.Rate_name;
-            Hours = user.Hours;
-            Data.SaveData(users, "users", "Username");
+            var rates = Rates.FirstOrDefault(r => r.Id == user.Rate_name);
+            RateName = rates?.Name ?? "Без тарифу";
 
-            Rate? oldRate = Rates.FirstOrDefault(r => r.Name == rate.Name);
+            Hours = user.Hours;
+            try
+            {
+                Data.SaveData(users, "users", "id");
+            }
+            catch (Exception ex)
+            {
+                // Логування або відображення повідомлення
+                Console.WriteLine($"Error in SaveData: {ex.Message}");
+            }
+            
+
+            Rate? oldRate = Rates.FirstOrDefault(r => r.Id == rate.Id);
             try
             {
                 if (oldRate != null)
             {
                 oldRate.Bought_count++;
-                Data.SaveData(Rates, "rates", "Name");
+                Data.SaveData(Rates, "rates", "id");
             }
             }
             catch (Exception ex)
@@ -172,5 +187,6 @@ namespace ReestrForm.ViewModels
                 _window.Close();
             }
         }
+
     }
 }
